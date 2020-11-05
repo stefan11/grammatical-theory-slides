@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: hpsg-handout.tex,v $
+%%  $Revision: 1.3 $
+%%      $Date: 2006/05/17 12:19:27 $
+%%     Author: Stefan Mueller (DFKI)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% $Log: hpsg-handout.tex,v $
+%% Revision 1.3  2006/05/17 12:19:27  stefan
+%% *** empty log message ***
+%%
+%% Revision 1.2  2004/08/14 15:44:44  stefan
+%% konstituentenreihenfolge
+%%
+%% Revision 1.1  2004/06/21 19:14:48  stefan
+%% alte Version vor LaTeX-Beamer
+%%
+%% Revision 1.1  2002/01/09 20:06:23  stefan
+%% Initial revision
+%%
+%% Revision 1.1  2001/10/21 17:01:35  stefan
+%% Initial revision
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[blackandwhite,slidestop,10pt,handout]{beamer}
+
+
+\usepackage{hu-beamer-includes-pdflatex,beamer-movement}
+
+\usepackage{pstricks}
+
+%\logo{\includegraphics[height=1cm]{fu_dgm_logo}}
+%\titlegraphic{\includegraphics[height=3cm]{fu_dgm}}
+
+\logo{}
+
+
+\newtoggle{loesungen}\togglefalse{loesungen}
+
+\usepackage{comment}
+\includecomment{handout}
+\excludecomment{backup}
+
+%\includeonly{formgram-xbar}
+%\includeonly{formgram-gb}
+
+
+\input formgram-include.tex
+
+
+
+
+
+
+
+
+

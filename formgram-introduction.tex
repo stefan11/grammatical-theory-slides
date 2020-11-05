@@ -1,0 +1,1108 @@
+
+
+
+
+%\if 0
+
+
+\subtitle{Introduction: Why syntax and basic terms}
+
+\huberlintitlepage[22pt]
+
+
+\frame{
+\frametitlefit{Motivation of formal syntax and basic terms}
+
+\begin{itemize}
+\item Literature: English version of the grammatical theory textbook: \citew{MuellerGT-Eng}
+\item There is also a German and a Chinese version.\\
+      The fourth edition of the English book is the most recent one.
+\end{itemize}
+
+\vspace{1cm}
+
+%%\rotbf{Achtung, wichtiger Hinweis: Diese Literaturangabe hier bedeutet,\\dass Sie die Literatur zum
+%%   nächsten Mal lesen sollen!!!!}
+%% 
+}
+
+
+\section{Goals of this course}
+
+
+
+\frame{
+\frametitle{Goals of this course}
+
+
+\begin{itemize}[<+->]
+\item conveyance of basic ideas about grammar
+\item introduction to various grammatical theories and approaches
+\item enlightenment and attainment of supernatural powers
+\end{itemize}
+
+
+}
+
+
+
+
+\frame{
+\frametitle{Ancient wisdom}
+
+{}[Grammar is] the gate to freedom, the medicine for the diseases of language, the purifier
+of all sciences; it spreads its light over them; \ldots{} it is
+the first rung on the ladder which leads to the realization of supernatural powers and
+straight, royal road for those who seek freedom. (Bhartrhari, poet of sayings,
+died before 650 AD, from \emph{Vakyapadiya}, found by Gabriele Knoll)
+
+% {}[Grammatik ist] das Tor zur Freiheit, die Medizin für die Krankheiten der Sprache, der Reiniger
+% aller Wissenschaften; sie verbreitet ihr Licht über ihnen; \ldots{} sie ist
+% die erste Sprosse auf der Leiter, die zur Realisierung übernatürlicher Kräfte führt und der
+% gerade, königliche Weg für diejenigen, die die Freiheit suchen. (Bhartrhari, Spruchdichter,
+% gest.\ vor 650 n. Chr., aus \emph{Vakyapadiya}, gefunden von Gabriele Knoll)
+
+}
+
+
+\section{Introduction}
+
+
+
+\subsection{Why syntax?}
+
+
+
+\frame{
+\frametitle{Why syntax?}
+
+\begin{itemize}
+\item Literature: \citew[Chapter~1]{MuellerLehrbuch} or \citew[Chapter~1]{MuellerGTBuch}
+\medskip
+
+\item signs: form-meaning pairs \citep{Saussure16a}
+\pause
+\item words, word groups, sentences
+\pause
+\item language $\stackrel{?}{=}$ finite enummeration of word sequences\\
+\pause
+      language is finite, if onw assumes a maximal sentence length
+      \eal
+      \ex This sentence goes on and on and on \ldots
+\pause
+      \ex {}[A sentence is a sentence] is a sentence.
+      \zl
+\pause
+      We can form enourmously many sentences.\\
+A restriction on complexity would be arbitrary.
+
+\item One distinguishes between \alert{competence} (knowledge about what is possible) and
+  \alert{performance} (useage of this knowledge)
+
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{The Six Bullerby Children}
+
+Und wir beeilten uns, den Jungen zu erzählen, wir hätten von Anfang an gewußt, daß es nur eine
+Erfindung von Lasse gewesen sei. Und da sagte Lasse, die Jungen hätten gewußt, daß wir gewußt
+hätten, es sei nur eine Erfindung von ihm. Das war natürlich gelogen, aber vorsichtshalber sagten
+wir, wir hätten gewußt, die Jungen hätten gewußt, daß wir gewußt hätten, es sei nur eine Erfindung
+von Lasse. Und da sagten die Jungen -- ja -- jetzt schaffe ich es nicht mehr aufzuzählen, aber es
+waren so viele "`gewußt"', daß man ganz verwirrt davon werden konnte, wenn man es hörte. (p.\,248)
+
+\bigskip
+
+We are capable of forming long, complex sentences (competence), but at some level of complexity we
+get confused since our brains cannot deal with the complexity anymore (performance).
+
+
+}
+
+
+
+
+\frame{
+\frametitle{Creativity}
+
+
+\begin{itemize}
+\item We can form sentences we never heard before $\to$\\
+      There has to be structure, patterns.\\
+      It cannot be just sequences learned by heart.
+
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Direct evidence for syntactic structures?}
+
+\begin{itemize}
+\item We can show that we are following rules by observing children.
+      
+      Children often use rules wrongly (or rather use their own rules).
+
+\pause
+\item Example from morphology: 
+
+German has an unmarked Plural for some nouns: \emph{Bagger} `digger',
+  \emph{Ritter} `knight'.
+
+\item Children apply the \suffix{s} ending to such unmarked plurals instead:
+\eal
+\ex[*]{
+die Baggers
+}
+\ex[*]{
+die Ritters
+}
+\zl
+
+\vfill
+\pause
+\item Side remark: We will use German examples throughout this course, since English is sooooo
+  boring. I gloss whatever I can, but sometimes stuff would not fit onto the slide. Please refer to
+  the textbook in such cases.
+
+\end{itemize}
+}
+
+
+\frame[shrink=10]{
+\frametitlefit{Why syntax? Computation of meaning from utterance parts}
+
+\begin{itemize}
+\item The meaning of an utterance can be computed from the meaning of its parts.
+      \ea
+      \gll Der Mann kennt diese Frau.\\
+           the man  knows this woman\\
+      \z
+\pause
+\item Syntax: the way parts are combined, the utterance is structured
+      \eal
+\ex 
+\gll Die Frau kennt die Mädchen.\\
+     the woman know.\textsc{3sg} the girls\\
+\glt `The woman knows the girls.'
+\ex 
+\gll Die Frau kennen die Mädchen.\\
+     the woman know.\textsc{3pl} the girls\\
+\glt `The girls know the woman.'
+\pause
+\ex 
+\gll Die Frau schläft.\\
+     the woman sleep.\textsc{3sg}\\
+\glt `The woman sleeps.'
+\ex 
+\gll Die Mädchen schlafen.\\
+     the girls sleep.\textsc{3pl}\\
+\glt `The girls sleep.'
+      \zl
+        Subject-verb agreement $\to$ meaning of (\mex{0}a,b) is unambiguous
+
+\end{itemize}
+
+}
+
+\subsection{Why formal?}
+\frame[shrink=20]{
+\frametitle{Why formal?}
+
+
+Precisely constructed models for linguistic structure can play an
+important role, both negative and positive, in the process of discovery 
+itself. By pushing a precise but inadequate formulation to
+an unacceptable conclusion, we can often expose the exact source
+of this inadequacy and, consequently, gain a deeper understanding
+of the linguistic data. More positively, a formalized theory may 
+automatically provide solutions for many problems other than those
+for which it was explicitly designed. Obscure and intuition-bound
+notions can neither lead to absurd conclusions nor provide new and
+correct ones, and hence they fail to be useful in two important respects. 
+I think that some of those linguists who have questioned
+the value of precise and technical development of linguistic theory
+have failed to recognize the productive potential in the method
+of rigorously stating a proposed theory and applying it strictly to
+linguistic material with no attempt to avoid unacceptable conclusions by ad hoc adjustments or loose formulation.
+\citep[\page 5]{Chomsky57a}
+
+
+As is frequently pointed out but cannot be overemphasized, an important goal
+of formalization in linguistics is to enable subsequent researchers to see the defects
+of an analysis as clearly as its merits; only then can progress be made efficiently.
+\citep[\page 322]{Dowty79a}
+
+
+\bigskip
+
+\begin{itemize}
+\item What does an analysis mean?
+\item Which predictions does it make?
+\item exclusion of alternative proposals
+\end{itemize}
+
+
+}
+
+% has to be set elsewhere since this file is included into the syntax vorlesung
+%\exewidth{(35)}
+
+
+\subsection{Constituency}
+
+\subsubsection{Constituency tests}
+
+\frame{
+\frametitle{Grouping words}
+
+\begin{itemize}
+\item Sentences may contain sentences containing sentences die \ldots:
+\ea
+that Max thinks [that Julius knows [that Otto claims [that Karl suspects [that Richard confirms [that Friederike is laughing]]]]]
+\z
+
+This works like a Russian doll or like an onion.
+
+\pause
+
+\item The words in (\mex{1}) can be grouped into units as well:
+\ea
+\gll Alle Studenten lesen während dieser Zeit Bücher.\\
+     all  students  read  during  this   time books\\
+\glt `All the students are reading books at this time.'
+\z
+
+Which ones?
+
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Boxes}
+
+\oneline{%
+\begin{pspicture}(0,0)(12,1.8)
+     \rput[bl](0,0){%
+\psset{fillstyle=solid, framearc=0.25,framesep=5pt}
+\psframebox{%
+\psframebox{%
+       \psframebox{alle}
+       \psframebox{Studenten}}
+\psframebox{lesen}
+\psframebox{%
+       \psframebox{während}
+       \psframebox{%
+           \psframebox{dieser}
+           \psframebox{Zeit}}}
+\psframebox{Bücher}}}
+%\psgrid
+    \end{pspicture}}
+
+We put all words belonging together into a box.
+
+Such boxes can be put into other boxes.
+
+It is intuitively clear what belongs into a box in the example at hand,\\
+but are there tests?
+
+}
+
+
+\frame{
+\frametitle{Constituency}
+
+Terminology:
+\begin{description}
+\item[Word sequence]  An arbitrary linear sequence of words which do not necessarily need to have any syntactic or semantic relationship.
+\item[Word group, constituent, phrase] One or more words forming a structural unit.
+\end{description}
+
+
+}
+
+\frame{
+\frametitle{Constituency tests}
+
+Which ones do you know?
+\pause
+
+\begin{itemize}
+\item substitution/pronominalization/question formation
+\item omission
+\item permutation
+\item fronting
+\item coordination
+\end{itemize}
+
+
+}
+
+
+\frame{
+\frametitle{Constituency tests (I)}
+
+
+\begin{description}
+\item[Substitution]
+If it is possible to replace a sequence of words in a sentence with a different sequence of words\is{substitution test} and the acceptability of the sentence 
+remains unaffected, then this constitutes evidence for the fact that each sequence of words forms a constituent.
+        \eal
+\ex 
+\gll Er kennt [den Mann].\\
+     he knows \spacebr{}the man\\
+\glt `He knows the man.'
+\ex 
+\gll Er kennt [eine Frau].\\
+     he knows \spacebr{}a woman\\
+\glt `He knows a woman.'
+        \zl
+\end{description}
+
+}
+
+
+\frame{
+\frametitle{Constituency tests (II)}
+
+
+\begin{description}
+\item[Pronominalization]
+Everything\is{pronominalization test} that can be replaced by a pronoun forms a constituent.
+        \eal
+%        \ex {}[Der Mann] schläft.
+%        \ex Er schläft.
+\ex 
+\gll {}[Der Mann] schläft.\\
+	 {}\spacebr{}the man sleeps\\
+\glt `The man is sleeping.'
+\ex 
+\gll Er schläft.\\
+	 he sleeps\\
+\glt `He is sleeping.'
+        \zl
+%
+\end{description}
+
+}
+
+\frame{
+\frametitle{Constituency tests (III)}
+
+
+\begin{description}
+\item[Question formation]
+A sequence of words that can be elicited by a question forms a constituent.
+
+\eal
+\ex 
+\gll {}[Der Mann] arbeitet.\\
+	 \spacebr{}the man works\\
+\glt `The man is working.'
+\ex 
+\gll Wer arbeitet?\\
+	 who works\\
+\glt `Who is working?'
+\zl
+
+\end{description}
+
+}
+
+\frame{
+\frametitle{Constituency tests (IV)}
+
+\begin{description}
+\item[Permutation test] If a sequence of words can be moved without adversely affecting the acceptability of the sentence
+in which it occurs, then this is an indication that this word sequence forms a constituent.
+
+\eal
+\ex[]{
+\gll dass keiner [dieses Kind] kennt\\
+     that nobody \spacebr{}this child knows\\
+  }
+\ex[]{
+\gll dass [dieses Kind] keiner kennt\\
+	 that this child nobody knows\\
+\glt `that nobody knows this child'
+  }
+\zl
+
+\end{description}
+
+}
+
+\frame{
+\frametitle{Constituency tests (V)}
+
+\begin{description}
+\item[Fronting]
+
+Fronting is a further variant of the movement test. In German declarative sentences, only a single constituent may normally precede the finite verb:
+\eal
+\label{bsp-v2}
+\ex[]{
+\gll [Alle Studenten] lesen während der vorlesungsfreien Zeit Bücher.\\
+      \spacebr{}all students read.\textsc{3pl} during the lecture.free time books\\
+\glt `All students read books during the semester break.'
+}
+\ex[]{
+\gll [Bücher] lesen alle Studenten während der vorlesungsfreien Zeit.\\
+     \spacebr{}books read all students during the lecture.free time\\
+}
+\ex[*]{
+\gll [Alle Studenten] [Bücher] lesen während der vorlesungsfreien Zeit.\\
+     \spacebr{}all students \spacebr{}books read during the lecture.free time\\
+}
+\ex[*]{
+\gll [Bücher] [alle Studenten] lesen während der vorlesungsfreien Zeit.\\
+     \spacebr{}books \spacebr{}all students read during the lecture.free time\\
+}
+\zl 
+\end{description}
+
+}
+
+\frame{
+\frametitle{Constituency tests (VI)}
+
+
+\begin{description}
+\item[Coordination test]
+If two sequences of words can be conjoined\is{coordination!test|(} then this suggests that each sequence
+forms a constituent.
+
+\ea
+\gll {}[Der        Mann] und [die          Frau] arbeiten.\\
+     \spacebr{}the man   and \spacebr{}the woman work.3PL\\
+\glt `The man and the woman work.'
+\z
+
+\end{description}
+
+}
+
+
+
+
+
+
+\frame{
+\frametitle{Warning}
+
+Danger! 
+
+These tests are not 100\,\% reliable. See \citew[Section~1.3.2]{MuellerGT-Eng} for details.
+
+For more on the tests see also \citew[Section~2]{MuellerEvaluating}.
+
+
+}
+
+
+
+\subsection{Heads}
+
+
+
+\frame{
+\frametitle{Heads}
+
+A head determines the most important properties of a phrase.
+\eal
+\ex 
+\gll \alert{Träumt} dieser Mann?\\
+     dreams this.\NOM{} man\\
+\glt `Does this man dream?'
+\ex 
+\gll \alert{Erwartet} er diesen Mann?\\
+	 expects he.\NOM{} this.\ACC{} man\\
+\glt `Is he expecting this man?'
+\ex 
+\gll \alert{Hilft} er diesem Mann?\\
+	 helps he.\NOM{} this.\DAT{} man\\
+\glt `Is he helping this man?'
+\ex 
+\gll \alert{in} diesem Haus\\
+	 in this.\DAT{} house\\
+\ex 
+\gll ein \alert{Mann}\\
+	 a.\NOM{} man\\
+\zl
+
+}
+
+\frame{
+\frametitle{Projection}
+
+The combination of a head with other material is called
+\alert{projection of the head}.
+
+\pause
+A complete projection is a \alert{maximal projection}.
+
+\pause
+A maximal projection of a finite verb is a sentence.
+}
+
+\frame{
+\frametitle{Labeled boxes}
+
+
+Those of you who moved to a new flat know that is is good to label your boxes.
+
+\pause
+
+\medskip
+
+\centerline{%
+\begin{pspicture}(0,0)(7.8,3.4)
+     \rput[bl](0,0){%
+\psset{fillstyle=solid, framearc=0.25,framesep=5pt}
+\psframebox{%
+\begin{tabular}{@{}l@{}}
+VP\\
+\psframebox{%
+\begin{tabular}{@{}l@{}}
+NP\\[2mm]
+       \psframebox{\begin{tabular}{@{}l@{}}
+                   Det\\der
+                   \end{tabular}}
+       \psframebox{\begin{tabular}{@{}l@{}}
+                   N\\Mann
+                   \end{tabular}}
+\end{tabular}}
+\psframebox{\begin{tabular}{@{}l@{}}
+                   V\\liest
+                   \end{tabular}}
+\psframebox{%
+\begin{tabular}{@{}l@{}}
+NP\\[2mm]
+           \psframebox{\begin{tabular}{@{}l@{}}
+                   Det\\einen
+                   \end{tabular}}
+           \psframebox{\begin{tabular}{@{}l@{}}
+                   N\\Aufsatz
+                   \end{tabular}}
+\end{tabular}}
+\end{tabular}}}
+%\psgrid
+    \end{pspicture}}
+
+\medskip
+
+The label on a box indicates the most important element in the box.
+
+}
+
+\frame{
+\frametitle{Boxes are replaceable}
+
+
+\begin{itemize}
+\item It does not matter what exactly is in the box:
+\eal
+\ex 
+\gll er\\
+     he\\
+\ex 
+\gll der Mann\\
+     the man\\
+\ex 
+\gll der Mann aus Stuttgart\\
+     the man  from Stuttgart\\
+\ex 
+\gll der Mann aus Stuttgart, den wir kennen\\
+     the man  from Stuttgart who we know\\
+\zl
+The only thing that matters:\\
+all words or phrases in (\mex{0}) are nominal and complete: NP.
+
+They can be substituted for each other within bigger boxes.
+
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Boxes are replaceable. Well, hm.}
+
+
+\begin{itemize}
+\item This does not work with all NPs:
+
+\eal
+\ex[]{ 
+\gll Der Mann liest einen Aufsatz.\\
+     the man  reads an    essay\\
+} 
+\ex[*]{ 
+\gll Die Männer liest einen Aufsatz.\\
+     the men    reads an    essay\\
+} 
+\ex[*]{ 
+\gll Des Mannes liest einen Aufsatz.\\
+     the man.\GEN{} reads an essay\\
+} 
+\zl 
+
+\item Certain properties are important for the distribution of phrases.
+
+\end{itemize}
+
+
+}
+
+
+\frame{
+\frametitle{More carefully labeled boxes}
+
+~\medskip
+
+\oneline{%
+\begin{pspicture}(0,0)(16.4,3.4)
+     \rput[bl](0,0){%
+\psset{fillstyle=solid, framearc=0.25,framesep=5pt}
+\psframebox{%
+\begin{tabular}{@{}l@{}}
+VP, fin\\[2mm]
+\psframebox{%
+\begin{tabular}{@{}l@{}}
+NP, nom, 3, sg, mas\\[2mm]
+       \psframebox{\begin{tabular}{@{}l@{}}
+                   Det, nom, sg, mas\\der
+                   \end{tabular}}
+       \psframebox{\begin{tabular}{@{}l@{}}
+                   N, nom, sg, mas\\Mann
+                   \end{tabular}}
+\end{tabular}}
+\psframebox{\begin{tabular}{@{}l@{}}
+                   V, fin, 3, sg\\liest
+                   \end{tabular}}
+\psframebox{%
+\begin{tabular}{@{}l@{}}
+NP, akk, 3, sg, mas\\[2mm]
+           \psframebox{\begin{tabular}{@{}l@{}}
+                   Det, akk, sg, mas\\einen
+                   \end{tabular}}
+           \psframebox{\begin{tabular}{@{}l@{}}
+                   N, akk, sg, mas\\Aufsatz
+                   \end{tabular}}
+\end{tabular}}
+\end{tabular}}}
+%\psgrid
+    \end{pspicture}}
+
+All features that are important for the distribution of the whole phrase are projected.
+
+Such feature are called \alert{head features}.
+
+}
+
+
+% \frame[shrink=10]{
+% \frametitle{Projizierte Merkmale}
+
+
+% \hfill%
+% \begin{tabular}{|l|l|}\hline
+% Kategorie    & projizierte Merkmale\\\hline
+% Verb         & Kategorie, Verbform ({\it fin\/}, {\it bse\/}, \ldots)\\
+% Nomen        & Kategorie, Kasus ({\it nom\/}, {\it gen\/}, {\it dat\/}, {\it acc\/})\\
+% %Präposition  & Kategorie, Form der Präposition ({\it an\/}, {\it auf\/}, \ldots)\\
+% Adjektiv     & Kategorie, bei flektierten Formen Kasus\\\hline
+% \end{tabular}\hfill\hfill\mbox{}
+% \pause
+% ~
+% \bigskip
+
+% Beispiel:
+% Wenn \emph{stolzer} den Kasus Genitiv hat,\\
+% dann hat auch die gesamte Adjektiv-Phrase Genitiv. 
+
+% \ea
+% \emph<3>{einiger \emph<2>{auf ihren Sohn \blau<2>{stolzer}} \blau<3>{Männer}}
+% \z
+
+% Das ist wichtig, da die Adjektiv-Phrase mit dem Determinierer und\\
+% dem Nomen im Kasus übereinstimmen muß.
+
+% \pause
+% Wenn \emph{Männern} in (\mex{1}) Dativ ist, hat die gesamte NP diese Eigenschaft.
+% \ea
+% den Männern
+% \z
+
+% }
+
+%\fi
+
+
+
+\subsection{Arguments and adjuncts}
+
+\frame[shrink=10]{
+\frametitle{Arguments}
+
+\begin{itemize}
+\item Constituents are in different relations with their head.
+\pause
+\item There are \alert{arguments} and \alert{adjuncts}.
+\pause
+\item Certain elements are part of the meaning of a verb.
+
+For example in situations described by the verb \emph{love},\\
+there is a lover and a \emph{lovee}.
+
+\eal
+\ex Kim loves Sandy.
+\ex $love'(Kim', Sandy')$
+\zl
+
+(\mex{0}b) is a logical representation of (\mex{0}a).
+
+\relation{Kim} and \relation{Sandy} are \alert{logical arguments} of \relation{love}.
+
+\pause
+\item Syntactic arguments usually correspond to logical arguments (more on this later).
+\pause
+\item The term for such relations between head and arguments is \alert{selection} or \alert{valence}.
+\pause
+\item \citet{Tesniere59a-Eng} transferred the concept of valence from chemistry to linguistics.
+\end{itemize}
+
+}
+
+
+%\BackgroundPicture{periodensystem}{1}{1}
+\frame{
+\frametitle{Valency in chemistry}
+
+\begin{itemize}
+\item Atoms can form more or less stable molecules with other atoms.
+
+\pause
+\item The number of electrons on an electron shell is important for the stability of the molecule.
+
+\pause
+\item If atoms combine with other atoms this can lead to completely filled electron layers, which
+  would result into a stable compound.
+
+\pause
+\item The valency of an atom is the number of hydrogen atoms that can be combined with an atom of a
+  certain element.
+
+\pause
+\item Oxygen has the valency 2 since it can be combined with two hydrogen atoms: H$_2$O.
+
+\pause
+\item The elements can be grouped into valence classes.\\
+Elements with a certain valence are represented in a column in the periodice system of Mendeleev.
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Valence in linguistics}
+
+\begin{itemize}
+\item A head needs certain arguments to enter a stable compound.
+\item Words having the same valence (same number and type of arguments) are grouped into valence
+  classes, since they behave alike with respect to the combinations they enter.
+
+
+\bigskip
+
+\centerline{
+\begin{forest}
+[O
+  [H] 
+  [H] ]
+\end{forest}
+\hspace{5em}
+\begin{forest}
+[love
+ [Kim]
+ [Sandy] ]
+\end{forest}
+}
+
+\bigskip
+
+Combining oxygen with hydrogen and combining a verb with its arguments
+
+\end{itemize}
+
+\vfill
+
+}
+
+\frame{
+\frametitle{Optional arguments}
+
+\begin{itemize}
+\item Sometimes arguments may be omitted:
+\eal
+\ex I am waiting for my man.
+\ex I am waiting.
+\zl
+\pause
+The prepositional object of \emph{wait} is an \alert{optional argument}.
+
+\pause
+\item All arguments are optional in nominal environments.
+\eal
+\ex 
+\gll Jemand liest diese Bücher.\\
+     somebody reads these books\\
+\ex 
+\gll das Lesen dieser Bücher\\
+     the reading of.these books\\
+\ex 
+\gll das Lesen\\
+     the reading\\
+\zl
+
+\end{itemize}
+}
+
+\frame{
+\frametitle{Syntactic arguments that are not logical ones}
+
+\begin{itemize}
+\item Syntactic arguments correspond to logical arguments in our example above:
+\eal
+\ex Kim loves Sandy.
+\ex $love'(Kim', Sandy')$
+\zl
+
+\pause
+\item There are also arguments not contributing semantically:
+
+\eal
+\ex 
+\gll Es regnet.\\
+     it rains\\
+\ex 
+\gll Kim erholt sich.\\
+     Kim recreates \self\\
+\zl
+\emph{es} and \emph{sich} are \alert{syntactic arguments}, without being \alert{logical arguments}.
+
+\end{itemize}
+}
+
+\frame{
+\frametitle{Arguments and adjuncts}
+
+
+\begin{itemize}
+\item Adjuncts do not fill a semantic role
+\item Adjuncts are optional
+\item Adjuncts can be iterated
+\end{itemize}
+
+
+}
+
+
+\frame{
+\frametitle{Adjuncts do not fill a semantic role}
+
+\begin{itemize}
+\item In a \emph{loving} situation there is a lover and a lovee.
+
+\emph{since three years} in (\mex{1}) is of a different type:
+\ea
+Kim loves Sandy since three years.
+\z
+This phrase provides information about the span in which\\
+the relation between Kim and Sandy holds.
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Adjuncts are optional}
+
+
+\begin{itemize}
+\item Adjuncts are optional:
+\eal
+\ex Kim loves Sandy.
+\ex Kim loves Sandy since three years.
+\ex Kim loves Sandy honestly.
+\zl
+\pause
+\item Be aware! Arguments may also be optional:
+\eal
+\ex Er gibt den Armen Geld.
+\ex Er gibt den Armen.
+\pause
+\ex Er gibt Geld.
+\pause
+\ex Er gibt gerne.
+\pause
+\ex Du gibst. (beim Skat)
+\pause
+\ex Gib!
+\zl
+\end{itemize}
+
+
+}
+
+
+
+\frame{
+\frametitle{Adjuncts can be iterated}
+
+
+\begin{itemize}
+\item Arguments can be combined with their head once:
+\ea[*]{
+The man  the man sleeps\\
+}
+\z
+
+The respective slot of the head (\emph{sleeps}) is filled. 
+
+\pause
+\item But adjuncts are different:
+
+\ea
+\label{Beispiel-Iteration-Adjektive}
+A: All grey squirrels are big.\\
+B: No, I saw a small grey squirrel.\\
+A: But all small grey squirrels are ill.\\
+B: No, I saw a healthy small grey squirrel.\\
+\hspaceThis{A:~}\ldots
+\z
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Some further examples for adjuncts}
+
+
+Adverbially used adjective (not all adjectives):
+\ea
+\gll Karl schnarcht \emph{laut}.\\
+     Karl snores    loudly\\
+\z
+
+
+Relative clauses (not all of them):
+\ea
+\gll das Kind, \emph{dem} \emph{der} \emph{Delphin} \emph{hilft}\\
+     the child who the dolphin helps\\
+\z
+
+
+Prepositional phrases (not all of them):
+\eal
+\ex 
+\gll Die Frau arbeitet \emph{in} \emph{Berlin}.\\
+     the woman works   in Berlin\\
+\ex 
+\gll die Frau \emph{aus} \emph{Berlin}\\
+     the woman from      Berlin\\
+\zl
+
+
+
+}
+
+%\if 0
+
+
+
+% \frame{
+% \frametitle{Andere Bezeichnungen}
+
+% \begin{itemize}
+% \item Argument: Ergänzung
+
+% \pause
+% \item Adjunkt: (freie) Angabe
+
+% \pause
+% \item Argumente werden mitunter in Subjekt und Komplemente aufgeteilt.
+
+% \pause
+% \item auch Aktant für Subjekte und Objekte\\
+%       (aber nicht Prädikative und Adverbialien)
+% \pause
+% \item Zirkumstant für Adverbialien
+%       \begin{itemize}
+%       \item Adverbiale des Raumes (Lage, Richtung/Ziel, Herkunft, Weg)
+%       \item Adverbiale der Zeit (Zeitpunkt, Anfang, Ende, Dauer)
+%       \item Adverbiale des Grundes.\\
+%             Hierher werden traditionellerweise auch Adverbialien gestellt,\\
+%                    die einen Gegengrund oder eine Bedingung ausdrücken.
+%       \item Adverbiale der Art und Weise. 
+%       \end{itemize}
+% \end{itemize}
+
+% }
+
+
+
+\subsection[Grammatical theories]{Various grammatical theories}
+
+\frame{
+\frametitle{Various grammatical theories (I)}
+
+\begin{itemize}
+\item Dependency Grammar (DG)\\\citep{Tesniere80a-u,Tesniere2015a-u,Kunze75a-u,Weber97a,Heringer96a-u,Eroms2000a}
+\item Categorial Grammar (CG)\\\citep{Ajdukiewicz35a-u,Steedman2000a-u}
+\item Phrase structure grammar (PSG)\nocite{Bloomfield33a-u}
+\item Transformational Grammar and its successors
+      \begin{itemize}
+      \item Transformational grammar \\\citep{Chomsky57a,Bierwisch63a}
+      \item Government \& Binding \\\citep{Chomsky81a,SS88a,Grewendorf88a}
+      \item Minimalism \\\citep{Chomsky95a-u,Grewendorf2002a}
+      \end{itemize}
+\end{itemize}
+
+
+}
+\frame{
+\frametitle{Various grammatical theories (II)}
+
+\begin{itemize}
+\item Tree Adjoning Grammar\\
+      \citep*{JLT75a-u,Joshi87a-u,KJ85a}
+\item Generalized Phrase Structure Grammar (GPSG)\\\citep*{GKPS85a,Uszkoreit87a}
+\item Lexical Functional Grammar (LFG)\\\citep{Bresnan82a-ed,Bresnan2001a,BF96a-ed,Berman2003a}
+\item Head-Driven Phrase Structure Grammar (HPSG)\\\citep{ps,ps2,Mueller99a,Mueller2002b,MuellerLehrbuch3}
+\item Construction Grammar (CxG)\\\citep*{FKoC88a,Goldberg95a,Goldberg2006a,FS2006a-ed}
+
+\bigskip
+\item We will deal with most of these in this course.
+%See \citew{MuellerGT-Eng} for an overview.
+\end{itemize}
+
+
+}
+
+\if0
+
+
+\input{hpsg-phrasenstrukturgrammatik}
+
+\fi
+
+
+
+%      <!-- Local IspellDict: en_US-w_accents --> 

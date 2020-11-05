@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: hpsg-include.tex,v $
+%%  $Revision: 1.3 $
+%%      $Date: 2006/05/17 12:19:27 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% $Log: hpsg-include.tex,v $
+%% Revision 1.3  2006/05/17 12:19:27  stefan
+%% *** empty log message ***
+%%
+%% Revision 1.2  2004/08/14 15:44:44  stefan
+%% konstituentenreihenfolge
+%%
+%% Revision 1.1  2004/06/21 19:14:48  stefan
+%% alte Version vor LaTeX-Beamer
+%%
+%% Revision 1.1  2003/04/22 10:13:29  stefan
+%% Initial revision
+%%
+%% Revision 1.1  2001/10/21 17:01:35  stefan
+%% Initial revision
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\huberlinlogon{0.89cm}
+
+\usepackage{jambox}
+
+
+\usepackage{dgmacros,pst-tree,trees,dalrymple} % Mary Dalrymples macros
+
+\usepackage{my-ccg-ohne-colortbl}
+
+
+%\usepackage{epsfig}
+\usepackage{tabularx}
+\usepackage{ogonek}        % For Ewa Dabrowska
+
+
+\usepackage{soul}
+
+
+\newtoggle{hpsgvorlesung}\togglefalse{hpsgvorlesung}
+\newtoggle{gb-intro}\togglefalse{gb-intro}
+\newtoggle{syntaxvorlesungen}\toggletrue{syntaxvorlesungen}
+
+\newtoggle{konstituentenprobleme}\toggletrue{konstituentenprobleme}
+\newtoggle{konstituentenprobleme-hinweis}\togglefalse{konstituentenprobleme-hinweis}
+\newtoggle{einfsprachwiss-exclude}\toggletrue{einfsprachwiss-exclude}
+\newtoggle{einfsprachwiss-include}\togglefalse{einfsprachwiss-include}
+
+\includecomment{biblio}
+%\includecomment{psgbegriffe}
+\newtoggle{psgbegriffe}\toggletrue{psgbegriffe}
+
+
+\excludecomment{freiers}
+\includecomment{teil1}
+\excludecomment{teil2}
+
+\excludecomment{vortrag}
+
+\provideboolean{gb-intro}
+\setboolean{gb-intro}{false}
+
+\provideboolean{hpsg-vorlesung}
+\setboolean{hpsg-vorlesung}{false}
+
+%\nodemargin5pt%\treelinewidth2pt\arrowwidth6pt\arrowlength10pt
+\selectlanguage{USenglish}
+\psset{nodesep=5pt} %,linewidth=0.8pt,arrowscale=2}
+\psset{linewidth=0.5pt}
+
+%\beamertemplateemptyfootbar
+
+%\hypersetup{pdfauthor={Stefan Müller (unter Benutzung von Material von Peter Gallmann, FSU Jena)}}
+%\hypersetup{pdftitle={Head-Driven Phrase Structure Grammar für das Deutsche}}
+
+
+%\subject{Generative Grammatik für das Deutsche}
+
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\let\mc=\multicolumn
+
+%\mode<beamer>{\beamertemplatebackfindforwardnavigationsymbolshorizontal}
+
+\title{Grammatical theory}
+\institute[HU Berlin, Institute for German Language and Linguistics]{
+  Institute for German Language and Linguistics, Syntax Lab\\
+  Sprach- und literaturwissenschaftliche Fakult{\"a}t\\
+  HU Berlin\\[2mm]
+St.Mueller@hu-berlin.de}
+
+%\includeonly{formgram-cg}
+%\includeonly{formgram-cxg-phrasal}
+%\includeonly{formgram-cxg}
+%\includeonly{formgram-psycho}
+
+
+\begin{document}
+\hypersetup{bookmarksopen=false}
+
+\huberlintitlepage[22pt]
+
+%\part{Einleitung}
+
+
+
+%\beamertemplatecopyrightfootframenumber
+
+
+\include{organisatorisches-formgram}
+\exewidth{(35)}
+\include{formgram-introduction}
+% \include{formgram-xbar}
+% \exewidth{(145)}
+% \include{formgram-gb}
+% \include{formgram-gpsg}
+% \include{hpsg-formalismus}
+% \include{formgram-lfg}
+% % \include{formgram-lmt}
+% \include{formgram-cg}
+% %\include{formgram-patr}
+% \include{formgram-hpsg}
+
+% \include{formgram-cxg}
+% %\include{formgram-cxg-phrasal}
+% \include{formgram-tag}
+% \include{formgram-minimalism}
+% %\include{formgram-psycho}
+% \include{formgram-zusammenfassung}
+
+
+\appendix
+% muß immer geladen werden, wegen Referenzen
+\input{hu-literatur-biber}
+
+
+\end{document}
+
+
+% Local variables:
+% mode: lazy-lock
+% End:
