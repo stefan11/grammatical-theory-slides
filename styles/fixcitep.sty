@@ -1,0 +1,28 @@
+% fix \citep* et.al.
+% unclear why it was overwritten, these are the definitions from blx-natbib.def
+\renewrobustcmd*{\citet}{%
+  \@ifstar
+    {\AtNextCite{\AtEachCitekey{\defcounter{maxnames}{999}}}%
+     \textcite}
+    {\textcite}}
+
+\renewrobustcmd*{\citep}{%
+  \@ifstar
+    {\AtNextCite{\AtEachCitekey{\defcounter{maxnames}{999}}}%
+     \parencite}
+    {\parencite}}
+
+\renewrobustcmd*{\citealt}{%
+  \@ifstar
+    {\AtNextCite{%
+       \def\nameyeardelim{\addspace}%
+       \AtEachCitekey{\defcounter{maxnames}{999}}}%
+     \cite}
+    {\AtNextCite{\def\nameyeardelim{\addspace}}%
+     \cite}}
+
+\renewrobustcmd*{\citealp}{%
+  \@ifstar
+    {\AtNextCite{\AtEachCitekey{\defcounter{maxnames}{999}}}%
+     \cite}
+    {\cite}}

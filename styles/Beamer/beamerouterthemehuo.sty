@@ -1,0 +1,198 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/outer/beamerouterthemehuo.sty,v 1.5 2007/01/28 20:48:30 tantau Exp $
+
+% --- 8< ---  % for "tree" header
+
+\newif\ifbeamer@tree@showhooks
+\beamer@tree@showhookstrue
+
+\DeclareOptionBeamer{hooks}[true]{\csname beamer@tree@showhooks#1\endcsname}
+\ProcessOptionsBeamer
+
+% --- >8 ---  % for "tree" header
+
+% Head
+% RS: copied from tree, added a box around it (at .67\paperwidth) and put the logo to the right
+
+\defbeamertemplate*{headline}{fuo theme}
+%
+{%
+\ifnum\huberlinswitch=0
+%
+{%
+  \leavevmode%
+%	first, we determine whether we have a subsubsection:
+  \setbox\beamer@tempbox=\hbox{\insertsubsubsectionhead}%
+  \ifdim\wd\beamer@tempbox>1pt%
+%
+% this is the code for sssec:yes
+	{%
+      \begin{beamercolorbox}[wd=.91\paperwidth,colsep=1.5pt]{normal text}% left upper outer box -RS
+        \begin{beamercolorbox}[wd=.90\paperwidth,colsep=1.5pt]{upper separation line head}
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=.90\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{section in head/foot}
+          \usebeamerfont{section in head/foot}%
+          \insertsectionhead
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=.66\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{subsection in head/foot}
+          \usebeamerfont{subsection in head/foot}%
+          \ifbeamer@tree@showhooks
+            \setbox\beamer@tempbox=\hbox{\insertsubsectionhead}%
+            \ifdim\wd\beamer@tempbox>1pt%
+              \hskip2pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+              \hskip1pt%
+            \fi%
+          \else%  
+            \hskip6pt%
+          \fi%
+          \insertsubsectionhead
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=.90\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{subsubsection in head/foot}
+          \usebeamerfont{subsubsection in head/foot}%
+          \ifbeamer@tree@showhooks
+            \setbox\beamer@tempbox=\hbox{\insertsubsubsectionhead}%
+            \ifdim\wd\beamer@tempbox>1pt%
+              \hskip9.4pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+              \hskip1pt%
+            \fi%
+          \else%  
+            \hskip12pt%
+          \fi%
+          \insertsubsubsectionhead
+        \end{beamercolorbox}
+      \end{beamercolorbox}% END left upper outer box
+  }%
+%
+% this is the code for sssec:no
+%
+	\else%
+    \begin{beamercolorbox}[wd=.91\paperwidth,colsep=1.5pt]{normal text}% left upper outer box -RS
+      \begin{beamercolorbox}[wd=.90\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{title in head/foot}
+        \usebeamerfont{title in head/foot}\insertshorttitle
+      \end{beamercolorbox}
+      \begin{beamercolorbox}[wd=.90\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{section in head/foot}
+        \usebeamerfont{section in head/foot}%
+        \ifbeamer@tree@showhooks
+          \setbox\beamer@tempbox=\hbox{\insertsectionhead}%
+            \ifdim\wd\beamer@tempbox>1pt%
+            \hskip2pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+            \hskip1pt%
+          \fi%
+        \else%  
+          \hskip6pt%
+        \fi%
+        \insertsectionhead
+      \end{beamercolorbox}
+      \begin{beamercolorbox}[wd=.90\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{subsection in head/foot}
+        \usebeamerfont{subsection in head/foot}%
+        \ifbeamer@tree@showhooks
+          \setbox\beamer@tempbox=\hbox{\insertsubsectionhead}%
+          \ifdim\wd\beamer@tempbox>1pt%
+            \hskip9.4pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+            \hskip1pt%
+          \fi%
+        \else%  
+          \hskip12pt%
+        \fi%
+        \insertsubsectionhead
+      \end{beamercolorbox}
+    \end{beamercolorbox}% END left upper outer box
+  \fi%
+%
+% the rest doesn't depend on sssec:yes/no
+%
+  \begin{beamercolorbox}[wd=.09\paperwidth,colsep=1.5pt]{normal text}% right upper outer box -RS
+% durch folgende Box rutscht das Logo tiefer. St. Mü.  mit ht kann man steuern
+    \begin{beamercolorbox}[wd=.09\paperwidth,ht=4pt,colsep=1.5pt]{upper separation line head}% ht is a hack to position logo...  -RS
+    \end{beamercolorbox}
+    \usebox{\huberlininsertlogo}\hskip0.1cm%
+  \end{beamercolorbox}\par% END right upper outer box  
+  \begin{beamercolorbox}[wd=\paperwidth,ht=.15cm]{normal text}%
+      \ifnum\huberlinheadbarswitch=0
+      	\color{structure}\rule{\paperwidth}{.2mm}
+      \else
+      \fi%
+  \end{beamercolorbox}%
+}%
+\else%    now follows the "empty" header
+{%
+  \leavevmode%
+    \begin{beamercolorbox}[wd=.91\paperwidth,colsep=1.5pt]{normal text}% left upper outer box -RS
+      \begin{beamercolorbox}[wd=.90\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{title in head/foot}
+        \usebeamerfont{title in head/foot}%\insertshorttitle
+      \end{beamercolorbox}
+      \begin{beamercolorbox}[wd=.90\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{section in head/foot}
+        \usebeamerfont{section in head/foot}%
+        \ifbeamer@tree@showhooks
+          \setbox\beamer@tempbox=\hbox{}% \insertsectionhead removed from hbox
+            \ifdim\wd\beamer@tempbox>1pt%
+            \hskip2pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+            \hskip1pt%
+          \fi%
+        \else%  
+          \hskip6pt%
+        \fi%
+        %\insertsectionhead
+      \end{beamercolorbox}
+      \begin{beamercolorbox}[wd=.66\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm]{subsection in head/foot}
+        \usebeamerfont{subsection in head/foot}%
+        \ifbeamer@tree@showhooks
+          \setbox\beamer@tempbox=\hbox{}%\insertsubsectionhead
+          \ifdim\wd\beamer@tempbox>1pt%
+            \hskip9.4pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+            \hskip1pt%
+          \fi%
+        \else%  
+          \hskip12pt%
+        \fi%
+        %\insertsubsectionhead
+      \end{beamercolorbox}
+    \end{beamercolorbox}% END left upper outer box
+  \begin{beamercolorbox}[wd=.09\paperwidth,colsep=1.5pt]{normal text}% right upper outer box -RS
+    \begin{beamercolorbox}[wd=.09\paperwidth,ht=4pt,colsep=1.5pt]{upper separation line head}% ht is a hack to position logo...  -RS
+    \end{beamercolorbox}
+    \usebox{\huberlininsertlogo}\hskip0.1cm%
+  \end{beamercolorbox}\par% END right upper outer box  
+  \begin{beamercolorbox}[wd=\paperwidth,ht=.15cm]{normal text}%
+      \ifnum\huberlinheadbarswitch=0
+      	\color{structure}\rule{\paperwidth}{.2mm}
+      \else
+      \fi%
+  \end{beamercolorbox}%
+}%
+\fi%
+}%
+
+
+\defbeamertemplate*{footline}{fuo theme}
+{%
+  \leavevmode%
+	  \begin{beamercolorbox}[wd=\paperwidth,ht=.2cm,dp=1.125ex]{normal text}%
+ 	     {\color{structure}\rule{\paperwidth}{.2mm}}%
+ 	 \end{beamercolorbox}\vskip-1mm\par%
+ 	 \hbox{\begin{beamercolorbox}[wd=.9\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{normal text}%
+ 	   \usebeamerfont{author in head/foot}\huberlinfootstring
+ 	 \end{beamercolorbox}%
+ 	 \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{normal text}%
+ 	   \usebeamerfont{title in head/foot} \huberlinpagestring
+ 	 \end{beamercolorbox}}%
+ 	 \vskip0pt%
+}
+
+% the sidebar should contain nothing, i.e. no logo and no navi buttons
+
+\defbeamertemplate*{sidebar right}{fuo theme}
+{
+  \vfill%
+}
+
+\mode
+<all>

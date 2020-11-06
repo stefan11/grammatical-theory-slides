@@ -1,0 +1,197 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/theme/beamerthemeHUBerlin.sty,v 1.7 2007/01/28 20:48:30 tantau Exp $
+
+%----- begin hacks -----%
+
+% Roland Schäfer's hacks for the HUBerlin beamer style
+% Send comments and suggestions to:
+% roland.schaefer@fu-berlin.de
+%
+\usepackage{ifthen}
+
+
+\usepackage{ifpdf} % determine whether we run pdflatex rather than latex
+\usepackage{ifxetex}
+%
+\usepackage{graphicx}
+% grahicx-psmin makes sure that the logo is included only once in the ps file
+\ifpdf
+\else
+\ifxetex
+\else
+\usepackage{graphicx-psmin}
+\fi
+% there is a corresponding \loadgraphics command in the mode-specific sections
+\fi
+
+% we put the logo in a saved box and fill it with our CD graphics by default
+\newsavebox{\huberlininsertlogo}
+% end savebox -- actual graphics insertion see mode-specific section
+
+% commands for title/footer insertion
+\newcommand{\huberlinfootstring}{\copyright{} \insertshortauthor{} \number\year, \insertshortinstitute}
+\newcommand{\huberlinpagestring}{\insertframenumber/\insertpresentationendpage}
+
+% two switches (implemented as counters -- I'm really just hacking here!)
+% which control header/footer behavior:
+\newcount\huberlinswitch
+\huberlinswitch=0
+
+\newcount\huberlinheadbarswitch
+\huberlinheadbarswitch=0
+
+% we can h-align the title graphics if neede by manip'ing this strut:
+\newdimen\huberlintitlestrut
+\huberlintitlestrut=0pt
+
+% useful macro commands to switch things on/off
+\newcommand{\huberlinvoidfootline}{%
+  \setbeamertemplate{footline}%
+  {%
+    \leavevmode%
+   	\vskip0pt%
+  }%
+}%
+
+\newcommand{\huberlinemptyfootline}{%
+  \setbeamertemplate{footline}%
+  {%
+    \leavevmode%
+	    \begin{beamercolorbox}[wd=\paperwidth,ht=.2cm,dp=1.125ex]{normal text}%
+ 	       {\color{structure}\rule{\paperwidth}{.2mm}}%
+ 	   \end{beamercolorbox}\vskip-1mm\par%
+ 	   \hbox{\begin{beamercolorbox}[wd=.9\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{normal text}%
+ 	     \usebeamerfont{author in head/foot}% empty line here
+ 	   \end{beamercolorbox}%
+ 	   \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{normal text}%
+ 	     \usebeamerfont{title in head/foot} \huberlinpagestring
+ 	   \end{beamercolorbox}}%
+   	 \vskip0pt%
+  }%
+}%
+
+\newcommand{\huberlinjustbarfootline}{%
+  \setbeamertemplate{footline}%
+  {%
+    \leavevmode%
+	    \begin{beamercolorbox}[wd=\paperwidth,ht=.2cm,dp=1.125ex]{normal text}%
+ 	       {\color{structure}\rule{\paperwidth}{.2mm}}%
+ 	   \end{beamercolorbox}\vskip-1mm\par%
+ 	   \hbox{\begin{beamercolorbox}[wd=.9\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{normal text}%
+ 	     \usebeamerfont{author in head/foot}% 
+ 	   \end{beamercolorbox}%
+ 	   \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{normal text}%
+ 	     \usebeamerfont{title in head/foot}% 
+ 	   \end{beamercolorbox}}%
+   	 \vskip0pt%
+  }%
+}%
+
+\newcommand{\huberlinnormalfootline}{%
+  \setbeamertemplate{footline}
+  {%
+    \leavevmode%
+	    \begin{beamercolorbox}[wd=\paperwidth,ht=.2cm,dp=1.125ex]{normal text}%
+ 	       {\color{structure}\rule{\paperwidth}{.2mm}}%
+ 	   \end{beamercolorbox}\vskip-1mm\par%
+ 	   \hbox{\begin{beamercolorbox}[wd=.9\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{normal text}%
+ 	     \usebeamerfont{author in head/foot}\huberlinfootstring
+ 	   \end{beamercolorbox}%
+ 	   \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{normal text}%
+ 	     \usebeamerfont{title in head/foot} \huberlinpagestring
+ 	   \end{beamercolorbox}}%
+   	 \vskip0pt%
+  }%
+}%
+
+\newcommand{\huberlinnormalheader}{%
+	\huberlinswitch=0
+}%
+
+\newcommand{\huberlinemptyheader}{%
+	\huberlinswitch=1
+}%
+
+\newcommand{\huberlinpagedec}{%
+  \addtocounter{framenumber}{-1}
+}%
+
+\newcommand{\huberlinheaderbaroff}{%
+	\huberlinheadbarswitch=1
+}%
+
+\newcommand{\huberlinheaderbaron}{%
+	\huberlinheadbarswitch=0
+}%
+
+% use this new command to insert a fully fledged title page:
+\newcommand{\huberlintitlepage}[1][0pt]{%
+	\huberlinvoidfootline% totally absent footline
+	\huberlinemptyheader%	switches off title and tree in header
+	\huberlinheaderbaroff
+	\huberlintitlestrut=#1
+	\frame{\titlepage}
+	\huberlinheaderbaron
+	\huberlinnormalheader% normal header w/ title and tree
+	\huberlinnormalfootline
+	\huberlinpagedec
+}%
+
+%----- end hacks -----%
+
+\mode<presentation>
+
+\usefonttheme{hu}
+\usecolortheme{bearHU}
+\useinnertheme{hui}
+\useoutertheme{huo}
+
+% insert the COLOR HU logo
+\ifpdf
+\else
+\ifxetex
+\else
+\loadgraphics{husiegel_blau}
+\fi
+\fi
+\savebox{\huberlininsertlogo}{\includegraphics[height=1.0cm]{husiegel_blau}}
+%\loadgraphics{hukombi_sws_rgb}
+%\savebox{\huberlininsertlogo}{\includegraphics[height=1.0cm]{hukombi_sws_rgb}}
+
+% these two commands allow you to set logo on/off wherever you want to:
+\newcommand{\huberlinlogon}[1]{\savebox{\huberlininsertlogo}{\includegraphics[height=#1]{husiegel_blau}}}
+%\newcommand{\huberlinlogon}[1]{\savebox{\huberlininsertlogo}{\includegraphics[height=#1]{hukombi_sws_rgb}}}
+\newcommand{\huberlinlogoff}{\savebox{\huberlininsertlogo}{}}
+
+\mode<handout>
+
+% insert the B/W FU logo
+\ifpdf
+\else
+\ifxetex
+\else
+\loadgraphics{husiegel_sw_rgb}
+\fi
+\fi
+\savebox{\huberlininsertlogo}{\includegraphics[height=1cm]{husiegel_sw_rgb}}
+%\loadgraphics{hukombi_sws_rgb}
+%\savebox{\huberlininsertlogo}{\includegraphics[height=1cm]{hukombi_sws_rgb}}
+
+% these two commands allow you to set logo on/off wherever you want to:
+\renewcommand{\huberlinlogon}[1]{\savebox{\huberlininsertlogo}{\includegraphics[height=#1]{husiegel_sw_rgb}}}
+\renewcommand{\huberlinlogoff}{\savebox{\huberlininsertlogo}{}}
+%\renewcommand{\huberlinlogon}[1]{\savebox{\huberlininsertlogo}{\includegraphics[height=#1]{hukombi_sws_rgb}}}
+
+% to keep \alert markings in handout mode and make them readable, make them bold
+\renewcommand{\alert}{\textbf}
+
+\mode
+<all>

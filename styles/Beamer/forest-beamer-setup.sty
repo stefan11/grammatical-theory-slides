@@ -1,0 +1,45 @@
+
+
+% http://tex.stackexchange.com/questions/355365/drawing-an-ellipse-around-an-edge-in-forest/355415#355415
+% Für Ellipsen um Knotenkanten
+\usetikzlibrary{shapes.geometric,fit}
+
+
+% http://tex.stackexchange.com/questions/355477/overlays-of-edge-related-shapes-in-forest/355485#355485
+
+
+\forestset{%
+  circle edge/.style={
+    tikz+={
+          \node [fit=(.child anchor) (!u.parent anchor), draw=\foresteoption{circle edge colour},
+            visible on=#1, ellipse, inner ysep=1.5pt, line width=0.25mm ] {};
+        }
+  },
+%  circle edge/.default=<1->,
+  declare toks={circle edge colour}{red},
+}
+
+
+% http://tex.stackexchange.com/questions/167690/presenting-a-forest-tree-from-bottom-to-top-in-beamer
+% showing and hiding nodes and edges in forest
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+}
+\forestset{
+  visible on/.style={
+    for tree={
+      /tikz/visible on={#1},
+      edge={/tikz/visible on={#1}}}}}
+
+
+% https://tex.stackexchange.com/questions/477532/avoiding-jumping-nodes-in-a-tree-with-forest-and-beamer/477688#477688
+\tikzset{min width/.style n args={2}{/utils/exec={\pgfmathparse{max(width("#1"),width("#2"))}
+ \edef\mywidth{\pgfmathresult}},
+ text width={\mywidth pt}}}
+
+
+

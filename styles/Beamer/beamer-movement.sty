@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: beamer-movement.sty,v $
+%%  $Revision: 1.1 $
+%%      $Date: 2004/05/02 14:38:36 $
+%%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
+%%    Purpose: movment includes for presentations 
+%%             with the latex-beamer class
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\newlength{\positiony}
+%\newlength{\positionx}
+
+\newdimen\positionx
+\newdimen\positiony
+
+% Moves text from position (#2,#3) to position (#4,#5)
+% The number of steps can be fine tuned by giving a high number of slides
+% \move<1-30>{der Mann}{0cm}{0cm}{4cm}{8cm}
+%
+\def\move<#1-#2>#3(#4,#5)(#6,#7){
+\animate<#1-#2>
+\animatevalue<#1-#2>{\positionx}{#4}{#6}
+\animatevalue<#1-#2>{\positiony}{#5}{#7}
+
+
+%\psset{unit=0.1cm}
+
+\only<beamer| beamer:#1->{
+\rput[B](\positionx,\positiony){#3}%
+}
+\mode<handout>{
+\rput[B](#6,#7){#3}%
+}
+}
+
+\def\movefurther<#1>#2(#3)(#4){%
+  \only<beamer| beamer:#1>{\move<#1>{#2}(#3)(#4)}}
+
+
+% For linguistics:
+% \tmove<(overlay specification)>{text1}{text2}{x1}
+% Move <text> from (x1,y1) by lowering it to (x1,y1-Z), replacing it by <text2>,
+% moving it to (x2,y2-Z) and raising it to (x2,y2)
+
+\newcount\beamerinc@slidec
+\newdimen\beamerinc@posx
+\newdimen\beamerinc@posy
+
+\newcount\beamerinc@tempc
+
+\def\tmove<#1-#2>(#3,#4)(#5,#6)#7#8{%
+  \beamerinc@slidec=#1\relax%
+% lowering
+  \advance\beamerinc@slidec by 3%                 use three steps for lowering
+  \beamerinc@posy=#4\relax%
+  \advance\beamerinc@posy by -\psyunit%
+  \movefurther<#1-\beamerinc@slidec>{#7}(#3,#4)(#3,\beamerinc@posy)%
+  \only<\beamerinc@slidec->{\rput[B](#3,#4){#8}}%  from now on show text2 at the original position
+% moving 
+  \beamerinc@tempc=#2\relax%
+  \advance\beamerinc@tempc by -#1%               the total amount of steps
+  \advance\beamerinc@tempc by -6%                the steps we use for lowering and raising
+  \advance\beamerinc@tempc by \beamerinc@slidec% this will be the end position before raising again
+  \advance\beamerinc@slidec by 1%
+  \movefurther<\beamerinc@slidec-\beamerinc@tempc>{#7}(#3,\beamerinc@posy)(#5,\beamerinc@posy)%
+% raising
+  \advance\beamerinc@tempc by 1%
+  \move<\beamerinc@tempc-#2>{#7}(#5,\beamerinc@posy)(#5,#6)%
+}
+
+% also prints the text at the original position.
+% This text is present from the first slide of the frame till #1
+\def\tmoveo<#1-#2>(#3,#4)(#5,#6)#7#8#9{%
+  \only<beamer| beamer:-#1>{\rput[B](#3,#4){#7}}%
+  \beamerinc@slidec=#1\relax%
+% lowering
+  \advance\beamerinc@slidec by 3%                 use three steps for lowering
+  \beamerinc@posy=#4\relax%
+  \advance\beamerinc@posy by -\psyunit%
+  \movefurther<#1-\beamerinc@slidec>{#8}(#3,#4)(#3,\beamerinc@posy)%
+  \only<\beamerinc@slidec->{\rput[B](#3,#4){#9}}%  from now on show text2 at the original position
+% moving 
+  \beamerinc@tempc=#2\relax%
+  \advance\beamerinc@tempc by -#1%               the total amount of steps
+  \advance\beamerinc@tempc by -6%                the steps we use for lowering and raising
+  \advance\beamerinc@tempc by \beamerinc@slidec% this will be the end position before raising again
+  \advance\beamerinc@slidec by 1%
+  \movefurther<\beamerinc@slidec-\beamerinc@tempc>{#8}(#3,\beamerinc@posy)(#5,\beamerinc@posy)%
+% raising
+  \advance\beamerinc@tempc by 1%
+  \move<\beamerinc@tempc-#2>{#8}(#5,\beamerinc@posy)(#5,#6)%
+}
+
+
+
+% this is the same as \move except that the last position is only visible till #2
+% due to the call of movefurther at the last line.
+% This should be an option of \move
+\def\tmovefurther<#1-#2>(#3,#4)(#5,#6)#7#8{%
+  \beamerinc@slidec=#1\relax%
+% lowering
+  \advance\beamerinc@slidec by 3%                 use three steps for lowering
+  \beamerinc@posy=#4\relax%
+  \advance\beamerinc@posy by -\psyunit%
+  \movefurther<#1-\beamerinc@slidec>{#7}(#3,#4)(#3,\beamerinc@posy)%
+  \only<\beamerinc@slidec->{\rput[B](#3,#4){#8}}%  from now on show text2 at the original position
+% moving 
+  \beamerinc@tempc=#2\relax%
+  \advance\beamerinc@tempc by -#1%               the total amount of steps
+  \advance\beamerinc@tempc by -6%                the steps we use for lowering and raising
+  \advance\beamerinc@tempc by \beamerinc@slidec% this will be the end position before raising again
+  \advance\beamerinc@slidec by 1%
+  \movefurther<\beamerinc@slidec-\beamerinc@tempc>{#7}(#3,\beamerinc@posy)(#5,\beamerinc@posy)%
+% raising
+  \advance\beamerinc@tempc by 1%
+  \movefurther<\beamerinc@tempc-#2>{#7}(#5,\beamerinc@posy)(#5,#6)%
+}
