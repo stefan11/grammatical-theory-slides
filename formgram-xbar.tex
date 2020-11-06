@@ -1,0 +1,794 @@
+\subsection{\xbar syntax}
+
+\subsubsection{Nominal phrases}
+\label{sec-psg-np}
+
+\frame[shrink]{
+\frametitle{Nominal phrases}
+
+\begin{itemize}
+\item Until now NP $\to$ Det N, but noun phrases can be much more complex:
+\eal
+\ex 
+\gll ein Buch\\
+     a   book\\
+\ex 
+\gll ein Buch, das  wir kennen\\
+     a   book  that we  know\\
+\ex 
+\gll ein Buch aus  Japan\\
+     a   book from Japan\\
+\ex 
+\gll ein interessantes Buch\\
+     an   interesting   book\\
+\ex 
+\gll ein Buch aus  Japan, das  wir kennen\\
+     a   book from Japan  that we  know\\
+\ex 
+\gll ein interessantes Buch aus  Japan\\
+     an  interesting   book from Japan\\
+\ex 
+\gll ein interessantes Buch, das  wir kennen\\
+     an  interesting   book  that we  know\\
+\ex 
+\gll ein interessantes Buch aus  Japan, das  wir kennen\\
+     an  interesting   book from Japan  that we  know\\
+\zl
+
+The additional constituents in (\mex{0}) are adjuncts.
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Adjectives in NPs}
+
+\begin{itemize}
+\item Suggestion:
+\eal
+\ex NP $\to$ Det N
+\ex NP $\to$ Det A N
+\zl
+\pause
+\item What about (\mex{1})?
+\ea
+\gll alle weiteren schlagkräftigen Argumente\\
+     all further strong arguments\\
+\glt `all other strong arguments'
+\z
+\pause
+\item We need a rule like (\mex{1}) for (\mex{0}):
+\ea 
+NP $\to$ Det A A N
+\z
+\pause
+\item But we do not want to state a limit on how many adjectives there may be:
+\ea 
+NP $\to$ Det A* N
+\z
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Adjectives in NPs}
+
+\begin{itemize}
+
+\item Problem: adj \& noun do not form constituent in structures licensed by (\mex{1}).
+\ea 
+NP $\to$ Det A* N
+\z
+But constituency tests suggest that A + N is a constituent:
+\ea
+\gll alle [[großen Seeelefanten] und [grauen Eichhörnchen]]\\
+     all  \spacebr{}\spacebr{}big elephant.seals and  \spacebr{}grey squirrels\\
+\glt `all the big elephant seals and grey squirrels'	 
+\z
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Adjective + noun as constituent}
+
+\begin{itemize}
+\item The following rule is better suited:
+\eal
+\ex NP $\to$ Det \nbar
+\ex \nbar $\to$ A \nbar
+\ex \nbar $\to$ N
+\zl
+
+
+\hfill%
+\scalebox{.65}{%
+\begin{forest}
+sm edges
+[NP
+   [Det [ein;a] ]
+   [\nbar
+      [N [Eichhörnchen;squirrel] ] ] ]
+\end{forest}}
+%
+\hfill
+\scalebox{.65}{%
+\begin{forest}
+sm edges
+[NP
+   [Det [ein;a] ]
+   [\nbar
+      [A [graues;grey] ]
+      [\nbar
+        [N [Eichhörnchen;squirrel] ] ] ] ]
+\end{forest}
+}
+%
+\hfill
+\scalebox{.65}{%
+\begin{forest}
+sm edges
+[NP
+  [Det [ein;a] ]
+    [\nbar
+    [A [großes;big] ]
+       [\nbar
+       [A [graues;grey] ]
+         [\nbar
+         [N [Eichhörnchen;squirrel] ] ] ] ] ]
+\end{forest}
+}
+\hfill\mbox{}
+%
+\end{itemize}
+
+}
+
+
+
+
+
+\frame{
+\frametitle{Other adjuncts}
+
+
+\begin{itemize}
+\item Other adjuncts work analogously:
+\eal
+\ex \nbar $\to$ \nbar PP
+\ex \nbar $\to$ \nbar relative\_clause
+\zl
+\pause
+\ex All given determiner-adjective-noun combinations given so far can be analyzed with these few rules.
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Complements}
+
+
+\begin{itemize}
+\item Bisher besteht \nbar nur aus einem Nomen,\\
+      aber einige Nomina erlauben neben Adjunkten auch Argumente:
+\eal
+\ex 
+\gll der Vater von Peter\\
+	 the father of Peter\\
+\glt `Peter's father'
+\ex 
+\gll das Bild vom Gleimtunnel\\
+	 the picture of.the Gleimtunnel\\
+\glt `the picture of the Gleimtunnel'
+\ex 
+\gll das Kommen der Installateurin\\
+	 the coming of.the plumber\\
+\glt `the plumber's visit'
+\zl
+
+\pause
+\item Therefore:
+\ea
+\nbar $\to$ N PP
+\z
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Complements (and adjuncts)}
+
+\hfill
+
+\centerfit{%
+\begin{forest}
+sm edges
+[NP
+ [Det [das;the] ]
+ [\nbar
+   [N [Bild;picture] ]
+   [PP [vom Gleimtunnel;of.the Gleimtunnel,roof ] ] ] ]
+\end{forest}%
+\hspace{2em}%
+\begin{forest}
+sm edges
+[NP
+  [Det [das;the] ]
+  [\nbar
+    [\nbar
+      [N [Bild;picture] ]
+      [PP [vom Gleimtunnel;of.the Gleimtunnel,roof ] ] ] 
+    [PP [im Gropiusbau;in.the Gropiusbau,roof ] ] ] ]
+\end{forest}}
+
+
+}
+
+\frame{
+\frametitle{Missing noun (adjuncts present)}
+
+\savespace
+\begin{itemize}
+\item Noun is missing but adjuncts are present:
+\eal
+\ex 
+\gll ein interessantes \_\\
+     an  interesting\\
+\glt `an interesting one'
+\ex 
+\gll ein neues interessantes \_\\
+     a   new   interesting\\
+\glt `a new interesting one'
+
+\ex 
+\gll ein interessantes \_ aus  Japan\\
+     an  interesting   {} from Japan\\
+\glt `an interesting one from Japan'
+\ex 
+\gll ein interessantes \_, das  wir kennen\\
+     an  interesting   {}  that we  know\\
+\glt `an interesting one that we know'
+\zl
+\end{itemize}
+}
+
+\frame[shrink=20]{
+\frametitle{Missing noun (complement present)}
+
+\savespace
+\begin{itemize}
+
+\item noun missing, but a complement of the noun is present:
+\eal
+\ex 
+\gll (Nein, nicht der Vater von Klaus), der \_ von Peter war gemeint.\\
+	\spacebr{}no not the father of Klaus the {} of Peter was meant\\
+\glt `No, it wasn't the father of Klaus, but rather the one of Peter that was meant.'
+\ex 
+\gll (Nein, nicht das Bild von der Stadtautobahn), das \_ vom Gleimtunnel war beeindruckend.\\
+	 \spacebr{}no not the picture of the motorway the {} of.the Gleimtunnel was impressive\\
+\glt `No, it wasn't the picture of the motorway, but rather the one of the Gleimtunnel that was impressive.'
+\ex 
+\gll (Nein, nicht das Kommen des Tischlers), das \_ der Installateurin ist wichtig.\\
+	 \spacebr{}no not the coming of.the carpenter the {} of.the plumber is important\\
+\glt `No, it isn't the visit of the carpenter, but rather the visit of the plumber that is important.'
+\zl
+\pause
+\item PSG: \alert{Epsilon production}
+\pause
+\item Notation:
+\eal
+\ex N $\to$
+\ex N $\to$ $\epsilon$
+\zl 
+
+\pause
+\item Rules in (\mex{0}) = empty boxes with the same label as boxes containing normal nouns.
+
+\end{itemize}
+}
+
+\frame{
+\frametitle{Analysis with empty noun}
+
+\hfill
+\begin{forest}
+sm edges
+[NP
+  [Det [ein;an] ]
+  [\nbar
+    [A [interessantes;interesting] ]
+    [\nbar
+      [N [\trace ] ] ] ] ]
+\end{forest}
+\hfill
+\begin{forest}
+sm edges
+[NP
+  [Det [das;the] ]
+  [\nbar
+    [N [\trace] ]
+    [PP [vom Gleimtunnel;of.the Gleimtunnel, roof] ] ] ]
+\end{forest}
+\hfill%
+\mbox{}
+
+}
+
+
+\frame{
+\frametitle{Missing determiners: Plural}
+
+\begin{itemize}
+\item Determiners can be dropped as well.
+
+Plural:
+\eal
+\ex 
+\gll Bücher\\
+     books\\
+\ex 
+\gll Bücher, die  wir kennen\\
+     books   that we  know\\
+\ex 
+\gll interessante Bücher\\
+     interesting  books\\
+\ex 
+\gll interessante Bücher, die  wir kennen\\
+     interesting  books   that we know\\
+\zl
+
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Missing determiners: Mass nouns}
+
+\begin{itemize}
+\item For mass nouns dropping is possible in the singular as well:
+\eal
+\ex 
+\gll Getreide\\
+     grain\\
+\ex 
+\gll Getreide, das gerade gemahlen wurde\\
+	 grain that just ground was\\
+\glt `grain that has just been ground'
+\ex 
+\gll frisches Getreide\\
+	 fresh grain\\
+\ex 
+\gll frisches Getreide, das gerade gemahlen wurde\\
+	 fresh grain that just ground was\\
+\glt `fresh grain that has just been ground'
+\zl
+
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Missing determiners: The Structure}
+
+\vfill
+
+\centering
+\begin{forest}
+sm edges
+[NP
+  [Det [\trace] ]
+  [\nbar
+    [N [Bücher;books] ] ] ]
+\end{forest}
+\vfill
+
+}
+
+\frame{
+\frametitle{Missing determiners and missing nouns}
+
+Determiners and nouns can even be omitted simultaneously:
+\eal
+\ex 
+\gll Ich lese interessante.\\
+     I   read interesting\\
+\glt `I read interesting ones.'
+\ex 
+\gll Dort drüben steht frisches, das gerade gemahlen wurde.\\
+	 there over stands fresh that just ground was\\
+\glt `Over there is some fresh (grain) that has just been ground.'
+\zl
+}
+
+
+\frame{
+\frametitle{Missing determiners and missing nouns: The structure}
+
+\vfill
+\centerline{%
+\begin{forest}
+sm edges
+[NP
+  [Det [\trace] ]
+  [\nbar
+    [A [interessante;interesting] ]
+    [\nbar
+      [N [\trace] ] ] ] ]
+\end{forest}}
+
+\vfill
+
+}
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Adjective phrases}
+
+\frame{
+\frametitle{Adjective phrases}
+
+\begin{itemize}
+\item Until now simple adjectives like \emph{klug} `smart' only.
+\pause
+\item But adjective phrases can be very complex:
+\eal
+\ex
+\gll der seiner Frau treue Mann\\
+	 the his.\DAT{} wife faithful man\\
+\glt `the man faithful to his wife'
+\ex 
+\gll der auf seine Tochter stolze Mann\\
+	 the on his.\ACC{} daughter proud man\\
+\glt `the man proud of his daughter'
+\ex 
+\gll der seine Frau liebende Mann\\
+	 the his.\ACC{} woman loving man\\
+\glt `the man who loves his wife'
+\ex 
+\gll der von seiner Frau geliebte Mann\\
+     the by his.\DAT{} wife loved man\\
+\glt `the man loved by his wife'	 
+\zl
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Adjective phrases}
+
+\begin{itemize}
+\item 
+\ea
+\gll der auf seine Tochter stolze Mann\\
+	 the on his.\ACC{} daughter proud man\\
+\glt `the man proud of his daughter'
+\z
+\item We have to adapt the rule for attributive adjectival modifiers:
+\ea
+\nbar $\to$ AP \nbar
+\z
+\pause
+\item
+Rules for AP:
+\eal
+\ex AP $\to$ NP A
+\ex AP $\to$ PP A
+\ex AP $\to$ A
+\zl
+
+\end{itemize}
+
+}
+
+
+
+\subsubsection{Prepositional phrases}
+
+\frame[shrink=10]{
+\frametitle{Prepositional phrases}
+
+\savespace
+\begin{itemize}
+\item The syntax of PPs is relatively straight-forward. First attempt:
+\ea
+PP $\to$ P NP
+\z
+\pause
+\item But PPs can be augmented by measurement phrases \citep[\S 1300]{Duden2005-Authors}:
+\eal
+\ex
+\gll {}[[Einen Schritt] vor dem Abgrund] blieb er stehen.\\
+	 {}\spacebr{}\spacebr{}one step before the abyss remained he stand\\
+\glt `He stopped one step in front of the abyss.'
+\ex 
+\gll {}[[Kurz] nach dem Start] fiel die Klimaanlage aus.\\
+	 {}\spacebr{}\spacebr{}shortly after the take.off fell the air.conditioning out\\
+\glt `Shortly after take off, the air conditioning stopped working.'
+\ex 
+\gll {}[[Schräg] hinter der Scheune] ist ein Weiher.\\
+	 {}\spacebr{}\spacebr{}diagonally behind the barn is a pond\\
+\glt `There is a pond diagonally across from the barn.'
+\ex 
+\gll {}[[Mitten] im Urwald] stießen die Forscher auf einen alten Tempel.\\
+	 {}\spacebr{}\spacebr{}middle in.the jungle stumbled the researchers on an old temple\\
+\glt `In the middle of the jungle, the researches came across an old temple.'
+\zl
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Prepositional phrases: The rules}
+
+\savespace
+\begin{itemize}
+\item 
+\ea
+\gll {}[[Einen Schritt] vor dem Abgrund]\\
+	 {}\spacebr{}\spacebr{}one step before the abyss \\
+\glt `one step in front of the abyss'
+\z
+
+\eal
+\ex PP $\to$ NP \pbar
+\ex PP $\to$ AP \pbar
+\ex PP $\to$ \pbar\label{Regel-PP-P}
+\ex \pbar $\to$ P NP
+\zl
+\end{itemize}
+
+}
+
+
+
+\frame{
+\frametitle{Prepositional phrases: The structure}
+
+\vfill
+\hfill
+\hfill
+\begin{forest}
+sm edges
+[PP
+  [\pbar
+    [P [vor] ]
+    [NP [dem Abgrund,roof] ] ] ]
+\end{forest}
+\hfill
+\begin{forest}
+sm edges
+[PP
+  [AP [kurz,roof] ]
+  [\pbar
+    [P [vor] ]
+    [NP [dem Abgrund,roof] ] ] ]
+\end{forest}
+\hfill
+\mbox{}
+\vfill
+
+}
+
+
+
+\subsubsection{\xbar Theory}
+\label{sec-xbar}
+
+\frame{
+\frametitle{Generalization over rules}
+
+\begin{itemize}
+\item head + complement = intermediate level:
+\eal
+\ex \nbar $\to$ N PP
+\ex \pbar $\to$ P NP
+\zl
+\pause
+\item intermediate level + further constituent = maximal projection
+\eal
+\ex NP $\to$ Det \nbar
+\ex PP $\to$ NP \pbar
+\zl
+\pause
+\item parallel structures for English AP and VP as well
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{English adjective phrases}
+
+\eal
+\ex Kim and Sandy are proud.
+\ex Kim and Sandy are very proud.
+\ex Kim and Sandy are proud of their child.
+\ex Kim and Sandy are very proud of their child.
+\zl
+
+\pause
+
+\eal
+\ex AP $\to$ \abar
+\ex AP $\to$ Adv \abar
+\ex \abar $\to$ A PP
+\ex \abar $\to$ A
+\zl
+
+\pause
+(Does not work for German \citep[Section~13.1.2]{MuellerGT-Eng}.)
+
+}
+
+
+\frame{
+\frametitle{English adjective phrases: The structure}
+
+
+\eal
+\ex AP $\to$ \abar
+\ex AP $\to$ AdvP \abar
+\ex \abar $\to$ A PP
+\ex \abar $\to$ A
+\zl
+
+
+\hfill
+\begin{forest}
+sm edges
+[AP
+  [\abar
+    [A [proud] ] ] ]
+\end{forest}
+\hfill
+\begin{forest}
+sm edges
+[AP
+  [AdvP [very] ]
+  [\abar
+    [A [proud] ] ] ]
+\end{forest}
+\hfill
+\begin{forest}
+sm edges
+[AP
+  [\abar
+    [A [proud] ]
+    [PP [of their child,roof] ] ] ]
+\end{forest}
+\hfill
+\begin{forest}
+sm edges
+[AP
+  [AdvP [very] ]
+  [\abar
+    [A [proud] ]
+    [PP [of their child,roof] ] ] ]
+\end{forest}
+\hfill
+\mbox{}
+\hfill
+\mbox{}
+
+}
+
+\frame{
+\frametitle{Further abstraction}
+
+\begin{itemize}
+\item We saw that abstraction over case and gender values is possible (variables in rule schemata).
+
+\ea
+NP({3},{Num},{Cas}) $\to$ D(Gen,{Num},{Cas}), N(Gen,{Num},{Cas})
+\z
+
+\pause
+\item Similarly we can abstract over the part of speech.\\
+      Instead of AP, NP, PP, VP, we write XP.
+\pause
+\item Instead of (\mex{1}), we write (\mex{2}):
+\eal
+\ex PP $\to$ \pbar
+\ex AP $\to$ \abar
+\zl
+\ea
+XP $\to$ \xbar
+\z
+\end{itemize}
+
+
+}
+
+
+\frame{
+\frametitle{\xbar theory: Assumptions (II)}
+
+Phrases have at least three levels:
+\begin{itemize}
+\item X$^0$ = head
+\item X$'$ = intermediate level (= \xbar, pronounced X bar; $\to$ name of the scehma) 
+\item XP = highest node (=~X$''$ = $\overline{\overline{\mbox{X}}}$), also called \emph{maximal projection}
+\end{itemize}
+%Neuere Analysen $\to$ teilweise Verzicht auf nichtverzweigende X$'$-Knoten
+\nocite{Muysken82a}
+
+
+}
+
+\frame[shrink]{
+\frametitle{Minimal and maximal expansion of phrases}
+
+\bigskip
+
+\small\hfill
+\begin{forest}
+sm edges
+[XP
+  [\xbar [X] ] ]
+\end{forest}
+\hfill
+\begin{forest}
+%where n children=0{}{},
+%sm edges
+%for tree={parent anchor=south, child anchor=north,align=center,base=bottom}
+[XP
+  [specifier]
+  [\xbar
+    [adjunct]
+    [\xbar
+      [complement] [X] ] ] ]
+\end{forest}
+\hfill\mbox{}
+
+
+\begin{itemize}
+\item Adjuncts are optional\\
+$\to$ X$'$ with adjunct daughter may be missing.
+\pause
+\item Some categories do not have a specifier or it is optional (\eg A).\\
+%(Zusätzliche Regel nötig $\overline{\overline{\mbox{X}}} \rightarrow \xbar$)
+\pause
+\item Sometimes in addition adjunction to XP and head adjunction to X.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{\xbar theory: Rules following \citew{Jackendoff77a}}\nocite{KP90a}\nocite{Pullum85a}
+
+
+
+\oneline{%
+\begin{tabular}[t]{@{}l@{\hspace{5mm}}l@{\hspace{5mm}}l@{}}
+\xbar\mbox{ rule} & \mbox{with specific categories} & \mbox{example strings}\\[2mm]
+$\overline{\overline{\mbox{X}}} \rightarrow \overline{\overline{\mbox{specifier}}}$~~\xbar &
+$\overline{\overline{\mbox{N}}} \rightarrow \overline{\overline{\mbox{DET}}}$~~\nbar & \mbox{the [picture of Paris]} \\
+$\xbar \rightarrow$ \xbar~~$\overline{\overline{\mbox{adjunct}}}$            & \nbar $\rightarrow$ \nbar~~$\overline{\overline{\mbox{REL\_CLAUSE}}}$ & \mbox{[picture of Paris]}\\
+                            &                                              & \mbox{[that everybody knows]}\\
+\xbar $\rightarrow \overline{\overline{\mbox{adjunct}}}$~~\xbar            & \nbar $\rightarrow \overline{\overline{\mbox{A}}}$~~\nbar & \mbox{beautiful [picture of Paris]}\\
+\xbar $\rightarrow$ \mbox{X}~~$\overline{\overline{\mbox{complement}}}*$   & \nbar $\rightarrow$ \mbox{N}~~$\overline{\overline{\mbox{P}}}$ & \mbox{picture [of Paris]}\\
+\end{tabular}}
+
+X stands for some arbitrary category, X is the head,\\
+`*' stands for arbitrarily many repretitions
+
+\medskip
+X may appear in any position in the right-hand side of the rule.
+
+}
+
+
+
+%      <!-- Local IspellDict: en_US-w_accents -->

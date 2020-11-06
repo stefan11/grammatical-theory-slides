@@ -43,32 +43,6 @@
 \usepackage{soul}
 
 
-\newtoggle{hpsgvorlesung}\togglefalse{hpsgvorlesung}
-\newtoggle{gb-intro}\togglefalse{gb-intro}
-\newtoggle{syntaxvorlesungen}\toggletrue{syntaxvorlesungen}
-
-\newtoggle{konstituentenprobleme}\toggletrue{konstituentenprobleme}
-\newtoggle{konstituentenprobleme-hinweis}\togglefalse{konstituentenprobleme-hinweis}
-\newtoggle{einfsprachwiss-exclude}\toggletrue{einfsprachwiss-exclude}
-\newtoggle{einfsprachwiss-include}\togglefalse{einfsprachwiss-include}
-
-\includecomment{biblio}
-%\includecomment{psgbegriffe}
-\newtoggle{psgbegriffe}\toggletrue{psgbegriffe}
-
-
-\excludecomment{freiers}
-\includecomment{teil1}
-\excludecomment{teil2}
-
-\excludecomment{vortrag}
-
-\provideboolean{gb-intro}
-\setboolean{gb-intro}{false}
-
-\provideboolean{hpsg-vorlesung}
-\setboolean{hpsg-vorlesung}{false}
-
 %\nodemargin5pt%\treelinewidth2pt\arrowwidth6pt\arrowlength10pt
 \selectlanguage{USenglish}
 \psset{nodesep=5pt} %,linewidth=0.8pt,arrowscale=2}
@@ -120,7 +94,7 @@ St.Mueller@hu-berlin.de}
 
 \include{formgram-psg}
 
-%\include{formgram-xbar}
+\include{formgram-xbar}
 % \exewidth{(145)}
 % \include{formgram-gb}
 % \include{formgram-gpsg}
