@@ -1,0 +1,646 @@
+
+\subtitle{Phrase structure grammars}
+
+\huberlintitlepage[22pt]
+
+\section{Phrase structure grammars}
+
+
+\subsection{Phrase structure}
+
+\frame[shrink=2]{
+\frametitle{Phrase structure}
+
+\smallframe
+
+\hfill%
+\begin{tabular}{@{}l@{\hspace{1cm}}l@{}}
+\scalebox{.85}{%
+\begin{forest}
+sm edges
+[S
+  [NP [er;he] ]
+  [NP
+    [Det [das;the] ]
+    [N [Buch;book] ] 
+  ]
+  [NP
+    [Det [dem;the] ]
+    [N [Mann;mann] ] 
+  ]
+  [V [gibt;gives] ]
+]
+\end{forest}} &
+\scalebox{.85}{%
+\begin{forest}
+sm edges
+[V
+  [NP [er;he] ]
+  [V
+    [NP
+      [Det [das;the] ]
+      [N [Buch;book] ] ]
+    [V
+      [NP
+        [Det [dem;the] ]
+        [N [Mann;man] ] ]
+      [V [gibt;gives] ] ] ] ]
+\end{forest}}
+\\
+\\[-0.4ex]
+\begin{tabular}{@{~}l@{ }l@{}}
+NP & $\to$ Det, N            \\
+S  & $\to$ NP, NP, NP, V  \\
+\end{tabular} & \begin{tabular}{@{~}l@{ }l@{}}
+NP & $\to$ Det, N  \\
+V  & $\to$ NP, V\\
+\end{tabular}\\
+\end{tabular}
+\hfill\mbox{}
+
+\medskip
+What we are after is phrase structure rules! Trees are just their visualization.\\
+%
+\pause%
+%
+Sometimes bracketed strings are used to safe space:\\
+{}[\sub{S} [\sub{NP} er] [\sub{NP} [\sub{Det} das] [\sub{N} Buch]]  [\sub{NP} [\sub{Det} dem] [\sub{N} Mann]] [\sub{V} gibt]]
+
+\handoutspace
+}
+
+\iftoggle{psgbegriffe}{
+\subsection{Terminology}
+
+
+\frame{
+\frametitle{Node}
+
+\vfill
+\psset{xunit=5mm,yunit=5mm,nodesep=8pt}
+\hfill
+\begin{pspicture}(0,0)(14,7.4)
+\rput(3,7){\rnode{xp}{A}}
+\rput(1,4){\rnode{up}{B}}\rput(5,4){\rnode{xs1}{C}}
+\rput(5,1){\rnode{vp}{D}}
+
+\psset{angleA=-90,angleB=90,arm=0pt}
+\ncdiag{xp}{up}\ncdiag{xp}{xs1}%
+\ncdiag{xs1}{vp}\ncdiag{xs1}{xs2}%
+\ncdiag{xs2}{wp}\ncdiag{xs2}{x}%
+\ncdiag{wp}{yp}\ncdiag{wp}{ws}%
+
+\pause
+
+%\mode<beamer>{
+\psset{linecolor=red}%radius=1em}
+%}
+%\pscircle(3,7){2ex}
+\cnode[linewidth=1.5pt](3,7){1.7ex}{nodeA}
+\pscircle[linewidth=1.5pt](1,4){1.7ex}\cnode[linewidth=1.5pt](5,4){1.7ex}{nodeC}
+\cnode[linewidth=1.5pt](5,1){1.7ex}{nodeD}
+
+\pause
+
+\rput[l](8,7){\rnode{verz}{branching}}
+\rput[l](8,6){\rnode{nverz}{n}on-branching}
+
+%\psset{angleA=180,angleB=0,arm=0pt,arrows=->}
+\only<3>{
+\ncline{->}{verz}{nodeA}
+}
+\pause
+\only<4>{
+\ncline{->}{nverz}{nodeC}
+}
+%\psgrid
+\end{pspicture}
+\hfill\hfill\mbox{}
+\vfill
+}
+
+\frame{
+
+\frametitle{Mother, daughter and sister}
+
+\vfill
+\psset{xunit=5mm,yunit=5mm,nodesep=8pt}
+\hspace{1cm}%
+%\begin{tabular}{@{}l@{\hspace{1cm}}l@{}}
+\begin{pspicture}(0,0)(7.4,7.4)
+\rput(3,7){\rnode{xp}{A}}
+\rput(1,4){\rnode{up}{B}}\rput(5,4){\rnode{xs1}{C}}
+\rput(5,1){\rnode{vp}{D}}
+
+\psset{angleA=-90,angleB=90,arm=0pt}
+\ncdiag{xp}{up}\ncdiag{xp}{xs1}%
+\ncdiag{xs1}{vp}\ncdiag{xs1}{xs2}%
+\ncdiag{xs2}{wp}\ncdiag{xs2}{x}%
+\ncdiag{wp}{yp}\ncdiag{wp}{ws}%
+
+%\psgrid
+\end{pspicture}
+\hspace{1cm}\raisebox{3cm}{\begin{tabular}[t]{@{}l@{}}
+A is mother of B and C\\
+C is mother of D\\
+B is sister of C\\
+\end{tabular}}
+
+
+Relationships like in family trees
+
+\vfill
+
+}
+
+\iftoggle{einfsprachwiss-exclude}{
+\frame{
+\frametitle{Dominance}
+
+\vfill
+\psset{xunit=5mm,yunit=5mm,nodesep=8pt}
+\hspace{1cm}
+\begin{pspicture}(0,0)(7.4,7.4)
+\rput(3,7){\rnode{xp}{A}}
+\rput(1,4){\rnode{up}{B}}\rput(5,4){\rnode{xs1}{C}}
+\rput(5,1){\rnode{vp}{D}}
+
+\psset{angleA=-90,angleB=90,arm=0pt}
+\ncdiag{xs1}{xs2}%
+\ncdiag{xs2}{wp}\ncdiag{xs2}{x}%
+\ncdiag{wp}{yp}\ncdiag{wp}{ws}%
+
+\alt<2>{
+\mode<beamer>{
+\psset{linecolor=red}
+}
+\ncdiag{->}{xp}{up}\ncdiag{->}{xp}{xs1}
+}{
+\ncdiag{xp}{up}\ncdiag{xp}{xs1}%
+}
+\alt<2,4>{
+\mode<beamer>{
+\psset{linecolor=red}
+}
+\ncdiag{->}{xs1}{vp}
+}{
+\ncdiag{xs1}{vp}
+}
+%\psgrid
+\end{pspicture}
+\hspace{1cm}\raisebox{3cm}{\begin{tabular}[t]{@{}l@{}}
+A dominates \only<2->{B, C and D}\\
+\only<3->{C dominates} \only<4->{D} \\
+\end{tabular}}
+
+\bigskip
+
+A \alert{dominates} B if and only if A is higher in the tree and \\
+if there is a line from A to B that exclusively goes downwards.
+
+\pause\pause\pause
+
+\vfill
+
+}
+
+\frame{
+
+\frametitle{Immediate dominance}
+
+\psset{xunit=5mm,yunit=5mm,nodesep=8pt}
+\hspace{1cm}
+\begin{pspicture}(0,0)(7.4,7.4)
+\rput(3,7){\rnode{xp}{A}}
+\rput(1,4){\rnode{up}{B}}\rput(5,4){\rnode{xs1}{C}}
+\rput(5,1){\rnode{vp}{D}}
+
+\psset{angleA=-90,angleB=90,arm=0pt}
+\ncdiag{xs1}{xs2}%
+\ncdiag{xs2}{wp}\ncdiag{xs2}{x}%
+\ncdiag{wp}{yp}\ncdiag{wp}{ws}%
+
+\alt<2>{
+\mode<beamer>{
+\ncdiag[linecolor=red]{->}{xp}{up}\ncdiag[linecolor=red]{->}{xp}{xs1}
+}
+%\ncline{->}{xs1}{vp}
+}{
+\ncdiag{->}{xp}{up}\ncdiag{->}{xp}{xs1}%
+}
+\alt<4>{
+\mode<beamer>{
+\psset{linecolor=red}
+}
+\ncdiag{->}{xs1}{vp}
+}{
+\ncdiag{->}{xs1}{vp}
+}
+%\psgrid
+\end{pspicture}
+\hspace{1cm}\raisebox{3cm}{\begin{tabular}[t]{@{}l@{}}
+A immedeately dominates \only<2->{B and C}\\
+\only<3->{C immedeately domminates} \only<4->{D} \\
+\end{tabular}}
+
+\bigskip
+
+A immedeately dominates B if and only if \\
+A dominates B and there is no node C between A and B.
+
+\pause\pause\pause
+
+
+}
+
+
+\frame{
+\frametitle{Precedence}
+
+\begin{description}[<+->]
+\item[Precedence]~\\ A precedes B, if A is located to the left of B in a tree and\\
+    none of these nodes dominates the other one.
+\item[Immediate precedence]~\\ A precedes B and there is no element C between A and B.
+\end{description}
+
+}
+}%\end{einfsprachwiss-exclude}
+}%psgbegriffe
+
+
+\subsection{A sample grammar}
+
+
+\frame[shrink=8]{
+\frametitle{Example derivation assuming flat structures}
+
+\vfill
+
+\bigskip
+\parskip0pt
+\begin{tabular}[t]{@{}l@{ }l}
+\highlight{NP}<5,8> & \highlight{$\to$ Det N}<5,8>\\          
+\highlight{S}<10>  & \highlight{$\to$ NP NP NP V}<10>
+\end{tabular}\hspace{2cm}%
+\begin{tabular}[t]{@{}l@{ }l}
+\highlight{NP}<2> & \highlight{$\to$ er}<2>\\
+\highlight{Det}<3>  & \highlight{$\to$ das}<3>\\
+\highlight{Det}<6>  & \highlight{$\to$ dem}<6>\\
+\end{tabular}\hspace{8mm}
+\begin{tabular}[t]{@{}l@{ }l}
+\highlight{N}<4> & \highlight{$\to$ Buch}<4>\\
+\highlight{N}<7> & \highlight{$\to$ Kind}<7>\\
+\highlight{V}<9> & \highlight{$\to$ gibt}<9>\\
+\end{tabular}
+\vfill
+
+\begin{tabular}{@{}llllll@{\hspace{2.5cm}}l}
+er            & das          & Buch          & dem          & Kind & gibt                \pause\\
+\highlight{NP}<2> & das          & Buch          & dem          & Kind & gibt & \only<handout>{NP $\to$ er}  \pause\\
+NP            & \highlight{Det}<3> & Buch          & dem          & Kind & gibt & \only<handout>{Det $\to$ das}  \pause\\
+NP            & Det            & \highlight{N}<4>  & dem          & Kind & gibt & \only<handout>{N $\to$ Buch} \pause\\
+NP            &              & \highlight{NP}<5> & dem          & Kind & gibt & \only<handout>{NP $\to$ Det N}\pause\\
+NP            &              & NP            & \highlight{Det}<6> & Kind & gibt & \only<handout>{Det $\to$ dem}  \pause\\
+NP            &              & NP            & Det            & \highlight{N}<7>    & gibt & \only<handout>{N $\to$ Kind} \pause\\
+NP            &              & NP            &              & \highlight{NP}<8>       & gibt & \only<handout>{NP $\to$ Det N}\pause\\
+NP            &              & NP            &              & NP       & \highlight{V}<9>   & \only<handout>{V $\to$ gibt}  \pause\\
+              &              &               &              &      & \highlight{S}<10>   & \only<handout>{S $\to$ NP NP NP V}\\
+\end{tabular}
+
+\vfill
+}
+
+\frame{
+\frametitle{Sentences described by the grammar}
+
+\begin{itemize}
+\item The grammar is not precise enough:\\
+\begin{tabular}{@{}l@{ }l}
+NP & $\to$ Det N\\
+S  & $\to$ NP NP NP V\\
+\end{tabular}
+\eal
+\ex[]{
+\gll er das Buch dem Kind  gibt\\
+     he the book the child gives\\
+}
+\ex[*]{
+\gll ich das Buch dem Kind gibt\\
+     I   the book the child give\\
+\pause\\
+(Subject verb agreement \emph{ich}, \emph{gibt})}
+\pause
+\ex[*]{
+\gll er das Buch das Kind gibt\\
+     he the book the child gives\\\pause\\
+(case requirement of the verb, \emph{gibt} requires dative)
+}
+\pause
+\ex[*]{
+\gll er den Buch dem Kind gibt\\
+     he the book the child gives\\
+\pause\\
+(determinator noun agreement \emph{den}, \emph{Buch})
+}
+\zl
+\end{itemize}
+
+}
+
+\begin{frame}[fragile]
+\frametitle{Do try this at home!}
+
+You can actually play with such grammars.
+\begin{itemize}
+\item Go to \url{https://swish.swi-prolog.org/}.
+\item Click ``Program''.
+\item Enter:
+\begin{verbatim}
+s --> np, v, np, np.
+np --> det, n.
+np --> [er].
+det --> [das].
+det --> [dem].
+n --> [buch].
+n --> [kind].
+v --> [gibt].
+\end{verbatim}
+\item Type in the following into the right lower box: \texttt{s([er,gibt,das,buch,dem,kind],[]).}
+\item If there appears a ``true'' in the box above this box, celebrate.
+\end{itemize}
+
+\end{frame}
+
+\frame{
+\frametitle{A generative grammar}
+
+\begin{itemize}
+\item The grammar you just entered can generate sentences.
+\pause
+\item You may test which sentences it generates by typing in:
+\texttt{s([X],[]),print(X),nl,fail.}
+
+\pause
+\item \texttt{s([X],[])} asks Prolog to come up with an X that is an ``s''.
+\pause
+\item \texttt{print(X),nl} prints the X and a newline and
+\pause
+\item \texttt{fail} tells Prolog that we are not happy and that it should try again.
+\pause
+\item It keeps trying till there are no further solutions and then fails.
+\pause
+\item Some grammars generate infinitely many Xes. So this process would never end (unless the
+  computer runs out of memory \ldots).
+
+\end{itemize}
+
+}
+
+% geht hier nicht, weil das von anderen eingebunden wird
+%\exewidth{\exnrfont(12)}
+
+\frame{
+\frametitle{Subject verb agreement (I)}
+
+
+\begin{itemize}
+\item Agreement in person (1, 2, 3) and number (sg, pl)
+\eal
+\ex Ich schlafe. (1, sg)
+\ex Du schläfst.  (2, sg)
+\ex Er schläft.  (3, sg)
+\ex Wir schlafen. (1, pl)
+\ex Ihr schlaft.  (2, pl)
+\ex Sie schlafen. (3,pl)
+\zl
+\item How can we express this in rules?
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Subject verb agreement (II)}
+
+\begin{itemize}
+\item We make the symbols more informative.\\
+      Instead of S $\to$ NP NP NP V we use:\\[2ex]
+\begin{tabular}{@{}l@{ }l}
+S  & $\to$ NP\_1\_sg NP NP V\_1\_sg\\
+S  & $\to$ NP\_2\_sg NP NP V\_2\_sg\\
+S  & $\to$ NP\_3\_sg NP NP V\_3\_sg\\
+S  & $\to$ NP\_1\_pl NP NP V\_1\_pl\\
+S  & $\to$ NP\_2\_pl NP NP V\_2\_pl\\
+S  & $\to$ NP\_3\_pl NP NP V\_3\_pl\\
+\end{tabular}
+
+\item six symbols for nominal phrases, six for verbs
+\item six rules instead of one
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Case assignment by the verb}
+
+\begin{itemize}
+\item Case must be part of the symbols used in the rules:
+\begin{tabular}{@{}l@{ }l}
+S  & $\to$ NP\_1\_sg\_nom NP\_dat NP\_acc V\_1\_sg\_ditransitiv\\
+S  & $\to$ NP\_2\_sg\_nom NP\_dat NP\_acc V\_2\_sg\_ditransitiv\\
+S  & $\to$ NP\_3\_sg\_nom NP\_dat NP\_acc V\_3\_sg\_ditransitiv\\
+S  & $\to$ NP\_1\_pl\_nom NP\_dat NP\_acc V\_1\_pl\_ditransitiv\\
+S  & $\to$ NP\_2\_pl\_nom NP\_dat NP\_acc V\_2\_pl\_ditransitiv\\
+S  & $\to$ NP\_3\_pl\_nom NP\_dat NP\_acc V\_3\_pl\_ditransitiv\\
+\end{tabular}
+\item 3 * 2 * 4 = 24 new categories for NPs in total
+\item 3 * 2 * x  categories for V (x = number of attested valence patterns)
+\end{itemize}
+
+}
+
+
+\frame[shrink=15]{
+\frametitle{Determinator noun agreement}
+
+\begin{itemize}
+\item There is agreement in gender (fem, mas, neu), number (sg, pl) and\\
+      case (nom, gen, dat, acc)
+\eal
+\ex der Mann `the man', die Frau `the woman', das Kind `the child'  (gender)
+\ex das Buch `the book', die Bücher `the books' (number)
+\ex des Buches `the.\GEN book.\GEN', dem Buch `the.\DAT book' (case)
+\zl
+\pause
+\item instead of NP $\to$ Det N we have\\[2ex]
+\resizebox{\linewidth}{!}{
+\begin{tabular}{@{}l@{ }l@{\hspace{4mm}}l@{ }l}
+NP\_3\_sg\_nom  & $\to$ Det\_fem\_sg\_nom N\_fem\_sg\_nom & NP\_gen  & $\to$ Det\_fem\_sg\_gen N\_fem\_sg\_gen\\
+NP\_3\_sg\_nom  & $\to$ Det\_mas\_sg\_nom N\_mas\_sg\_nom & NP\_gen  & $\to$ Det\_mas\_sg\_gen N\_mas\_sg\_gen\\
+NP\_3\_sg\_nom  & $\to$ Det\_neu\_sg\_nom N\_neu\_sg\_nom & NP\_gen  & $\to$ Det\_neu\_sg\_gen N\_neu\_sg\_gen\\
+NP\_3\_pl\_nom  & $\to$ Det\_fem\_pl\_nom N\_fem\_pl\_nom & NP\_gen  & $\to$ Det\_fem\_pl\_gen N\_fem\_pl\_gen\\
+NP\_3\_pl\_nom  & $\to$ Det\_mas\_pl\_nom N\_mas\_pl\_nom & NP\_gen  & $\to$ Det\_mas\_pl\_gen N\_mas\_pl\_gen\\
+NP\_3\_pl\_nom  & $\to$ Det\_neu\_pl\_nom N\_neu\_pl\_nom & NP\_gen  & $\to$ Det\_neu\_pl\_gen N\_neu\_pl\_gen\\[2mm]
+
+
+\ldots & \hspaceThis{$\to$} dative                                                            & \ldots & \hspaceThis{$\to$} accusative\\[2mm]
+\end{tabular}
+}
+\item 24 symbols for determiners, 24 symbols for nouns
+\item 24 rules instead of one
+\end{itemize}
+}
+
+\subsection{Using features to augment phrase structure grammars}
+
+
+\frame{
+
+\frametitle{Problems of simple phrase structure grammars}
+
+\begin{itemize}
+\item Gernalisations are not captured.
+\item neither in rules nor in category symbols
+      \begin{itemize}
+      \item Where can an NP or an NP\_nom be placed?\\
+            The only question we can ask is: Where can I put an NP\_3\_sg\_nom?
+      \item Commonalities between rules are not obvous.
+      \end{itemize}
+\pause
+\item Solution: features with values and identity of values\\
+      Category symbol: NP feature: Per, Num, Cas, \ldots\\
+
+We get rules like the following:\\
+
+\begin{tabular}{@{}l@{ }l}
+NP(3,sg,nom)  & $\to$ Det(fem,sg,nom) N(fem,sg,nom)\\
+NP(3,sg,nom)  & $\to$ Det(mas,sg,nom) N(mas,sg,nom)\\
+\end{tabular}
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Features and rule schemata (I)}
+
+\begin{itemize}
+\item Rules with specific values can be generalized to rule schemata:
+
+\medskip
+
+\begin{tabular}{@{}l@{ }l@{ }l}
+NP(\blau<3>{3},\blau<2>{Num},\blau<2>{Cas}) & $\to$ & Det(\gruen<2>{Gen},\blau<2>{Num},\blau<2>{Cas}) N(\gruen<2>{Gen},\blau<2>{Num},\blau<2>{Cas})\\
+\end{tabular}
+\pause
+\item Actual Gen, Num and Cas values do not matter\\
+      as long as they are identical.
+\pause
+\item The value of the person feature (first slot in NP(3,Num,Cas))\\
+      is fixed by the rule: 3.
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Features and rule schemata (II)}
+
+\begin{itemize}
+\item Rules with specific values can be generalized into rule schemata:
+
+\medskip
+\begin{tabular}{@{}l@{ }l@{ }l}
+NP({3},{Num},{Cas}) & $\to$ & Det(Gen,{Num},{Cas}) N(Gen,{Num},{Cas})\\
+S  & $\to$ & NP(\blau<1>{Per1},\blau<1>{Num1},\blau<3>{nom})\\
+   &       & NP(Per2,Num2,\blau<3>{dat})\\
+   &       & NP(Per3,Num3,\blau<3>{acc})\\
+   &       & V(\blau<1>{Per1},\blau<1>{Num1})\\\\
+\end{tabular}
+\item Per1 and Num1 value of verb and subject are identical.
+\pause
+\item The values of other NPs do not matter.\\
+      (Notation for irrelevant values: `\_')
+\pause
+\item Case values of the NPs are fixed in the second rule.
+\end{itemize}
+
+}
+
+%% Kommt dann in Theorie anders, deshalb hier raus
+%% \frame{
+
+%% \small
+%% \frametitle{Bündelung von Merkmalen}
+
+%% \begin{itemize}
+%% \item Kann es Regeln geben, in denen nur der Per-Wert oder nur der Num-Wert identisch sein muß?\\[2ex]
+
+%% \begin{tabular}{@{}l@{ }l@{ }l}
+%% S  & $\to$ & NP(Per1,Num1,nom)\\
+%%    &       & NP(Per2,Num2,dat)\\
+%%    &       & NP(Per3,Num3,akk)\\
+%%    &       & V(Per1,Num1)\\\\
+%% \end{tabular}
+%% \pause
+%% \item Gruppierung von Information $\to$ stärkere Generalisierung, stärkere Aussage\\[2ex]
+
+%% \begin{tabular}{@{}l@{ }l@{ }l}
+%% S  & $\to$ & NP(Agr1,nom)\\
+%%    &       & NP(Agr2,dat)\\
+%%    &       & NP(Agr3,akk)\\
+%%    &       & V(Agr1)\\\\
+%% \end{tabular}
+
+%% wobei Agr ein Merkmal mit komplexen Wert ist: \zb agr(1,sg)
+%% \end{itemize}
+
+
+%% }
+
+
+\section{Home work}
+
+\frame[shrink=5]{
+\frametitle{Home work}
+
+\begin{enumerate}
+\item Write a phrase structure grammar that can analyze at least the sentences in (\mex{1})
+      but excludes the sequences in (\mex{2}).
+      \eal
+      \ex[]{
+      \gll Der Mann hilft dem Kind.\\
+           the man  helps the child\\
+      }
+      \ex[]{
+      \gll Er gibt ihr das Buch.\\
+           he gives her the book\\
+      }
+      \ex[]{
+      \gll Er wartet auf ein Wunder.\\
+           he waits  for a   miracle\\
+      }
+%       \ex[]{
+%       Er wartet neben dem Bushäuschen auf ein Wunder.
+%       }
+      \zl
+      \eal
+      \ex[*]{
+      \gll Der Mann hilft er.\\
+           the man  helps he\\
+      }
+      \ex[*]{
+      \gll Er gibt ihr den Buch.\\
+           he gives her the book\\
+      }
+      \zl
+      The result should be one grammar for all grammatical sentences, not one for each sentence.
+
+      You may use Prolog to make sure your grammar actually works:
+      \url{https://swish.swi-prolog.org} 
+      See \url{https://en.wikipedia.org/wiki/Definite_clause_grammar} for the syntax of Definite
+      Clause Grammars.
+\end{enumerate}
+
+}
+
+
+
+%      <!-- Local IspellDict: en_US-w_accents -->

@@ -25,10 +25,14 @@
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[xcolor=dvipsnames,blackandwhite,slidestop,10pt,handout]{beamer}
 
 
-\usepackage{hu-beamer-includes,beamer-movement}
+\documentclass[blackandwhite,slidestop,10pt,handout]{beamer}
+
+
+\usepackage{hu-beamer-includes-pdflatex,beamer-movement}
+
+\usepackage{pstricks}
 
 %\logo{\includegraphics[height=1cm]{fu_dgm_logo}}
 %\titlegraphic{\includegraphics[height=3cm]{fu_dgm}}
@@ -44,11 +48,14 @@
 
 \includeonly{formgram-psg}
 %\includeonly{formgram-xbar}
+%\includeonly{formgram-psg,formgram-xbar}
+%\includeonly{formgram-xbar}
 %\includeonly{formgram-gb}
 
-%\includeonly{formgram-cg}
 
-\input hu-formgram-include.tex
+\input formgram-include.tex
+
+
 
 
 
