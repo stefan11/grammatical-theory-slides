@@ -159,30 +159,27 @@ Relationships like in family trees
 \psset{xunit=5mm,yunit=5mm,nodesep=8pt}
 \hspace{1cm}
 \begin{pspicture}(0,0)(7.4,7.4)
-\rput(3,7){\rnode{xp}{A}}
-\rput(1,4){\rnode{up}{B}}\rput(5,4){\rnode{xs1}{C}}
-\rput(5,1){\rnode{vp}{D}}
+\rput(3,7){\rnode{a}{A}}
+\rput(1,4){\rnode{b}{B}}\rput(5,4){\rnode{c}{C}}
+\rput(5,1){\rnode{d}{D}}
 
 \psset{angleA=-90,angleB=90,arm=0pt}
-\ncdiag{xs1}{xs2}%
-\ncdiag{xs2}{wp}\ncdiag{xs2}{x}%
-\ncdiag{wp}{yp}\ncdiag{wp}{ws}%
 
 \alt<2>{
 \mode<beamer>{
 \psset{linecolor=red}
 }
-\ncdiag{->}{xp}{up}\ncdiag{->}{xp}{xs1}
+\ncdiag{->}{a}{b}\ncdiag{->}{a}{c}
 }{
-\ncdiag{xp}{up}\ncdiag{xp}{xs1}%
+\ncdiag{a}{b}\ncdiag{a}{c}%
 }
 \alt<2,4>{
 \mode<beamer>{
 \psset{linecolor=red}
 }
-\ncdiag{->}{xs1}{vp}
+\ncdiag{->}{c}{d}
 }{
-\ncdiag{xs1}{vp}
+\ncdiag{c}{d}
 }
 %\psgrid
 \end{pspicture}
@@ -203,37 +200,30 @@ if there is a line from A to B that exclusively goes downwards.
 }
 
 \frame{
-
 \frametitle{Immediate dominance}
 
 \psset{xunit=5mm,yunit=5mm,nodesep=8pt}
 \hspace{1cm}
 \begin{pspicture}(0,0)(7.4,7.4)
-\rput(3,7){\rnode{xp}{A}}
-\rput(1,4){\rnode{up}{B}}\rput(5,4){\rnode{xs1}{C}}
-\rput(5,1){\rnode{vp}{D}}
+\rput(3,7){\rnode{a}{A}}
+\rput(1,4){\rnode{b}{B}}\rput(5,4){\rnode{c}{C}}
+\rput(5,1){\rnode{d}{D}}
 
 \psset{angleA=-90,angleB=90,arm=0pt}
-\ncdiag{xs1}{xs2}%
-\ncdiag{xs2}{wp}\ncdiag{xs2}{x}%
-\ncdiag{wp}{yp}\ncdiag{wp}{ws}%
+
 
 \alt<2>{
-\mode<beamer>{
+{\mode<beamer>{
 \psset{linecolor=red}
 }
-\ncdiag{->}{xp}{up}\ncdiag{->}{xp}{xs1}
-}{
-\ncdiag{xp}{up}\ncdiag{xp}{xs1}%
-}
+\ncdiag{->}{a}{b}\ncdiag{->}{a}{c}}
+}{\ncdiag{a}{b}\ncdiag{a}{c}}
 \alt<4>{
 \mode<beamer>{
 \psset{linecolor=red}
 }
-\ncdiag{->}{xs1}{vp}
-}{
-\ncdiag{->}{xs1}{vp}
-}
+\ncdiag{->}{c}{d}
+}{\ncdiag{c}{d}}
 %\psgrid
 \end{pspicture}
 \hspace{1cm}\raisebox{3cm}{\begin{tabular}[t]{@{}l@{}}
