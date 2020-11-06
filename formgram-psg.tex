@@ -220,11 +220,11 @@ if there is a line from A to B that exclusively goes downwards.
 
 \alt<2>{
 \mode<beamer>{
-\ncdiag[linecolor=red]{->}{xp}{up}\ncdiag[linecolor=red]{->}{xp}{xs1}
+\psset{linecolor=red}
 }
-%\ncline{->}{xs1}{vp}
+\ncdiag{->}{xp}{up}\ncdiag{->}{xp}{xs1}
 }{
-\ncdiag{->}{xp}{up}\ncdiag{->}{xp}{xs1}%
+\ncdiag{xp}{up}\ncdiag{xp}{xs1}%
 }
 \alt<4>{
 \mode<beamer>{
