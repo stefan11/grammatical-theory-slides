@@ -1,5 +1,6 @@
+%% -*- coding:utf-8 -*-
 
-\section{Phrase structure grammars}
+\section{Phrase structure grammars and \xbar Theory}
 
 \subtitle{Phrase structure grammars}
 
@@ -8,7 +9,15 @@
 
 
 
-\subsection{Phrase structure}
+\subsection{Symbols and rewrite rules}
+
+\frame{
+\frametitle{Reading material}
+
+Please read \citew[Section~2.1--2.2]{MuellerGT-Eng}.
+
+
+}
 
 \frame[shrink=2]{
 \frametitle{Phrase structure}
@@ -71,7 +80,7 @@ Sometimes bracketed strings are used to safe space:\\
 \handoutspace
 }
 
-\subsection{Terminology}
+\subsubsection{Terminology}
 
 
 \frame{
@@ -257,7 +266,7 @@ A dominates B and there is no node C between A and B.
 
 
 
-\subsection{A sample grammar}
+\subsubsection{A sample grammar}
 
 
 \frame[shrink=8]{
@@ -297,43 +306,6 @@ NP            &              & NP            &              & NP       & \highli
 \end{tabular}
 
 \vfill
-}
-
-\frame{
-\frametitle{Sentences described by the grammar}
-
-\begin{itemize}
-\item The grammar is not precise enough:\\
-\begin{tabular}{@{}l@{ }l}
-NP & $\to$ Det N\\
-S  & $\to$ NP NP NP V\\
-\end{tabular}
-\eal
-\ex[]{
-\gll er das Buch dem Kind  gibt\\
-     he the book the child gives\\
-}
-\ex[*]{
-\gll ich das Buch dem Kind gibt\\
-     I   the book the child give\\
-\pause\\
-(Subject verb agreement \emph{ich}, \emph{gibt})}
-\pause
-\ex[*]{
-\gll er das Buch das Kind gibt\\
-     he the book the child gives\\\pause\\
-(case requirement of the verb, \emph{gibt} requires dative)
-}
-\pause
-\ex[*]{
-\gll er den Buch dem Kind gibt\\
-     he the book the child gives\\
-\pause\\
-(determinator noun agreement \emph{den}, \emph{Buch})
-}
-\zl
-\end{itemize}
-
 }
 
 \begin{frame}[fragile]
@@ -384,6 +356,45 @@ v --> [gibt].
 \end{itemize}
 
 }
+
+
+\frame{
+\frametitle{Sentences described by the grammar}
+
+\begin{itemize}
+\item The grammar is not precise enough (it \emph{overgenerates}):\\
+\begin{tabular}{@{}l@{ }l}
+NP & $\to$ Det N\\
+S  & $\to$ NP NP NP V\\
+\end{tabular}
+\eal
+\ex[]{
+\gll er das Buch dem Kind  gibt\\
+     he the book the child gives\\
+}
+\ex[*]{
+\gll ich das Buch dem Kind gibt\\
+     I   the book the child give\\
+\pause\\
+(Subject verb agreement \emph{ich}, \emph{gibt})}
+\pause
+\ex[*]{
+\gll er das Buch das Kind gibt\\
+     he the book the child gives\\\pause\\
+(case requirement of the verb, \emph{gibt} requires dative)
+}
+\pause
+\ex[*]{
+\gll er den Buch dem Kind gibt\\
+     he the book the child gives\\
+\pause\\
+(determinator noun agreement \emph{den}, \emph{Buch})
+}
+\zl
+\end{itemize}
+
+}
+
 
 % geht hier nicht, weil das von anderen eingebunden wird
 %\exewidth{\exnrfont(12)}
@@ -479,7 +490,7 @@ NP\_3\_pl\_nom  & $\to$ Det\_neu\_pl\_nom N\_neu\_pl\_nom & NP\_gen  & $\to$ Det
 \end{itemize}
 }
 
-\subsection{Using features to augment phrase structure grammars}
+\subsection{Expanding PSG with features}
 
 
 \frame{
@@ -585,7 +596,7 @@ S  & $\to$ & NP(\blau<1>{Per1},\blau<1>{Num1},\blau<3>{nom})\\
 %% }
 
 
-\subsection{Homework}
+\subsubsection{Homework}
 
 \frame[shrink=15]{
 \frametitle{Homework}

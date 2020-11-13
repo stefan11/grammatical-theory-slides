@@ -28,6 +28,22 @@
 
 \usepackage{fontspec}
 
+    \setmainfont[
+    Ligatures={TeX,Common},
+%     Path=\fontpath,
+    PunctuationSpace=0,
+    Numbers={Proportional},
+    BoldFont = LibertinusSerif-Semibold.otf,
+    ItalicFont = LibertinusSerif-Italic.otf,
+    BoldItalicFont = LibertinusSerif-SemiboldItalic.otf,
+    BoldSlantedFont = LibertinusSerif-Semibold.otf,
+    SlantedFont    = LibertinusSerif-Regular.otf,
+    SlantedFeatures = {FakeSlant=0.25},
+    BoldSlantedFeatures = {FakeSlant=0.25},
+    SmallCapsFeatures = {FakeSlant=0},
+    ]{LibertinusSerif-Regular.otf}
+
+
 
 %\logo{\includegraphics[height=1cm]{fu_dgm_logo}}
 %\titlegraphic{\includegraphics[height=3cm]{identity-grammatik-deutsch-chinesisch-persisch-hindi}}
@@ -60,8 +76,8 @@
 \usepackage{article-ex,
 langsci-lgr,oneline}
 
-%\usepackage{my-gb4e-slides}
-\usepackage{langsci-gb4e}
+\usepackage{my-gb4e-slides}
+%\usepackage{langsci-gb4e}
 
 %\usepackage{forest-v105}
 \usepackage{langsci-forest-setup}
@@ -559,7 +575,7 @@ St.Mueller@hu-berlin.de}
 
 
 
-\newcommand{\frametitlefit}[1]{\frametitle{\oneline{#1}}}
+\newcommand{\frametitlefit}[1]{\frametitle{\onelinetextwidthhack{#1}}}
 
 
 \theoremstyle{example}

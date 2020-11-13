@@ -1,0 +1,1775 @@
+%% -*- coding:utf-8 -*-
+
+\subtitle{Government \& Binding}
+
+\section{Government \& Binding (GB)}
+
+
+\huberlintitlepage[22pt]
+
+
+\outline{
+
+% \begin{itemize}
+% \item Begriffe
+% \item Phrasenstrukturgrammatiken
+% \item Government \& Binding (GB)
+% \item Generalisierte Phrasenstrukturgrammatik (GPSG)
+% \item Lexikalisch-Funktionale Grammatik (LFG)
+% %\item Lexical Mapping Theory (LMT)
+% %\item PATR
+% \item Kategorialgrammatik (CG)
+% \item Kopfgesteuerte Phrasenstrukturgrammatik (HPSG)
+% %\item Konstruktionsgrammatik (CxG)
+% \item Baumadjunktionsgrammatik (TAG)
+% \end{itemize}
+
+\tableofcontents
+}
+
+\frame{
+\frametitle{Reading material}
+
+\citew[Section~3.1--3.3]{MuellerGT-Eng}
+
+
+}
+
+
+\subsection{History and motivation}
+
+
+\frame{
+\frametitle{Phrase structure grammars and natural language}
+
+Chomsky: generlizations cannot be captured with PSGs (\eg active/passive alternations) $\to$
+      transformations:
+
+\begin{table}[H]
+\begin{tabular}{@{}l@{~}l@{~}l@{~}l}
+NP& V &NP &$\to$ 3 [\sub{AUX} be] 2en [\sub{PP} [\sub{P} by] 1]\\
+1 & 2 &3\\
+\end{tabular}
+\end{table}
+
+\eal
+\ex John loves Mary.
+\ex Mary is loved by John.
+\zl
+
+A tree with the sequence of symbols on the left-hand site is mapped to a tree with the sequence of
+symbols on the right-hand side.
+
+}
+
+
+\frame{
+\frametitle{Transformation of an active tree into a passive tree}
+
+\vfill
+
+%\oneline{%
+\hfill
+\begin{forest}
+%sm edges
+[S, for tree={parent anchor=south, child anchor=north}
+  [NP [Kim] ]
+  [VP
+    [V [loves] ]
+    [NP [Sandy] ] 
+  ]]
+\end{forest}
+\hspace{1em}
+\raisebox{6\baselineskip}{$\leadsto$}
+\hspace{1em}
+  \begin{forest}
+  %sm edges
+  [S, for tree={parent anchor=south, child anchor=north}
+  	[NP[Sandy]]
+	[VP
+	[Aux[is, tier=word]]
+	[V[loved, tier=word]]
+	[PP
+	[P[by, tier=word]]
+	[NP[Kim, tier=word]]]]]
+\end{forest}
+\hfill\mbox{}
+%}
+
+\vfill
+
+\begin{tabular}{@{}l@{~}l@{~}l@{~}l}
+NP& V &NP &$\to$ 3 [\sub{AUX} be] 2en [\sub{PP} [\sub{P} by] 1]\\
+1 & 2 &3\\
+\end{tabular}
+
+\vfill
+
+}
+
+
+\frame{
+\frametitle{Complexity, transformations and natural languages}
+
+\small
+\begin{itemize}
+\item There are different complexity levels for phrase structure grammars.\\(Chomsky Hierarchy, Type 3--0)
+\pause
+\item What we saw so far are so called context free grammars. They are of type 2.
+\pause
+\item Maximal level (type 0) is too powerful for human langauges.\\
+$\to$ Researchers wanted to be more restrictive.
+\pause
+\item Grammars with general transformations correspond to PSGs with type 0 complexity \citep{PR73a-u}.
+\pause
+\item Transformations are not sufficiently restricted,\\Interactions are not tractable,\\
+      There have been problems with transformations deleting material (see \citew{Klenk2003a})
+\pause
+\item $\to$ new theoretical approaches, Government \& Binding \citep{Chomsky81a}: restrictions for the form of grammar
+  rules, elements can be connected to the position in a tree they were coming from, general
+  principles to restrict the power of transformations
+
+\end{itemize}
+
+}
+
+\settowidth\jamwidth{(Japanese)}
+\frame{
+\frametitlefit{Hypothesis regarding language acquisition: Principles \& Paramaters}
+
+\begin{itemize}
+\item<+-> Some of our linguistics knowledge is innate.\\
+          (Not all linguists agree with this assumption! Discussion: \citew{MuellerGT-Eng})
+\item<+-> Principles all linguistic structures have to obey
+\item<+-> These principles are parametrized $\to$ there is choice\\
+      A parameter may be set differently for different languages.
+
+\medskip
+\pause
+      Example: \\
+
+Principle: A head is placed before or after its complements depending on the value of the parameter \textsc{position}.
+
+
+\medskip
+%% \begin{tabular}[t]{@{}l@{ }l@{}}
+%%                 Englisch  &$\to$ Verb steht vor Komplementen\\
+%%                 Japanisch &$\to$ Verb steht nach Komplementen\\
+%%                 \end{tabular}
+
+
+\eal
+\ex  be showing pictures of himself \jambox{(English)}
+\ex
+\gll zibun         -no syasin-o mise-te iru\\
+     \textsc{self} of  picture  showing be\\\jambox{(Japanese)}
+\zl
+
+\end{itemize}
+
+}
+
+\lecture{T-Modell}{t-modell-lec}
+
+\subsection{The T-model}
+
+
+
+\frame{
+\frametitle{Deep and Surface Structure}
+
+\begin{itemize}[<+->]
+\item Chomsky claimed that simple PSGs cannot capture certain regularities.\\
+      \eg the relation between active and passive sentences.
+
+\item Therefore he assumes an underlying structure,\\
+      the so-called \blaubf{Deep Structure}.
+
+\item A structure can be mapped onto another structure.
+
+Parts may be deleted or moved to other positions in trees in such mappings.
+
+As a result of such transformations a new structure is derived, the so-called \blaubf{Surface Structure}.
+
+\medskip
+\begin{tabular}{@{}l@{ = }l@{}}
+\emph{Surface Structure} & S Structure\\
+\emph{Deep Structure} & D Structure\\
+\end{tabular}
+\end{itemize}
+
+}
+
+%\beamertemplatebackfindforwardnavigationsymbolshorizontal
+
+
+\frame[label=t-modell]{
+\frametitle{The T-model}
+
+
+%% \centerline{%
+%% \resizebox{0.8\linewidth}{!}{
+%% \begin{tabular}{@{}ccc@{}}
+%% \xbar-Theorie der \\
+%% \node{psr}{Phrasenstrukturregeln} & & \hyperlink{lexikon}{\node{lex}{Lexikon}}\\[6ex]
+%% &\hyperlink{ds}{\node{ds}{D-Struktur}}\\[2ex]
+%% \mc{3}{@{}c@{}}{\hyperlink{move-alpha}{move-$\alpha$}}\\[4ex]
+%% &\hyperlink{ss}{\node{ss}{S-Struktur}}\\[6ex]
+%% \node{tilg}{Tilgungsregeln},             && \node{ana}{Regeln des anaphorischen Bezugs,}\\
+%% \node{filter}{Filter, phonol.\ Regeln}  && \node{quant}{der Quantifizierung und der Kontrolle}\\[6ex]
+%% \hyperlink{pf}{\node{pf}{Phonetische}}             && \hyperlink{lf}{\node{lf}{Logische}}\\
+%% \hyperlink{pf}{Form (PF)}               && \hyperlink{lf}{Form (LF)}\\
+%% \end{tabular}
+%% \anodeconnect{psr}{ds}\anodeconnect{lex}{ds}
+%% \anodeconnect{ds}{ss}
+%% \anodeconnect{ss}{tilg}\anodeconnect{ss}{ana}
+%% \anodeconnect{filter}{pf}\anodeconnect{quant}{lf}
+%% }}
+
+\vfill
+\centerline{%
+\begin{forest}
+for tree = {edge={->},l=4\baselineskip}
+[D-structure
+     [S-structure,edge label={node[midway,right]{move $\alpha$}} 
+            [Deletion rules{,}\\Filter{,} phonol.\ rules
+                    [Phonetic\\Form (PF)]]
+            [Anaphoric rules{,}\\rules of quantification and control
+                    [Logical\\Form (LF)]]]]
+\end{forest}}
+
+\vfill
+
+}
+
+
+
+\gotobuttonleft{t-modell}{T-model}
+
+\frame[label=lexikon]{
+\frametitle{The T-model: The lexicon}
+\showsingleitemframe
+\savespace
+\begin{itemize}
+\item<+> Contains a lexical entry for every word with information about:
+\begin{itemize}\itemsep0pt
+\item morphophonological structure
+\item syntactic features
+\item valence frame
+\item \ldots
+\end{itemize}
+Contains list for word forms and morphemes and morphology component
+
+\item<+> The lexicon is the interface between syntax and semantic interpretation of word forms.
+
+\item<+> Vocabulary is not determined by UG (not innate),\\
+just structural conditions are determined by UG.\\
+(assumption not shared by all linguists)
+
+\item<+> Morphosyntactic features (\eg gender) are not pre-determined:\\
+Universal grammar provides a toolbox (claim not falsifiable).
+% und setzt einige Minimalanforderungen.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{The T modell: D Structure, Move-$\alpha$ and S Structurr (I)}
+
+\begin{itemize}
+\item<+-> Phrase structure $\to$\\
+We can describe relations between constituents.
+
+\item<+-> A certain format for rules is given (\xbar-Schema).
+
+Lexicon + structures of \xbar syntax = base for D Structure
+
+\hypertarget{ds}{D Structure} = syntactic representation of valence frames of particular words as determined in the lexicon.
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{The T-modell: D Structure, Move-$\alpha$ and S Structure (II)}
+
+\begin{itemize}
+\item<+-> constituents may be appearing at different places at the surface than the one determined
+  by the valence frame:
+\eal
+\ex 
+\gll {}[dass] der Mann dem Kind das Buch gibt\\
+     {}\spacebr{}that the.\NOM{} man the.\DAT{} woman the.\ACC{} book gives\\
+\glt `that the man gives the woman the book'
+\ex 
+\gll Gibt der Mann dem Kind das Buch?\\
+	 gives the.\NOM{} man the.\DAT{} woman the.\ACC{} book\\
+\glt `Does the man give the woman the book?'
+\ex 
+\gll Der Mann gibt dem Kind das Buch.\\
+	 the.\NOM{} man gives the.\DAT{} woman the.\ACC{} book\\
+\glt `The man gives the woman the book.'
+\zl
+\item<+-> therefore transformational rules for reordering:\\
+\hypertarget{move-alpha}{Move $\alpha$} = "`Move anything anywhere!"'
+
+What exactly can be moved where and for which reason is determined
+by principles.
+
+\end{itemize}
+
+
+}
+
+\frame[label=ss,shrink=5]{
+\frametitle{The T-modell: D Structure, Move-$\alpha$ and S Structure (III)}
+
+\begin{itemize}
+\item Relations between predicates and their arguments as determined by lexical entries must be
+  recoverable on all representational levels for semantic interpretation.
+
+\item
+$\to$ Starting place of moved elements is marked with traces.
+
+\eal
+\ex 
+\gll {}[dass] der Mann dem Kind das Buch gibt\\
+	 {}\spacebr{}that the man the woman the book gives\\
+\glt `that the man gives the woman the book'
+\ex 
+\gll Gibt$_i$ der Mann dem Kind das Buch \_$_i$?\\
+	 gives the man the woman the book\\
+\glt `Does the man give the woman the book?'
+\ex 
+\gll {}[Der Mann]$_j$ gibt$_i$ \_$_j$ dem Kind das Buch \_$_i$.\\
+	 {}\spacebr{}the man gives {} the woman the book\\
+\glt `The man gives the woman the book.'
+\zl
+
+Different traces are marked by indices.\\
+Sometimes also \emph{e} for empty element and \emph{t} for trace.
+
+\item
+\hypertarget{ss}{S Structure} is a surface"=like structure but should not be equated with the structure of actual utterances.
+\end{itemize}
+}
+
+
+\frame[label=pf]{
+\frametitle{The T-model: Phonetic Form}
+
+PF is the phonetic form of a sentence, the string of phonemes that are actually pronounced. 
+
+The mapping from S Structure to PF incorporates the phonological laws.
+
+
+\pause
+Example: \emph{wanna} contraction
+
+\eal
+\ex The students want to visit Paris.
+\ex The students wanna visit Paris.
+\zl
+The contratcion in (\mex{0}) is licenced by the optional rule in (\mex{1}):
+\ea
+want + to $\to$ wanna
+\z
+
+
+}
+
+\frame[label=lf]{
+\frametitle{The T-model: Logical Form (I)}
+
+\begin{itemize}
+\item Logical Form is a syntactic level mediating between S Structure and semantic interpretation of
+  a sentence.
+
+anaphoric reference (binding): what can pronouns refer to?
+\eal
+\ex 
+\gll Peter kauft einen Tisch. Er gefällt ihm.\\
+	 Peter buys a table(\mas) he likes him\\
+\glt `Peter is buying a table. He likes it/him.'
+\ex 
+\gll Peter kauft eine Tasche. Er gefällt ihm.\\
+	 Peter buys a bag(\fem) he likes him\\
+\glt `Peter is buying a bag. He likes it/him.'
+\ex 
+\gll Peter kauft eine Tasche. Er gefällt sich.\\
+	 Peter buys a bag(\fem) he likes himself\\
+\glt `Peter is buying a bag. He likes himself.'
+\zl
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{The T-model: Logical Form (II)}
+
+\begin{itemize}
+\item Quantification:
+\ea
+Every man loves a woman.
+\z
+$\forall x \exists y (man(x) \to (woman(y) \wedge love(x,y))$\\
+$\exists y \forall x (man(x) \to (woman(y) \wedge love(x,y))$
+
+\item Some accounts try to derive the readings via movement of quantifiers in trees \citep{May85a-u}.
+\end{itemize}
+
+
+
+}
+
+
+\frame{
+\frametitle{The T-model: Logical Form (III)}
+\smallframe
+
+Control theory:\\
+How is the semantic role of the subject of the infinitive filled?
+
+
+\eal
+\ex 
+\gll Der Professor schlägt dem Studenten vor, die Klausur noch mal zu~~~~~~ schreiben.\\
+     the professor suggests the student \textsc{part} the test once again to write\\
+\glt `The professor advises the student to take the test again.'
+\ex 
+\gll Der Professor schlägt dem Studenten vor, die Klausur nicht zu bewerten.\\
+	 the professor suggests the student \textsc{part} the test not to grade\\
+\glt `The professor suggests to the student not to grade the test.'
+\ex 
+\gll Der Professor schlägt dem Studenten vor, gemeinsam ins Kino zu gehen.\hspace{-3pt}\\
+	 the professor suggests the student \textsc{part} together into cinema to go\\
+\glt `The professor suggests to the student to go to the cinema together.'
+\zl
+
+}
+
+%\beamertemplatenavigationsymbolsempty 
+\mode<beamer>{\beamertemplatebackfindforwardnavigationsymbolshorizontal}
+
+\lecture{Lexicon}{lexicon}
+
+\subsection{The lexicon}
+
+\frame{
+\frametitle{Lexicon: Basic terminology (I)}
+
+\small
+\begin{itemize}
+\item meaning of words $\to$ combinatoric potential with certain semantic roles\\ (``acting person'' or ``affected thing'')
+
+Example: meaning representation of (\mex{1}a) is (\mex{1}b):
+\eal
+\ex Judit beats the grandmaster.
+\ex \relation{beat}(x,y)
+\zl
+\pause
+\item This is subsumed under the terms \alert{valency} and \alert{selection}.
+
+Note:\\
+Semantic valence may differ from syntactic valence! (see \citealp[Section~1.6]{MuellerGT-Eng})
+\pause
+\item Another term is \alert{subcategorization}:
+
+\emph{beat} is subcategorized for a subject and an object.
+
+The word \emph{subcategorize} somehow developed its own life:\\
+\emph{X subcategorizes for Y} is used for \emph{X selects Y}.
+\end{itemize}
+
+
+}
+
+
+\frame{
+\frametitle{Lexicon: Basic terminology (II)}
+\savespace
+\begin{itemize}
+\item \emph{beat} is also called the \blaubf{predicate}\\
+(since \relation{beat} is the logical predicate).
+
+\pause
+\item Subject and object are \alert{arguments} of the predicate.
+\pause
+\item Several terms for selectional requirement (some semantic, some syntactic, some
+  mixed):  
+\alert{argument structure}, \alert{valence frame}, \alert{subcategorization frame}, \alert{thematic grid}
+and \alert{theta"=grid} or \alert{$\theta$-grid}
+\pause
+\item \alert{Adjuncts} modify semantic predicates.\\
+If semantic aspects are discussed, the term is \alert{modifier}.\\
+Adjuncts are not listed as part of valence frames.
+\end{itemize}
+
+
+
+}
+
+
+
+\frame{
+\frametitle{The Theta"=Criterion}
+
+\label{theta-kriterium}%
+Arguments are placed into certain positions in the clause (argument positions).
+
+\alert{Theta"=Criterion} \citep[\page 36]{Chomsky81a}:
+\begin{itemize}
+\item Each theta"=role is assigned to exactly one argument position.
+\item Every phrase in an argument position receives exactly one theta"=role.
+\end{itemize}
+
+
+}
+
+
+\frame{
+\frametitle{External argument and internal arguments}
+
+\savespace
+\begin{itemize}[<+->]
+\item Arguments are ordered: there are higher- and lower"=ranked arguments
+
+\item The highest"=ranked argument of verbs and adjectives has a special status. 
+
+It is often (and always in some languages) realized in a position
+outside of the verb or adjective phrase, it is called the \alert{\hypertarget{ext-arg}{external argument}}. 
+
+
+\item The remaining arguments occur in positions inside of the VP or AP.
+
+Term: \alert{internal argument} or \alert{complement}
+
+\item For simple sentences: external argument = subject.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Theta roles}
+%\savespace
+
+\begin{itemize}
+\item<+->There are three classes of theta"=roles.
+\item<+->Class 1 is usually the highest role, class 3 the lowest.
+\begin{itemize}
+\item<+-> Class 1: \alert{agent} (acting individual), the cause of an action or feeling (stimulus), holder of a certain property
+\item<+-> Class 2: \alert{experiencer} (perceiving individual), the person profiting from something (\alert{beneficiary})
+(or the opposite: the person affected by some kind of damage), \alert{possessor} (owner or soon"=to"=be owner of something, or the opposite:
+someone who has lost or is lacking something) 
+\item<+-> Class 3: \alert{patient} (affected person or thing), \alert{theme}
+\end{itemize}
+
+\item<+-> Caution!\\
+Rather inconsistent assignment of roles by different authors. Proto-roles a la \citet{Dowty91a} may
+be the only feasible way to deal with the problem.
+\nocite{Gruber65a-u,Fillmore68,Fillmore71a-u,Jackendoff72a-u,Dowty91a}
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{A lexical entry (I)}
+
+Which information do we need to use a word appropriately?
+
+Answer: The mental lexicon contains \alert{lexical entries} with the specific properties of
+syntactic words needed to use that word grammatically.
+
+Some of these properties are the following:
+\begin{itemize}
+\item form
+\item meaning (semantics)
+\item grammatical features: syntactic word class $+$ morphosyntactic features   
+\item theta"=grid
+\end{itemize}
+
+
+
+}
+
+\frame{
+\frametitle{A lexical entry (II)}
+
+
+{\footnotesize
+\begin{tabular}[t]{|l|ll|}
+\hline
+form     & \emph{helf-} `help'&\\\hline
+semantics & \relation{helfen}     &\\\hline
+grammatical features  & \multicolumn{2}{l|}{verb}\\\hline\hline
+%                       & \multicolumn{2}{l|}{3rd person singular indicative present active}\\\hline\hline
+
+%\setlength{\arrayrulewidth}{9pt}
+theta"=grid                &&\\\hline
+theta"=roles                & \underline{agent} & beneficiary\\[2mm]\hline
+grammatical particularities &                   & dative\\\hline
+\end{tabular}
+}
+
+\bigskip
+Arguments are ordered according to their ranking:\\
+the highest argument is furthest left. 
+
+In this case, the highest argument is the external argument.
+
+The external argument is underlined.
+
+
+}
+
+
+
+\lecture{\xbar Theory}{x-bar}
+\subsection{\xbar Theory}
+
+
+
+
+\frame{
+
+\frametitle{Comment on distribution of \xbar rules}
+
+\xbar Theory is assumed in many other frameworks as well:\\
+\begin{itemize}
+%\item Government \& Binding (GB):\\\citew*{Chomsky93a}
+\item Lexical Functional Grammar (LFG):\\\citew{Bresnan82a-ed,Bresnan2001a,BF96a-ed,Berman2003a}
+\item Generalized Phrase Structure Grammar (GPSG):\\ \citew*{GKPS85a}
+\end{itemize}
+
+Sometimes different categories are assuemd.\\
+In particular so-called functional categories (\eg INFL).
+
+No assumptions about universality and innateness are made in most other theories.
+
+}
+
+\subsubsection{Heads}
+
+
+\frame{
+\frametitle{\xbar Theory: Heads}
+\pause
+Head determines the most important properties of a phrase.
+\eal
+\ex 
+\gll Kim \blaubf{schläft}.\\
+     Kim sleeps\\
+\ex 
+\gll Kim \blaubf{mag} Sandy.\\
+     Kim likes Sandy\\
+\ex 
+\gll \blaubf{in} diesem Haus\\
+     in this  house\\
+\ex 
+\gll ein \blaubf{Haus}\\
+     a blue house\\
+\zl
+
+
+}
+
+\subsubsection{Lexical categories}
+
+\frame{
+\frametitle{\xbar Theory: Lexical categories}
+\label{slide-lex-kat-gb}%
+
+categories are divided into lexical and functional categories\\ 
+($\approx$ correlates roughly with the difference between open and closed word classes)
+
+Lexical categories: 
+\begin{itemize}
+\item V = verb
+\item N = noun
+\item A = adjective
+\item P = preposition
+\item Adv = adverb
+\end{itemize}
+% Abney87a:64--65 Meinunger2000a:38--39
+
+}
+
+
+\frame{
+\frametitle{\xbar Theory: Lexical categories (cross classification)}
+%\label{slide-lex-kat-gb}%
+
+Attempt to use binary features to cross-classify lexical categories:
+
+\bigskip
+
+\centerline{\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}\hline
+ & $-$ V & + V \\\hline
+$-$ N & P = [ $-$ N, $-$ V] &  V = [ $-$ N, + V] \\\hline
+  + N & N = [+ N, $-$ V]    &  A = [+ N, + V]\\\hline
+\end{tabular}
+}
+\pause
+
+\bigskip
+Cross classification $\to$ simple way to refer to adjectives and verbs:\\
+all lexical categories that are [ + V] are either verbs or adjectives.
+
+Generalizations are possible \eg: [ + N] categories may bear case
+% [ $-$ N]-Kategorien können Kasus regieren (allerdings auch A)
+\medskip
+
+Note: Adverbs can be treated as prepositions not selecting an argument.\nocite{Chomsky70a}
+
+}
+
+
+
+\frame[shrink]{
+\frametitle{Head position dependent on the decomposed category?}
+
+Nouns and prepositions are head-initial:
+
+\eal
+\ex
+\gll \alert{für} Marie\\
+	 for Marie\\
+\ex 
+\gll \alert{Bild} von Maria\\
+	 picture of Maria\\
+\zl
+
+Adjectives and verbs are head-final:
+\eal
+\ex 
+\gll dem König \alert{treu}\\
+     the king loyal\\
+\glt `Loyal to the king'
+\ex 
+\gll der [dem Kind \alert{helfende}] Mann\\
+     the the child helping man\\
+\glt `the man helping the child'
+\ex 
+\gll dem Mann \alert{helfen}\\
+     the man help\\
+\glt `help the man'
+\zl
+
+
+}
+
+\frame{
+\frametitle{Head position dependent on the decomposed category? (II)}
+
+$\to$ \begin{tabular}[t]{@{}l@{}}
+      {}[+ V] $\equiv$ head-final\\
+      {}[$-$ V] $\equiv$ head-initial\\
+      \end{tabular}
+
+\pause
+Problem: postpositions (P = [$-$ V])
+\eal
+\ex
+\gll des Geldes \alert{wegen}\\
+     the money because\\
+\glt `because of the money'
+\ex 
+\gll die Nacht \alert{über}\\
+     the night during\\
+\glt `during the night'
+\zl
+\pause
+
+Assume a new feature with binary value?\\
+But then we would get four new categories in total.\\
+But we need only one.
+
+So, maybe this binary encoding is not such a good idea after all.
+
+
+
+}
+
+
+
+\subsubsection{Functional categories}
+
+\frame{
+\frametitle{\xbar Theory: Functional categories}
+
+No cross-classification:\bigskip
+
+
+\begin{tabular}{lp{\linewidth}@{}}
+C   & Complementizer (subordinating conjunctions such as \emph{dass} `that')\\
+I   & Finiteness (as well as Tense and Mood);\\
+    & also Infl in earlier work (inflection),\\
+    & T in more recent work (Tense) \\
+D   & Determiner (article, demonstrative)\\
+\end{tabular}
+
+
+}
+
+
+
+\subsubsection{Assumptions and rules}
+
+
+\frame{
+\frametitle{\xbar Theory: Assumptions}
+
+\begin{itemize}
+\item \alert{Endocentricity}:\\
+Every phrase has a head and every head is part of a phrase.
+
+more technically: every head projects to a phrase. 
+
+
+\pause
+\item \alert{Binary branching} (predominant assumption today):\nocite{Kayne84a-u}\\
+Non-terminal nodes are binary branching,\\
+that is, there are no teneray branching nodes or nodes with more daughters.
+\pause
+\item \alert{Non-Tangling Condition}:\\
+The branches of tree structures cannot cross.\\
+
+\end{itemize}
+
+}
+
+
+\subsection{German clause structure}
+
+%\if 0
+
+
+\subsubsection{Excursus: The English CP and IP}
+
+\frame[shrink]{
+\frametitlefit{The structure of the German clause: Excursus: The English CP and IP}
+
+
+\begin{itemize}
+\item In early work the following rules were assumed for English:
+\eal
+\ex S $\to$ NP VP
+\ex S $\to$ NP Infl VP
+\zl
+
+\begin{forest}
+sm edges
+[S
+  [NP
+  	[Ann,roof]]
+  [INFL
+  	[will]]
+  [VP
+  	[V$'$
+		[V$^0$[read]]
+		[NP[the newspaper, roof]]]]]
+\end{forest}
+
+\pause
+\item These rules do not adhere to the \xbar schema.
+
+
+\end{itemize}
+
+}
+
+
+
+\subsubsubsection{C and I}
+
+
+
+\subsubsubsection{The English IP and VP}
+
+\frame{
+\frametitle{Excursus: The English IP and VP: Auxiliaries}
+
+\savespace\small\parskip0pt
+
+\medskip
+\vfill
+
+\centerline{
+\scalebox{.9}{%
+\begin{forest}
+sm edges
+[IP
+  [NP
+  	[Ann,roof]]
+  [I$'$
+  	[I$^0$
+  		[will]]
+	[VP
+  	[V$'$
+		[V$^0$[read]]
+		[NP[the newspaper, roof]]]]]]
+\end{forest}}}
+
+
+\begin{itemize}
+\item Instead of earlier approaches: INFL as head, INFL selecting a VP as complement.
+\item Auxiliaries are placed in \inull (=~Aux).
+\item Sentential adverbs may be placed between auxiliary and main verb.
+\end{itemize}
+
+}
+
+
+\frame[shrink]{
+\frametitle{Excursus: The English IP and VP: Clauses w/o auxiliary}
+
+\savespace\small\parskip0pt
+
+\centerline{%
+\scalebox{.9}{%
+\begin{forest}
+sm edges
+[IP
+	[NP[Ann,roof]]
+	[I$'$
+		[I$^0$[-s]]
+		[VP
+			[V$'$
+				[V$^0$[read-]]
+				[NP[the newspaper, roof]]]]]]
+\end{forest}}
+}
+
+\begin{itemize}
+\item Auxiliaries are placed in \inull (=~Aux).
+\item Position may contain the inflectional affix. The finite verb moves there.
+
+(Various variants of the theory \ldots. Some assume lowering of the affix, some assume an empty I
+position and connection to the finite verb. For German, the best version seems to be to not assume I
+at all \citep{Haider93a,Haider97a}.)
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{English clauses with complementizer}
+
+
+
+\hfill\scalebox{0.73}{%
+\begin{forest}
+sm edges
+[CP
+[C$'$
+	[C$^0$[that]]
+	[IP
+		[NP[Ann,roof]]
+		[I$'$
+			[I$^0$[will]]
+			[VP
+				[V$'$
+					[V$^0$[read]]
+					[NP[the newspaper, roof]]]]]]]]
+\end{forest}}\hfill\hfill\mbox{}
+
+\begin{itemize}
+\item The complementizer (\emph{that}, \emph{because}, \ldots) requires an IP.
+\end{itemize}
+
+}
+
+\subsubsubsection{The English CP, IP and VP}
+
+\frame[shrink]{
+%\frame{
+\frametitle{The English CP, IP and VP: Questions}
+
+\savespace\small\smallexamples\parskip0pt\itemsep0pt
+
+
+\centerline{%
+\scalebox{.8}{
+\begin{forest}
+sm edges
+[IP
+		[NP[Ann,roof]]
+		[I$'$
+			[I$^0$[\trace$_k$]]
+			[VP
+				[V$'$
+					[V$^0$[read]]
+					[NP[the newspaper,roof]]]]]]
+\end{forest}}}
+
+\begin{itemize}
+\item Ye/no questions are formed by fronting the auxiliary:
+\ea
+Will Ann read the newspaper?
+\z
+\pause
+\item \emph{wh} questions are formed by additionally preposing a constituent:
+\ea
+What will Ann read?
+\z
+\item The auxiliary moves to the position of the complementizer.
+\end{itemize}
+
+}
+
+
+\frame[shrink]{
+\frametitle{English CP, IP and VP: Questions}
+
+\vfill
+
+\hfill
+\scalebox{.9}{
+\begin{forest}
+sm edges
+[CP
+[XP [\trace]]
+[C$'$
+	[C$^0$[will$_k$]]
+	[IP
+		[NP[Ann,roof]]
+		[I$'$
+			[I$^0$[\trace$_k$]]
+			[VP
+				[V$'$
+					[V$^0$[read]]
+					[NP[the newspaper,roof]]]]]]]]
+\end{forest}}
+\hfill
+\only<2->{\scalebox{.9}{
+\begin{forest}
+sm edges
+[CP
+[NP[what$_i$]]
+[C$'$
+	[C$^0$[will$_k$]]
+	[IP
+		[NP[Ann,roof]]
+		[I$'$
+			[I$^0$[\trace$_k$]]
+			[VP
+				[V$'$
+					[V$^0$[read]]
+					[NP[\trace$_i$]]]]]]]]
+\end{forest}}}
+\hfill\mbox{}
+
+\vfill
+
+\pause
+
+}
+
+
+
+
+\subsubsection{Topology of the German clause}
+
+\frame{
+\frametitle{Topology of the German clause (I)}
+
+Before turning to the CP/IP system in grammars of German we have to sort out some terminology:
+
+\begin{itemize}
+\item Approaches to German constituent order often refer to topological fields.
+
+\pause
+\item Important works on topological fields are:\\
+\citew{Drach37},  \citew{Reis80a} and \citew{HoehleTopo,Hoehle86}.
+
+\pause
+\item We will use \alert{Vorfeld}, \alert{linke/rechte Satzklammer},
+\alert{Mittelfeld} and \alert{Nachfeld}.
+
+\citew{Bech55a} introduced further fields for verbal complexes but we will ignore them here.
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Verb positions and terminology}
+
+\savespace
+\begin{itemize}
+\item Verb-final position
+      \ea
+\gll Peter hat erzählt, \rot<5->{dass} er das Eis \braun<5->{\gruen<4>{gegessen}} \braun<5->{\blauit<-4>{hat}}.\\
+     Peter has told that he the ice.cream eaten has\\
+%\glt `Peter said that he has eaten the ice cream.'
+      \z
+\pause
+\item Verb-final position
+        \ea
+\gll      \rot<4->{\blauit<-3>{Hat}} Peter das Eis \braun<5->{\gruen<4>{gegessen}}?\\
+	 has Peter the ice.cream eaten\\
+%\glt `Has Peter eaten the ice cream?'
+      \z
+\pause
+\item Verb-second poisiton
+      \ea
+\gll  Peter \rot<4->{\blauit<-3>{hat}} das Eis \braun<5->{\gruen<4>{gegessen}}.\\
+	 Peter has the ice.cream eaten\\
+%\glt `Peter has eaten the ice cream.'
+      \z
+\end{itemize}
+
+
+\pause
+\begin{itemize}[<+->]
+\item verbal elements continuous in (\mex{-2}) only
+\item \rot<5->{left} and \braun<5->{right} sentence bracket
+\item complementizer (\emph{weil}, \emph{dass}, \emph{ob}) in left sentence bracket
+\item complementizer and finite verb have complementary distribution \citep{Hoehle97a}
+\item region before, between and after the brackets: \alert{Vorfeld}, \alert{Mittelfeld}, \alert{Nachfeld}
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Topology of German clauses}
+
+
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{}lllll@{}}
+\rowcolor{structure!15}Vorfeld & left bracket & Mittelfeld                             & right bracket & Nachfeld                   \\ 
+\\
+\rowcolor{structure!10}Karl    & schläft.      &                                        &                &                            \\
+                       Karl    & hat           &                                        & geschlafen.    &                            \\
+\rowcolor{structure!10}Karl    & erkennt       & Maria.                                 &                &                            \\
+                       Karl    & färbt         & den Mantel                             & um             & den Maria kennt.           \\
+\rowcolor{structure!10}Karl    & hat           & Maria                                  & erkannt.       &                             \\
+                       Karl    & hat           & Maria als sie aus dem Zug stieg sofort & erkannt.       &                             \\
+\rowcolor{structure!10}Karl    & hat           & Maria sofort                           & erkannt        & als sie aus dem Zug stieg. \\
+                       Karl    & hat           & Maria zu erkennen                      & behauptet.     &            \\
+\rowcolor{structure!10}Karl    & hat           &                                        & behauptet      & Maria zu erkennen.         \\ 
+\\
+\rowcolor{structure!10}        & Schläft       & Karl?                                  &                &                            \\
+                               & Schlaf!       &                                        &                &                             \\
+\rowcolor{structure!10}        & Iß            & jetzt dein Eis                         & auf!           &                             \\
+        & Hat           & er doch das ganze Eis alleine          & gegessen.            &      \\  \\
+\rowcolor{structure!10}        & weil          & er das ganze Eis alleine               & gegessen hat   & ohne sich zu schämen.\\
+        & weil          & er das ganze Eis alleine               & essen können will    & ohne gestört zu werden.    \\
+\rowcolor{structure!10}wer     &               & das ganze Eis alleine                  & gegessen hat.  &                             \\
+\end{tabular}
+}
+
+}
+
+% \frame{
+% \frametitle{Der Prädikatskomplex}
+% %
+
+
+% \begin{itemize}
+% \item<+-> mehrere Verben in der rechten Satzklammer: Verbalkomplex
+% \item<+-> manchmal wird auch von diskontinuierlichen Verbalkomplexen
+%       gesprochen (Initialstellung das Finitums)
+% \item<+-> auch prädikative Adjektive (\mex{1}a) und Resultativprädikate (\mex{1}b) werden zum Prädikatskomplex gezählt:
+%       \eal
+%       \ex dass Karl seiner Frau treu ist
+%       \ex dass Karl das Glas leer trinkt
+%       \zl
+% \end{itemize}
+
+% }
+
+\frame{
+\frametitle{The Rangprobe}
+%
+
+
+\begin{itemize}
+\item<+-> Fields may be empty.
+      \ea
+      \field{Der Delphin}{VF} \field{gibt}{LS} \field{dem Kind den Ball,}{MF} \field{das er kennt}{NF}.
+      \z
+\item<+-> Test: Rangprobe \citep[\page 72]{Bech55a}
+\eal
+\ex[]{
+\gll Der Delphin hat [dem Kind] den Ball gegeben, [das er kennt].\\
+     the dolphin has \spacebr{}the child the ball given \spacebr{}who he knows\\
+\glt `The dolphin has given the ball to the child who it knows.'
+}
+\ex[*]{
+\gll Der Delphin hat [dem Kind] den Ball, [das er kennt,] gegeben.\\
+     the dolphin has \spacebr{}the child the ball \spacebr{}who he knows given\\
+}
+\zl
+Replacing the finite verb by an auxiliary forces the main verb into the right sentence bracket.
+\pause
+\ea{
+\gll Der Delphin hat [dem Kind, das er kennt,] den Ball gegeben.\\
+     the dolphin has \spacebr{}the child who he knows the ball given\\
+}
+\z
+
+\end{itemize}
+
+}
+
+
+\frame[shrink]{
+\frametitle{Recursion}
+
+\begin{itemize}
+\item \citet*[\page 82]{Reis80a}: Recursion: Vorfeld can contain other topological fields:
+\eal
+\label{Beispiel-topologisch-komplexes-Vorfeld}
+\ex
+\gll Die Möglichkeit, etwas zu verändern, ist damit verschüttet für lange lange Zeit.\\
+	 the possibility something to change is there.with buried for long long time\\
+\glt `The possibility to change something will now be gone for a long, long time.'	  
+\ex 
+\gll {}[Verschüttet für lange lange Zeit] ist damit die Möglichkeit,      etwas zu ver"-ändern.\\
+      \spacebr{}buried for long long time ist there.with the possibility  something to change\\
+\ex 
+\gll Wir haben schon seit langem gewußt, daß du kommst.\\
+     we have \particle{} since long known that you come\\
+\glt `We have known for a while that you are coming.'
+\ex 
+\gll {}[Gewußt, daß du kommst,] haben wir schon seit langem.\\
+	 \spacebr{}known that you come have we \particle{} since long\\
+\zl
+% \pause
+% \item Permutations occurring in the Mittelfeld can also take place within complex Vorfleds.
+
+% \eal
+% \ex {}[\gruen{Seiner Tochter} \blau{ein Märchen} erzählen] wird er wohl müssen.
+% \ex {}[\blau{Ein Märchen} \gruen{seiner Tochter} erzählen] wird er wohl müssen.
+% \zl
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Exercise}
+
+Assign topological fields in the sentences in (\mex{1}):
+\eal
+\ex Der Mann hat gewonnen, den alle kennen.
+\ex Sie gibt ihm das Buch, das Conny empfohlen hat.
+\ex Maria hat behauptet, dass das nicht stimmt.
+\ex Conny hat das Buch gelesen,\\das Maria der Schülerin empfohlen hat,\\die neu in die Klasse gekommen ist.
+\ex Komm!
+\zl
+
+}
+
+\subsubsection{The German CP and IP}
+
+\frame{
+\frametitle{The topological model paired with CP, IP, VP (I)}
+
+\vfill
+\centerline{
+\scalebox{.7}{
+        \begin{forest}
+            sn edges original,empty nodes
+            [CP
+              [{}
+                [XP,terminus
+                  [SpecCP\\prefield, name=p1
+                  ]
+                ]
+              ]
+              [\hspaceThis{$'$}C$'$
+                    [{}
+                      [C, terminus
+                        [C \\left SB, name=c0
+                        ]
+                      ]
+                    ]
+                    [IP
+                      [{}
+                        [XP, terminus
+                          [{IP (without I, V )\\middle field}
+                            [SpecIP\\subject position, set me left, name=specip
+                            ]
+                            [phrases inside\\the VP, name=p3
+                            ]
+                          ]
+                        ]
+                      ]
+                      [\hspaceThis{$'$}I$'$
+                              [VP, name=vp
+                                [V, name=v0, terminus, no path, anchor=east
+                                  [{V , I \\right SB}, name=p2, set me left
+                                  ]
+                                ]
+                              ]
+                              [{}
+                                    [I , terminus, name=io
+                                    ]
+                              ]
+                      ]
+                    ]
+              ]
+            ]
+            \draw [thick]
+              (p1.north west) rectangle (io.east |- p3.south);
+            \draw
+              ($(c0.north east)!1/2!(specip.west |- c0.north east)$) coordinate (p6) -- (p6 |- p3.south)
+              ($(p1.north east)!1/2!(c0.north west)$) coordinate (p4) -- (p3.south -| p4)
+              ($(specip.north east)!1/2!(p3.north west)$) coordinate (p5) -- (p3.south -| p5)
+              ($(p2.north west)!1/2!(p2.north west -| p3.east)$) coordinate (p7) -- (p3.south -| p7)
+              (p6 |- p2.south) -- (p2.south -| p7)
+              (vp.south) -- (v0.center -| p3.west) -- (v0.west)
+              (v0.east) -- +(4.5pt,0) -- (vp.south)
+              ;
+        \end{forest}}}
+
+}
+
+% \frame{
+% \frametitle{Das topologische Modell mit CP, IP, VP (II)}
+
+% \footnotesize
+% \resizebox{0.99\textwidth}{!}{
+% \begin{tabular}{|l|l|l|l|l|}
+% \hline
+% %
+% SpecCP    & \cnull      & \mc{2}{l|}{IP (ohne \inull, \vnull)} & \vnull, \inull\\
+% Vorfeld   & Linke       & \mc{2}{l|}{Mittelfeld}                      & Rechte\\\cline{3-4}
+%           & Satzklammer & SpecIP           & Phrasen innerhalb der VP & Satzklammer\\
+%           &             & Subjektsposition &                          &\\\hline\hline
+%           & dass         & Anna & [das Buch] [auf den Tisch] & legt$_k$ [ \_ ]$_k$\\
+% \pause
+%           & ob  & Anna & [das Buch] [auf den Tisch] & legt$_k$ [ \_ ]$_k$ \\\hline\hline
+% \pause
+% \ifthenelse{\boolean{gb-intro}}{
+% wer$_i$      & [ \_ ] & [ t ]$_i$ & [das Buch] [auf den Tisch] & legt$_k$ [ \_ ]$_k$\\
+% \pause
+% was$_i$      & [ \_ ] & Anna & [ t ]$_i$ [auf den Tisch] & legt$_k$ [ \_ ]$_k$\\\hline\hline
+% \pause
+% }{}
+%           & Legt$_k$ & Anna & [das Buch] [auf den Tisch]? & [ t ]$_k$ [ t ]$_k$\\
+% \pause
+%           & Legt$_k$ & Anna & [das Buch] [auf den Tisch], & [ t ]$_k$ [ t ]$_k$ \\\hline\hline
+% \pause
+% Anna$_i$     & legt$_k$ & [ t ]$_i$ & [das Buch] [auf den Tisch] & [ t ]$_k$ [ t ]$_k$\\
+% \pause
+% Wer$_i$      & legt$_k$ & [ t ]$_i$ & [das Buch] [auf den Tisch]? & [ t ]$_k$ [ t ]$_k$\\
+% \pause
+% {}[Das Buch]$_i$ & legt$_k$ & Anna & [ t ]$_i$ [auf den Tisch] & [ t ]$_k$ [ t ]$_k$\\
+% \pause
+% Was$_i$      & legt$_k$ & Anna & [ t ]$_i$ [auf den Tisch]? & [ t ]$_k$ [ t ]$_k$\\
+% \pause
+% {}[Auf den Tisch]$_i$ & legt$_k$ &Anna & [das Buch] [ t ]$_i$ & [ t ]$_k$ [ t ]$_k$\\\hline
+% \end{tabular}
+% }
+
+% \pause
+% \vfill
+% Achtung: Die Bezeichner SpecCP u.\ SpecIP sind keine Kategoriensymbole. Sie kommen
+% in Grammatiken mit Ersetzungsregeln nicht vor! Sie bezeichnen nur Positionen im Baum.
+
+% }
+
+\subsubsubsection{German as SOV language}
+
+\frame{
+\frametitle{German as SOV language}
+
+\begin{itemize}
+
+\item Heads of VP and IP (\vnull and \inull) are serialized to the right of their
+  arguments. 
+
+Together they form the right sentence bracket.
+
+
+\pause
+\item All other arguments and adjuncts are serialized to the left of them and form the Mittelfeld.
+
+\pause
+\item Typologically, German is a SOV language (basic order subject--object--verb), which is reflected at the D Structure level.
+
+\begin{itemize}
+\item SOV German, \ldots
+\item SVO English, French, \ldots
+\item VSO Welsh, Arabic, \ldots 
+\end{itemize}
+App.\ 40\,\% of all languages are SOV languages, app.\,35\,\% are SVO.
+
+\item See \citew{MuellerGermanic} for discussion of Germanic and the classification of German.
+
+\pause
+\item Nice result of SOV structure: The closer a constituent is related to the verb, the closer it
+  is to the right sentence bracket, even in sentences with inital finite verb and empty right
+  sentence bracket.
+\end{itemize}
+
+}
+
+\frame{
+\frametitlefit{Motivation of SOV order as basic order: Particles}
+
+\citew%[S.\,34--36]
+{Bierwisch63a}: Verb particles form a close unit with the verb:
+\eal
+\ex 
+\gll weil sie morgen \alert{an-fängt}\\
+     because she tomorrow \textsc{part}-starts\\
+\glt `because he is starting tomorrow'
+\ex 
+\gll Sie \alert{fängt} morgen \alert{an}.\\
+     she starts tomorrow \textsc{part}\\
+\glt `She is starting tomorrow.'
+\zl
+This unit can only be seen in verb"=final structures, which speaks for the fact that this structure
+reflects the base order.
+}
+
+% \frame{
+% \frametitle{Stellung der infiniten Verben}
+
+
+% \eal
+% \ex Dieses Buch sollte gelesen werden müssen.
+% \ex This book should have been read.
+% \zl
+
+% }
+
+\frame{
+\frametitle{Sometimes SOV is the only option}
+
+Sometimes SOV is the only option \citep[\page 370--371]{Hoehle2018Projektionsstufen}:
+\eal
+\ex[]{
+\gll weil sie das Stück heute ur-auf-führen\\
+	 because they the play today \textsc{pref}-\textsc{part}-lead\\
+\glt `because they are performing the play for the first time today'
+}
+\ex[*]{
+\gll Sie ur-auf-führen heute das Stück.\\
+     they \textsc{pref}-\textsc{part}-lead today the play\\
+}
+\ex[*]{
+\gll Sie führen heute das Stück ur-auf.\\
+     they lead today the play \textsc{pref}-\textsc{part}\\
+}
+\zl
+
+This is backformation. \emph{Ur-auf-führung} is wrongly assumed to be derived from the verb \emph{uraufführen}.
+
+}
+
+\frame{
+\frametitle{Order in subordinated sentences}
+
+Verbs in non-finite subordinated clauses and in finite subordinated clauses introduced by a
+conjunction are positioned at the end (ignoring extraposition):
+\eal
+\ex 
+\gll Der Clown versucht, Kurt-Martin die Ware zu geben.\\
+     the clown tries Kurt-Martin the goods to give\\
+\glt `The clown is trying to give Kurt-Martin the goods.'
+\ex 
+\gll dass der Clown Kurt-Martin die Ware gibt\\
+	 that the clown Kurt-Martin the goods gives\\
+\glt `that the clown gives Kurt-Martin the goods'
+\zl
+}
+
+\frame{
+\frametitle{Order of verbs in SVO and SOV languages}
+
+\citet{Oersnes2009b}: 
+\eal
+\ex 
+\gll dass er ihn gesehen$_3$ haben$_2$ muss$_1$\\
+	 that he him seen have must\\\hfill(German)
+\ex 
+\gll at han må$_1$ have$_2$ set$_3$ ham\\
+     that he must have seen him\\\hfill(Danish)
+\glt `that he must have seen him'
+\zl
+
+OV: embedding verbs go to the end\\
+VO: embedding verbs go to the beginning
+
+(ignore the Dutch for the moment \ldots)
+
+
+}
+
+\frame{
+\frametitle{Scope}
+
+%\citew[Section~2.3]{Netter92}:
+\citew{Netter92}:
+Adverbs outscope material to their right (preference only?):
+
+\eal
+\ex 
+\gll dass er [absichtlich [nicht lacht]]\\
+     that he \spacebr{}intentionally \spacebr{}not laughs\\
+\glt `that he is intentionally not laughing'
+\ex 
+\gll dass er [nicht [absichtlich lacht]]\\
+     that he \spacebr{}not \spacebr{}intentionally laughs\\
+\glt `that he is not laughing intentionally'
+\zl
+\pause
+The scoping does not change if the verb is in initial position:
+\eal
+\ex 
+\gll Er lacht$_i$ [absichtlich [nicht \_$_i$]].\\
+     he laughs \spacebr{}intentionally \spacebr{}not\\
+\glt `He is intentionally not laughing.'
+\ex 
+\gll Er lacht$_i$  [nicht [absichtlich \_$_i$]].\\
+     he laughs \spacebr{}not \spacebr{}intentionally\\
+\glt `He is not laughing intentionally.'
+\zl
+}
+
+
+\subsubsubsection{C -- The left sentence bracket}
+
+
+\frame{
+\frametitle{\cnull{} -- The left sentence bracket in embedded clauses}
+
+\cnull corresponds to the left sentence bracket and is filled as follows:
+\begin{itemize}
+\item In embedded sentences with subordinating conjunction\\ the conjunction (the complementizer) is
+  placed in \cnull, as in English. 
+
+The verb stays in the right sentence bracket.
+\ea
+\gll dass jeder diese Frau kennt\\
+     that everybody this woman knows\\
+\glt `that everybody knows this woman'
+\z
+
+\pause
+\item The verb moves from V to I.
+
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{V to I movement in embedded clauses}
+
+\centerline{%
+\scalebox{.77}{%
+\begin{forest}
+sm edges
+[CP
+[\hspaceThis{$'$}C$'$
+	[C [dass;that]]
+	[IP
+		[NP [jeder;everybody,roof]]
+		[\hspaceThis{$'$}I$'$
+			[VP
+				[\hspaceThis{$'$}V$'$
+					[NP[diese Frau;this woman, roof]]
+					[V [\trace$_j$]]]]
+			[I [kenn-$_j$ -t;know- -s]]]]]]
+\end{forest}
+}
+}
+
+}
+
+
+\frame{
+\frametitle{\cnull{} -- The left sentence bracket in V1 and V2 clauses}
+
+\begin{itemize}
+\item The finite verb is moved via \inull to \cnull in verb-first and verb-second clauses: \\
+\vnull $\to$  \inull $\to$ \cnull. 
+\eal
+\settowidth\jamwidth{(Verb in \vnull)}
+\ex 
+\gll dass jeder diese Frau kenn- -t\\
+     that everybody this woman know- -s\\ \jambox{(Verb in \vnull)}
+\ex 
+\gll dass jeder     diese Frau \_$_i$ [kenn-$_i$ -t]\\
+     that everybody this  woman {}   \spacebr{}know- -s\\ \jambox{(Verb in \inull)}
+\ex 
+\gll {}[Kenn-$_i$ -t]$_j$ jeder diese Frau \_$_i$ \_$_j$?\\
+     \spacebr{}know- -s   everybody this woman\\ \jambox{(Verb in \cnull)}
+\zl
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{V to I to C movement in V1/V2 clauses}
+
+\centerline{%
+\scalebox{.77}{%
+\begin{forest}
+sm edges
+[CP
+[\hspaceThis{$'$}C$'$
+	[C [(kenn-$_j$ -t)$_k$;knows]]
+	[IP
+		[NP [jeder;everybody,roof]]
+		[\hspaceThis{$'$}I$'$
+			[VP
+				[\hspaceThis{$'$}V$'$
+					[NP [diese Frau; this woman, roof]]
+					[V [\trace$_j$]]]]
+			[I  [\trace$_k$]]]]]]
+\end{forest}
+}}
+
+
+}
+
+\subsubsubsection{SpecCP -- The Vorfeld}
+
+\exewidth{(235)}
+
+\frame{
+\frametitle{SpecCP -- The Vorfeld in declarative clauses (I)}
+
+The position SpecCP corresponds to the Vorfeld and is filled as follows:
+\begin{itemize}
+\item Declarative clauses: XP is moved to the Vorfeld.
+\ea
+\gll Gibt der Mann dem Kind jetzt den Mantel?\\
+     gives the.\NOM{} man the.\DAT{} child now the.\ACC{} coat\\
+\glt `Is the man going to give the child the coat now?'
+\z
+
+\eal
+\ex 
+\gll Der Mann gibt dem Kind jetzt den Mantel.\\
+     the.\NOM{} man gives the.\DAT{} child now the.\ACC{} coat\\
+\glt `The man is giving the child the coat now.'
+\pause
+\ex 
+\gll Dem Kind gibt der Mann jetzt den Mantel.\\
+     the.\DAT{} child gives the.\NOM{} man now the.\ACC{} coat\\
+\pause
+\ex 
+\gll Den Mantel gibt der Mann dem Kind jetzt.\\
+	 the.\ACC{} coat gives the.\NOM{} man the.\DAT{} child now\\
+\pause
+\ex 
+\gll Jetzt gibt der Mann dem Kind den Mantel.\\
+	 now gives the.\NOM{} man the.\DAT{} child the.\ACC{} coat\\
+\zl
+\end{itemize}
+
+}
+
+
+\frame{
+
+\frametitle{Verb movement and movement to SpecCP}
+
+\vfill
+\centerline{\scalebox{0.77}{
+\begin{forest}
+sm edges
+[CP
+[NP$_i$ [diese Frau;this woman, roof]]
+[\hspaceThis{$'$}C$'$
+	[C [(kenn-$_j$ -t)$_k$; know- -s]]
+	[IP
+		[NP [jeder;everybody,roof]]
+		[\hspaceThis{$'$}I$'$
+			[VP
+				[\hspaceThis{$'$}V$'$
+					[NP[\trace$_i$]]
+					[V [\trace$_j$]]]]
+			[I  [\trace$_k$]]]]]]
+\end{forest}}}
+\vfill
+
+
+}
+
+\frame[shrink]{
+\frametitle{SpecCP -- The Vorfeld in declarative clauses (II)}
+
+\begin{itemize}
+\item The crucial factor for deciding which phrase to move is the \emph{information structure} of the sentence. Material connected to previously mentioned or otherwise"=known information is 
+placed further left (preferably in the prefield) and new information tends to occur to the right. Fronting to the
+prefield in declarative clauses is often referred to as
+\alert{topicalization}. 
+
+\item But this is rather a misnomer, since the focus (informally: the constituent being asked for)
+  can also occur in the prefield. Expletives as well.
+
+\pause
+\item Caution:\\
+      Movement to the Vorfeld does not have the same status as fronting in English!
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Nonlocal dependencies}
+
+\begin{itemize}
+\item Analysis also works for nonlocal dependencies:
+\ea
+  \gll {}[Um zwei Millionen Mark]$_i$ soll er versucht haben,~~~~ [eine Versicherung \_$_i$ zu betrügen].\footnotemark\\
+     {}\spacebr{}around two million Deutsche.Marks should he tried have \spacebr{}an insurance.company {} to deceive\\
+\footnotetext{%
+         taz, 04.05.2001, p.\,20.
+}
+\glt `He apparently tried to cheat an insurance company out of two million Deutsche Marks.'
+      \z
+Step-wise movement: the fronted constituent first moves to the specifier position of the phrase it
+originates from than to the next specifier of the next maximal projection and so on until it reaches
+the uppermost SpecCP position.
+\end{itemize}
+
+}
+
+
+
+
+\frame{
+\frametitle{Exercise}
+
+\smallframe
+Draw the syntax trees for the fowllowing sentences:
+\eal
+\ex 
+\gll dass der Delphin dem Kind hilft\\
+     that the.\NOM{} dolphin the.\DAT{} child helps\\
+\glt `that the dolphin helps the child'
+\ex 
+\gll dass der Delphin den Hai attackiert\\
+     that the.\NOM{} dolphin the.\ACC{} shark attacks\\
+\glt `that the dolphin attacks the shark'
+\ex 
+\gll dass der Hai attackiert wird\\
+     that the.\NOM{} shark attacked is\\
+\glt `that the shark is attacked'
+\ex 
+\gll Der Hai wird attackiert.\\
+     the.\NOM{} shark is attacked\\
+\glt `The shark is attacked.'
+\ex 
+\gll Der Delphin hilft dem Kind.\\
+     the dolphin.\NOM{} helps the.\DAT{} child\\
+\glt `The dolphin is helping the child.'
+\zl
+
+}
+
+
+%      <!-- Local IspellDict: en_US-w_accents -->

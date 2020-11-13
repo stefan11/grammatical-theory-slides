@@ -46,6 +46,8 @@ install:
 	cp -p ${STYLE-PATH}Ling/my-xspace.sty            styles/
 	cp -p ${STYLE-PATH}Ling/my-ccg-ohne-colortbl.sty styles/
 	cp -p ${STYLE-PATH}Ling/forest.sty               styles/
+	cp -p ${STYLE-PATH}Ling/my-gb4e-slides.sty       styles/
+	cp -p ${STYLE-PATH}Ling/cgloss.sty               styles/
 
 
 

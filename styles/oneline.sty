@@ -22,6 +22,25 @@
 }
 
 
+% Heiko Oberdiek
+% http://tex.stackexchange.com/questions/136644/vertical-space-in-interaction-with-figure-center-environment
+% This is for use with beamer. For some reason \linewidth does not work but \†extwidth works.
+% I think this may be a bug in texlive 2020.
+\newcommand{\onelinetextwidthhack}[1]{%
+  \begingroup
+    \sbox0{\ignorespaces#1\unskip}%
+    \noindent
+    \ifdim\wd0>\textwidth
+      \hbox to\textwidth{%
+        \hss\resizebox{\textwidth}{!}{\copy0 }\hss
+      }%
+    \else
+      \copy0 %
+    \fi
+  \endgroup
+}
+
+
 \newcommand{\centerfit}[1]{%
   \begingroup
     \sbox0{\ignorespaces#1\unskip}%
