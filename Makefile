@@ -2,7 +2,7 @@
 
 #STYLE-PATH= ${HOME}/.LaTex/
 STYLE-PATH= ${HOME}/Library/texmf/tex/latex/
-
+LANGSCI-PATH=~/Documents/Dienstlich/Projekte/LangSci/Git-HUB/latex/
 
 SOURCE= $(wildcard *.tex)
 
@@ -48,7 +48,7 @@ install:
 	cp -p ${STYLE-PATH}Ling/forest.sty               styles/
 	cp -p ${STYLE-PATH}Ling/my-gb4e-slides.sty       styles/
 	cp -p ${STYLE-PATH}Ling/cgloss.sty               styles/
-
+	cp -p ${LANGSCI-PATH}langsci-forest-setup.sty    .
 
 
 public: formgram-slides.pdf formgram-handout.pdf
