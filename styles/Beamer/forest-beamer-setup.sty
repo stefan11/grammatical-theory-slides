@@ -43,3 +43,15 @@
 
 
 
+% https://tex.stackexchange.com/a/253384/18561
+\tikzset{% set up for transitions using tikz with beamer overlays
+  alerted/.style={color=red},
+  alert on/.style={alt=#1{alerted}{}},
+}
+\forestset{%
+  alert on/.style={%
+    for tree={%
+      /tikz/alert on={#1},
+      edge={/tikz/alert on={#1}}}},
+}
+

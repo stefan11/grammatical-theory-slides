@@ -1,0 +1,974 @@
+%% -*- coding:utf-8 -*-
+
+
+
+
+\section{Generalized Phrase Structure Grammar (GPSG)}
+
+\subtitle{Generalized Phrase Structure Grammar (GPSG)}
+
+\huberlintitlepage[22pt]
+
+
+\outline{
+
+\begin{itemize}
+\item Introduction and basic terms
+\item Phrase structure grammar
+\item Government \& Binding (GB)
+\item \alert{Generalized Phrase Structure Grammar (GPSG)}
+\item Lexical Functional Grammar (LFG)
+%\item PATR
+\item Categorial Grammar (CG)
+\item Head-Driven Phrase Structure Grammar (HPSG)
+%\item Konstruktionsgrammatik (CxG)
+\item Tree Adjoning Grammar (TAG)
+\end{itemize}
+
+%\tableofcontents
+}
+
+\frame{
+\frametitle{Generalized Phrase Structure Grammar (GPSG)}
+
+\begin{itemize}
+\item GPSG was developed as an answer
+to Transformational Grammar at the end of the 1970.
+\pause
+\item Main publication: \citet*{GKPS85a}
+
+\pause
+\item \citet{Uszkoreit87a} developed large GPSG fragment of German.
+\pause
+\item Chomsky showed PSGs to be inadequate.\\
+      GPSG extends PSG in ways that make it possible to address Chomsky's monita:
+\begin{itemize}
+\item categories may be complex \citep{Harman63a}
+\pause
+\item different treatment of local reordering
+\pause
+\item passive as metarule
+\pause
+\item non-local dependencies as a series of local dependencies
+\end{itemize}
+\pause
+\item We will deal with each of these innovations in what follows.
+\end{itemize}
+
+
+}
+
+\subsection{General remarks on the representational format}
+
+\subsubsection{Categories and \xbar Theory}
+
+\frame[shrink=0]{
+\frametitle{General remarks on the representational format}
+
+\begin{itemize}
+\item Categories are sets of feature value pairs.
+\pause
+\item Lexical entries have a feature \subcat. The value is a number
+which says something about the kind of grammatical rules in which the word can be used. 
+\pause
+\item Examples from \citew{Uszkoreit87a}:
+
+\medskip
+\begin{tabular}{@{}l@{~$\to$~}ll@{}}
+V2  & H[5]                              & (kommen `come', schlafen `sleep')\\
+V2  & H[6], N2[Case Acc]                & (kennen `know', suchen `search')\\
+V2  & H[7], N2[Case Dat]                & (helfen `help', vertrauen `trust')\\
+V2  & H[8], N2[Case Dat], N2[Case Acc]  & (geben `give', zeigen `show')\\
+V2  & H[9], V3[+dass]                   & (wissen `know', glauben `believe')\\
+\end{tabular}
+\medskip
+
+These rules license VPs: the combination of a verb with its complements, but not with its subject.
+
+\pause
+\item The numbers following the category symbols (V or N) indicate the
+\xbar~level.\\
+      The maximum level of a verbal projection is three rather than two.
+\pause
+\item H stands for Head.
+
+\end{itemize}
+
+}
+
+\subsubsection{Principles: The Head Feature Convention}
+
+\frame{
+\frametitle{Principles: The Head Feature Convention}
+
+Head Feature Convention:\\
+The mother node and the head daughter must bear the same head features unless indicated otherwise.
+
+}
+
+\subsubsection{Metarules and ID/LP format}
+
+\frame{
+\frametitle{Metarules and ID/LP format}
+
+Two further innovations of GPSG:
+\begin{itemize}
+\item Metarules: Additional phrase structure rules are licensed via metarules.
+\item ID/LP format: Constraints on linearization are separated from immediate dominance.
+\end{itemize}
+
+These two tools will be discussed with respect to our set of phenomena.
+
+
+}
+
+
+
+
+\subsection{Local reordering \& Verb position}
+
+\frame{
+\frametitle{Local reordering}
+
+
+\begin{itemize}
+\item Arguments can appear in almost any order in the German \mf.
+\eal
+\ex 
+\gll {}[weil] \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} \blau{das} \blau{Buch} gibt\\
+     \spacebr{}because the man the child the book gives\\
+\glt `because the man gives the book to the child'
+\ex 
+\gll {}[weil] \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} \rot{dem} \rot{Kind} gibt\\
+     \spacebr{}because the man the book the child gives\\
+\ex\label{ex-das-buch-der-mann-der-frau-gibt} 
+\gll {}[weil] \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} gibt\\
+     \spacebr{}because the book the man the child gives\\
+\ex 
+\gll {}[weil] \blau{das} \blau{Buch} \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} gibt\\
+     \spacebr{}because the book the child the man gives\\
+\ex 
+\gll {}[weil] \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} gibt\\
+     \spacebr{}because the child the man the book gives\\
+\ex 
+\gll {}[weil] \rot{dem} \rot{Kind} \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} gibt\\
+     \spacebr{}because the child the book the man gives\\
+\zl
+\end{itemize}
+}
+
+
+
+\frame{
+\frametitle{Motivation for linearization rules (I)}
+
+%\smallframe
+\savespace
+Motivation: Permutation with phrase structure rules $\to$\\
+we need six phrase structure rules for ditransitive verbs in verb-final position:
+\ea
+\begin{tabular}[t]{@{}l@{ }l@{ }l@{ }l@{ }l@{ }}
+S  & $\to$ NP[nom]& NP[acc] & NP[dat] & V\\
+S  & $\to$ NP[nom]& NP[dat] & NP[acc] & V\\
+S  & $\to$ NP[acc]& NP[nom] & NP[dat] & V\\
+S  & $\to$ NP[acc]& NP[dat] & NP[nom] & V\\
+S  & $\to$ NP[dat]& NP[nom] & NP[acc] & V\\
+S  & $\to$ NP[dat]& NP[acc] & NP[nom] & V\\
+\end{tabular}
+\z
+}
+
+\frame{
+\frametitle{Motivation for linearization rules (II)}
+
+
+Plus six rules for verb-initial position:
+
+\ea
+\begin{tabular}[t]{@{}l@{ }l@{ }l@{ }l@{ }l}
+S  & $\to$ V NP[nom]& NP[acc] & NP[dat]\\
+S  & $\to$ V NP[nom]& NP[dat] & NP[acc]\\
+S  & $\to$ V NP[acc]& NP[nom] & NP[dat]\\
+S  & $\to$ V NP[acc]& NP[dat] & NP[nom]\\
+S  & $\to$ V NP[dat]& NP[nom] & NP[acc]\\
+S  & $\to$ V NP[dat]& NP[acc] & NP[nom]\\
+\end{tabular}
+\z
+
+A generalization is missed.
+
+Similarly for transitive verbs and other valence frames.
+
+}
+
+\frame{
+\frametitle{Abstraction from linear order: Dominance}
+
+\begin{itemize}
+\item \citet*{GKPS85a}:\\
+      Separation of \alert{immediate dominance} = ID and \alert{linear precedence} = LP.
+\pause
+\item Dominance rules do not constrain the order of the daughters.
+\ea
+\begin{tabular}[t]{@{}l@{ }l}
+S  & $\to$ V, NP[nom], NP[acc], NP[dat]\\
+\end{tabular}
+\z
+
+The only thing (\mex{0}) says is that S dominates the other nodes:
+\medskip
+\centerline{%
+\begin{forest}
+sm edges
+[S
+  [V]
+  [{NP[nom]}]
+  [{NP[acc]}]
+  [{NP[dat]}] ]
+\end{forest}}
+\medskip
+
+\pause
+\item Since there are no constraints on the order of the elments of the right-hand side, we need one
+  rule rather than twelve:
+
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Abstraction from linear order: Linear order}
+
+
+\begin{itemize}
+\item LP rules hold for local trees, that is, trees of depth one:
+
+
+\begin{table}[H]
+\centerline{%
+\begin{forest}
+sm edges
+[S
+  [V]
+  [{NP[nom]}]
+  [{NP[acc]}]
+  [{NP[dat]}] ]
+\end{forest}}
+\end{table}
+
+~\medskip
+
+      $\to$ We can say something about order of V, NP[nom], NP[acc] und NP[dat].
+
+\pause
+
+An LP constraint holds for the whole grammar. If we would claim that NP[nom] precedes NP[acc], this
+would hold for rules for strictly transitive verbs as well as for rules for ditransitive verbs.
+
+
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Getting more restrictive again}
+
+
+\begin{itemize}
+\item Without restriction for the order of elements on the right-hand side, there is too much freedom.
+
+\medskip
+\begin{tabular}[t]{@{}l@{ }l}
+S  & $\to$ V, NP[nom], NP[acc], NP[dat]\\
+\end{tabular}
+
+\medskip
+The rule admits the following order:
+\ea[*]{
+\gll Dem Kind der Mann gibt ein Buch.\\
+     the.\DAT{} child the.\NOM{} man gives the.\ACC{} book\\
+}
+\z
+\pause
+\item Linearization rules rule out such orders.
+
+\ea
+\begin{tabular}[t]{@{}l@{~$<$~}l@{}}
+V[+MC]  & X\\
+X       & V[$-$MC]\\
+\end{tabular}
+\z
+\textsc{mc} stand for \emph{main clause}. 
+
+LP rule states that the verb must be placed before all other constituents in main clauses
+(+\textsc{mc}) and after all other constituents in dependent clauses ($-$\textsc{mc}).
+
+\end{itemize}
+}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Passive}
+
+\subsubsection{Passive pre-theoretically}
+
+\frame[shrink=15]{
+\frametitle{Passive pre-theoretically (I)}
+\savespace\smallexamples
+
+German passive theory-neutrally:
+\begin{itemize}
+\item The subject is suppressed. 
+\item If there is an accusative object, this becomes the subject.
+\end{itemize}
+
+This is true for all verb classes which can form the passive. It does not make a difference whether the verbs takes one, two or three arguments:
+\eal
+\label{beispiel-arbeiten}
+\ex 
+\gll weil er noch gearbeitet hat\\
+	 because he.\nom{} still worked has\\
+\glt 'because he has still worked'
+\ex 
+\gll weil noch gearbeitet wurde\\
+	 because still worked was\\
+\glt `because there was still working there'
+\zl
+\eal
+\label{beispiel-denken}
+\ex 
+\gll weil er an Maria gedacht hat\\
+	 because he.\nom{} on Maria thought has\\
+\glt `because he thought of Maria'
+\ex 
+\gll weil an Maria gedacht wurde\\
+	 because on Maria thought was\\
+\glt `because Maria was thought of'
+\zl
+
+}
+
+
+\frame[shrink=15]{
+\frametitle{Passive pre-theoretically (II)}
+\savespace\smallexamples
+
+German passive theory-neutrally:
+\begin{itemize}
+\item The subject is suppressed. 
+\item If there is an accusative object, this becomes the subject.
+\end{itemize}
+
+\eal
+\ex 
+\gll weil sie ihn geschlagen hat\\
+	 because she.\nom{} him.\acc{} beaten has\\
+\glt `because she has beaten him'
+\ex 
+\gll weil er geschlagen wurde\\
+	 because he.\nom{} beaten was\\
+\glt `because he was beaten'
+\zl
+\eal
+\ex 
+\gll weil er ihm den Aufsatz gegeben hat\\
+     because he.\nom{} him.\dat{} the.\acc{} essay given has\\
+\glt `because he has given him the essay'
+\ex 
+\gll weil ihm der Aufsatz gegeben wurde\\
+     because him.\dat{} the.\nom{} essay given was\\
+\glt `because he was given the essay'
+\zl
+
+}
+
+
+
+\subsubsection{Metarules}
+
+\frame{
+\frametitle{Passive and phrase structure grammars}
+
+\begin{itemize}
+\item One would have to write down two rules for every active/passive pair in PSG.
+\pause
+\item GPSG is a non-transformational theory.
+\pause
+\item The passive is accounted for by using a so-called metarule to derive the passive rules from the active rules.
+\pause
+\item These are explained with respect to the subject introduction metarule.
+\end{itemize}
+
+
+}
+
+\frame[shrink=10]{
+\frametitle{Introduction of the subject via a metarule (I)}
+
+Our rules look like this:
+
+\ea
+\begin{tabular}[t]{@{}l@{~$\to$~}ll@{}}
+V2  & H[7], N2[Case Dat]                & (helfen `help', vertrauen `trust')\\
+V2  & H[8], N2[Case Dat], N2[Case Acc]  & (geben `give', zeigen `show')\\
+\end{tabular}
+\z
+
+\pause
+
+The rules in (\mex{0}) can be sued to analyze VPs but not sentences with subject.
+
+\pause
+
+We use a metarule saying: ``If there is a rule of the form `V2 consists of something', then there is
+also a rule stating `V3 consists of whatever V2 consists of + an NP in the nominative'''.  
+
+\pause
+
+Formally:
+\ea
+V2  $\to$ W $\mapsto$\\
+V3  $\to$ W, N2[Case Nom]
+\z
+
+W stands for an arbitrary number of categories (whatever).
+
+}
+
+\frame{
+\frametitle{Introduction of the subject via a metarule (II)}
+
+
+
+\ea
+V2  $\to$ W $\mapsto$\\
+V3  $\to$ W, N2[Case Nom]
+\z
+
+
+
+\pause
+
+This metarule takes the rules in (\mex{1}) as input and produces the rules in (\mex{2}):
+\ea
+\begin{tabular}[t]{@{}l@{~$\to$~}ll@{}}
+V2  & H[7], N2[Case Dat]                & (helfen `help', vertrauen `trust')\\
+V2  & H[8], N2[Case Dat], N2[Case Acc]  & (geben `give', zeigen `show')\\
+\end{tabular}
+\z
+
+\ea
+\begin{tabular}[t]{@{}l@{~$\to$~}l@{}}
+V3  & H[7], N2[Case Dat], N2[Case Nom]                \\
+V3  & H[8], N2[Case Dat], N2[Case Acc], N2[Case Nom]  \\
+\end{tabular}
+\z
+
+\pause
+
+Subject and other arguments are on the same right-hand side of a rule and hence can be permuted,
+provided no LP rule is violated.
+
+}
+
+\subsubsection{Passive as metarule}
+
+
+
+\frame[shrink=5]{
+\frametitle{Passive as metarule}
+
+\begin{itemize}
+\item For each active rule with subject and accusative object, a passive rule will be licensed with
+  the subject suppressed. The relation between the rules is captured.
+\pause
+\item Differences between Transformational Grammar/GB and GPSG:
+      It is not the case that there are several trees that are related to each other,\\
+      but rather active rules are related to passive rules.
+
+      The active and passive rules can be used to derive to structures independently, that is, 
+      (\mex{1}b) is not derived from (\mex{1}a).
+
+\eal
+\ex 
+\gll weil sie ihn geschlagen hat\\
+     because she.\nom{} him.\acc{} beaten has\\
+\glt `because she has beaten him'
+\ex 
+\gll weil er geschlagen wurde\\
+     because he.\nom{} beaten was\\
+\glt `because he was beaten'
+\zl
+
+The generalization regarding active/passive alternations is captured nevertheless.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Passive in English}
+
+\citet*{GKPS85a} suggest the following metarule:
+\ea
+VP  $\to$ W, NP $\mapsto$\\
+VP[PAS]  $\to$ W, (PP[\emph{by}])
+\z
+This rule says that verbs selecting an object can be realized without this object in a passive VP.
+Optionally a \emph{by} PP may appear in passive VPs.
+
+(VP corresponds to V2)
+
+}
+
+\frame{
+\frametitle{Problems of the passive metarule operating on VP}
+
+\begin{enumerate}
+\item Rule does not refer to the type of the verb (not all verbs have a passive).
+\pause
+% \item Es ist unklar, wie die Semantik parallel zur Syntax aufgebaut werden soll:
+%       Die Regel in (\mex{0}) unterdrückt ein NP-Argument in der VP. 
+%       Dieses Argument ist aber ein Objekt. Rein syntaktisch stellt das System der GPSG-Metaregeln
+%       die richtige Menge von ID-Regeln zur Verfügung, in der Semantik muss man aber sicherstellen,
+%       dass das durch eine Metaregel eingeführte Subjekt mit dem unterdrückten Objekt übereinstimmt.
+% \pause
+\item Impersonal passive cannot be derived by suppressing an object.
+\ea
+\begin{tabular}[t]{@{}l@{\hspace{2cm}}l@{}}
+V2 $\to$ H[5] & (\emph{arbeiten} `work')\\
+V2 $\to$ H[13], PP[\emph{an}] & (\emph{denken} `think')\\
+\end{tabular}
+\z      
+
+So, if the analysis of the passive in English is not revised, the analyses of the passive in English
+and German will differ.
+
+\pause
+\item The German passive metarule could apply to rules including the subject.
+
+\end{enumerate}
+
+
+}
+
+
+\subsection{Long"=distance dependencies}
+
+
+\frame[shrink=5]{
+\frametitlefit{Long"=distance dependencies as the result of local dependencies}
+
+\begin{itemize}
+\item Until now: verb-initial and verb-final placement of the verb:
+\eal
+\ex 
+\gll {}[dass] der Mann dem Kind das Buch gibt\\
+	 {}\spacebr{}that the.\NOM{} man the.\DAT{} child the.\ACC{} book gives\\
+%\glt `that the man gives the book to the child'
+\ex 
+\gll Gibt der Mann dem Kind das Buch?\\
+	 gives the.\NOM{} man the.\DAT{} child the.\ACC{} book\\
+%\glt `Does the man give the book to the child?'
+\zl
+\item What about verb second placement:
+\eal
+\ex 
+\gll Der Mann gibt dem Kind das Buch.\\
+     the.\NOM{} man  gives the.\DAT{} child the.\ACC{} book\\
+%\glt `The man gives the child the book.'
+\ex 
+\gll Dem Kind gibt der Mann das Buch.\\
+     the.\DAT{} child gives the.\NOM{} man the.\ACC{} book\\
+%\glt `The man gives the child the book.'
+\zl
+
+\item V2 is analyzed as a nonlocal dependency via a sequence of local dependencies.
+
+One of the main innovations of GPSG is the development of an alternative to transformations for the
+analysis of nonlocal dependencies (but also \citew{Harman63a}).
+\end{itemize}
+
+}
+
+\subsubsection{Metarules for the introduction of nonlocal dependencies}
+
+
+\frame{
+\frametitle{Metarules for the introduction of nonlocal dependencies}
+
+We take an arbitrary category X out of the set of categories on the right-hand side of the rule and
+represent it on the left-hand side after a slash (`/'):
+\ea
+V3  $\to$ W, X $\mapsto$\\
+V3/X  $\to$ W
+\z
+\pause
+
+Given the input in (\mex{1}), the rule creates the rules in (\mex{2}):
+\ea
+\begin{tabular}[t]{@{}l@{~$\to$~}l@{}}
+V3  & H[8], N2[Case Dat], N2[Case Acc], N2[Case Nom] 
+\end{tabular}
+\z
+\ea
+\begin{tabular}[t]{@{}l@{~$\to$~}l@{}}
+V3/N2[Case Nom] &  H[8], N2[Case Dat], N2[Case Acc]\\
+V3/N2[Case Dat] &  H[8], N2[Case Acc], N2[Case Nom]\\
+V3/N2[Case Acc] &  H[8], N2[Case Dat], N2[Case Nom]\\
+\end{tabular}
+\z
+
+}
+
+\subsubsection{Rule for binding off nonlocal dependencies}
+
+\frame{
+\frametitle{Rule for binding off nonlocal dependencies}
+
+
+\ea
+V3[+Fin] $\to$ X[+Top], V3[+MC]/X
+\z
+X stands for arbitrary category marked as missing in V3 by `/'.
+
+\pause
+Example instantiations of the rule are given in (\mex{1}):
+\ea
+\begin{tabular}[t]{@{}l@{~$\to$~}l@{~}l@{}}
+V3[+Fin] & N2[+Top, Case Nom], & V3[+MC]/N2[Case Nom]\\
+V3[+Fin] & N2[+Top, Case Dat], & V3[+MC]/N2[Case Dat]\\
+V3[+Fin] & N2[+Top, Case Acc], & V3[+MC]/N2[Case Acc]\\
+\end{tabular}
+\z
+
+\pause
+A linearization rule makes sure that the X in (\mex{-1}) is serialized to the left of anything else
+(\eg V3), since it is marked [+Top].
+\ea
+{}[+Top] $<$ X
+\z
+
+
+}
+
+
+\subsubsection{An example analysis}
+
+\frame{
+\frametitle{An example analysis}
+
+
+\centerline{%
+\scalebox{0.85}{
+\begin{forest}
+sm edges
+% [{V3[+\textsc{fin}, $+$\textsc{mc}]}
+%   [\alert<beamer:4>{N2[dat,+\textsc{top}]} [dem Kind;the child,roof] ]
+%   [{V3[+\textsc{mc}]/\alert<beamer:4>{N2[dat]}}, alert on=<beamer:2>
+%     [\alert<3>{V[8,+\textsc{mc}]},alert on=<beamer:3> [gibt;gives] ]
+%     [{N2[nom]} [er;he] ] 
+%     [{N2[acc]} [das Buch;the book, roof] ] ] ]
+[{V3[+\textsc{fin}, $+$\textsc{mc}]},s sep+=1em
+  [{N2[dat,+\textsc{top}]} [dem Kind;the child,roof] ]
+  [{V3[+\textsc{mc}]/{N2[dat]}}
+    [{V[8,+\textsc{mc}]} [gibt;gives] ]
+    [{N2[nom]} [er;he] ] 
+    [{N2[acc]} [das Buch;the book, roof] ] ] ]
+\end{forest}
+}}
+
+\begin{itemize}
+\item Metarule licenses rule introducing dative object into \slasch.
+\pause
+\item This rule is applied and licenses the subtree for \emph{gibt er das Buch}.
+\pause
+\item The linearization rule orders the verb left of other constituents (V[+MC] $<$ X).
+\pause
+\item The constituent following the slash is bound off in the last step.
+\end{itemize}
+
+}
+
+\subsubsection{An example with nonlocal dependencies}
+
+\frame{%[shrink=20]{
+\frametitle{An example with nonlocal dependencies (I)}
+
+%\savespace
+All NPs in (\mex{1}) depend on the same verb:
+\ea
+\gll Dem Kind gibt er das Buch.\\
+     the.\dat{} child gives he.\nom{} the.\acc{} book\\
+\glt `He gives the child the book.'
+\z
+Complicated system of linearization rules $\to$ analyze (\mex{0}) with a flat structure.
+\pause
+
+But this would not work for:
+
+
+\ea \gll Wen$_i$ glaubst du, daß ich \_$_i$ gesehen habe?\footnotemark\\
+     who believe you that I {} seen have\\
+\footnotetext{%
+    \citew[\page84]{Scherpenisse86a}.
+    }
+\glt `Who do you think I saw?'
+%\ex
+% {\raggedright
+% \gll {}[Gegen ihn]$_i$ falle es den Republikanern hingegen schwerer, [~[~Angriffe~\_$_i$] zu lancieren].\footnotemark\\
+% 	 {}\spacebr{}against him fall it the Republicans however more.difficult
+%          \hspaceThis{[~[~}attacks to launch\\
+% \par}
+% \footnotetext{%
+%   taz, 08.02.2008, p.\,9.
+% }
+% \glt `It is, however, more difficult for the Republicans to launch attacks against him.'
+\z
+
+(\mex{0}) cannot be explained by local reordering since \emph{wen} does not depend on \emph{glaubst}
+but on \emph{gesehen} and \emph{gesehen} is located in a different local subtree.
+
+}
+
+\frame{
+\frametitle{An example with nonlocal dependencies (II)}
+
+
+\begin{itemize}
+\item (\mex{1}) is analyzed in several steps: introduction, percolation and finally binding off of information about the long"=distance dependency
+\ea
+\gll Wen glaubst du, daß ich gesehen habe?\\
+     who believe you that I seen have\\
+\z
+
+\pause
+
+\item \emph{ich gesehen habe} is V3/NP[acc]\\
+(grammar rule licensed by a metarule)
+
+
+\item \emph{dass ich gesehen habe} is V3/NP[acc]\\
+      (percolation of \slasch information)
+
+\pause
+\item \emph{glaubst du, dass ich gesehen habe} is V3/NP[acc]\\
+      (percolation of \slasch information)
+
+\pause
+\item \emph{Wen glaubst du, dass ich gesehen habe} is V3\\
+      (binding off of \slasch information in grammar rule)
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{An example with nonlocal dependencies (III)}
+
+
+\vfill
+\centerline{%
+\scalebox{0.75}{%
+\begin{forest}
+sm edges,empty nodes
+[{V3[+\textsc{fin},+\textsc{mc}]}
+  [{N2[acc,+\textsc{top}]} [wen;who] ]
+  [{V3[+\textsc{mc}]/N2[acc]}
+    [{V[9,+\textsc{mc}]} [glaubst;believes] ]
+    [{N2[nom]} [du;you] ] 
+    [{V3[+dass,$-$\textsc{mc}]/N2[acc]} 
+      [{}[dass;that] ]
+      [{V3[$-$dass,$-$\textsc{mc}]/N2[acc]} 
+         [{N2[nom]} [ich;I] ]
+         [{V[6,$-$\textsc{mc}]} [gesehen habe;seen have,roof] ] ] ] ] ]
+\end{forest}
+}
+}
+
+\vfill
+Simplifying assumption: \emph{gesehen habe} behaves like a simplex transitive verb.
+\vfill
+
+}
+
+\subsection{Summary and Classification}
+
+\subsubsection{Highlights}
+
+\frame{
+\frametitle{Highlights: Across the Board Extraction}
+
+\begin{itemize}
+\item Gazdar's \citeyearpar{Gazdar81a} \slasch-based analysis can account for so-called Across the Board extraction \citep{Ross67a}:
+
+\eal\settowidth\jamwidth{(= S/NP \& S/NP)}
+\label{ex-atb-gazdar}
+\ex[]{ The kennel     which Mary made and Fido sleeps in has been stolen.	 \jambox{(= S/NP \& S/NP)}
+}
+\ex[]{ The kennel in which Mary keeps drugs and Fido sleeps has been stolen.	\jambox{(= S/PP \& S/PP)}
+}
+\ex[*]{The kennel (in) which Mary made and Fido sleeps has been stolen.     \jambox{(= S/NP \& S/PP)}
+}
+\zl
+
+Conjuncts have to have the same element in \slasch and this information is percolated further and
+then bound off.
+
+\pause
+
+\item Such sentences are a miracle for transformational analyses:\\
+      Why is it that two transformations have to move something of the same category?\\
+      How can two different things land in the same position?
+
+\end{itemize}
+
+}
+
+
+\subsubsection{Problems}
+
+\frame{
+\frametitle{Problems}
+
+\begin{itemize}
+\item representation of valence and morphology
+\item partial fronting
+\item generative capacity
+\end{itemize}
+
+
+}
+
+
+\subsubsubsection{Representation of valence and morphology}
+
+\frame{
+\frametitle{Representation of valence and morphology}
+
+\begin{itemize}
+\item Morphology has to access valence information:
+\eal\settowidth\jamwidth{(nominative, accusative, PP[mit])}
+\ex[]{
+\gll lös-bar\\
+     solv-able\\  	\jambox{(nominative, accusative)}
+}
+\ex[]{
+\gll vergleich-bar\\ 
+     compar-able\\ \jambox{(nominative, accusative, PP[mit])}
+}
+\ex[*]{
+\gll schlaf-bar\\ 
+	 sleep-able\\ \jambox{(nominative)}
+}
+\ex[*]{
+\gll helf-bar\\  
+	 help-able\\\jambox{(nominative, dative)}
+}
+\zl
+\item Generalization: \emph{bar} adjectives can be formed from verbs governing an accusative.
+\pause
+\item This information is inaccessable in GPSG. Only valence numbers and this number does
+  not even tell us whether there is an accusative. There may be a bunch of different rules
+  (active/passive) with or without the accusative.
+\pause
+\item Valence must contain detailed descriptions of arguments (CG, LFG, HPSG).
+
+\end{itemize}
+
+
+}
+
+\subsubsubsection{Partial fronting}
+
+\frame{
+\frametitle{Partial fronting}
+
+German allows the fronting of (partial) VPs:
+\eal
+\ex 
+\gll Erzählen wird er seiner Tochter ein Märchen können.\\
+     tell will he his daughter a fairy.tale can\\
+\glt `He will be able to tell his daughter a fairy tale.'
+\ex 
+\gll Ein Märchen erzählen wird er seiner Tochter können.\\
+     a fairy.tale tell will he his daughter can\\
+\ex 
+\gll Seiner Tochter ein Märchen erzählen wird er können.\\
+     his daughter a fairy.tale tell will he can\\
+\zl
+
+Arguments not realized in the fronted VP have to be realized in the \mf.
+
+}
+
+\frame[shrink]{
+\frametitle{Partial fronting}
+
+\begin{itemize}
+\item Arguments missing in initial position have to be realized in the \mf. The case in the \mf has to
+match the requirement of the verb in the \vf:
+\eal
+\ex[]{
+\gll Verschlungen hat er es nicht.\\
+     devoured     has he.\nom{} it.\acc{} not\\
+\glt `He did not devour it.'
+}
+\ex[*]{
+\gll Verschlungen hat er nicht.\\
+     devoured     has he.\nom{} not\\
+}
+\ex[*]{
+\gll Verschlungen hat er ihm nicht.\\
+     devoured     has he.\nom{} him.\dat{} not\\
+}
+\zl
+\pause
+\item But this is impossible to do with the standard treatment of valence in GPSG. 
+\pause
+\item Combinations of verbs with arguments are licensed by phrase structure rules referring to numbers.
+
+\item But the objects can only be missing when they are realized in the \mf. How is this connection
+established?
+
+\pause
+\item \citet{Nerbonne86a} and \citet{Johnson86a} developed solutions and they assume a different
+  representation of valence. One similar to Categorial Grammar.
+
+\end{itemize}
+
+
+}
+
+
+\frame{
+\frametitle{Generative capacity}
+
+\begin{itemize}
+\item The generative capacity of GPSG corresponds to those of context free grammars.
+\pause
+\item Being restrictive was one of the goals of GPSG.
+\pause
+\item But \citet{Shieber85a} and \citet{Culy85a} showed that there are languages that cannot be
+  described with context free grammars (see also \citew{Pullum86a} for historical remarks).
+\pause
+\item This means that GPSG is not powerful enough to describe all languages.
+\pause
+\item This lead directly to HPSG, the successor of GPSG.
+\end{itemize}
+
+
+}
+
+
+
+
+
+%      <!-- Local IspellDict: en_US-w_accents -->
