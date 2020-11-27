@@ -27,9 +27,13 @@
 \begin{itemize}
 \item Often the grammars of languages are modeled after suggestions for English.
 \pause
-\item (Reasoning: Grammars are formed/limited by UG. We know that English has property X
+\item Reasoning: Grammars are formed/limited by UG.\\
+       We know that English has property X, hence\\
+       all languages have property X.\\
+       Caution: This is not a valid inference.
 \pause
-\item In order to understand the particular analysis discussed here, we first have to look at English.
+\item In order to understand the particular analysis discussed here,\\
+      we first have to look at English.
 \end{itemize}
 
 
@@ -69,34 +73,32 @@ sm edges
 %\frame{
 \frametitle{The English CP, IP and VP: Questions}
 
-\savespace\small\smallexamples\parskip0pt\itemsep0pt
-
-
-\centerline{%
-\scalebox{.8}{
-\begin{forest}
-sm edges
-[IP
-		[NP[Ann,roof]]
-		[I$'$
-			[I$^0$[\trace$_k$]]
-			[VP
-				[V$'$
-					[V$^0$[read]]
-					[NP[the newspaper,roof]]]]]]
-\end{forest}}}
+% \savespace\small\smallexamples\parskip0pt\itemsep0pt
+% \centerline{%
+% \scalebox{.8}{
+% \begin{forest}
+% sm edges
+% [IP
+% 		[NP[Ann,roof]]
+% 		[I$'$
+% 			[I$^0$[\trace$_k$]]
+% 			[VP
+% 				[V$'$
+% 					[V$^0$[read]]
+% 					[NP[the newspaper,roof]]]]]]
+% \end{forest}}}
 
 \begin{itemize}
 \item Ye/no questions are formed by fronting the auxiliary:
 \ea
 Will Ann read the newspaper?
 \z
+\item The auxiliary moves to the position of the complementizer.
 \pause
 \item \emph{wh} questions are formed by additionally preposing a constituent:
 \ea
 What will Ann read?
 \z
-\item The auxiliary moves to the position of the complementizer.
 \end{itemize}
 
 }
@@ -108,11 +110,10 @@ What will Ann read?
 \vfill
 
 \hfill
-\scalebox{.9}{
+\scalebox{.85}{
 \begin{forest}
 sm edges
 [CP
-[XP [\trace]]
 [C$'$
 	[C$^0$[will$_k$]]
 	[IP
@@ -125,11 +126,11 @@ sm edges
 					[NP[the newspaper,roof]]]]]]]]
 \end{forest}}
 \hfill
-\only<2->{\scalebox{.9}{
+\visible<2->{\scalebox{.85}{
 \begin{forest}
 sm edges
 [CP
-[NP[what$_i$]]
+[NP$_i$ [what]]
 [C$'$
 	[C$^0$[will$_k$]]
 	[IP
@@ -170,7 +171,8 @@ Before turning to the CP/IP system in grammars of German we have to sort out som
 \item We will use \alert{Vorfeld}, \alert{linke/rechte Satzklammer},
 \alert{Mittelfeld} and \alert{Nachfeld}.
 
-\citew{Bech55a} introduced further fields for verbal complexes but we will ignore them here.
+\citew{Bech55a} introduced further fields for verbal complexes,\\
+ but we will ignore them here.
 \end{itemize}
 
 
@@ -183,12 +185,12 @@ Before turning to the CP/IP system in grammars of German we have to sort out som
 \begin{itemize}
 \item Verb-final position
       \ea
-\gll Peter hat erzählt, \rot<5->{dass} er das Eis \braun<5->{\gruen<4>{gegessen}} \braun<5->{\blauit<-4>{hat}}.\\
+\gll Peter hat erzählt, \rot<5->{dass} er das Eis \braun<5->{\gruen<4>{gegessen}} \braun<5->{\blauit<-3>{\gruen<4>{hat}}}.\\
      Peter has told that he the ice.cream eaten has\\
 %\glt `Peter said that he has eaten the ice cream.'
       \z
 \pause
-\item Verb-final position
+\item Verb-initial position
         \ea
 \gll      \rot<4->{\blauit<-3>{Hat}} Peter das Eis \braun<5->{\gruen<4>{gegessen}}?\\
 	 has Peter the ice.cream eaten\\
@@ -277,19 +279,20 @@ Before turning to the CP/IP system in grammars of German we have to sort out som
 \item<+-> Test: Rangprobe \citep[\page 72]{Bech55a}
 \eal
 \ex[]{
-\gll Der Delphin hat [dem Kind] den Ball gegeben, [das er kennt].\\
+\gll Der Delphin hat [\rot{dem} \rot{Kind}] den Ball gegeben, [\rot{das} \rot{er} \rot{kennt}].\\
      the dolphin has \spacebr{}the child the ball given \spacebr{}who he knows\\
 \glt `The dolphin has given the ball to the child who it knows.'
 }
+\pause
 \ex[*]{
-\gll Der Delphin hat [dem Kind] den Ball, [das er kennt,] gegeben.\\
+\gll Der Delphin hat [\rot{dem} \rot{Kind}] den Ball, [\rot{das} \rot{er} \rot{kennt},] gegeben.\\
      the dolphin has \spacebr{}the child the ball \spacebr{}who he knows given\\
 }
 \zl
 Replacing the finite verb by an auxiliary forces the main verb into the right sentence bracket.
 \pause
 \ea{
-\gll Der Delphin hat [dem Kind, das er kennt,] den Ball gegeben.\\
+\gll Der Delphin hat [\rot{dem} \rot{Kind}, \rot{das} \rot{er} \rot{kennt},] den Ball gegeben.\\
      the dolphin has \spacebr{}the child who he knows the ball given\\
 }
 \z
@@ -299,7 +302,7 @@ Replacing the finite verb by an auxiliary forces the main verb into the right se
 }
 
 
-\frame[shrink]{
+\frame[shrink=10]{
 \frametitle{Recursion}
 
 \begin{itemize}
@@ -313,6 +316,7 @@ Replacing the finite verb by an auxiliary forces the main verb into the right se
 \ex 
 \gll {}[Verschüttet für lange lange Zeit] ist damit die Möglichkeit,      etwas zu ver"-ändern.\\
       \spacebr{}buried for long long time ist there.with the possibility  something to change\\
+\pause
 \ex 
 \gll Wir haben schon seit langem gewußt, daß du kommst.\\
      we have \particle{} since long known that you come\\
@@ -508,8 +512,8 @@ App.\ 40\,\% of all languages are SOV languages, app.\,35\,\% are SVO.
      she starts tomorrow \textsc{part}\\
 \glt `She is starting tomorrow.'
 \zl
-This unit can only be seen in verb"=final structures, which speaks for the fact that this structure
-reflects the base order.
+This unit can only be seen in verb"=final structures,\\
+which speaks for the fact that this structure reflects the base order.
 }
 
 % \frame{
@@ -543,7 +547,8 @@ Sometimes SOV is the only option \citep[\page 370--371]{Hoehle2018Projektionsstu
 }
 \zl
 
-This is backformation. \emph{Ur-auf-führung} is wrongly assumed to be derived from the verb \emph{uraufführen}.
+This is backformation.\\
+\emph{Ur-auf-führung} is wrongly assumed to be derived from the verb \emph{uraufführen}.
 
 }
 
@@ -554,11 +559,11 @@ Verbs in non-finite subordinated clauses and in finite subordinated clauses intr
 conjunction are positioned at the end (ignoring extraposition):
 \eal
 \ex 
-\gll Der Clown versucht, Kurt-Martin die Ware zu geben.\\
+\gll Der Clown versucht, Kurt-Martin die Ware \alert{zu} \alert{geben}.\\
      the clown tries Kurt-Martin the goods to give\\
 \glt `The clown is trying to give Kurt-Martin the goods.'
 \ex 
-\gll dass der Clown Kurt-Martin die Ware gibt\\
+\gll dass der Clown Kurt-Martin die Ware \alert{gibt}\\
 	 that the clown Kurt-Martin the goods gives\\
 \glt `that the clown gives Kurt-Martin the goods'
 \zl
@@ -676,16 +681,16 @@ sm edges
 \item The finite verb is moved via \inull to \cnull in verb-first and verb-second clauses: \\
 \vnull $\to$  \inull $\to$ \cnull. 
 \eal
-\settowidth\jamwidth{(Verb in \vnull)}
+\settowidth\jamwidth{(verb in \vnull)}
 \ex 
 \gll dass jeder diese Frau kenn- -t\\
-     that everybody this woman know- -s\\ \jambox{(Verb in \vnull)}
+     that everybody this woman know- -s\\ \jambox{(verb in \vnull)}
 \ex 
 \gll dass jeder     diese Frau \_$_i$ [kenn-$_i$ -t]\\
-     that everybody this  woman {}   \spacebr{}know- -s\\ \jambox{(Verb in \inull)}
+     that everybody this  woman {}   \spacebr{}know- -s\\ \jambox{(verb in \inull)}
 \ex 
 \gll {}[Kenn-$_i$ -t]$_j$ jeder diese Frau \_$_i$ \_$_j$?\\
-     \spacebr{}know- -s   everybody this woman\\ \jambox{(Verb in \cnull)}
+     \spacebr{}know- -s   everybody this woman\\ \jambox{(verb in \cnull)}
 \zl
 
 \end{itemize}
@@ -790,6 +795,7 @@ placed further left (preferably in the prefield) and new information tends to oc
 prefield in declarative clauses is often referred to as
 \alert{topicalization}. 
 
+\pause
 \item But this is rather a misnomer, since the focus (informally: the constituent being asked for)
   can also occur in the prefield. Expletives as well.
 

@@ -1,3 +1,6 @@
+\subsection{Passive}
+
+
 \subtitle{Government \& Binding: Passive and local reordering}
 
 \huberlintitlepage[22pt]
@@ -10,9 +13,6 @@
 
 
 }
-
-
-\subsection{Passive}
 
 
 \subsubsection{Case of arguments: Structural and lexical case}
@@ -120,8 +120,8 @@ The case of the genitive object does not change in passivization.
 \glt `The victims are being remembered.'
 }
 \ex[*]{
-\gll \alert{Die} \alert{Opfer} wird/werden gedacht.\\
-     the.\NOM{}  victims       is/are      remembered\\    
+\gll \alert{Die} \alert{Opfer} wird / werden gedacht.\\
+     the.\NOM{}  victims       is   {} are      remembered\\    
 }
 \zl
 \pause
@@ -180,33 +180,34 @@ Three options:
 \frametitle{1. The dative as lexical case}
 
 \begin{itemize}
-\item If the dative is treated as a lexical case, the dative has to change in the dative passive
-  from lexical to structural.
+\item If the dative is treated as a lexical case,\\
+      the dative has to change in the dative passive from lexical to structural.
 \pause
 \item Haider's examples in (\mex{1}) are immediately explained \citeyearpar[\page 20]{Haider86}:
 \begin{exe}
 \ex \begin{tabular}[t]{@{}l@{~}l@{\hspace{1em}}l@{~}l@{~}l@{}}
 a. & {\gll Er  streichelt \alert{den} \alert{Hund}.\\
           he  strokes the dog\\
-     } & d. & & {\gll Er hilft \alert{den} \alert{Kindern}.\\
+     } & \visible<3->{d.} & & \visible<3->{\gll Er hilft \alert{den} \alert{Kindern}.\\
                     he helps the.\DAT{} children\\
                }\\
 b. & {\gll \alert{Der} \alert{Hund} wurde gestreichelt.\\
            the         dog          was   stroked\\
-     } & e. & & {\gll \alert{Den} \alert{Kindern} wurde geholfen.\\
+     } & \visible<3->{e.} & & \visible<3->{\gll \alert{Den} \alert{Kindern} wurde geholfen.\\
                     the.\DAT{}         children was helped\\
               }\\
 c. & {\gll sein Streicheln \alert{des}    \alert{Hundes}\\
            his stroking    of.the dog\\
-     } & f. &  & {\gll das Helfen \alert{der} \alert{Kinder}\\
+     } & \visible<3->{f.} &  & \visible<3->{\gll das Helfen \alert{der} \alert{Kinder}\\
                     the helping of.the children\\}\\
-   &  &     &  & (children agent only)
+   &  &     &  & \visible<3->{(children agent only)}
               \\
-   &  &  g. & * & {\gll sein Helfen \alert{der} \alert{Kinder}\\
+   &  &  \visible<3->{g.} & \visible<3->{*} & \visible<3->{\gll sein Helfen \alert{der} \alert{Kinder}\\
                       his  helping of.the children\\
  }
 \end{tabular}
 \end{exe}
+\pause
 \pause
 \item Dative can only be expressed prenominally:
 \ea
@@ -231,8 +232,8 @@ c. & {\gll sein Streicheln \alert{des}    \alert{Hundes}\\
 \gll Er unterstützt ihn.\\
      he supports him.\ACC\\
 \zl
-There has to be a difference between \emph{helfen} 
-and \emph{unterstützen}. Just saying the verbs require structural case, would not be enough.
+There has to be a difference between \emph{helfen} and \emph{unterstützen}.\\
+Just saying the verbs require structural case, would not be enough.
 \pause
 \item For ditransitive verbs one can derive the dative case from general principles (Nom, Dat, Acc),
   but this does not work for bivalent verbs.
@@ -301,7 +302,8 @@ Hence: Haider' approach: all datives have lexical case + trick for dative passiv
 
 \bigskip
 \pause
-\item Case is assigned under government, that is only certain tree positions may get case.
+\item Case is assigned under government, that is,\\
+      only NPs in certain tree positions may get case.
 \end{itemize}
 
 }
@@ -315,7 +317,7 @@ Hence: Haider' approach: all datives have lexical case + trick for dative passiv
 Assumptions regarding case and passive:
 \begin{itemize}[<+->]
 \item The subject gets case from I, the other arguments get case from V.
-\item The passive blocks the subject.
+\item The passive blocks the subject (in the lexicon).
 \item The accusative object gets a theta role but no case.
 \item Therefore it has to move to a position where it gets case (move to SpecIP).
 \end{itemize}
@@ -330,13 +332,13 @@ Assumptions regarding case and passive:
 \begin{forest}
 sm edges
 [IP
-  [NP, name=subject [der Mann;the man, roof]]
+  [{NP[nom]}, name=subject [der Mann;the man, roof]]
   [\hspaceThis{$'$}I$'$
 	[VP
 		[\hspaceThis{$'$}V$'$
-			[NP, name=dobject [der Frau;the woman, roof]]
+			[{NP[dat]}, name=dobject [der Frau;the woman, roof]]
 			[\hspaceThis{$'$}V$'$
-				[NP,   name=aobject [den Jungen;the boy, roof]]
+				[{NP[acc]},   name=aobject [den Jungen;the boy, roof]]
 				[V ,name=verb    [zeig-;show-]]]]]
 	[I , name=Infl [-t;-s]]]]
 \draw[->,dotted] (Infl.north) .. controls (3.5,-0.2) and (-1.5,0.4)  .. ($(subject.north)+(-.1,.1)$);
@@ -365,11 +367,11 @@ sm edges
 \begin{forest}
 sm edges
 [IP
-[NP, name=subject [der Junge$_i$;the boy ,roof]]
+[{NP[nom]}, name=subject [der Junge$_i$;the boy ,roof]]
 [\hspaceThis{$'$}I$'$
 	[VP
 		[\hspaceThis{$'$}V$'$
-			[NP, name=dobject [der Frau;the woman, roof]]
+			[{NP[dat]}, name=dobject [der Frau;the woman, roof]]
 			[\hspaceThis{$'$}V$'$
 				[NP,   name=aobject [\_$_i$]]
 				[V ,name=verb [gezeigt wir-;shown is, roof]]]]]
@@ -423,7 +425,7 @@ The mother gave [the girl] [a cookie].
      because the.\NOM{} ball the.\DAT{} boy given was\\
 \zl
 
-(\mex{0}b) is the unmarked order, not (\mex{0}c).
+(\mex{0}b) is the unmarked order \citep{Hoehle82a}, not (\mex{0}c).
 \pause
 That is: nothing has to be moved.
 
@@ -452,23 +454,23 @@ So for verbs with three arguments, there are six possible orders for the argumen
 \label{ex-gb-umstellung}
 \ex 
 \gll {}[weil] \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} \blau{das} \blau{Buch} gibt\\
-     \spacebr{}because the man the child the book gives\\
+     \spacebr{}because the.\NOM{} man the.\DAT{} child the.\ACC{} book gives\\
 \glt `because the man gives the book to the child'
 \ex 
 \gll {}[weil] \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} \rot{dem} \rot{Kind} gibt\\
-     \spacebr{}because the man the book the child gives\\
+     \spacebr{}because the.\NOM{} man the.\ACC{} book the.\DAT{} child gives\\
 \ex\label{ex-das-buch-der-mann-der-frau-gibt} 
 \gll {}[weil] \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} gibt\\
-     \spacebr{}because the book the man the child gives\\
+     \spacebr{}because the.\ACC{} book the.\NOM{} man the.\DAT{} child gives\\
 \ex 
 \gll {}[weil] \blau{das} \blau{Buch} \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} gibt\\
-     \spacebr{}because the book the child the man gives\\
+     \spacebr{}because the.\ACC{} book the.\DAT{} child the.\NOM{} man gives\\
 \ex 
 \gll {}[weil] \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} gibt\\
-     \spacebr{}because the child the man the book gives\\
+     \spacebr{}because the.\DAT{} child the.\NOM{} man the.\ACC{} book gives\\
 \ex 
 \gll {}[weil] \rot{dem} \rot{Kind} \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} gibt\\
-     \spacebr{}because the child the book the man gives\\
+     \spacebr{}because the.\DAT{} child the.\ACC{} book the.\NOM{} man gives\\
 \zl
 
 (\mex{0}a) is the so-called \alert{unmarked order} \citep{Hoehle82a}.\\
@@ -483,7 +485,7 @@ sentences can be used is restricted for all other sentences in (\mex{0}).
 \begin{itemize}
 \item Two suggestions:
 \begin{itemize}
-\item Assumption of one base order and derivation of all other orders by movement \citep{Frey93a}.
+\item Assumption of a base order and derivation of all other orders by movement \citep{Frey93a}.
 \pause
 \item Base generation: all orders are derived in the phrase structure component without movement \citep{Fanselow2001a}.
 
@@ -627,21 +629,21 @@ are moved. Their relative scope is fixed. They cannot reconstruct independently.
 \item Alternative: allow for the verb to combine with its arguments in any order.
  \citet{Fanselow2001a}: a base generation analysis (in Minimalism)% for the two objects
 \pause
-\item No account for (\mex{1}) in IP approach, since objects are before subject:
+\item No account for (\mex{1}) in IP approach, since objects are before \gruen{subject}:
 
 \eal
 \ex
 \gll {}[weil] \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} gibt\\
-     \spacebr{}because the book the man the child gives\\
+     \spacebr{}because the.\ACC{} book the.\NOM{} man the.\DAT{} child gives\\
 \ex 
 \gll {}[weil] \blau{das} \blau{Buch} \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} gibt\\
-     \spacebr{}because the book the child the man gives\\
+     \spacebr{}because the.\ACC{} book the.\DAT{} child the.\NOM{} man gives\\
 \ex 
 \gll {}[weil] \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} gibt\\
-     \spacebr{}because the child the man the book gives\\
+     \spacebr{}because the.\DAT{} child the.\NOM{} man the.\ACC{} book gives\\
 \ex 
 \gll {}[weil] \rot{dem} \rot{Kind} \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} gibt\\
-     \spacebr{}because the child the book the man gives\\
+     \spacebr{}because the.\DAT{} child the.\ACC{} book the.\NOM{} man gives\\
 \zl
 
 \pause
@@ -676,8 +678,8 @@ Goals:
 \pause
 \item Explanation of language acquisition by
       \begin{itemize}
-      \item assumption of a general rule schema that holds for all languages and all structures\\
-            (\xbart)
+      \item assumption of a general rule schema holding for all languages and all structures\\
+            (\xbar Theory)
       \item general principles holding for all languages but parameterizable
       \end{itemize}
 
