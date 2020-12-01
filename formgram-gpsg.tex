@@ -32,7 +32,7 @@
 \frame{
 \frametitle{Reading material}
 
-\citew[Cahpter~5]{MuellerGT-Eng} with Section~5.1.4 about semantics.
+\citew[Chapter~5]{MuellerGT-Eng} without Section~5.1.4 about semantics.
 
 
 }
@@ -42,7 +42,7 @@
 
 \begin{itemize}
 \item GPSG was developed as an answer
-to Transformational Grammar at the end of the 1970.
+to Transformational Grammar at the end of the 1970s.
 \pause
 \item Main publication: \citet*{GKPS85a}
 
@@ -145,23 +145,23 @@ These two tools will be discussed with respect to our set of phenomena.
 \eal
 \ex 
 \gll {}[weil] \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} \blau{das} \blau{Buch} gibt\\
-     \spacebr{}because the man the child the book gives\\
+     \spacebr{}because the.\NOM{} man the.\DAT{} child the.\ACC{} book gives\\
 \glt `because the man gives the book to the child'
 \ex 
 \gll {}[weil] \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} \rot{dem} \rot{Kind} gibt\\
-     \spacebr{}because the man the book the child gives\\
+     \spacebr{}because the.\NOM{} man the.\ACC{} book the.\DAT{} child gives\\
 \ex\label{ex-das-buch-der-mann-der-frau-gibt} 
 \gll {}[weil] \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} gibt\\
-     \spacebr{}because the book the man the child gives\\
+     \spacebr{}because the.\ACC{} book the.\NOM{} man the.\DAT{} child gives\\
 \ex 
 \gll {}[weil] \blau{das} \blau{Buch} \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} gibt\\
-     \spacebr{}because the book the child the man gives\\
+     \spacebr{}because the.\ACC{} book the.\DAT{} child the.\NOM{} man gives\\
 \ex 
 \gll {}[weil] \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} gibt\\
-     \spacebr{}because the child the man the book gives\\
+     \spacebr{}because the.\DAT{} child the.\NOM{} man the.\ACC{} book gives\\
 \ex 
 \gll {}[weil] \rot{dem} \rot{Kind} \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} gibt\\
-     \spacebr{}because the child the book the man gives\\
+     \spacebr{}because the.\DAT{} child the.\ACC{} book the.\NOM{} man gives\\
 \zl
 \end{itemize}
 }
@@ -271,8 +271,9 @@ sm edges
 
 \pause
 
-An LP constraint holds for the whole grammar. If we would claim that NP[nom] precedes NP[acc], this
-would hold for rules for strictly transitive verbs as well as for rules for ditransitive verbs.
+An LP constraint holds for the whole grammar.\\
+If we claim that NP[nom] precedes NP[acc],\\
+this holds for rules for strictly transitive verbs as well as for rules for ditransitive verbs.
 
 
 \end{itemize}
@@ -284,7 +285,7 @@ would hold for rules for strictly transitive verbs as well as for rules for ditr
 
 
 \begin{itemize}
-\item Without restriction for the order of elements on the right-hand side, there is too much freedom.
+\item Without restriction for the order $\to$ too much freedom
 
 \medskip
 \begin{tabular}[t]{@{}l@{ }l}
@@ -294,7 +295,7 @@ S  & $\to$ V, NP[nom], NP[acc], NP[dat]\\
 \medskip
 The rule admits the following order:
 \ea[*]{
-\gll Dem Kind der Mann gibt ein Buch.\\
+\gll \rot{Dem} \rot{Kind} \gruen{der} \gruen{Mann} gibt ein Buch.\\
      the.\DAT{} child the.\NOM{} man gives the.\ACC{} book\\
 }
 \z
@@ -309,7 +310,7 @@ X       & V[$-$MC]\\
 \z
 \textsc{mc} stand for \emph{main clause}. 
 
-LP rule states that the verb must be placed before all other constituents in main clauses
+LP rule states: verb must be placed before all other constituents in main clauses
 (+\textsc{mc}) and after all other constituents in dependent clauses ($-$\textsc{mc}).
 
 \end{itemize}
@@ -339,7 +340,7 @@ German passive theory-neutrally:
 \item If there is an accusative object, this becomes the subject.
 \end{itemize}
 
-This is true for all verb classes which can form the passive. It does not make a difference whether the verbs takes one, two or three arguments:
+This holds for all verb classes forming a passive. Independent of the arity of the verb:
 \eal
 \label{beispiel-arbeiten}
 \ex 
@@ -351,6 +352,7 @@ This is true for all verb classes which can form the passive. It does not make a
 	 because still worked was\\
 \glt `because there was still working there'
 \zl
+\pause
 \eal
 \label{beispiel-denken}
 \ex 
@@ -386,6 +388,7 @@ German passive theory-neutrally:
 	 because he.\nom{} beaten was\\
 \glt `because he was beaten'
 \zl
+\pause
 \eal
 \ex 
 \gll weil er ihm den Aufsatz gegeben hat\\
@@ -411,15 +414,16 @@ German passive theory-neutrally:
 \pause
 \item GPSG is a non-transformational theory.
 \pause
-\item The passive is accounted for by using a so-called metarule to derive the passive rules from the active rules.
+\item Metarule derives passive rules from active rules.
 \pause
+\medskip
 \item These are explained with respect to the subject introduction metarule.
 \end{itemize}
 
 
 }
 
-\frame[shrink=10]{
+\frame[shrink=5]{
 \frametitle{Introduction of the subject via a metarule (I)}
 
 Our rules look like this:
@@ -433,12 +437,12 @@ V2  & H[8], N2[Case Dat], N2[Case Acc]  & (geben `give', zeigen `show')\\
 
 \pause
 
-The rules in (\mex{0}) can be sued to analyze VPs but not sentences with subject.
+The rules in (\mex{0}) can be used to analyze VPs but not sentences with subject.
 
 \pause
 
 We use a metarule saying: ``If there is a rule of the form `V2 consists of something', then there is
-also a rule stating `V3 consists of whatever V2 consists of + an NP in the nominative'''.  
+also a rule stating `V3 consists of whatever V2 consists of + an NP in the nominative'{}''.  
 
 \pause
 
@@ -499,22 +503,22 @@ provided no LP rule is violated.
 \item For each active rule with subject and accusative object, a passive rule will be licensed with
   the subject suppressed. The relation between the rules is captured.
 \pause
-\item Differences between Transformational Grammar/GB and GPSG:
+\item Differences between Transformational Grammar/GB and GPSG:\\
       It is not the case that there are several trees that are related to each other,\\
       but rather active rules are related to passive rules.
 
-      The active and passive rules can be used to derive to structures independently, that is, 
+      The active and passive rules can be used to derive two structures independently:\\
       (\mex{1}b) is not derived from (\mex{1}a).
 
 \eal
 \ex 
-\gll weil sie ihn geschlagen hat\\
-     because she.\nom{} him.\acc{} beaten has\\
-\glt `because she has beaten him'
+\gll weil Judit den Weltmeister geschlagen hat\\
+     because Judit.\nom{} the.\acc{} world.champion beaten has\\
+\glt `because Judit has beaten the world champion'
 \ex 
-\gll weil er geschlagen wurde\\
-     because he.\nom{} beaten was\\
-\glt `because he was beaten'
+\gll weil der Weltmeister geschlagen wurde\\
+     because the.\nom{} world.champion beaten was\\
+\glt `because the world champion was beaten'
 \zl
 
 The generalization regarding active/passive alternations is captured nevertheless.
@@ -557,8 +561,8 @@ V2 $\to$ H[13], PP[\emph{an}] & (\emph{denken} `think')\\
 \end{tabular}
 \z      
 
-So, if the analysis of the passive in English is not revised, the analyses of the passive in English
-and German will differ.
+So, if the analysis of the passive in English is not revised,\\
+the analyses of the passive in English and German will differ.
 
 \pause
 \item The German passive metarule could apply to rules including the subject.
@@ -579,30 +583,32 @@ and German will differ.
 \item Until now: verb-initial and verb-final placement of the verb:
 \eal
 \ex 
-\gll {}[dass] der Mann dem Kind das Buch gibt\\
+\gll {}[dass] der Mann dem Kind das Buch \alert{gibt}\\
 	 {}\spacebr{}that the.\NOM{} man the.\DAT{} child the.\ACC{} book gives\\
 %\glt `that the man gives the book to the child'
 \ex 
-\gll Gibt der Mann dem Kind das Buch?\\
+\gll \alert{Gibt} der Mann dem Kind das Buch?\\
 	 gives the.\NOM{} man the.\DAT{} child the.\ACC{} book\\
 %\glt `Does the man give the book to the child?'
 \zl
+\pause
 \item What about verb second placement:
 \eal
 \ex 
-\gll Der Mann gibt dem Kind das Buch.\\
+\gll Der Mann \alert{gibt} dem Kind das Buch.\\
      the.\NOM{} man  gives the.\DAT{} child the.\ACC{} book\\
 %\glt `The man gives the child the book.'
 \ex 
-\gll Dem Kind gibt der Mann das Buch.\\
+\gll Dem Kind \alert{gibt} der Mann das Buch.\\
      the.\DAT{} child gives the.\NOM{} man the.\ACC{} book\\
 %\glt `The man gives the child the book.'
 \zl
 
+\pause
 \item V2 is analyzed as a nonlocal dependency via a sequence of local dependencies.
 
-One of the main innovations of GPSG is the development of an alternative to transformations for the
-analysis of nonlocal dependencies (but also \citew{Harman63a}).
+One of the main innovations of GPSG:\\
+transformationless analysis of nonlocal dependencies (but also \citew{Harman63a}).
 \end{itemize}
 
 }
@@ -616,8 +622,8 @@ analysis of nonlocal dependencies (but also \citew{Harman63a}).
 We take an arbitrary category X out of the set of categories on the right-hand side of the rule and
 represent it on the left-hand side after a slash (`/'):
 \ea
-V3  $\to$ W, X $\mapsto$\\
-V3/X  $\to$ W
+V3  $\to$ W, \gruen{X} $\mapsto$\\
+V3/\gruen{X}  $\to$ W
 \z
 \pause
 
@@ -659,8 +665,8 @@ V3[+Fin] & N2[+Top, Case Acc], & V3[+MC]/N2[Case Acc]\\
 \z
 
 \pause
-A linearization rule makes sure that the X in (\mex{-1}) is serialized to the left of anything else
-(\eg V3), since it is marked [+Top].
+LP rule: X in (\mex{-1}) is serialized left of anything else
+(\eg V3), since it is [+Top].
 \ea
 {}[+Top] $<$ X
 \z
@@ -686,11 +692,11 @@ sm edges
 %     [{N2[nom]} [er;he] ] 
 %     [{N2[acc]} [das Buch;the book, roof] ] ] ]
 [{V3[+\textsc{fin}, $+$\textsc{mc}]},s sep+=1em
-  [{N2[dat,+\textsc{top}]} [dem Kind;the child,roof] ]
-  [{V3[+\textsc{mc}]/{N2[dat]}}
-    [{V[8,+\textsc{mc}]} [gibt;gives] ]
-    [{N2[nom]} [er;he] ] 
-    [{N2[acc]} [das Buch;the book, roof] ] ] ]
+  [{\gruen<4>{N2[dat},+\textsc{top}\gruen<4>{]}} [dem Kind;the child,roof] ]
+  [\gruen<2>{V3[+\textsc{mc}]/\gruen<1,4>{N2[dat]}}
+    [\gruen<2>{\gruen<3>{V[}8,\gruen<3>{+\textsc{mc}]}} [{gibt};gives] ]
+    [\gruen<2>{N2[nom]} [{er};he] ] 
+    [\gruen<2>{N2[acc]} [{das Buch};the book, roof] ] ] ]
 \end{forest}
 }}
 
@@ -763,7 +769,7 @@ but on \emph{gesehen} and \emph{gesehen} is located in a different local subtree
 \item \emph{ich gesehen habe} is V3/NP[acc]\\
 (grammar rule licensed by a metarule)
 
-
+\pause
 \item \emph{dass ich gesehen habe} is V3/NP[acc]\\
       (percolation of \slasch information)
 
@@ -789,13 +795,13 @@ but on \emph{gesehen} and \emph{gesehen} is located in a different local subtree
 \begin{forest}
 sm edges,empty nodes
 [{V3[+\textsc{fin},+\textsc{mc}]}
-  [{N2[acc,+\textsc{top}]} [wen;who] ]
-  [{V3[+\textsc{mc}]/N2[acc]}
+  [{\gruen<3>{N2[acc},+\textsc{top}\gruen<3>{]}} [wen;who] ]
+  [{V3[+\textsc{mc}]/\gruen<2-3>{N2[acc]}}
     [{V[9,+\textsc{mc}]} [glaubst;believes] ]
     [{N2[nom]} [du;you] ] 
-    [{V3[+dass,$-$\textsc{mc}]/N2[acc]} 
+    [{V3[+dass,$-$\textsc{mc}]/\gruen<2>{N2[acc]}} 
       [{}[dass;that] ]
-      [{V3[$-$dass,$-$\textsc{mc}]/N2[acc]} 
+      [{V3[$-$dass,$-$\textsc{mc}]/\gruen<1>{N2[acc]}} 
          [{N2[nom]} [ich;I] ]
          [{V[6,$-$\textsc{mc}]} [gesehen habe;seen have,roof] ] ] ] ] ]
 \end{forest}
@@ -834,7 +840,7 @@ then bound off.
 \pause
 
 \item Such sentences are a miracle for transformational analyses:\\
-      Why is it that two transformations have to move something of the same category?\\
+      Why must two transformations move something of the same category?\\
       How can two different things land in the same position?
 
 \end{itemize}
@@ -903,27 +909,27 @@ then bound off.
 German allows the fronting of (partial) VPs:
 \eal
 \ex 
-\gll Erzählen wird er seiner Tochter ein Märchen können.\\
-     tell will he his daughter a fairy.tale can\\
+\gll [Erzählen] wird \gruen{er}        \rot{seiner}     \rot{Tochter}  \blau{ein}      \blau{Märchen} können.\\
+     \spacebr{}tell     will he.\NOM{} his.\DAT{} daughter a.\ACC{} fairy.tale can\\
 \glt `He will be able to tell his daughter a fairy tale.'
 \ex 
-\gll Ein Märchen erzählen wird er seiner Tochter können.\\
-     a fairy.tale tell will he his daughter can\\
+\gll [\blau{Ein} \blau{Märchen} erzählen] wird \gruen{er} \rot{seiner} \rot{Tochter} können.\\
+     \spacebr{}a.\ACC{} fairy.tale tell will he.\NOM{} his.\ACC{} daughter can\\
 \ex 
-\gll Seiner Tochter ein Märchen erzählen wird er können.\\
-     his daughter a fairy.tale tell will he can\\
+\gll [\rot{Seiner} \rot{Tochter} \blau{ein} \blau{Märchen} erzählen] wird \gruen{er} können.\\
+     \spacebr{}his.\DAT{} daughter a.\ACC{} fairy.tale tell will he.\NOM{} can\\
 \zl
 
 Arguments not realized in the fronted VP have to be realized in the \mf.
 
 }
 
-\frame[shrink]{
+\frame[shrink=7]{
 \frametitle{Partial fronting (II)}
 
 \begin{itemize}
-\item Arguments missing in initial position have to be realized in the \mf. The case in the \mf has to
-match the requirement of the verb in the \vf:
+\item Arguments missing in initial position have to be realized in the \mf.\\
+      The case in the \mf has to match the requirement of the verb in the \vf:
 \eal
 \ex[]{
 \gll Verschlungen hat er es nicht.\\
@@ -942,14 +948,14 @@ match the requirement of the verb in the \vf:
 \pause
 \item But this is impossible to do with the standard treatment of valence in GPSG. 
 \pause
-\item Combinations of verbs with arguments are licensed by phrase structure rules referring to numbers.
+\item Combinations of verbs with arguments are licensed by PSG rules referring to numbers.
 
-\item But the objects can only be missing when they are realized in the \mf. How is this connection
-established?
+\item But the objects can only be missing when they are realized in the \mf.\\
+      How is this connection established?
 
 \pause
-\item \citet{Nerbonne86a} and \citet{Johnson86a} developed solutions and they assume a different
-  representation of valence. One similar to Categorial Grammar.
+\item \citet{Nerbonne86a} and \citet{Johnson86a}: different representation of valence.\\
+One similar to Categorial Grammar.
 
 \end{itemize}
 
@@ -965,12 +971,15 @@ established?
 \pause
 \item Being restrictive was one of the goals of GPSG.
 \pause
-\item But \citet{Shieber85a} and \citet{Culy85a} showed that there are languages that cannot be
-  described with context free grammars (see also \citew{Pullum86a} for historical remarks).
+\item But \citet{Shieber85a} and \citet{Culy85a}:\\
+      there are languages that cannot be described with context free grammars.\\
+ (see also \citew{Pullum86a} for historical remarks)
 \pause
 \item This means that GPSG is not powerful enough to describe all languages.
 \pause
-\item This lead directly to HPSG, the successor of GPSG.
+
+\bigskip
+\item All mentioned problems are fixed in HPSG, the successor of GPSG.
 \end{itemize}
 
 
