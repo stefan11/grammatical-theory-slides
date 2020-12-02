@@ -411,10 +411,10 @@ Abbildung~\ref{#1}\vpageref[]{#1} und Abbildung~\ref{#2} \vpageref{#2}%
 
 
 % LFG arrows taken from Mary Dalrymple's macros
-\def \ups {\mbox{$\uparrow_{\sigma}$}}
-\def \downs {\mbox{$\downarrow_{\sigma}$}}
-\def \up {\hbox {$\uparrow$\kern .2em}}
-\def \down {\hbox {$\downarrow$\kern 0em}}
+\newcommand{\ups}{\mbox{$\uparrow_{\sigma}$}}
+\newcommand{\downs}{\mbox{$\downarrow_{\sigma}$}}
+\newcommand{\up}{\hbox {$\uparrow$\kern .2em}}
+\newcommand{\down}{\hbox {$\downarrow$\kern 0em}}
 
 \newdimen\mothernodedimen
 \def \phraserule #1#2{\setbox1\hbox{#1}%

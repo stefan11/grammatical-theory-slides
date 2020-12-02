@@ -49,7 +49,7 @@ install:
 	cp -p ${STYLE-PATH}Ling/my-gb4e-slides.sty       styles/
 	cp -p ${STYLE-PATH}Ling/cgloss.sty               styles/
 	cp -p ${LANGSCI-PATH}langsci-forest-setup.sty    .
-
+	cp -p ~/Documents/Dienstlich/Buecher/GT/English/styles/dalrymple.sty styles/
 
 public: formgram-slides.pdf formgram-handout.pdf
 	scp $? /home/stefan/public_html/PS/

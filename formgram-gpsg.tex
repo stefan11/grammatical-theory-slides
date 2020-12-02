@@ -92,7 +92,7 @@ V2  & H[9], V3[+dass]                   & (wissen `know', glauben `believe')\\
 \end{tabular}
 \medskip
 
-These rules license VPs: the combination of a verb with its complements, but not with its subject.
+These rules license VPs: the combination verb \& complements, but not subject.
 
 \pause
 \item The numbers following the category symbols (V or N) indicate the
@@ -177,8 +177,8 @@ Motivation: Permutation with phrase structure rules $\to$\\
 we need six phrase structure rules for ditransitive verbs in verb-final position:
 \ea
 \begin{tabular}[t]{@{}l@{ }l@{ }l@{ }l@{ }l@{ }}
-S  & $\to$ NP[nom]& NP[acc] & NP[dat] & V\\
 S  & $\to$ NP[nom]& NP[dat] & NP[acc] & V\\
+S  & $\to$ NP[nom]& NP[acc] & NP[dat] & V\\
 S  & $\to$ NP[acc]& NP[nom] & NP[dat] & V\\
 S  & $\to$ NP[acc]& NP[dat] & NP[nom] & V\\
 S  & $\to$ NP[dat]& NP[nom] & NP[acc] & V\\
@@ -195,8 +195,8 @@ Plus six rules for verb-initial position:
 
 \ea
 \begin{tabular}[t]{@{}l@{ }l@{ }l@{ }l@{ }l}
-S  & $\to$ V NP[nom]& NP[acc] & NP[dat]\\
 S  & $\to$ V NP[nom]& NP[dat] & NP[acc]\\
+S  & $\to$ V NP[nom]& NP[acc] & NP[dat]\\
 S  & $\to$ V NP[acc]& NP[nom] & NP[dat]\\
 S  & $\to$ V NP[acc]& NP[dat] & NP[nom]\\
 S  & $\to$ V NP[dat]& NP[nom] & NP[acc]\\
@@ -232,8 +232,8 @@ sm edges
 [S
   [V]
   [{NP[nom]}]
-  [{NP[acc]}]
-  [{NP[dat]}] ]
+  [{NP[dat]}]
+  [{NP[acc]}] ]
 \end{forest}}
 \medskip
 
@@ -260,14 +260,14 @@ sm edges
 [S
   [V]
   [{NP[nom]}]
-  [{NP[acc]}]
-  [{NP[dat]}] ]
+  [{NP[dat]}]
+  [{NP[acc]}] ]
 \end{forest}}
 \end{table}
 
 ~\medskip
 
-      $\to$ We can say something about order of V, NP[nom], NP[acc] und NP[dat].
+      $\to$ We can say something about order of V, NP[nom], NP[dat] and NP[acc].
 
 \pause
 
@@ -289,7 +289,7 @@ this holds for rules for strictly transitive verbs as well as for rules for ditr
 
 \medskip
 \begin{tabular}[t]{@{}l@{ }l}
-S  & $\to$ V, NP[nom], NP[acc], NP[dat]\\
+S  & $\to$ V, NP[nom], NP[dat], NP[acc]\\
 \end{tabular}
 
 \medskip
@@ -380,13 +380,13 @@ German passive theory-neutrally:
 
 \eal
 \ex 
-\gll weil sie ihn geschlagen hat\\
-	 because she.\nom{} him.\acc{} beaten has\\
-\glt `because she has beaten him'
+\gll weil Judit den Weltmeister geschlagen hat\\
+     because Judit.\nom{} the.\acc{} world.champion beaten has\\
+\glt `because Judit has beaten the world champion'
 \ex 
-\gll weil er geschlagen wurde\\
-	 because he.\nom{} beaten was\\
-\glt `because he was beaten'
+\gll weil der Weltmeister geschlagen wurde\\
+	 because the.\nom{} world.champion beaten was\\
+\glt `because the world champion was beaten'
 \zl
 \pause
 \eal
@@ -472,10 +472,12 @@ V3  $\to$ W, N2[Case Nom]
 
 This metarule takes the rules in (\mex{1}) as input and produces the rules in (\mex{2}):
 \ea
+\oneline{%
 \begin{tabular}[t]{@{}l@{~$\to$~}ll@{}}
 V2  & H[7], N2[Case Dat]                & (helfen `help', vertrauen `trust')\\
 V2  & H[8], N2[Case Dat], N2[Case Acc]  & (geben `give', zeigen `show')\\
 \end{tabular}
+}
 \z
 
 \ea

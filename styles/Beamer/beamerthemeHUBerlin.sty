@@ -191,7 +191,7 @@
 %\renewcommand{\huberlinlogon}[1]{\savebox{\huberlininsertlogo}{\includegraphics[height=#1]{hukombi_sws_rgb}}}
 
 % to keep \alert markings in handout mode and make them readable, make them bold
-\renewcommand{\alert}{\textbf}
+\renewcommand{\alert}[1]{{\bfseries #1}}
 
 \mode
 <all>
