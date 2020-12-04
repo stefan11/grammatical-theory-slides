@@ -81,33 +81,39 @@
 
 \subsubsubsection{Grammatical functions}
 
-\frame[shrink=10]{
+\frame{
 \frametitle{Grammatical functions and f-structure}
 
 
-In LFG, grammatical functions (subject, object, \ldots) play a very important role.\\
+\begin{itemize}
+\item In LFG, grammatical functions (subject, object, \ldots) play a very important role.\\
 They are primitives of the theory.
 
 \pause
 
 
-A sentence such as (\mex{1}a) has the functional structure in (\mex{1}b):
+\item A sentence such as (\mex{1}a) has the functional structure in (\mex{1}b):
 \eal
 \ex David devoured a sandwich.
-\ex \lfgms{ pred & `devour\sliste{\lfgsubj,\lfgobj}'\\
-         subj & \lfgms{ pred &  `David' \\
+\ex \lfgms{ \gruen<3>{pred} & `DEVOUR\sliste{\gruen<4>{\lfgsubj},\gruen<4>{\lfgobj}}'\\
+         subj & \lfgms{ \gruen<3>{pred} &  `DAVID' \\
                    }\\
          obj  & \lfgms{ spec & A\\
-                     pred & `sandwich'\\
+                        \gruen<3>{pred} & `SANDWICH'\\
                    }\\
        }
 \zl
 
-All lexical items that have a meaning (\eg nouns, verbs, adjectives) contribute a
+\pause
+\item All lexical items that have a meaning (\eg nouns, verbs, adjectives) contribute a
 \textsc{pred} feature with a corresponding value.
 
+\pause
+\item
 The grammatical functions governed by a head (government = subcategorization)
 are determined in the specification of \textsc{pred}.
+\end{itemize}
+
 
 }
 
@@ -118,7 +124,7 @@ The respective grammatical functions are called \emph{governable grammatical fun
 
 Examples:
 
-\begin{tabular}[t]{@{}lp{26em}@{}} 
+\begin{tabular}[t]{@{}lp{30em}@{}} 
 \sc subj: & subject \\ 
 \pause
 \sc obj: & object\\ 
@@ -129,6 +135,7 @@ Examples:
 %% extern kontrolliert wird\\
 \objtheta: & secondary \textsc{obj} functions that are related to a special, language \\
            & specific set of grammatical roles; English has \objtheme only.\\
+\pause
 %
 \obltheta: & a group of thematically restricted oblique functions, as for instance
          {\obl\downlett{GOAL}} or {\obl\downlett{AGENT}}. These often correspond to adpositional
@@ -177,8 +184,8 @@ It is possible to say something about the value which this feature should have i
 
 \pause
 
-The value of a feature may also be a specific f"=structure. The expression in (\mex{1})
-ensures that the \subjf in $f$ is the f"=structure $g$:
+The value of a feature may also be a specific f"=structure.\\
+(\mex{1}) ensures that the \subjf in $f$ is the f"=structure $g$:
 
 \ea
 ($f$ \lfgsubj) = $g$
@@ -195,7 +202,7 @@ ensures that the \subjf in $f$ is the f"=structure $g$:
 ($f$ \lfgpred) = {\small `SNEEZE\sliste{\lfgsubj}'}\\
 ($f$ \lfgtense) = {\small PAST}\\
 ($f$ \lfgsubj) = $g$\\
-($g$ \lfgpred) = {\small `David'}
+($g$ \lfgpred) = {\small `DAVID'}
 \end{tabular}
 \zl
 
@@ -204,8 +211,8 @@ The description in (\mex{0}b) describes the following structure:
 
 \ea
 $f$: \lfgms{ pred  & `SNEEZE\sliste{\lfgsubj}'\\
-          tense & PAST\\
-          subj  & $g$: \onems{ pred `David' }\\
+          tense & \lfgpast\\
+          subj  & $g$: \onems{ pred `DAVID' }\\
         }
 \z
 
@@ -229,7 +236,7 @@ We are only interested in minimal structures containing the information provided
 \raisebox{-2em}{\lfgms{
 pred & `SNEEZE\sliste{\lfgsubj}'\\
 tense & PAST\\
-subj  & \rnode{i}{\lfgms{ pred & `David' \\
+subj  & \rnode{i}{\lfgms{ pred & `DAVID' \\
                       }}\\
 }}\\
 \ltor[-15]{b}[175]{i}
@@ -271,8 +278,8 @@ A phrase and its head always correspond to the same f"=structure:
 
 
 
-In LFG grammars of English, the CP/IP system is assumed as in \gbt. IP, I$'$ and I
-(and also VP) are mapped onto the same f"=structure.
+In LFG grammars of English, the CP/IP system is assumed as in \gbt.\\
+IP, I$'$ and I (and also VP) are mapped onto the same f"=structure.
 \eal
 \ex David is yawning.
 
@@ -285,7 +292,7 @@ In LFG grammars of English, the CP/IP system is assumed as in \gbt. IP, I$'$ and
 \hspace*{4em}%
 {\rnode{o}{\raisebox{-2em}{\fd{\fdand{\feat{\lfgpred}{\small `YAWN\sliste{\lfgsubj}'}
                     \feat{\lfgtense}{\small PRES}
-           \feat{\lfgsubj}{\fdand{\feat{\lfgpred}{\small `David'}}}}}}}}
+           \feat{\lfgsubj}{\fdand{\feat{\lfgpred}{\small `DAVID'}}}}}}}}
 \ltor{a}{o}
 \ltor{b}{o}
 \ltor[10]{c}{o}
@@ -316,8 +323,8 @@ Elements required in the \textsc{pred} value have to be realized.
 \ex[*]{David devoured.
 }
 \ex[]{
-\lfgms{ pred & \small `DEVOUR\sliste{\lfgsubj,\lfgobj}'\\
-         subj & \lfgms{ pred &  `David' \\
+\lfgms{ pred & \small `DEVOUR\sliste{\gruen{\lfgsubj},\rot{\lfgobj}}'\\
+        \gruen{subj} & \lfgms{ pred &  `DAVID' \\
                    }\\
        }
 }
@@ -343,13 +350,13 @@ David devoured a sandwich that Peter sleeps.%\\
 %`David verschlang ein Sandwich, dass Peter schläft.'
 }
 \ex[]{
-\lfgms{ pred & \small `DEVOUR\sliste{\lfgsubj,\lfgobj}'\\
-         subj & [ {\sc pred}  `David' ] \\
-         obj  & \lfgms{ spec &  A\\
-                     pred & `sandwich'\\
+\lfgms{ pred & \small `DEVOUR\sliste{\gruen{\lfgsubj},\gruen{\lfgobj}}'\\
+         \gruen{subj} & [ \textsc{pred}  `DAVID' ] \\
+         \gruen{obj}  & \lfgms{ spec &  A\\
+                     pred & `SANDWICH'\\
                    }\\
-         comp & \lfgms{ pred & `sleep\sliste{\lfgsubj}'\\
-                     subj & \lfgms{ pred & `Peter'\\
+         \rot{comp} & \lfgms{ pred & `SLEEP\sliste{\lfgsubj}'\\
+                     subj & \lfgms{ pred & `PETER'\\
                                }\\
                    } 
        }
@@ -429,8 +436,8 @@ Similarly in lexical entries:
 \ea
 \tree{V}{\le{sneezed}}
 \hspace*{4em}
-\rnode{d}{\mbox{\fd{\fdand{\feat{\lfgpred}{\small `SNEEZE\sliste{\lfgsubj}'}
-                    \feat{\lfgtense}{\small PAST}}}}}
+\rnode{d}{\mbox{\lfgms{ pred & {\small `SNEEZE\sliste{\lfgsubj}'}\\
+                        tense & \lfgpast}}}
 \ltor{top}{d}
 \z
 
@@ -442,32 +449,36 @@ Similarly in lexical entries:
 
 \subsubsection{Lexical Integrity}
 
-\frame[shrink=10]{
+\frame{
 \frametitle{Lexical Integrity}
 
 
-\citet{BM95a}:\\
-Words are atoms of syntactic structure.
+\begin{itemize}
+\item \citet{BM95a}:\\
+Words are atoms of syntactic structure.\\
 Syntactic rules cannot create new words or make reference to the internal structure of words.
 
-Every terminal node (each ``leaf'' of the tree) is a word.
+\pause
+\item Every terminal node (each ``leaf'' of the tree) is a word.
 \pause
 
-This means:\\
-The following analysis of (\mex{1}) is excluded:
+\item
+This means: Pollock's \citeyearpar{Pollock89a-u} analysis of (\mex{1}) is excluded:
 
 \ea
-\gll Marie ne parlerait pas \\
-     Marie \textsc{neg} speak.\textsc{cond.3sg} \textsc{neg}\\
+\gll Marie ne parl-er-ait pas \\
+     Marie \textsc{neg} speak-\textsc{cond}-\textsc{3sg} \textsc{neg}\\
 \glt `Marie would not speak.'
 \z
 In Pollock's analysis, the various morphemes are in specific positions in the tree and are combined only after certain movements have been carried out.
+
+\end{itemize}
 
 }
 
 
 \frame{
-\frametitlefit{GB analysis with morphemes as terminal symbols (Pollock 1989)}\nocite{Pollock89a-u}
+\frametitlefit{GB analysis with morphemes as terminal symbols (Pollock 1989)}
 
 \vfill
 \centerline{%
@@ -516,7 +527,7 @@ for tree={parent anchor=south, child anchor=north,align=center,base=bottom}
 
 \subsubsection{Lexical integrity and passive}
 
-\frame[shrink]{
+\frame[shrink=5]{
 \frametitle{Lexical integrity and passive (I)}
 
 \begin{itemize}
@@ -536,12 +547,12 @@ for tree={parent anchor=south, child anchor=north,align=center,base=bottom}
 \eal
 \ex Aicke broke my heart.
 \ex My heart is broken.
-\ex my broken heart
+\ex my \alert{broken heart}
 \zl
 
 \eal
 \ex My friend is smart.
-\ex my smart friend
+\ex my \alert{smart friend}
 \zl
 
 
@@ -556,15 +567,15 @@ for tree={parent anchor=south, child anchor=north,align=center,base=bottom}
 \frametitle{Lexical integrity and passive (II)}
 
 \begin{itemize}
-\item Passive participle and adjectival participle have the same 
+\item Passive participle and adjectival participle have the same form:
 
 \eal
 \ex Aicke broke my heart.
-\ex My heart was broken.
-\ex my broken heart
+\ex My heart was \alert{broken}.
+\ex my \alert{broken} heart
 \zl
 
-
+\pause
 \item If one assumes lexical integrity,\\
       then adjectives have to be derived in the lexicon.
 
@@ -601,20 +612,21 @@ the form identity would remain unexplained.
 \frametitle{The lexical rule}
 
 \begin{itemize}
-\item The assignment of grammatical functions is regulated by the \blaubf{Lexical
+\item The assignment of grammatical functions is regulated by the \alert{Lexical
   Mapping Theory}.
 \pause
 \item Earlier works \citep{Bresnan82a} had an explicit formulation of the passive rule:
 \ea
 Passive rule:\\
 \begin{tabular}{@{}l@{~$\mapsto$~}l@{}}
-(SUBJ) & $\varnothing$/(OBL)\\
-(OBJ)  & (SUBJ)
+\gruen<2>{(SUBJ)} & \gruen<2>{$\varnothing$/(OBL)}\\
+\gruen<3>{(OBJ)}  & \gruen<3>{(SUBJ)}
 \end{tabular}
 \z
 This means: The subject is either not expressed at all ($\varnothing$) or\\
 as oblique Eelement (as a \emph{von}"=PP in German)
 
+\pause
 If there is an accusative object, this will be realized as subject.
 \end{itemize}
 
@@ -638,7 +650,7 @@ If there is an accusative object, this will be realized as subject.
 \pause
 \item Extended head domains: verb is simply omitted in the verb phrase:
 \ea
-VP $\to$ NP* (V)
+VP $\to$ NP* (V)\hspace{2cm} (preliminary version)
 \z
 All parts of the VP are optional (indicted by brackets and Kleene star).
 \pause
@@ -696,7 +708,7 @@ All parts of the VP are optional (indicted by brackets and Kleene star).
 \item Case requirements are specified in lexical items:
 \ea
 \label{le-verschlingen}
-\catlexentry{verschlingt}{V}{(\up\ \lfgpred) = {\small `VERSCHLINGEN\sliste{\lfgsubj, \lfgobj}'}\\*
+\catlexentry{verschlingt}{V}{(\up\ \lfgpred) = {\small `VERSCHLINGEN\sliste{\lfgsubj,\lfgobj}'}\\*
                              (\up\ \lfgsubj{} {\small AGR CAS}) = NOM\\*
                              (\up\ \lfgobj{} {\small AGR CAS}) = ACC\\*
                              (\up\ \lfgtense) = \small PRES}
@@ -729,7 +741,7 @@ All parts of the VP are optional (indicted by brackets and Kleene star).
 \item Case requirements are specified in lexical items:
 \ea
 \label{le-verschlingen}
-\catlexentry{verschlingt}{V}{(\up\ \lfgpred) = {\small `VERSCHLINGEN\sliste{\lfgsubj, \lfgobj}'}\\*
+\catlexentry{verschlingt}{V}{(\up\ \lfgpred) = {\small `VERSCHLINGEN\sliste{\lfgsubj,\lfgobj}'}\\*
                              (\up\ \lfgsubj{} {\small AGR CAS}) = NOM\\*
                              (\up\ \lfgobj{} {\small AGR CAS}) = ACC\\*
                              (\up\ \lfgtense) = \small PRES}
@@ -811,11 +823,11 @@ Chris, we think that David saw.
 \z
 
 \begin{itemize}
-\item an \alert{argument function} which is normally realized in a different position: the \lfgobj
-  function of \emph{saw} 
+\item an \alert{argument function} which is normally realized in a different position:\\
+the \lfgobj function of \emph{saw} 
 \pause
-\item a certain emphasis of the information"=structural status in this construction: \textsc{topic}
-  in the matrix clause -- a \alert{discourse function}
+\item a certain emphasis of the information"=structural status in this construction:\\
+ \textsc{topic} in the matrix clause -- a \alert{discourse function}
 \end{itemize}
 \end{itemize}
 
@@ -828,16 +840,14 @@ Chris, we think that David saw.
 \item grammaticalized discourse functions: \textsc{topic} and \textsc{focus}\\
       (\textsc{subj} is a default discourse function).
   \begin{itemize}
-  \item  Only 
-\alert{grammaticalized} discourse functions are represented on the level of f"=structure, that is, those
+  \item  Only \alert{grammaticalized} discourse functions are represented on the level of f"=structure, that is, those
 that are created by a fixed syntactic mechanism and that interact with the rest of the syntax.
 
 %%   (F\"ur die umfassende Repr\"asentation von informationsstrukturellen
 %%   Eigenschaften wird in LFG eine separate Informationsstruktur
 %%   angenommen.)
 \pause
-  \item Unlike argument functions, the discourse functions  \textsc{topic} and
-\textsc{focus} are not lexically subcategorized and are therefore not
+  \item \textsc{topic} and \textsc{focus} are not lexically subcategorized and are therefore not
 subject to the completeness and coherence conditions.
 \pause
   \item \textsc{topic} and \textsc{focus} are identified with an
@@ -854,13 +864,13 @@ f"=structure that bears an argument function.
 \eal
 \ex Chris, we think that David saw.
 \ex 
-\lfgms{ pred & `think\sliste{ \lfgsubj, \comp }' \\
-        topic & \rnode{topic}{\lfgms{ pred & `Chris' \\
+\lfgms{ pred & `THINK\sliste{\lfgsubj,\comp}' \\
+        topic & \rnode{topic}{\lfgms{ pred & `CHRIS' \\
                                    }}\\[4mm]
         subj & \lfgms{ pred & `pro'\\
                      }\\
-        comp & \lfgms{ pred & `see\sliste{ \lfgsubj, \lfgobj }\\
-                       subj & \lfgms{ pred & `David' \\
+        comp & \lfgms{ pred & `SEE\sliste{\lfgsubj,\lfgobj}\\
+                       subj & \lfgms{ pred & `DAVID' \\
                                     }\\
                        obj  & \rnode{obj}{}\\
                      }\\
@@ -869,7 +879,7 @@ f"=structure that bears an argument function.
 \zl
 
 \bigskip
-Der Strich sagt: The value of \textsc{topic} is identical to \textsc{comp obj}.
+The line means: The value of \textsc{topic} is identical to \textsc{comp obj}.
 
 The constraint: (\up  \textsc{topic})=(\up \textsc{comp obj})
 }
@@ -880,8 +890,8 @@ The constraint: (\up  \textsc{topic})=(\up \textsc{comp obj})
 \eal
 \ex Chris, we saw.
 \ex 
-\lfgms{ pred & `see\sliste{ \lfgsubj, \lfgobj }' \\
-        topic & \rnode{topic}{\lfgms{ pred & `Chris' \\
+\lfgms{ pred & `SEE\sliste{\lfgsubj,\lfgobj}' \\
+        topic & \rnode{topic}{\lfgms{ pred & `CHRIS' \\
                                    }}\\[4mm]
         subj & \lfgms{ pred & `pro'\\
                      }\\
@@ -905,16 +915,16 @@ The constraint: (\up  \textsc{topic})=(\up \textsc{obj})
 \ex Chris, we think Anna claims that David saw.
 \ex 
 \scalebox{0.85}{%
-\lfgms{ pred & `think\sliste{ \lfgsubj, \comp }' \\
-        topic & \rnode{topic}{\lfgms{ pred & `Chris' \\
+\lfgms{ pred & `THINK\sliste{\lfgsubj,\comp}' \\
+        topic & \rnode{topic}{\lfgms{ pred & `CHRIS' \\
                                    }}\\[4mm]
         subj & \lfgms{ pred & `pro'\\
                      }\\
-        comp & \lfgms{ pred & `claim\sliste{ \lfgsubj, \comp }\\
-                       subj & \lfgms{ pred & `Anna' \\
+        comp & \lfgms{ pred & `CLAIM\sliste{\lfgsubj,\comp}\\
+                       subj & \lfgms{ pred & `ANNA' \\
                                    }\\
-                       comp & \lfgms{ pred & `see\sliste{ \lfgsubj, \lfgobj }\\
-                                      subj & \lfgms{ pred & `David' \\
+                       comp & \lfgms{ pred & `SEE\sliste{\lfgsubj,\lfgobj}\\
+                                      subj & \lfgms{ pred & `DAVID' \\
                                                    }\\
                                       obj  & \rnode{obj}{}\\
                                     }\\
@@ -990,12 +1000,23 @@ The Kleene star `*' stands for arbitrarily many repetitions of \comp.
 
 }
 
+\frame{
+\frametitle{German example}
+
+\vfill
+\centerline{%
+\includegraphics[width=.9\textwidth]{Figures/den-apfel-verschlingt-david-lfg-lsp-crop}
+}
+\vfill
+
+}
+
 \subsection{Summary}
 
 \frame{
 \frametitle{Summary}
 
-\begin{itemize}
+\begin{itemize}[<+->]
 \item LFG is unification-based/constraint-based and works with feature structures and PSG rules.
 \item Grammatical functions are primitives of LFG,\\
       they are not defined with reference to structure (as in GB)
