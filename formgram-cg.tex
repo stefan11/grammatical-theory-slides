@@ -1,0 +1,800 @@
+\section{Categorial Grammar (CG)}
+
+\subtitle{Categorial Grammar (CG)}
+
+\huberlintitlepage[22pt]
+
+
+\outline{
+
+\begin{itemize}
+\item Introduction and basic terms
+\item Phrase structure grammar and \xbar Theory
+\item Government \& Binding (GB)
+\item {Generalized Phrase Structure Grammar (GPSG)}
+\item {Feature descriptions, feature structures and models}
+\item {Lexical Functional Grammar (LFG)}
+%\item PATR
+\item \alert{Categorial Grammar (CG)}
+\item Head-Driven Phrase Structure Grammar (HPSG)
+%\item Konstruktionsgrammatik (CxG)
+\item Tree Adjoning Grammar (TAG)
+\end{itemize}
+
+%\tableofcontents
+}
+
+\frame{
+\frametitle{Reading material}
+
+\citew[Chapter~8]{MuellerGT-Eng} (without 8.1.2 on semantics)
+
+}
+
+
+
+
+\frame{
+\frametitle{Categorial Grammar (CG)}
+
+\begin{itemize}
+\item Categorial Grammar is the second oldest of the approaches discussed here \citep{Ajdukiewicz35a-u}.
+\item Hotspots: Edinburgh, Uetrecht and Amsterdam
+\item Semanticists love CG since it syntactic combination goes hand in hand with semantic combination.
+\item Important articles and books:\\
+      \citet{Steedman91a,Steedman2000a-u,SB2006a-u}
+\end{itemize}
+
+}
+
+\subsection{General remarks on the representational format}
+
+
+\frame{
+\frametitle{Representation of valence information}
+
+
+\begin{itemize}
+\item complex categories replace the \subcatf of GPSG
+
+\medskip
+\begin{tabular}[t]{@{}l@{\hspace{1cm}}l}
+Rule                              & Category~in~the~lexicon\\
+vp $\to$ v(ditrans) np~np         & (vp/np)/np  \\
+vp $\to$ v(trans) np              & vp/np  \\
+vp $\to$ v(np\_and\_pp) np~pp(to) & (vp/pp)/np  \\
+\end{tabular}
+\medskip
+
+
+%
+\pause
+\item Very few, very abstract rules:
+
+\ea
+\blaubf{Forward application}\\
+X/Y * Y = X 
+\z
+
+Combine an X looking for a Y with a Y, where Y occurs to the right of X/Y.
+\pause
+
+\item Valence is encoded just once, namely in the lexicon.
+
+Until now we had two places for this:\\
+the \subcatf and the grammar rules.
+\end{itemize}
+}
+
+\frame{
+\frametitle{Forward application}
+
+
+\ea
+\blaubf{Forward application}\\
+X/Y * Y = X 
+\z
+
+Combine an X looking for a Y with a Y, where Y occurs to the right of X/Y.
+
+\medskip
+\deriv{2}{
+chased  & Mary\\
+\hr     & \hr\\
+vp/np   & np\\
+\multicolumn{2}{@{}c@{}}{\visible<2->{\forwardapp}} \\
+\multicolumn{2}{@{}c@{}}{\visible<2->{vp}}\\
+%\cgmc<2->{2}{vp}\\
+%\end{tabular}
+}
+\medskip
+
+\pause
+%\item für `/' meist Linksassoziativität \dh (vp/pp)/np = vp/pp/np
+
+\pause
+
+The category v is not needed any longer.
+
+}
+
+\frame{
+\frametitle{CG proofs vs.\ trees}
+
+\begin{itemize}
+\item CG derivations may seem strange on first encounter, but you can also depict them as trees.
+
+\bigskip
+
+\centerline{%
+\begin{forest}
+sm edges
+[vp
+	[vp/np
+		[chased]]
+	[np
+		[Mary]]]
+\end{forest}
+}
+
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Backward application}
+
+\begin{itemize}
+\item vp can be eliminated as well: vp = s$\backslash$np
+
+\ea
+\alert{Backward application}\\
+Y * X$\backslash$Y = X 
+\z
+
+\pause
+\deriv{4}{
+the  & cat & chased         & Mary\\
+\hr  & \hr & \hr            & \hr\\
+np/n & n   & (s\bs np)/np   & np\\
+\multicolumn{2}{@{}c}{\visible<3->{\forwardapp}} & \multicolumn{2}{c@{}}{\visible<4->{\forwardapp}}\\
+\multicolumn{2}{c}{\visible<3->{np}}             & \multicolumn{2}{c@{}}{\visible<4->{s\bs np}}\\
+\multicolumn{4}{@{}c@{}}{\visible<5->{\backwardapp}}\\
+\multicolumn{4}{c@{}}{\visible<5->{s}}\\
+}
+
+\pause\pause\pause
+\pause
+\item no explicit distinction between words and phrases:
+\begin{itemize}
+\item intransitive verb = verb phrase = $(s \backslash np)$
+\item similarly proper names = nominal phrases = np
+\end{itemize}
+\end{itemize}
+}
+
+
+\frame{
+
+\frametitle{Modification}
+
+\begin{itemize}
+\item optional modification:
+
+vp $\to$ vp~pp \\
+noun $\to$ noun~pp
+
+arbitrarily many PPs after a VP or a noun
+\pause
+\item modifiers in general: $X \backslash X$ or $X / X$
+\pause
+\item premodifier for nouns:
+
+noun $\to$ adj~noun\\
+
+adjective = $n/n$
+\pause
+\item postmodifier for nouns: $n \backslash n$
+\pause
+\item vp modifier: $\to$  X = $s \backslash np$
+\pause
+\item vp modifier: $(s \backslash np) \backslash (s \backslash np)$. 
+
+\end{itemize}
+}
+
+\frame{
+\frametitle{Derivation with a Categorial Grammar}
+\vfill
+% Eine typische Kategorialgrammatik benutzt nur s, np und n als Hauptkategorien. Manchmal werden noch pps als
+% Komplementpräpositionalphrasen zugelassen.
+
+% Eine Ableitung in der CG ist im wesentlichen ein binär verzweigender Baum, wird aber meistens wie folgt repräsentiert:
+% Ein Pfeil unter einem Paar von Kategorien zeigt an, daß diese mit einer Kombinationsregel kombiniert werden.
+% Die Richtung des Pfeils gibt die Richtung der Kombination an. Das Ergebnis wird unter den Pfeil geschrieben.
+% Ein Beispiel zeigt Abbildung \ref{abb-cg}.
+
+\oneline{%
+\deriv{9}{
+The  & small & cat & chased       & Mary & quickly                & round                     & the & garden\\
+\hr  & \hr   & \hr & \hr          & \hr  & \hr                    & \hr                       & \hr & \hr\\
+np/n & n/n   & n   & (s\bs np)/np & np   & (s\bs np)\bs (s\bs np) & (s\bs np)\bs (s\bs np)/np & np/n & n\\
+     & \multicolumn{2}{c}{\forwardapp} & \multicolumn{2}{c@{}}{\forwardapp}\\
+     & \multicolumn{2}{c}{n}           & \multicolumn{2}{c@{}}{s\bs np}\\
+\multicolumn{3}{@{}c}{\forwardapp}        & \multicolumn{3}{c@{}}{\backwardapp}\\
+\multicolumn{3}{@{}c}{np}                 & \multicolumn{3}{c@{}}{s\bs np}\\
+&&&&&&&\multicolumn{2}{c@{}}{\forwardapp}\\
+&&&&&&&\multicolumn{2}{c@{}}{np}\\
+&&&&&&\multicolumn{3}{c@{}}{\forwardapp}\\
+&&&&&&\multicolumn{3}{c@{}}{(s\bs np)\bs (s\bs np)}\\
+&&&\multicolumn{6}{c@{}}{\backwardapp}\\
+&&&\multicolumn{6}{c@{}}{(s\bs np)}\\
+\multicolumn{9}{@{}c@{}}{\backwardapp}\\
+\multicolumn{9}{@{}c@{}}{s}\\
+}}
+% Eine Kategorialgrammatik mit den beiden Multiplikationsregeln, die oben angegeben wurden, ist schwach äquivalent
+% zu einer kontextfreien Grammatik. Solche Grammatiken wurden zuerst von Ajdukiewicz diskutiert. Die Äquivalenz
+% zu den CFG wurde von Bar-Hillel bewiesen. Deshalb wird ein solches System auch AB genannt. 
+
+% Obwohl AB schwach äquivalent zu kontextfreien Grammatiken ist, ermöglicht das System die Beschreibung
+% verschiedener linguistischer Phänomene auf elegante Weise. In der CFG müßte man für entsprechende
+% Beschreibungen Merkmale benutzen.
+\vfill
+}
+
+
+
+\subsection{Verb position}
+
+\subsubsection{Variable branching}
+
+\frame{
+\frametitle{Verb position}
+
+\begin{itemize}
+\item \citet[\page 159]{Steedman2000a-u} for Dutch:
+
+\eal
+\ex verb-final \emph{gaf} (`give'): (S\sub{+SUB}$\backslash$NP)$\backslash$NP
+\ex verb-initial \emph{gaf} (`give'): (S\sub{$-$SUB}/NP)/NP
+\zl
+
+One item takes arguments to the left the other one to the right.
+
+\pause
+\item Lexical items are related by lexical rule.
+
+\end{itemize}
+
+
+}
+\frame{
+\frametitle{Comment on variable branching analysis}
+
+
+Note that NPs are combined in different orders:\\
+To get normal order, one would have to assume:
+
+\eal
+\ex verb-final: (S\sub{+SUB}$\backslash$NP[nom])$\backslash$NP[acc]
+\ex verb-initial: (S\sub{$-$SUB}/NP[acc])/NP[nom]
+\zl
+
+\medskip
+\hfill
+\scalebox{.8}{%
+\begin{forest}
+[S\sub{$-$SUB}
+  [{S\sub{$-$SUB}/NP[acc]}
+    [{(S\sub{$-$SUB}/NP[acc])/NP[nom]}]
+    [{NP[nom]}]]
+  [{NP[acc]}]]
+\end{forest}}
+\hfill
+\scalebox{.8}{%
+\begin{forest}
+[S\sub{$+$SUB}
+  [{NP[nom]}]
+  [{S\sub{$+$SUB}$\backslash$NP[nom]}
+    [{NP[acc]}]
+    [{(S\sub{$+$SUB}$\backslash$NP[nom])$\backslash$NP[acc]}]]]
+\end{forest}
+}  
+\hfill\mbox{}
+\medskip
+
+Two different branchings. So \citew{Mueller2005c} for criticism.
+
+
+}
+
+
+\subsubsection{Verb position with empty element}
+
+\frame{
+\frametitle{Verb position with empty element}
+
+\citet{Jacobs91a} empty element in final position\\
+taking the arguments of the verb and the verb in initial position as arguments.
+
+
+}
+
+
+\subsection{Local reordering}
+
+\frame{
+\frametitle{Local reordering}
+
+
+\begin{itemize}
+\item Until now: combinations either to the left or to the right.\\
+      Combinations always in a fixed order from outside inwards.
+
+\pause
+\item \citet{SB2006a-u} distinguish: 
+      \begin{itemize}
+      \item languages in which the order of combination does not matter
+\pause
+      \item languages in which the direction of combination does not matter
+      \end{itemize}
+
+\pause
+\medskip
+\begin{tabular}{@{}lll@{}}
+English   & (S$\backslash$NP)/NP     & S(VO)\\
+Latin     & S\{$|$NP[nom], $|$NP[acc] \} & free order\\
+Tagalog   & S\{/NP[nom], /NP[acc] \} & free order, verb-initial\\
+Japanese  & S\{$\backslash$NP[nom], $\backslash$NP[acc] \} & free order, verb-final\\
+\end{tabular}
+
+\medskip
+Elements in brackets can be combined with S in any order.
+
+`$|$' instead of `$\backslash$' or `/' means that direction of combination is free.
+
+\end{itemize}
+
+}
+
+
+
+\subsection{Passive}
+
+\frame{
+\frametitle{Passive: A lexical rule}
+
+\begin{itemize}
+\item Lexical rule (\citealp[\page412]{Dowty78a}; \citealp[Section~3.4]{Dowty2003a}):
+
+\ea
+\label{Lexikonregel-Passiv-CG}
+\begin{tabular}[t]{@{}l@{~$\to$~}l@{}}
+%Syntax:   & 
+$\alpha \in$ (s\bs np)/np & PST-PART($\alpha$) $\in$ PstP/np$_{by}$\\
+%Semantics: & $\alpha'$                 & $\lambda y\lambda x \alpha'(y) (x)$
+\end{tabular}
+\z
+
+For every (strictly) transitive verb $\alpha$, there is a past participle form with the category
+PstP/np$_{by}$.
+
+np$_{by}$ stands for the \emph{by}-PP.
+
+\item example:
+\eal
+\ex touch:   (s\bs np)/np
+\ex touched: PstP/np$_{by}$ 
+\zl
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Passive: An example derivation}
+
+\vfill
+\centerline{%
+\deriv{5}{%
+John & was            & touched      & by         & Mary.\\
+\hr  & \hr            & \hr_{\mathrm{LR}}  & \hr        & \hr\\
+np   & (s\bs np)/\mathit{PstP} & \mathit{PstP}/np_{by} & np_{by}/np & np\\
+     &                &              & \multicolumn{2}{c@{}}{\forwardapp}\\
+     &                &              & \multicolumn{2}{c@{}}{np_{by}}\\
+     &                & \multicolumn{3}{c@{}}{\forwardapp}\\
+     &                & \multicolumn{3}{c@{}}{\mathit{PstP}}\\
+     & \multicolumn{4}{c@{}}{\forwardapp}\\
+     & \multicolumn{4}{c@{}}{s\bs np}\\
+\multicolumn{5}{@{}c@{}}{\backwardapp}\\
+\multicolumn{5}{@{}c@{}}{s}\\
+}}
+\vfill
+
+}
+
+
+\frame{
+\frametitle{And German?}
+
+\begin{itemize}
+\item Well, due to the possibility of reordering items, we have sets:
+\eal
+\ex lieben `to love': S\sub{+SUB} \{ $\backslash$np[nom]$_i$, $\backslash$np[acc]$_j$ \}
+\ex geliebt `loved': S\sub{pas} \{ $\backslash$np[nom]$_j$, $\backslash$pp[von]$_i$ \}
+\zl
+\pause
+\item Passive rule would be different for German and English.
+\end{itemize}
+
+
+
+}
+
+
+
+\subsection{Long distance dependencies}
+
+\frame{
+\frametitle{Long distance dependencies}
+
+\begin{itemize}
+\item \citet[Section~1.2.4]{Steedman89a}: analysis of long distance dependencies without movement
+  and empty elements.
+
+\eal
+\ex\label{Bsp-these-apples}
+These apples, Harry must have been eating.
+\ex apples which Harry devours
+\zl
+\pause
+\item \emph{Harry must have been eating} and \emph{Harry devours} are just s/np.
+
+\pause
+\item But the missing np is missing at the end of the clause. We need an extension!
+
+Type raising.
+
+\end{itemize}
+
+
+
+
+}
+
+
+\subsubsection{Type Raising}
+
+\frame{
+\frametitle{Type Raising}
+
+
+
+The category np can be transformed into the category (s/(s\bs np)) by \emph{type raising}. If we
+combine this category with (s\bs np), then we get the same result as if we had combined np and (s\bs
+np) with the backward application rule.
+
+\eal
+\ex np * s $\backslash$ np $\to$ s 
+\ex s / (s $\backslash$ np) * s $\backslash$ np $\to$ s
+\zl
+
+\pause
+
+Type raising simply reverses the direction of selection: the vp in (\mex{0}a) is the functor and the
+np is the argument, whereas in (\mex{0}b), it is the type raised np which acts as the functor, and
+the vp is the argument.
+
+The result is the same: s.
+
+
+
+}
+
+
+\subsubsection{Forward and backward composition}
+
+\frame{
+\frametitle{Forward and backward composition}
+
+\begin{itemize}
+\item Two additional means of combination: forward and backward composition:
+\eal
+\ex\label{Regel-Vorwaertskomposition}
+ Forward composition (> B)\\
+    X/Y $*$ Y/Z = X/Z 
+\ex Backward composition (< B)\\
+    Y\bs Z $*$ X\bs Y = X\bs Z
+\zl
+\bigskip 
+\pause
+\item Example forward composition:
+
+\ea
+ Forward composition (> B)\\
+    \gruen<2>{X/\gruen<5>{Y}} $*$ \gruen<3,5>{Y}/\gruen<4>{Z} = \gruen<5>{X/Z} 
+\z
+
+If I find a Y, then I am a complete X.
+\pause
+\item I have a Y, \pause but a Z is missing.
+\pause
+\item If I combine X/Y with Y/Z despite the missing Z,\\
+      I get something still lacking a Z.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Forward and backward composition: Passing the np on}
+
+\vfill
+\centerline{%
+\deriv{6}{
+These\;apples  & Harry                & must & have & been & eating\\
+\hr           & \forwardt            & \hr  & \hr  & \hr  & \hr\\
+%
+%
+np            & s/{(s\bs np)}        & {(s\bs np)}/vp & vp/vp\mathdash en & vp\mathdash en/vp\mathdash ing & vp\mathdash ing/np\\
+              & \multicolumn{2}{c}{\forwardc}\\
+              & \multicolumn{2}{c}{{{s}/vp}}\\
+              & \multicolumn{3}{c}{\forwardc}\\
+              & \multicolumn{3}{c}{{{s}/vp\mathdash en}}\\
+              & \multicolumn{4}{c}{\forwardc}\\
+              & \multicolumn{4}{c}{{{s}/vp\mathdash ing}}\\
+              & \multicolumn{5}{c@{}}{\forwardc}\\
+              & \multicolumn{5}{c@{}}{{{s}/np}}\\
+}}
+\vfill
+
+}
+
+\frame{
+\frametitle{The top of the dependency: The topicalization rule}
+
+\citet{Steedman89a}:\\
+rule for turning an X into a functor selecting a sentence lacking an X:
+\ea
+\label{Regel-Topikalisierung}
+Topicalization ($\uparrow$\is{$\uparrow$}):\\
+X $\Rightarrow$ st/(s/X)\\
+where X $\in$ \{ np, pp, vp, ap, s$'$ \}
+\z
+
+
+}
+
+\frame{
+\frametitle{Topicalization long distance}
+
+\centerline{%
+\deriv{6}{
+These\;apples  & Harry                & must & have & been & eating\\
+\forwardtop   & \forwardt            & \hr  & \hr  & \hr  & \hr\\
+%
+%
+st/(s/np)\;\;     & s/{(s\bs np)}        & {(s\bs np)}/vp & vp/vp\mathdash en & vp\mathdash en/vp\mathdash ing & vp\mathdash ing/np\\
+              & \multicolumn{2}{c}{\forwardc}\\
+              & \multicolumn{2}{c}{{{s}/vp}}\\
+              & \multicolumn{3}{c}{\forwardc}\\
+              & \multicolumn{3}{c}{{{s}/vp\mathdash en}}\\
+              & \multicolumn{4}{c}{\forwardc}\\
+              & \multicolumn{4}{c@{}}{{{s}/vp\mathdash ing}}\\
+              & \multicolumn{5}{c@{}}{\forwardc}\\
+              & \multicolumn{5}{c@{}}{{{s}/np}}\\
+\multicolumn{6}{@{}c@{}}{\forwardapp}\\
+\multicolumn{6}{@{}c@{}}{{st}}\\
+}}
+
+}
+
+\frame{
+\frametitle{Topicalization across clause boundaries}
+
+\centerline{%
+\deriv{6}{
+Apples        & I             & believe        & that & Harry         & eats\\
+\forwardtop   & \forwardt     & \hr            & \hr  & \forwardt           & \hr\\
+%
+%
+st/(s/np)\;\;     & s/(s\bs np)  & (s\bs np)/s'    & s'/s & s/(s\bs np) & (s\bs np)/np\\
+              & \multicolumn{2}{c@{}}{\forwardc}  &      & \multicolumn{2}{c@{}}{\forwardc}\\
+              & \multicolumn{2}{c@{}}{{{s}/s'}}   &      & \multicolumn{2}{c@{}}{{{s}/np}}\\
+              & \multicolumn{3}{c@{}}{\forwardc}\\
+              & \multicolumn{3}{c@{}}{{{s}/s}}\\
+              & \multicolumn{5}{c@{}}{\forwardc}\\
+              & \multicolumn{5}{c@{}}{{{s}/np}}\\
+\multicolumn{6}{@{}c@{}}{\forwardapp}\\
+\multicolumn{6}{@{}c@{}}{{st}}\\
+}}
+
+
+}
+
+\frame{
+\frametitle{Extraction from the middle?}
+
+\medskip
+
+\hfill
+\scalebox{.8}{%
+\begin{forest}
+sm edges
+[S
+  [NP [Fido]]
+  [S/NP
+    [NP [we]]
+    [VP/NP
+      [V$'$/NP
+        [V [put]]
+        [NP [\trace]]]
+      [PP [downstairs]]]]]
+\end{forest}}
+\hfill
+\visible<2->{%
+\scalebox{.8}{%
+\begin{forest}
+sm edges
+[st
+  [st/pp
+    [(st/\rot<3-4>{pp})/(s/\rot<3-4>{pp}/np) [Fido]]
+    [s/pp/np
+      [s/(s\bs np) [we]]
+      [(s\bs np)/\rot<4>{pp}/np [put]]]]
+  [pp [downstairs]]]
+\end{forest}}}
+\hfill\mbox{}
+\begin{itemize}
+\item Extraction from the middle is unproblematic in a GPSG-style analysis.
+\pause
+\item CG would look like this.
+\pause
+\item But we neither have the category for \emph{Fido}\pause{}
+nor can we combine \emph{we} and \emph{put}. 
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Additional rules}
+
+\begin{itemize}
+\item We can combine Y with Y missing two things:
+\ea
+Forward composition for n=2 (> BB)\\*
+X/Y $*$ (Y/Z1)/Z2 = (X/Z1)/Z2
+\z
+
+\pause
+\item Topicalization turns X2 into a functor:
+
+\ea
+\label{Regel-Topikalisierung-zwei}
+Topicalization\is{topicalization} for n=2 ($\uparrow\uparrow$\is{$\uparrow\uparrow$}):\\
+\rot<4>{X2} $\Rightarrow$ \gruen<3>{(st/X1)}/\gruen<4>{((s/X1)/}\rot<4>{X2}\gruen<4>{)}\\
+where X1 and X2 $\in$ \{ NP, PP, VP, AP, S$'$ \}
+\z
+
+\pause
+The result of the combination is something that still needs the element from the right periphery of
+the clause (X1). 
+
+\pause
+Something with the gap (X2) at the outside is selected.
+
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Analysis of fronting middle argument}
+
+\centerline{%
+\deriv{4}{
+Fido                 & we            & put        & downstairs\\
+\forwardtoptop       & \forwardt     & \hr        & \hr  \\
+%
+%
+(st/pp)/((s/pp)/np)  & s/(s\bs np)  & ((s\bs np)/pp)/np    & pp\\
+                     & \multicolumn{2}{c@{}}{\forwardczwei}  \\
+                     & \multicolumn{2}{c@{}}{(s/pp)/np}   \\
+%
+\multicolumn{3}{@{}c@{}}{\forwardapp}  \\
+\multicolumn{3}{@{}c@{}}{{st/pp}}   \\
+\multicolumn{4}{@{}c@{}}{\forwardapp}\\
+\multicolumn{4}{@{}c@{}}{{st}}\\
+}}
+
+}
+
+\subsection{Summary and classification}
+
+\subsubsection{Relative clauses and nonlocal dependencies}
+
+
+\frame{
+\frametitle{Relative clauses and nonlocal dependencies}
+
+\citet[\page 614]{SB2006a-u}:
+\ea
+the man that Manny says Anna married
+\z
+\pause
+
+Lexical entry for relative pronoun:
+\ea
+(n$\backslash$n)/(s/np)
+\z
+If I find a sentence missing an NP to the right of me,\\
+I can form a noun modifier (n$\backslash$n) with it. 
+
+The relative pronoun is the head (functor) in this analysis.
+
+}
+
+
+\frame{
+\frametitle{Relative clauses and nonlocal dependencies}
+
+
+\deriv{5}{
+that                                & Manny                                                   & says                              & Anna                 & married\\
+\hr                                 & \forwardt                                               & \hr                               & \forwardt            & \hr \\
+%
+%
+(N\bs N)/\braun<5->{(S/NP)} & S/\rot<2->{(S\bs NP)}                           & \rot<2->{(S\bs NP)}/S     & S/\gruen<3->{(S\bs NP)} & \gruen<3->{(S\bs NP)}/NP\\
+                                    & \multicolumn{2}{c}{\visible<2->{\forwardc}} & \multicolumn{2}{c@{}}{\visible<3->{\forwardc}}\\
+%
+%
+                                    & \multicolumn{2}{c@{}}{\visible<2->{S/\blau<4->{S}}}                    & \multicolumn{2}{c@{}}{\visible<3->{\blau<4->{S}/NP}}\\
+                                    & \multicolumn{4}{c@{}}{\visible<4->{\forwardc}}\\
+                                    & \multicolumn{4}{c@{}}{\visible<4->{\braun<5->{S/NP}}}\\
+\multicolumn{5}{@{}c@{}}{\visible<5->{\forwardapp}}\\
+\multicolumn{5}{@{}c@{}}{\visible<5->{N\bs N}}\\
+}
+
+
+
+}
+
+
+\frame{
+\frametitle{Remark regarding this analysis}
+
+
+Assuming that the relative pronoun is the head is problematic since so-called pied piping as in
+(\mex{1}) cannot be explained straighforwardly \citep{Pollard88a}.
+
+
+\eal
+\ex Here's the minister [[in [the middle [of [whose sermon]]]] the dog barked].\footnote{
+\citet[\page 212]{ps2}
+}
+\ex Reports [the height of the lettering on the covers of which] the government prescribes should be
+abolished.\footnote{
+\citet[\page 109]{Ross67}\nocite{Ross86a-u}
+}
+\zl
+
+See \citew{Morrill95a,Steedman97a} for proposals.
+
+}
+
+\subsection{Homework}
+
+\frame{
+\frametitle{Homework}
+
+
+Analyze the sentence:
+\ea
+The children in the room laugh loudly.
+\z
+
+}
+
+
+%      <!-- Local IspellDict: en_US-w_accents -->
