@@ -476,16 +476,21 @@ combine this category with (s\bs np), then we get the same result as if we had c
 np) with the backward application rule.
 
 \eal
-\ex np * s $\backslash$ np $\to$ s 
-\ex s / (s $\backslash$ np) * s $\backslash$ np $\to$ s
+\ex \blau<3>{np} * \gruen<2-3>{s $\backslash$ np} $\to$ s 
+\ex \gruen<4-5>{s / (s $\backslash$ np)} * \blau<5>{s $\backslash$ np} $\to$ s
 \zl
 
 \pause
 
-Type raising simply reverses the direction of selection: the vp in (\mex{0}a) is the functor and the
-np is the argument, whereas in (\mex{0}b), it is the type raised np which acts as the functor, and
-the vp is the argument.
-
+Type raising simply reverses the direction of selection:\\
+%\begin{itemize}
+%\item[a:]
+a: vp is the \gruen<2-3>{functor} and the np is the \blau<3>{argument}\\
+\pause\pause
+%\item[b:] 
+b: type raised np is the \gruen<4-5>{functor}, and the vp is the \blau<5>{argument}.
+\pause\pause
+%\end{itemize}
 The result is the same: s.
 
 
@@ -536,15 +541,15 @@ These\;apples  & Harry                & must & have & been & eating\\
 \hr           & \forwardt            & \hr  & \hr  & \hr  & \hr\\
 %
 %
-np            & s/{(s\bs np)}        & {(s\bs np)}/vp & vp/vp\mathdash en & vp\mathdash en/vp\mathdash ing & vp\mathdash ing/np\\
-              & \multicolumn{2}{c}{\forwardc}\\
-              & \multicolumn{2}{c}{{{s}/vp}}\\
-              & \multicolumn{3}{c}{\forwardc}\\
-              & \multicolumn{3}{c}{{{s}/vp\mathdash en}}\\
-              & \multicolumn{4}{c}{\forwardc}\\
-              & \multicolumn{4}{c}{{{s}/vp\mathdash ing}}\\
-              & \multicolumn{5}{c@{}}{\forwardc}\\
-              & \multicolumn{5}{c@{}}{{{s}/np}}\\
+np            & s/\gruen<2>{(s\bs np)}        & \gruen<2>{(s\bs np)}/vp & \gruen<3>{vp}/vp\mathdash en & \gruen<4>{vp\mathdash en}/vp\mathdash ing & \gruen<5>{vp\mathdash ing}/np\\
+              & \multicolumn{2}{c}{\visible<2->{\forwardc}}\\
+              & \multicolumn{2}{c}{\visible<2->{{s/\gruen<3>{vp}}}}\\
+              & \multicolumn{3}{c}{\visible<3->{\forwardc}}\\
+              & \multicolumn{3}{c}{\visible<3->{{{s}/\gruen<4>{vp\mathdash en}}}}\\
+              & \multicolumn{4}{c}{\visible<4->{\forwardc}}\\
+              & \multicolumn{4}{c}{\visible<4->{{{s}/\gruen<5>{vp\mathdash ing}}}}\\
+              & \multicolumn{5}{c@{}}{\visible<5->{\forwardc}}\\
+              & \multicolumn{5}{c@{}}{\visible<5->{{{s}/np}}}\\
 }}
 \vfill
 
@@ -574,7 +579,7 @@ These\;apples  & Harry                & must & have & been & eating\\
 \forwardtop   & \forwardt            & \hr  & \hr  & \hr  & \hr\\
 %
 %
-st/(s/np)\;\;     & s/{(s\bs np)}        & {(s\bs np)}/vp & vp/vp\mathdash en & vp\mathdash en/vp\mathdash ing & vp\mathdash ing/np\\
+\gruen<1>{st/\gruen<2>{(s/np)}}\;\;     & s/{(s\bs np)}        & {(s\bs np)}/vp & vp/vp\mathdash en & vp\mathdash en/vp\mathdash ing & vp\mathdash ing/np\\
               & \multicolumn{2}{c}{\forwardc}\\
               & \multicolumn{2}{c}{{{s}/vp}}\\
               & \multicolumn{3}{c}{\forwardc}\\
@@ -582,9 +587,9 @@ st/(s/np)\;\;     & s/{(s\bs np)}        & {(s\bs np)}/vp & vp/vp\mathdash en & 
               & \multicolumn{4}{c}{\forwardc}\\
               & \multicolumn{4}{c@{}}{{{s}/vp\mathdash ing}}\\
               & \multicolumn{5}{c@{}}{\forwardc}\\
-              & \multicolumn{5}{c@{}}{{{s}/np}}\\
-\multicolumn{6}{@{}c@{}}{\forwardapp}\\
-\multicolumn{6}{@{}c@{}}{{st}}\\
+              & \multicolumn{5}{c@{}}{\gruen<2>{s/np}}\\
+\multicolumn{6}{@{}c@{}}{\visible<2>{\forwardapp}}\\
+\multicolumn{6}{@{}c@{}}{\visible<2>{st}}\\
 }}
 
 }
@@ -598,15 +603,15 @@ Apples        & I             & believe        & that & Harry         & eats\\
 \forwardtop   & \forwardt     & \hr            & \hr  & \forwardt           & \hr\\
 %
 %
-st/(s/np)\;\;     & s/(s\bs np)  & (s\bs np)/s'    & s'/s & s/(s\bs np) & (s\bs np)/np\\
-              & \multicolumn{2}{c@{}}{\forwardc}  &      & \multicolumn{2}{c@{}}{\forwardc}\\
-              & \multicolumn{2}{c@{}}{{{s}/s'}}   &      & \multicolumn{2}{c@{}}{{{s}/np}}\\
-              & \multicolumn{3}{c@{}}{\forwardc}\\
-              & \multicolumn{3}{c@{}}{{{s}/s}}\\
-              & \multicolumn{5}{c@{}}{\forwardc}\\
-              & \multicolumn{5}{c@{}}{{{s}/np}}\\
-\multicolumn{6}{@{}c@{}}{\forwardapp}\\
-\multicolumn{6}{@{}c@{}}{{st}}\\
+st/\gruen<6>{(s/np)}\;\; & s/\gruen<2>{(s\bs np)}  & \gruen<2>{(s\bs np)}/s'    & \gruen<4>{s'}/s & s/\gruen<3>{(s\bs np)} & \gruen<3>{(s\bs np)}/np\\
+              & \multicolumn{2}{c@{}}{\visible<2->{\forwardc}}  &      & \multicolumn{2}{c@{}}{\visible<3->{\forwardc}}\\
+              & \multicolumn{2}{c@{}}{\visible<2->{s/\gruen<4>{s'}}}       &      & \multicolumn{2}{c@{}}{\visible<3->{\gruen<5>{s}/np}}\\
+              & \multicolumn{3}{c@{}}{\visible<4->{\forwardc}}\\
+              & \multicolumn{3}{c@{}}{\visible<4->{s/\gruen<5>{s}}}\\
+              & \multicolumn{5}{c@{}}{\visible<5->{\forwardc}}\\
+              & \multicolumn{5}{c@{}}{\visible<5->{\gruen<6>{s/np}}}\\
+\multicolumn{6}{@{}c@{}}{\visible<6->{\forwardapp}}\\
+\multicolumn{6}{@{}c@{}}{\visible<6->{st}}\\
 }}
 
 
@@ -648,7 +653,7 @@ sm edges
 \begin{itemize}
 \item Extraction from the middle is unproblematic in a GPSG-style analysis.
 \pause
-\item CG would look like this.
+\item CG would look correspond to the tree on the right.
 \pause
 \item But we neither have the category for \emph{Fido}\pause{}
 nor can we combine \emph{we} and \emph{put}. 
@@ -698,14 +703,14 @@ Fido                 & we            & put        & downstairs\\
 \forwardtoptop       & \forwardt     & \hr        & \hr  \\
 %
 %
-(st/pp)/((s/pp)/np)  & s/(s\bs np)  & ((s\bs np)/pp)/np    & pp\\
-                     & \multicolumn{2}{c@{}}{\forwardczwei}  \\
-                     & \multicolumn{2}{c@{}}{(s/pp)/np}   \\
+(st/pp)/\gruen<3>{((s/pp)/np)}  & s/\gruen<2>{(s\bs np)}  & (\gruen<2>{(s\bs np)}/pp)/np    & \gruen<4>{pp}\\
+                     & \multicolumn{2}{c@{}}{\visible<2->{\forwardczwei}}  \\
+                     & \multicolumn{2}{c@{}}{\visible<2->{\gruen<3>{(s/pp)/np}}}   \\
 %
-\multicolumn{3}{@{}c@{}}{\forwardapp}  \\
-\multicolumn{3}{@{}c@{}}{{st/pp}}   \\
-\multicolumn{4}{@{}c@{}}{\forwardapp}\\
-\multicolumn{4}{@{}c@{}}{{st}}\\
+\multicolumn{3}{@{}c@{}}{\visible<3->{\forwardapp}}  \\
+\multicolumn{3}{@{}c@{}}{\visible<3->{st/\gruen<4>{pp}}}   \\
+\multicolumn{4}{@{}c@{}}{\visible<4->{\forwardapp}}\\
+\multicolumn{4}{@{}c@{}}{\visible<4->{st}}\\
 }}
 
 }
@@ -745,15 +750,15 @@ that                                & Manny                                     
 \hr                                 & \forwardt                                               & \hr                               & \forwardt            & \hr \\
 %
 %
-(N\bs N)/\braun<5->{(S/NP)} & S/\rot<2->{(S\bs NP)}                           & \rot<2->{(S\bs NP)}/S     & S/\gruen<3->{(S\bs NP)} & \gruen<3->{(S\bs NP)}/NP\\
+(n\bs n)/\braun<5->{(s/np)} & s/\rot<2->{(s\bs np)}                           & \rot<2->{(s\bs np)}/s     & s/\gruen<3->{(s\bs np)} & \gruen<3->{(s\bs np)}/np\\
                                     & \multicolumn{2}{c}{\visible<2->{\forwardc}} & \multicolumn{2}{c@{}}{\visible<3->{\forwardc}}\\
 %
 %
-                                    & \multicolumn{2}{c@{}}{\visible<2->{S/\blau<4->{S}}}                    & \multicolumn{2}{c@{}}{\visible<3->{\blau<4->{S}/NP}}\\
+                                    & \multicolumn{2}{c@{}}{\visible<2->{s/\blau<4->{s}}}                    & \multicolumn{2}{c@{}}{\visible<3->{\blau<4->{s}/np}}\\
                                     & \multicolumn{4}{c@{}}{\visible<4->{\forwardc}}\\
-                                    & \multicolumn{4}{c@{}}{\visible<4->{\braun<5->{S/NP}}}\\
+                                    & \multicolumn{4}{c@{}}{\visible<4->{\braun<5->{s/np}}}\\
 \multicolumn{5}{@{}c@{}}{\visible<5->{\forwardapp}}\\
-\multicolumn{5}{@{}c@{}}{\visible<5->{N\bs N}}\\
+\multicolumn{5}{@{}c@{}}{\visible<5->{n\bs n}}\\
 }
 
 
@@ -780,6 +785,22 @@ abolished.\footnote{
 \zl
 
 See \citew{Morrill95a,Steedman97a} for proposals.
+
+}
+
+\subsubsection{Summary}
+
+\frame{
+\frametitle{Summary}
+
+\begin{itemize}[<+->]
+\item simple combinatory rules
+\item always functor-based
+\item nonlocal dependencies without empty elements but with composition
+
+Results in unusual constituents, but \citet{Steedman89a} argues that they are needed for coordination.
+\end{itemize}
+
 
 }
 
