@@ -33,7 +33,6 @@
 
 
 
-
 \frame{
 \frametitle{Categorial Grammar (CG)}
 
@@ -48,6 +47,18 @@
 }
 
 \subsection{General remarks on the representational format}
+
+\outline{
+\begin{itemize}
+\item general remarks on the representational format
+\item verb position
+\item local reordering (aka scrambling)
+\item passive
+\item long distance dependencies
+\item summary and classification
+\end{itemize}
+
+}
 
 
 \frame{
@@ -72,7 +83,7 @@ vp $\to$ v(np\_and\_pp) np~pp(to) & (vp/pp)/np  \\
 \item Very few, very abstract rules:
 
 \ea
-\blaubf{Forward application}\\
+\alert{Forward application}\\
 X/Y * Y = X 
 \z
 
@@ -91,7 +102,7 @@ the \subcatf and the grammar rules.
 
 
 \ea
-\blaubf{Forward application}\\
+\alert{Forward application}\\
 X/Y * Y = X 
 \z
 
@@ -150,7 +161,7 @@ sm edges
 
 \ea
 \alert{Backward application}\\
-Y * X$\backslash$Y = X 
+Y * X$\backslash$\kern-.1em Y = X 
 \z
 
 \pause
@@ -219,19 +230,19 @@ adjective = $n/n$
 \deriv{9}{
 The  & small & cat & chased       & Mary & quickly                & round                     & the & garden\\
 \hr  & \hr   & \hr & \hr          & \hr  & \hr                    & \hr                       & \hr & \hr\\
-np/n & n/n   & n   & (s\bs np)/np & np   & (s\bs np)\bs (s\bs np) & (s\bs np)\bs (s\bs np)/np & np/n & n\\
-     & \multicolumn{2}{c}{\forwardapp} & \multicolumn{2}{c@{}}{\forwardapp}\\
-     & \multicolumn{2}{c}{n}           & \multicolumn{2}{c@{}}{s\bs np}\\
-\multicolumn{3}{@{}c}{\forwardapp}        & \multicolumn{3}{c@{}}{\backwardapp}\\
-\multicolumn{3}{@{}c}{np}                 & \multicolumn{3}{c@{}}{s\bs np}\\
-&&&&&&&\multicolumn{2}{c@{}}{\forwardapp}\\
-&&&&&&&\multicolumn{2}{c@{}}{np}\\
-&&&&&&\multicolumn{3}{c@{}}{\forwardapp}\\
-&&&&&&\multicolumn{3}{c@{}}{(s\bs np)\bs (s\bs np)}\\
-&&&\multicolumn{6}{c@{}}{\backwardapp}\\
-&&&\multicolumn{6}{c@{}}{(s\bs np)}\\
-\multicolumn{9}{@{}c@{}}{\backwardapp}\\
-\multicolumn{9}{@{}c@{}}{s}\\
+np/\gruen<3>{n} & n/\gruen<2>{n}   & \gruen<2>{n}   & (s\bs np)/\gruen<4>{np} & \gruen<4>{np}   & (s\bs np)\bs \gruen<5>{(s\bs np)} & (s\bs np)\bs (s\bs np)/\gruen<7>{np} & np/\gruen<6>{n} & \gruen<6>{n}\\
+     & \multicolumn{2}{c}{\visible<2->{\forwardapp}} & \multicolumn{2}{c@{}}{\visible<4->{\forwardapp}}\\
+     & \multicolumn{2}{c}{\visible<2->{\gruen<3>{n}}}           & \multicolumn{2}{c@{}}{\visible<4->{\gruen<5>{s\bs np}}}\\
+\multicolumn{3}{@{}c}{\visible<3->{\forwardapp}}        & \multicolumn{3}{c@{}}{\visible<5->{\backwardapp}}\\
+\multicolumn{3}{@{}c}{\visible<3->{\gruen<9>{np}}}                 & \multicolumn{3}{c@{}}{\visible<5->{\gruen<8>{s\bs np}}}\\
+&&&&&&&\multicolumn{2}{c@{}}{\visible<6->{\forwardapp}}\\
+&&&&&&&\multicolumn{2}{c@{}}{\visible<6->{\gruen<7>{np}}}\\
+&&&&&&\multicolumn{3}{c@{}}{\visible<7->{\forwardapp}}\\
+&&&&&&\multicolumn{3}{c@{}}{\visible<7->{(s\bs np)\bs \gruen<8>{(s\bs np)}}}\\
+&&&\multicolumn{6}{c@{}}{\visible<8->{\backwardapp}}\\
+&&&\multicolumn{6}{c@{}}{\visible<8->{(s\bs \gruen<9>{np})}}\\
+\multicolumn{9}{@{}c@{}}{\visible<9->{\backwardapp}}\\
+\multicolumn{9}{@{}c@{}}{\visible<9->{s}}\\
 }}
 % Eine Kategorialgrammatik mit den beiden Multiplikationsregeln, die oben angegeben wurden, ist schwach äquivalent
 % zu einer kontextfreien Grammatik. Solche Grammatiken wurden zuerst von Ajdukiewicz diskutiert. Die Äquivalenz
@@ -247,6 +258,19 @@ np/n & n/n   & n   & (s\bs np)/np & np   & (s\bs np)\bs (s\bs np) & (s\bs np)\bs
 
 \subsection{Verb position}
 
+\outline{
+\begin{itemize}
+\item general remarks on the representational format
+\item \alert{verb position}
+\item local reordering (aka scrambling)
+\item passive
+\item long distance dependencies
+\item summary and classification
+\end{itemize}
+
+}
+
+
 \subsubsection{Variable branching}
 
 \frame{
@@ -256,8 +280,8 @@ np/n & n/n   & n   & (s\bs np)/np & np   & (s\bs np)\bs (s\bs np) & (s\bs np)\bs
 \item \citet[\page 159]{Steedman2000a-u} for Dutch:
 
 \eal
-\ex verb-final \emph{gaf} (`give'): (S\sub{+SUB}$\backslash$NP)$\backslash$NP
-\ex verb-initial \emph{gaf} (`give'): (S\sub{$-$SUB}/NP)/NP
+\ex verb-final \emph{gaf} (`give'): (s\sub{+SUB}$\backslash$np)$\backslash$np
+\ex verb-initial \emph{gaf} (`give'): (s\sub{$-$SUB}/np)/np
 \zl
 
 One item takes arguments to the left the other one to the right.
@@ -277,28 +301,28 @@ Note that NPs are combined in different orders:\\
 To get normal order, one would have to assume:
 
 \eal
-\ex verb-final: (S\sub{+SUB}$\backslash$NP[nom])$\backslash$NP[acc]
-\ex verb-initial: (S\sub{$-$SUB}/NP[acc])/NP[nom]
+\ex verb-final: (s\sub{+SUB}$\backslash$np[nom])$\backslash$np[acc]
+\ex verb-initial: (s\sub{$-$SUB}/np[acc])/np[nom]
 \zl
 
 \medskip
 \hfill
 \scalebox{.8}{%
 \begin{forest}
-[S\sub{$-$SUB}
-  [{S\sub{$-$SUB}/NP[acc]}
-    [{(S\sub{$-$SUB}/NP[acc])/NP[nom]}]
-    [{NP[nom]}]]
-  [{NP[acc]}]]
+[s\sub{$-$SUB}
+  [{s\sub{$-$SUB}/\blau{np[acc]}}
+    [{(s\sub{$-$SUB}/np[acc])/\gruen{np[nom]}}]
+    [\gruen{np[nom]}]]
+  [{np[acc]}]]
 \end{forest}}
 \hfill
 \scalebox{.8}{%
 \begin{forest}
-[S\sub{$+$SUB}
-  [{NP[nom]}]
-  [{S\sub{$+$SUB}$\backslash$NP[nom]}
-    [{NP[acc]}]
-    [{(S\sub{$+$SUB}$\backslash$NP[nom])$\backslash$NP[acc]}]]]
+[s\sub{$+$SUB}
+  [\blau{np[nom]}]
+  [{s\sub{$+$SUB}$\backslash$\blau{np[nom]}}
+    [\gruen{np[acc]}]
+    [{(s\sub{$+$SUB}$\backslash$np[nom])$\backslash$\gruen{np[acc]}}]]]
 \end{forest}
 }  
 \hfill\mbox{}
@@ -315,7 +339,7 @@ Two different branchings. So \citew{Mueller2005c} for criticism.
 \frame{
 \frametitle{Verb position with empty element}
 
-\citet{Jacobs91a} empty element in final position\\
+\citet{Jacobs91a}: empty element in final position\\
 taking the arguments of the verb and the verb in initial position as arguments.
 
 
@@ -323,6 +347,19 @@ taking the arguments of the verb and the verb in initial position as arguments.
 
 
 \subsection{Local reordering}
+
+\outline{
+\begin{itemize}
+\item general remarks on the representational format
+\item verb position
+\item \alert{local reordering (aka scrambling)}
+\item passive
+\item long distance dependencies
+\item summary and classification
+\end{itemize}
+
+}
+
 
 \frame{
 \frametitle{Local reordering}
@@ -343,14 +380,14 @@ taking the arguments of the verb and the verb in initial position as arguments.
 \pause
 \medskip
 \begin{tabular}{@{}lll@{}}
-English   & (S$\backslash$NP)/NP     & S(VO)\\
-Latin     & S\{$|$NP[nom], $|$NP[acc] \} & free order\\
-Tagalog   & S\{/NP[nom], /NP[acc] \} & free order, verb-initial\\
-Japanese  & S\{$\backslash$NP[nom], $\backslash$NP[acc] \} & free order, verb-final\\
+English   & (s$\backslash$np)/np     & S(VO)\\
+Latin     & s\{$|$np[nom], $|$np[acc] \} & free order\\
+Tagalog   & s\{/np[nom], /np[acc] \} & free order, verb-initial\\
+Japanese  & s\{$\backslash$np[nom], $\backslash$np[acc] \} & free order, verb-final\\
 \end{tabular}
 
 \medskip
-Elements in brackets can be combined with S in any order.
+Elements in brackets can be combined with s in any order.
 
 `$|$' instead of `$\backslash$' or `/' means that direction of combination is free.
 
@@ -361,6 +398,19 @@ Elements in brackets can be combined with S in any order.
 
 
 \subsection{Passive}
+
+\outline{
+\begin{itemize}
+\item general remarks on the representational format
+\item verb position
+\item local reordering (aka scrambling)
+\item \alert{passive}
+\item long distance dependencies
+\item summary and classification
+\end{itemize}
+
+}
+
 
 \frame{
 \frametitle{Passive: A lexical rule}
@@ -421,8 +471,8 @@ np   & (s\bs np)/\mathit{PstP} & \mathit{PstP}/np_{by} & np_{by}/np & np\\
 \begin{itemize}
 \item Well, due to the possibility of reordering items, we have sets:
 \eal
-\ex lieben `to love': S\sub{+SUB} \{ $\backslash$np[nom]$_i$, $\backslash$np[acc]$_j$ \}
-\ex geliebt `loved': S\sub{pas} \{ $\backslash$np[nom]$_j$, $\backslash$pp[von]$_i$ \}
+\ex lieben `to love': s\sub{+SUB} \{ $\backslash$np[nom]$_i$, $\backslash$np[acc]$_j$ \}
+\ex geliebt `loved': s\sub{pas} \{ $\backslash$np[nom]$_j$, $\backslash$pp[von]$_i$ \}
 \zl
 \pause
 \item Passive rule would be different for German and English.
@@ -435,6 +485,19 @@ np   & (s\bs np)/\mathit{PstP} & \mathit{PstP}/np_{by} & np_{by}/np & np\\
 
 
 \subsection{Long distance dependencies}
+
+\outline{
+\begin{itemize}
+\item general remarks on the representational format
+\item verb position
+\item local reordering (aka scrambling)
+\item passive
+\item \alert{long distance dependencies}
+\item summary and classification
+\end{itemize}
+
+}
+
 
 \frame{
 \frametitle{Long distance dependencies}
@@ -471,13 +534,13 @@ Type raising.
 
 
 
-The category np can be transformed into the category (s/(s\bs np)) by \emph{type raising}. If we
-combine this category with (s\bs np), then we get the same result as if we had combined np and (s\bs
-np) with the backward application rule.
+The category np can be transformed into the category (s/(s\bs np)) by \emph{type raising}. 
+Combining this category with (s\bs np) yields the same result as combining np and (s\bs
+np) with backward application.
 
 \eal
-\ex \blau<3>{np} * \gruen<2-3>{s $\backslash$ np} $\to$ s 
-\ex \gruen<4-5>{s / (s $\backslash$ np)} * \blau<5>{s $\backslash$ np} $\to$ s
+\ex \blau<3>{np} * \gruen<2-3>{s$\backslash$np} $\to$ s 
+\ex \gruen<4-5>{s/(s$\backslash$np)} * \blau<5>{s$\backslash$np} $\to$ s
 \zl
 
 \pause
@@ -491,6 +554,7 @@ a: vp is the \gruen<2-3>{functor} and the np is the \blau<3>{argument}\\
 b: type raised np is the \gruen<4-5>{functor}, and the vp is the \blau<5>{argument}.
 \pause\pause
 %\end{itemize}
+
 The result is the same: s.
 
 
@@ -508,9 +572,9 @@ The result is the same: s.
 \eal
 \ex\label{Regel-Vorwaertskomposition}
  Forward composition (> B)\\
-    X/Y $*$ Y/Z = X/Z 
+    X/Y $*$ Y\kern-.1em /Z = X/Z 
 \ex Backward composition (< B)\\
-    Y\bs Z $*$ X\bs Y = X\bs Z
+    Y\bs Z $*$ X\bs\kern-.1em Y = X\bs Z
 \zl
 \bigskip 
 \pause
@@ -518,14 +582,14 @@ The result is the same: s.
 
 \ea
  Forward composition (> B)\\
-    \gruen<2>{X/\gruen<5>{Y}} $*$ \gruen<3,5>{Y}/\gruen<4>{Z} = \gruen<5>{X/Z} 
+    \gruen<2>{X/\gruen<5>{Y}} $*$ \gruen<3,5>{Y}\kern-.1em/\gruen<4>{Z} = \gruen<5>{X/Z} 
 \z
 
 If I find a Y, then I am a complete X.
 \pause
 \item I have a Y, \pause but a Z is missing.
 \pause
-\item If I combine X/Y with Y/Z despite the missing Z,\\
+\item If I combine X/Y with Y\kern-.1em/Z despite the missing Z,\\
       I get something still lacking a Z.
 \end{itemize}
 
@@ -717,6 +781,119 @@ Fido                 & we            & put        & downstairs\\
 
 \subsection{Summary and classification}
 
+\outline{
+\begin{itemize}
+\item general remarks on the representational format
+\item verb position
+\item local reordering (aka scrambling)
+\item passive
+\item long distance dependencies
+\item \alert{summary and classification}
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Summary and classification}
+
+\begin{itemize}
+\item lexical and phrasal approaches
+\item headless constructions
+\item relative clauses and nonlocal dependencies
+\end{itemize}
+
+}
+
+\subsubsection{Lexical and phrasal approaches}
+
+\frame{
+\frametitle{Lexical and phrasal approaches}
+
+\begin{itemize}
+\item GPSG: approaches with valence in rules have problems with
+\begin{itemize}
+\item morphology
+\pause
+\item partial fronting
+\end{itemize}
+\pause
+\item This also carries over to phrasal approaches in Construction Grammar.\\
+ See \citew{MWArgSt} and \citew[Chapter 21]{MuellerGT-Eng} for extensive discussion.
+\pause
+\item Construction Grammarians often argue for phrasal approaches based on language acquisition,
+  which is pattern-based, but look:
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Trees are determined lexically}
+
+\hfill
+\begin{forest}
+sm edges
+[s
+  [np [the dolphin,roof]]
+  [s\bs np 
+    [(s\bs np)/np [attacks]]
+    [np [the shark,roof]]]]
+\end{forest}
+\hfill
+\visible<2->{\begin{forest}
+sm edges
+[s
+  [np [the dolphin,roof]]
+  [s\bs np
+    [(s\bs np)/(s\bs np) [severely]]
+    [s\bs np 
+      [(s\bs np)/np [attacks]]
+      [np [the shark,roof]]]]]
+\end{forest}}
+\hfill\mbox{}
+
+The pattern [Subj Verb Obj] is completely determined by (s\bs np)/np.\\
+The lexicon tells the syntax what to do!
+
+\pause
+And there is room for adjuncts!
+
+}
+
+\frame{
+\frametitle{Headless constructions}
+
+\begin{itemize}
+\item CG has very few combinatorial schemata.\\
+      They all assume a functor and an argument.
+\pause
+\item But there are constructions where it is difficult/impossible to argue for a head.
+
+\citet{Matsuyama2004a} and \citet{Jackendoff2008a} discuss the NPN Construction:
+\eal
+\ex Student after student left the room.
+\ex
+\label{minimalism:ex-npn-iteration}
+Day after day after day went by, but I never found the courage to talk to
+her.\footnote{
+\citet{Bargmann2015a}
+}
+\zl
+\pause
+\item This really seems to be a phrasal pattern.\\
+      GPSG, CxG, HPSG, LFG, TAG can do this, Minimalism, CG, DG can't.\\ (but see \citealp{Hudson2021a} on a Word Grammar solution)
+
+\end{itemize}
+
+
+
+
+
+
+}
+
+
 \subsubsection{Relative clauses and nonlocal dependencies}
 
 
@@ -770,15 +947,14 @@ that                                & Manny                                     
 \frametitle{Remark regarding this analysis}
 
 
-Assuming that the relative pronoun is the head is problematic since so-called pied piping as in
-(\mex{1}) cannot be explained straighforwardly \citep{Pollard88a}.
+\citet{Pollard88a}: relative pronoun = head? What about pied piping?
 
 
 \eal
 \ex Here's the minister [[in [the middle [of [whose sermon]]]] the dog barked].\footnote{
 \citet[\page 212]{ps2}
 }
-\ex Reports [the height of the lettering on the covers of which] the government prescribes should be
+\ex Reports [[the height of the lettering on the covers of which] the government prescribes] should be
 abolished.\footnote{
 \citet[\page 109]{Ross67}\nocite{Ross86a-u}
 }

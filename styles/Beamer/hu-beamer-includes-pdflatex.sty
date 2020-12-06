@@ -43,7 +43,18 @@
     SmallCapsFeatures = {FakeSlant=0},
     ]{LibertinusSerif-Regular.otf}
 
+\PassOptionsToPackage{no-math}{fontspec}
 
+   %% Provides \setmathfont
+    \usepackage{unicode-math}
+
+    \setmathfont[AutoFakeBold
+%     ,Path=\fontpath
+    ]{LibertinusMath-Regular.otf}
+    \setmathfont[range={cal},StylisticSet=1%,Path=\fontpath
+    ]{XITSMath-Regular.otf}
+    \setmathfont[range={bfcal},StylisticSet=1%,Path=\fontpath
+    ]{XITSMath-Bold.otf}
 
 %\logo{\includegraphics[height=1cm]{fu_dgm_logo}}
 %\titlegraphic{\includegraphics[height=3cm]{identity-grammatik-deutsch-chinesisch-persisch-hindi}}
