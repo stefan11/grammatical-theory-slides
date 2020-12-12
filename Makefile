@@ -51,6 +51,11 @@ install:
 	cp -p ${LANGSCI-PATH}langsci-forest-setup.sty    .
 	cp -p ~/Documents/Dienstlich/Buecher/GT/English/styles/dalrymple.sty styles/
 
+gt.bib: ../../../../../Bibliographien/biblio.bib $(SOURCE) formgram-handout-en.pdf
+	biber --output_format=bibtex --output-legacy-date formgram-handout-en.bcf -O gt_tmp.bib
+	biber --tool --configfile=biber-tool.conf --output-field-replace=location:address,journaltitle:journal --output-legacy-date gt_tmp.bib -O gt.bib
+
+
 public: formgram-slides.pdf formgram-handout.pdf
 	scp $? /home/stefan/public_html/PS/
 
