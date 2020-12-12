@@ -1,0 +1,1123 @@
+\section{Head-Driven Phrase Structure Grammar (HPSG)}
+
+\subtitle{Head-Driven Phrase Structure Grammar (HPSG)}
+
+\huberlintitlepage[22pt]
+
+
+\outline{
+
+\begin{itemize}
+\item Introduction and basic terms
+\item Phrase structure grammar and \xbar Theory
+\item Government \& Binding (GB)
+\item {Generalized Phrase Structure Grammar (GPSG)}
+\item {Feature descriptions, feature structures and models}
+\item {Lexical Functional Grammar (LFG)}
+%\item PATR
+\item {Categorial Grammar (CG)}
+\item \alert{Head-Driven Phrase Structure Grammar (HPSG)}
+%\item Konstruktionsgrammatik (CxG)
+\item Tree Adjoning Grammar (TAG)
+\end{itemize}
+
+%\tableofcontents
+}
+
+\frame{
+\frametitle{Reading material}
+
+\citew[Chapter~9]{MuellerGT-Eng}
+
+}
+
+
+
+\frame{
+\frametitle{Head-Driven Phrase Structure Grammar (HPSG)}
+
+
+\begin{itemize}[<+->]
+\item developed by Carl Pollard and Ivan Sag in the mid-80s in Stanford and in the Hewlett"=Packard
+research laboratories in Palo Alto\\
+      \citep{ps,ps2}; see \citep*{FWPEvolution} for history
+\item Ivan Sag was one of the developers of GPSG, Pollard worked in a version of CG.
+\item HPSG is part of West-Coast linguistics (LFG, BCG).
+\item Hotspots: Columbus (Ohio), Buffalo, Germany, Paris, Seoul
+\item Teaching material and overviews:\\
+      \citew{MuellerLehrbuch,MuellerArten,LM2006a,MuellerCurrentApproaches}\nocite{Mueller99a,Mueller2002b}
+\item 1500+ page handbook on HPSG: \citet*{HPSGHandbook}
+\end{itemize}
+
+
+
+
+}
+
+
+\subsection{General remarks on representational format}
+
+\outline{
+\begin{itemize}
+\item General remarks on the representational format
+\item Passive
+\item Verb position
+\item Local reordering (aka scrambling)
+\item Long distance dependencies
+\item Summary and classification
+\end{itemize}
+
+}
+
+
+\frame{
+
+\frametitle{General remarks on HPSG}
+\small
+\begin{itemize}
+\item lexicalized (head-driven)
+\pause
+\item sign-based \citep{Saussure16a}
+\pause
+%\item unifikationsbasiert
+\item typed feature structures (lexical items, phrases, principles)
+\pause
+\item multiple inheritance
+\pause
+\item monostratal theory\\~\\
+\begin{minipage}[t]{2.5cm}
+~\\[-20mm]
+\begin{itemize}
+\item \blau<6>{phonologie}\rnode{1}{}
+\item \blau<7>{syntax}\rnode{2}{}
+\item \blau<8>{semantics}\rnode{3}{}
+\end{itemize}
+\end{minipage}%
+\parbox[t]{3cm}{
+\resizebox{5cm}{!}{
+\(
+\ms[word]{
+\rnode{4}{phon}   & \blau<6>{\phonliste{ Grammatik }} \\[1mm]
+synsem$|$loc & \ms[loc]{ \rnode{5}{cat}  & \blau<7>{\ms[cat]{ head & \ms[noun]{ case & \ibox{1}\\
+                                                       }\\[6mm]
+                                       spr & \liste{ DET[{\sc case}~\ibox{1}] } \\
+                                     }} \\[6mm]
+              \rnode{6}{cont} & \blau<8>{\ldots \ms[grammatik]{ inst & X \\
+                                   }}\\
+            }\\
+}
+\)
+}
+}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Influences}
+
+\begin{itemize}[<+->]
+\item Categorial Grammar\\
+      (functor-argument structures, valence, argument composition)
+\item GPSG\\
+      (ID/LP format, Slash mechanism for nonlocal dependencies)
+\item Government \& Binding\\
+      (for example analysis of verb position in German)
+\item Construction Grammar\\
+      (increased use of inheritance hierarchies for phrasal aspects, \citealp{Sag97a,Sag2010b,Sag2012a})
+\end{itemize}
+
+
+
+}
+
+
+\frame{
+\frametitle{Valence and grammar rules: PSG}
+
+
+\begin{itemize}
+\item lage number of rules:\\
+\begin{tabular}[t]{@{}l@{~$\to$~}l@{\hspace{3em}}l@{}}
+      S & NP[\type{nom}], V                             & \emph{X schläft} `X is sleeping'\\
+      S & NP[\type{nom}], NP[\type{acc}], V                         & \emph{X Y erwartet} `X expects Y'\\
+      S & NP[\type{nom}], PP[\type{über}], V           & \emph{X über Y spricht} `X talks about Y'\\
+      S & NP[\type{nom}], NP[\type{dat}], NP[\type{acc}], V                     & \emph{X Y Z gibt} `X gives Z to Y'\\
+      S & NP[\type{nom}], NP[\type{dat}], PP[\type{mit}], V        & \emph{X Y mit Z dient} `X serves Y with Z'\\
+      \end{tabular}
+\pause
+\item Verbs have to be used with an appropriate rule.
+\end{itemize}
+
+}
+
+\frame{
+
+\frametitle{Valence and grammar rules: HPSG}
+
+\begin{itemize}
+\item Arguments are represented as complex categories in the lexical representation of the head (as
+  in Categorial Grammar).
+\pause
+\item \begin{tabular}[t]{@{}lll}
+      verb             & \comps\\
+      \emph{schlafen} `to sleep'  & \sliste{ NP[\type{nom}] }\\
+      \emph{erwarten} `to expect' & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
+      \emph{sprechen} `to speak'  & \sliste{ NP[\type{nom}], PP[\type{über}] }\\
+      \emph{geben}    `to give'   & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }\\
+      \emph{dienen}   `to serve'  & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{mit}] }\\  
+      \end{tabular}
+
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Example with valence information: Intransitive verb}
+
+\vfill
+\hfill
+\begin{forest}
+sm edges
+[V{[\comps \eliste]}
+	[{\ibox{1} NP[\type{nom}]}
+		[Peter;Peter]]
+	[V{[\comps \sliste{ \ibox{1} }]}
+		[schläft;sleeps]]]
+\end{forest}
+\hfill\hfill\mbox{}
+\vfill
+V[\comps \sliste{ }] corresponds to a fully saturated phrase (VP or S)
+\vfill
+}
+
+\frame{
+\frametitle{Example with valence information: Transitive verb}
+
+\vfill
+\hfill
+\begin{forest}
+sm edges
+[V{[\comps \eliste]}
+	[\gruen<2>{\ibox{1} NP[\type{nom}]}
+		[Peter;Peter]]
+	[V{[\comps \sliste{ \gruen<2>{\ibox{1}} }]}
+		[\gruen<1>{{\ibox{2} NP[\type{acc}]}}
+			[Maria;Maria]]
+		[V{[\comps \sliste{ \ibox{1}, \gruen<1>{\ibox{2}} }]}
+			[erwartet;expects]]]]
+\end{forest}\hfill\hfill\mbox{}
+\vfill
+
+}
+
+\frame{
+\frametitle{SOV vs. SVO: Representation of subjects}
+
+\begin{itemize}
+\item Researchers working on German assume that the subject of finite verbs behaves like the other
+  arguments. (\citealp{Pollard90a-Eng}; \citealp[\page 376]{Eisenberg94b})
+
+HPSG: subjects and complements are listed in one valence list (\comps).
+
+\pause
+\item English: subjects are different.
+\pause
+\item \argst as a underlying representation containing all arguments.
+\pause
+\item Language dependent mapping to valence features \spr and \comps.
+
+\medskip
+\oneline{%
+\begin{tabular}[t]{@{}llll}
+      verb          & \spr                      & \comps                                     & \argst\\
+      \emph{sleep}  & \sliste{ NP[\type{nom}] } & \sliste{}                                  & \sliste{ NP[\type{nom}] }\\
+      \emph{expect} & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
+      \emph{speak}  & \sliste{ NP[\type{nom}] } & \sliste{ PP[\type{about}] }                & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
+      \emph{give}   & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{acc}], NP[\type{acc}] }\\
+      \emph{serve}  & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}], PP[\type{with}] } & \sliste{ NP[\type{nom}], NP[\type{acc}], PP[\type{with}] }\\  
+      \end{tabular}}
+
+\end{itemize}
+
+
+}
+
+\frame{
+\frametitle{Example analysis with \spr and \comps}
+
+\centerline{%
+\scalebox{.8}{%
+\begin{forest}
+sm edges
+[V{\feattab{\spr \eliste,\\
+            \comps \eliste}}
+  [\ibox{1} NP [Kim]]
+  [V{\feattab{\spr \sliste{ \ibox{1} },\\
+              \comps \eliste}}
+    [V{\feattab{\spr \sliste{ \ibox{1} },\\
+                \comps \sliste{ \ibox{2} }}}
+      [talks]]
+    [\ibox{2} P{\feattab{\spr \sliste{ },\\
+                \comps \sliste{ }}}
+      [P{\feattab{\spr \sliste{ },\\
+                \comps \sliste{ \ibox{3} }}} [about]]
+      [\ibox{3} N{\feattab{\spr \sliste{ },\\
+                     \comps \sliste{ }}}
+        [\ibox{4} Det [the]]
+        [N{\feattab{\spr \sliste{ \ibox{4} },\\
+                     \comps \sliste{ }}} [summer] ]]]]]
+\end{forest}}}
+
+}
+
+
+\subsubsection{Representation of constituent structure}
+
+\frame{
+\frametitle{Representation of constituent structure}
+
+\centerline{%
+\begin{forest}
+sm edges
+[NP
+	[Det
+		[dem;the]]
+	[N
+		[Mann;man]]]
+\end{forest}
+}
+
+The tree can be represented in feature descriptions:
+
+\ea
+\ms{ 
+  phon     & \phonliste{ dem Mann }\\[1mm]
+  head-dtr & \onems{ phon \phonliste{ Mann }
+                 }\\
+  non-head-dtrs & \sliste{ \onems{ phon \phonliste{ dem }
+                            }}
+}
+\z
+
+}
+
+\subsubsection{Feature geometry}
+
+\frame{
+\frametitle{Complete feature geometry}
+
+\ea
+\label{LE-Grammatik}
+\scalebox{.7}{%
+\ms[word]{
+phon   & \phonliste{ Grammatik } \\[1mm]
+synsem & \ms{ loc & \ms[local]{ cat  & \ms[category]{ head & \ms[noun]{ case & \ibox{1}
+                                                                      }\\[3mm]
+                                                     spr & \sliste{ Det[\textsc{case}~\ibox{1}] }\\
+                                                     comps & \eliste\\[1pt]
+                                                    } \\[6mm]
+                                cont & \ms[mrs]{
+                                       ind & \ibox{2} \ms{ per & third\\
+                                                           num & sg\\
+                                                           gen & fem\\
+                                                         }\\
+                                       rels & \sliste{ \ms[grammatik]{ inst & \ibox{2} 
+                                                                    } }
+                                        }
+                              }\\
+               nonloc & \ms{ inher$|$slash   & \eliste{}\\
+                             to-bind$|$slash & \eliste{}\\
+                           }
+            }
+}}
+\z
+
+Information that is needed for structure sharing is grouped together.
+
+
+}
+
+\subsubsection{ID schemata}
+
+\frame{
+\frametitle{The Head-Complement Schema (preliminary)}
+
+
+\type{head-complement-phrase}\istype{head"=complement"=phrase} \impl\\
+\onems{
+      synsem$|$loc$|$cat$|$comps \ibox{1} \\
+      head-dtr$|$synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } \\
+      non-head-dtrs \sliste{ [ \synsem \ibox{2} ] }
+      }
+
+\pause
+
+\ea
+\onems[head-complement-phrase]{
+phon \phonliste{ Peter schläft }\\
+synsem$|$loc$|$cat$|$comps \eliste\\
+head-dtr \onems{ phon \phonliste{ schläft }\\
+                 synsem$|$loc$|$cat$|$comps \sliste{ \ibox{1} NP[\type{nom}] }
+               }\\
+non-head-dtrs \sliste{ \onems{ phon \phonliste{ Peter }\\
+                               \synsem \ibox{1}
+                             } }
+}
+\z
+
+
+}
+
+\subsubsection{LP rules}
+
+\frame{
+\frametitle{Linearization rules}
+
+\eal
+\ex\label{lp-ini-arg} 
+Head[\initial$+$] $<$ Complement
+\ex 
+Complement $<$ Head[\initial --]
+\zl
+
+\pause
+Prepositions have an \initialv `$+$' and therefore have to precede arguments. 
+\eal
+\ex[]{
+\gll {}[in [den Schrank]]\\
+     \spacebr{}in \spacebr{}the cupboard\\
+}
+\ex[*]{
+\gll {}[[den Schrank] in]\\
+     \hspaceThis{[[}the cupboard in\\
+}
+\zl
+\pause
+Verbs in final position bear the value `$-$' and have to follow
+their arguments.
+\eal
+\ex[]{
+\gll {}dass [er [ihn umfüllt]]\\
+     {}that \spacebr{}he \spacebr{}it decants\\
+}
+\ex[*]{
+\gll {}dass [er [umfüllt ihn]]\\
+     {}that \spacebr{}he \spacebr{}decants it\\
+}
+\zl
+
+
+}
+
+
+\subsubsection{Head features}
+
+\frame{
+\frametitle{Head features}
+
+\begin{itemize}
+\item Information about verb form has to be present at the top-most node of a projection:
+\eal
+\label{bsp-projektion-v-merkmale}
+\ex[]{
+\gll {}[Dem Mann helfen] will er nicht.\\
+ {}\spacebr{}the man help wants he not\\
+\glt `He doesn't want to help the man.'
+}
+\ex[]{
+\gll {}[Dem Mann geholfen] hat er nicht.\\
+{}\spacebr{}the man helped has he not\\
+\glt `He hasn't helped the man.'
+}
+\ex[*]{
+\gll {}[Dem Mann geholfen] will er nicht.\\
+{}\spacebr{}the man helped wants he not\\
+}
+\ex[*]{
+\gll{}[Dem Mann helfen] hat er nicht.\\
+{}\spacebr{}the man help has he not\\
+}
+\zl
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Projection of features along the head path}
+
+\settowidth{\offset}{V[\type{fi}}
+\settowidth{\offsetup}{V[\type{fin}}
+\centerline{
+\begin{forest}
+sm edges, for tree={l+=\baselineskip}
+[\gruen{V}{[\gruen{\type{fin}}, \comps \eliste]}, name=fin1
+	[\ibox{1} NP{[\type{nom}]}
+		[er;he]]
+	[\gruen{V}{[\gruen{\type{fin}}, \comps \sliste{ \ibox{1} }]}, name=fin2
+		[\ibox{2} NP{[\textit{dat}]}
+			[dem Kind;the child,roof]]
+		[\gruen{V}{[\gruen{\type{fin}}, \comps \sliste{ \ibox{1}, \ibox{2} }]}, name=fin3
+			[\ibox{3} NP{[\textit{acc}]}
+				[das Buch;the book,roof]]
+			[\gruen{V}{[\gruen{\type{fin}}, \comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}, name=fin4
+				[gibt;gives]]]]]	
+tikz={\draw[<->] ($(fin1.south west)+(\offsetup,0)$) to ($(fin2.north west)+(\offset,0)$);
+      \draw[<->] ($(fin2.south west)+(\offsetup,0)$) to ($(fin3.north west)+(\offset,0)$);
+      \draw[<->] ($(fin3.south west)+(\offsetup,0)$) to ($(fin4.north west)+(\offset,0)$);}
+\end{forest}
+}
+
+}
+
+\frame{
+\frametitle{Structure sharing of \head features}
+
+\centerline{
+\scalebox{.8}{%
+\begin{forest}
+sm edges
+[\ms{head & \gruen{\ibox{1}}\\
+     comps & \sliste{ }
+     }
+	[{\ibox{2} NP{[\type{nom}]}}
+		[er;he]]
+	[\ms{
+             head & \gruen{\ibox{1}}\\
+             comps & \sliste{ \ibox{2} }
+             }
+		[\ibox{3} NP{[\textit{dat}]}
+			[dem Kind;the child, roof]]
+		[\ms{
+                                                                                   head & \gruen{\ibox{1}}\\
+                                                                                   comps & \sliste{ \ibox{2}, \ibox{3} }
+                                                                                    }
+			[\ibox{4} NP{[\textit{acc}]}
+				[das Buch;the book, roof]]
+			[\ms{
+                                                                                   head & \gruen{\ibox{1} \ms[verb]{
+                                                                                                  vform & fin
+                                                                                                  }}\\
+                                                                                   comps & \sliste{ \ibox{2}, \ibox{3}, \ibox{4} }
+                                                                                    }
+				[gibt;gives]]]]]	
+\end{forest}}}
+}
+
+
+\subsubsection{Type hierarchies and inheritance}
+
+
+\frame{
+\frametitle{Type hierarchies and inheritance}
+
+
+\centerline{%
+\begin{forest}
+type hierarchy
+[sign
+  [word]
+  [phrase 
+    [non-headed-phrase]
+    [headed-phrase [head-complement-phrase]]]]
+\end{forest}}
+
+\begin{itemize}
+\item All feature structures are typed in HPSG. 
+\pause
+\item Types are ordered in hierarchies.
+\pause
+\item Subtypes inherit constraints from supertypes.
+
+\pause
+
+\item Example: \type{headed-phrase}
+\ea
+\type{headed"=phrase}\istype{headed"=phrase} \impl
+\ms{ 
+synsem$|$loc$|$cat$|$head \ibox{1}\\
+head-dtr$|$synsem$|$loc$|$cat$|$head \ibox{1}\\
+} 
+\z
+
+
+\end{itemize}
+
+
+}
+
+
+\frame{
+\frametitle{Inheritance of constraints}
+
+\begin{itemize}
+\item
+\ea
+\label{head-arg-schema-hfp}
+Head-Complement Schema + Head Feature Principle:\\
+\onems[head-complement-phrase~]{
+synsem$|$loc$|$cat  \ms{ \visible<2->{\gruen{head}   & \gruen{\ibox{1}}} \\
+                          comps & \ibox{2}
+                        }\\
+head-dtr$|$synsem$|$loc$|$cat \ms{ \visible<2->{\gruen{head}   & \gruen{\ibox{1}}} \\
+                                   comps & \ibox{2} $\oplus$ \sliste{ \ibox{3} }
+                                 } \\
+non-head-dtrs   \sliste{ [ synsem \ibox{3} ] }
+}
+\z
+\medskip
+
+Constraints on \type{head-complement-phrase} \pause
+and inherited constraints from \type{headed-phrase}
+\pause
+\item Inheritance hierarchies are important for capturing generalizations.\\
+They have been used in the lexicon since \citew*{FPW85a}.
+\end{itemize}
+
+
+}
+
+
+
+\subsection{Passive}
+
+\outline{
+\begin{itemize}
+\item General remarks on the representational format
+\item \alert{Passive}
+\item Verb position
+\item Local reordering (aka scrambling)
+\item Long distance dependencies
+\item Summary and classification
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Passive}
+
+\begin{itemize}[<+->]
+\item HPSG follows Bresnan's argumentation that passive should be treated lexically.
+
+\item A lexical rule takes a verb stem as input and licenses a participle form.\\
+The most prominent argument (the designated argument) is suppressed.
+
+\item Since grammatical functions are not parts of the theory,\\
+      mapping principles mapping objects onto subjects are not needed.
+
+\item But the change of case in passives has to be explained.
+\end{itemize}
+
+
+
+}
+
+\subsubsection{Structural case}
+
+\frame{
+\frametitle{Structural and lexical case}
+
+\begin{itemize}
+\item Case depending on the syntactic environment is called \alert{structural case}.
+      Otherwise the case is \alert{lexical case}.
+\pause
+\item Examples of structural case:
+\eal
+\ex 
+\gll \alert{Der} \alert{Installateur} kommt.\\
+	 the.\NOM{} plumber comes\\
+\glt `The plumber is coming.'
+\pause
+\ex 
+\gll Der Mann lässt \alert{den} \alert{Installateur} kommen.\\
+	 the man lets the.\ACC{} plumber come\\
+\glt `The man is getting the plumber to come.'
+\pause
+\ex 
+\gll das Kommen \alert{des} \alert{Installateurs}\\
+	 the coming of.the plumber\\
+\glt `the plumber's visit'
+\zl
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Structural case: The object}
+
+\begin{itemize}
+\item Object (accusative in the active) can be realized as nominative and genitive:
+
+\eal
+\ex 
+\gll Judit schlägt \alert{den} \alert{Weltmeister}.\\
+     Judit beats the.\ACC{} world.champion\\
+\glt `Judit beats the world champion.'
+\pause
+\ex 
+\gll \alert{Der} \alert{Weltmeister} wird geschlagen.\\
+     the.\NOM{} world.champion is beaten\\
+\glt `The world champion is being beaten.'
+\pause
+\ex 
+\gll  das Schlagen \alert{des} \alert{Weltmeisters}\\
+      the beating  of.the world.champion\\
+\zl
+\end{itemize}
+}
+
+\subsubsection{Lexical case}
+
+\frame{
+\frametitle{Lexical case}
+
+\begin{itemize}
+\item genitive depending on the verb is lexical case:\\
+The case of the genitive object does not change in passivization.
+\eal
+\ex[]{
+\gll Wir gedenken \alert{der} \alert{Opfer}.\\
+     we remember the.\GEN{} victims\\
+}
+\ex[]{ 
+\gll \alert{Der} \alert{Opfer} wird gedacht.\\
+	 the.\GEN{} victims are remembered\\
+\glt `The victims are being remembered.'
+}
+\ex[*]{
+\gll \alert{Die} \alert{Opfer} wird / werden gedacht.\\
+     the.\NOM{}  victims       is   {} are      remembered\\    
+}
+\zl
+\pause
+(\mex{0}b) = impersonal passive, there is no subject.
+
+\pause
+\item I count the dative of dative objects of verbs among the lexical cases.\\
+      See \citew{MuellerLehrbuch}.
+
+\end{itemize}
+
+}
+
+
+\subsubsection{Valence information and the Case Principle}
+
+
+\frame{
+\frametitle{Valence information and the Case Principle}
+
+
+
+%\begin{principle-break}[\hypertarget{case-p}{Case Principle (simplified)}]
+\label{case-p}
+Case Principle (simplified)
+\begin{itemize}
+\item The first element with structural case in the argument structure list of a verb receives nominative.
+\item All other elements in the argument structure list of a verb with structural case receive accusative.
+\item In nominal environments, elements with structural case are assigned genitive\is{case!genitive}.
+\end{itemize}
+%\end{principle-break}
+
+\bigskip
+Based on \citet*{YMJ87}.
+
+Also works for Icelandic and other Germanic languages and also for Hindi.
+
+
+}
+
+\subsubsubsection{Active}
+
+\frame{
+\frametitle{Active}
+
+prototypical valence lists for finite verbs:
+\ea
+\label{ex-verben-active}
+\begin{tabular}[t]{@{}l@{~}l@{~}l}
+a. & \emph{schläft} `sleeps':       & \argst \sliste{ NP[\type{str}]$_j$ }\\[2pt]
+b. & \emph{unterstützt} `supports': & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2pt]
+c. & \emph{hilft} `helps':          & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2pt]
+d. & \emph{schenkt} `gives':        & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
+\end{tabular}
+\z
+\emph{str} stands for \emph{structural} and \emph{ldat} for lexical dative. 
+
+\pause
+The first element of the \argstl with structural case gets nominative.\\
+All others with structural case get accusative.
+
+}
+
+\subsubsubsection{Case assignment in the passiv}
+
+\frame[shrink]{
+\frametitle{Passive}
+
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l}
+a. & \emph{schläft} `sleeps':       & \argst \sliste{ NP[\type{str}]$_j$ }\\[2pt]
+b. & \emph{unterstützt} `supports': & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2pt]
+c. & \emph{hilft} `helps':          & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2pt]
+d. & \emph{schenkt} `gives':        & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
+\end{tabular}
+\z
+
+\pause
+Passivization results in the following \argst lists:
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l}
+a. & \emph{geschlafen}  `slept':     & \argst \sliste{ }\\[1mm]
+b. & \emph{unterstützt} `supported': & \argst \sliste{ NP[\type{str}]$_k$ }\\[1mm]
+c. & \emph{geholfen}    `helped':    & \argst \sliste{ NP[\type{ldat}]$_k$ }\\[1mm]
+d. & \emph{geschenkt}   `given':     & \argst \sliste{ NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
+\end{tabular}
+\z
+Different NP in first position. If it has structural case, it gets nominative.\\
+If the case is not structural it remains as is: lexically specified.
+}
+
+\subsection{Verb position}
+
+\outline{
+\begin{itemize}
+\item General remarks on the representational format
+\item Passive
+\item \alert{Verb position}
+\item Local reordering (aka scrambling)
+\item Long distance dependencies
+\item Summary and classification
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Verb position}
+
+\begin{itemize}
+\item \citet{Hoehle97a}: Finite verbs and complementizers form a natural class:
+
+\eal
+\ex 
+\gll \gruen{dass} [jeder diesen Mann \rot<2->{kennt}]\\
+     that \spacebr{}everybody this man knows\\
+\glt `that everybody knows this man'
+\ex 
+\gll \gruen{Kennt} [jeder diesen Mann \rot<3->{\_} ]\\
+	 knows \spacebr{}everybody this man\\
+\glt `Does everybody know this man?'
+\zl
+
+\pause
+
+\item The complementizer takes a clause with verb-final verb.
+\pause
+\item The initial finite verb takes a verb-final clause with the verb at the end missing.
+\end{itemize}
+
+
+}
+
+
+
+\frame[shrink=5]{
+\frametitle{\large Representations and lexical rules: Verb movement}
+
+\vfill
+\medskip
+\hfill%
+%\scalebox{0.85}{%
+\begin{forest}
+sm edges
+[VP
+	[\gruen<2-3>{V \sliste{ VP\only<4>{\gruen{/\!/V}} }}, name=vini
+	   [\gruen<3>{V},name=vlast [kennt$_k$;knows]]]
+	[\gruen<2>{VP}\only<4>{\gruen{/\!/V}}, name=vp
+	   [NP [jeder;everyone]]
+	   [V$'$\only<4>{\gruen{/\!/V}}, name=vbar
+	     [NP [diesen Mann;this man, roof]]
+		[\gruen<1>{V\only<4>{\gruen{/\!/V}}},name=vtrace [ \gruen<1>{\_$_k$}]]]]]
+%\draw[<->] (vone) to (vtwo);
+%%\draw (-2,-5) to[grid with coordinates] (4,0.5);
+%% \draw[<-] (3,-3.4) .. controls (3.2,-3.6) .. (3.5,-3.4)
+%%                    .. controls ()         .. (;
+\visible<4>{\gruen<4>{
+\draw[<->] ($(vtrace.south)+(-.25,.1)$)    to [bend right=45]  ($(vtrace.south)+(.25,.1)$);
+\draw[<->] (vtrace)                        to [out=45, in=0]  (vbar);
+\draw[<->] ($(vbar.north east)+(-0.2,0)$)  to [out=80, in=0]  (vp);
+\draw[<->] ($(vp.north east)+(-0.25,-.1)$)  to [out=145,in=35] ($(vini.north east)+(-.5,-.1)$);
+\draw[<->] ($(vini.south east)+(-.45,.1)$) to [bend left=30] ($(vlast.north east)+(-.1,-.1)$);
+}}
+\end{forest}
+%}
+\hfill\hfill\mbox{}
+\vfill
+
+\begin{itemize}[<+->]
+\item There is a trace in verb-final position.
+\item The verb in initial position is a special form of the verb\\selecting a projection of the verb trace.
+\item This special lexical item is licensed by a lexical rule.
+\item Connection between verb and trace is done via percolation of information in the tree.
+\end{itemize}
+
+}
+
+
+\subsection{Local reordering}
+
+\outline{
+\begin{itemize}
+\item General remarks on the representational format
+\item Passive
+\item Verb position
+\item \alert{Local reordering (aka scrambling)}
+\item Long distance dependencies
+\item Summary and classification
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Local reordering}
+
+
+\begin{itemize}
+\item Arguments can appear in almost any order in the German \mf.
+\eal
+\ex 
+\gll {}[weil] \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} \blau{das} \blau{Buch} gibt\\
+     \spacebr{}because the.\NOM{} man the.\DAT{} child the.\ACC{} book gives\\
+\glt `because the man gives the book to the child'
+\ex 
+\gll {}[weil] \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} \rot{dem} \rot{Kind} gibt\\
+     \spacebr{}because the.\NOM{} man the.\ACC{} book the.\DAT{} child gives\\
+\ex\label{ex-das-buch-der-mann-der-frau-gibt} 
+\gll {}[weil] \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} gibt\\
+     \spacebr{}because the.\ACC{} book the.\NOM{} man the.\DAT{} child gives\\
+\ex 
+\gll {}[weil] \blau{das} \blau{Buch} \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} gibt\\
+     \spacebr{}because the.\ACC{} book the.\DAT{} child the.\NOM{} man gives\\
+\ex 
+\gll {}[weil] \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} gibt\\
+     \spacebr{}because the.\DAT{} child the.\NOM{} man the.\ACC{} book gives\\
+\ex 
+\gll {}[weil] \rot{dem} \rot{Kind} \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} gibt\\
+     \spacebr{}because the.\DAT{} child the.\ACC{} book the.\NOM{} man gives\\
+\zl
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Local reordering: Two options}
+
+Two approaches:
+\begin{itemize}
+\item flat structures like in GPSG
+\pause
+\item binary branching structures with arbitrary order of combination
+
+\end{itemize}
+
+}
+
+\subsubsection{Binary branching structures}
+
+\frame{
+\frametitle{Example: Normal order (nom, acc)}
+
+\eal
+\ex 
+\gll {}[weil] \gruen{jeder} \blau{diesen} \blau{Mann} kennt\\
+	 {}\spacebr{}because everyone.\NOM{} this.\ACC{} man knows\\
+\ex 
+\gll {}[weil] \blau{diesen} \blau{Mann} \gruen{jeder} kennt\\
+	 {}\spacebr{}because this.\ACC{} man everyone.\NOM{} knows\\
+\glt `because everyone knows this man'
+\zl
+
+\centerline{%
+\scalebox{.9}{%
+\begin{forest}
+sm edges
+[V{[\comps \sliste{}]}
+	[\gruen<2>{\ibox{1} NP[\type{nom}]}
+		[jeder;everybody]]
+	[V{[\comps \sliste{ \gruen<2>{\ibox{1}} }]}
+		[\blau{\ibox{2} NP[\type{acc}]}
+			[diesen Mann;this man, roof]]
+		[V{[\comps \sliste{ \ibox{1}, \blau{\ibox{2}} }]}
+			[kennt;knows]]]]
+\end{forest}
+}}%
+
+}
+
+\frame{
+\frametitle{Example: Marked order (acc, nom)}
+
+
+\centerline{%
+\begin{forest}
+sm edges
+[V{[\comps \sliste{}]}
+	[\blau<2>{\ibox{2} NP[\type{acc}]}
+		[diesen Mann;this man, roof]]
+	[V{[\comps \sliste{ \blau<2>{\ibox{2}} }]}
+        	[\gruen{\ibox{1} NP[\type{nom}]}
+	        	[jeder;everybody]]
+		[V{[\comps \sliste{ \gruen{\ibox{1}}, \ibox{2} }]}
+			[kennt;knows]]]]
+\end{forest}
+}%
+
+\medskip
+Difference in order of saturation of elements in the \comps list.
+}
+
+\frame{
+\frametitle{Generalized Head-Complement Schema}
+
+\begin{itemize}
+\item Earlier version: An element was taken off from the end of the \comps list.
+\pause
+\item We permit to take an element from any position of the \comps list.
+\pause
+\item We use append to split the list in three parts:\\
+      a beginning, a one-element list, an end
+
+\medskip
+\type{head"=complement"=phrase} \impl\\*
+\onems{
+      synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \ibox{3}\\
+      head-dtr$|$synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3}\\
+      non-head-dtrs \sliste{ [ \textsc{synsem} \ibox{2} ] }\\
+}
+\medskip
+
+\pause
+\item strict VO: We take arguments from the beginning of the list (\ibox{1} = \eliste).
+\pause
+\item strict OV: We take arguments from the end of the list (\ibox{3} = \eliste).
+\pause
+\item VO/OV with scrambling: We take arguments from wherever.
+
+\end{itemize}
+
+}
+
+
+\subsection{Long"=distance dependencies}
+
+\outline{
+\begin{itemize}
+\item General remarks on the representational format
+\item Passive
+\item Verb position
+\item Local reordering (aka scrambling)
+\item \alert{Long distance dependencies}
+\item Summary and classification
+\end{itemize}
+
+}
+
+
+\frame{
+
+%\frametitle{Repräsentationen und Lexikonregeln: 
+\frametitle{Long"=distance dependencies}
+
+\vfill
+\medskip
+\hfill%
+\scalebox{0.7}{
+\settowidth{\offset}{N}
+\centering
+\begin{forest}
+sm edges
+[VP
+	[\gruen<3>{NP},name=np
+		[diesen Mann$_i$;this man,roof]]
+	[VP\only<2->{\gruen<2>{/\gruen<3>{NP}}},name=vpnp2
+		[V
+			[V
+				[kennt$_k$;knows]]]
+		[VP\only<2->{\gruen<2>{/NP}},name=vpnp1
+			[\gruen<1>{NP}\only<2->{\gruen<2>{/NP}}, name=npnp
+				[\gruen<1>{\_$_i$}]]
+			[\hspaceThis{$'$}V$'$
+				[NP
+					[jeder;everyone]]
+				[V
+				  [\trace$_k$]]]]]]
+\visible<2->{\gruen<2>{%
+\draw[<->] ($(npnp.east)$)  to [bend right=45] ($(vpnp1.south east)+(-.25,.1)$);
+\draw[<->] ($(vpnp1.north east)+(-.26,-.1)$)  to [bend right=45] ($(vpnp2.east)+(-0,0)$);
+}}
+\visible<3->{
+\draw[<->] ($(vpnp2.north)+(.26,-0)$) parabola[parabola height=5mm] ($(np.north)+(-.15,0)$);
+}
+\end{forest}
+}
+\hfill\hfill\mbox{}
+\vfill
+\begin{itemize}[<+->]
+\item Like verb movement: Trace in ``normal'' position.
+\item Percolation of information in the tree
+\item Binding off nonlocal dependency
+\item Constituent movement is not local, verb movement is.\\
+      Hence, two different features are used ({\sc slash} vs.\ {\sc dsl}).
+\end{itemize}
+
+}
+
+
+
+\subsection{Summary and classification}
+
+% \outline{
+% \begin{itemize}
+% \item General remarks on the representational format
+% \item Passive
+% \item Verb position
+% \item Local reordering (aka scrambling)
+% \item Long distance dependencies
+% \item Summary and classification
+% \end{itemize}
+
+% }
+
+
+\frame{
+\frametitle{Summary}
+
+\begin{itemize}
+\item Carpenter called HPSG a Frankenstein theory \citep{Mineur95a},\\
+      since it was sewed together from so many other theories.
+\pause
+\item I would say it is a best-of:
+\begin{itemize}
+\pause
+\item Linearization from GPSG, 
+\pause
+\item valence from CG, 
+\pause
+\item verb placement (in German) from GB, 
+\pause
+\item constructional patterns from CxG, \ldots
+\end{itemize}
+
+\end{itemize}
+
+}
+
+
+
+
+%      <!-- Local IspellDict: en_US-w_accents -->
