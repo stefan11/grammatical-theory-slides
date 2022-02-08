@@ -102,12 +102,13 @@ langsci-lgr,oneline}
 % package needed: forest
 %
 %% Setting for simple trees
-\forestset{
-      terminus/.style={tier=word, for children={tier=tabular}, for tree={fit=band}, for descendants={no path, align=left, l sep=0pt}},
-      sn edges original/.style={for tree={parent anchor=south, child anchor=north,align=center,base=top}},
-      no path/.style={edge path={}},
-      set me left/.style={calign with current edge, child anchor=north west, for parent={parent anchor=south west}},
-}
+% commented out 19.04.2021
+% \forestset{
+%       terminus/.style={tier=word, for children={tier=tabular}, for tree={fit=band}, for descendants={no path, align=left, l sep=0pt}},
+%       sn edges original/.style={for tree={parent anchor=south, child anchor=north,align=center,base=top}},
+%       no path/.style={edge path={}},
+%       set me left/.style={calign with current edge, child anchor=north west, for parent={parent anchor=south west}},
+% }
 
 
 % http://tex.stackexchange.com/questions/218417/replacing-tree-dvips-connect-nodes-in-a-tabular-environment/218458#218458
@@ -223,9 +224,11 @@ langsci-lgr,oneline}
 
 \usepackage{unified-biblatex}
 
+
 %\usepackage{pstricks}
 %\usepackage[usenames]{pstcol}
 \usepackage{pst-node}
+\psset{nodesep=4pt}
 
 \newboolean{colorprint}
 \mode<beamer>{
@@ -403,13 +406,13 @@ langsci-lgr,oneline}
   Sprachwissenschaft des Deutschen / Syntax\\
   Institut für deutsche Sprache und Linguistik\\
   Sprach- und literaturwissenschaftliche Fakultät\\
-  HU Berlin\\[2mm]
+  Humboldt-Universität zu Berlin\\[2mm]
 St.Mueller@hu-berlin.de}
 }{%
 \institute[HU Berlin, Institute for German Language and Linguistics]{
   Institute for German Language and Linguistics, Syntax Lab\\
   Sprach- und literaturwissenschaftliche Fakultät\\
-  HU Berlin\\[2mm]
+  Humboldt-Universität zu Berlin\\[2mm]
 St.Mueller@hu-berlin.de}
 }
 %\date[DLT 2003]{Developments in Language Theory Conference, 2003}
@@ -643,3 +646,13 @@ St.Mueller@hu-berlin.de}
 \def\iw#1{}
 \def\il#1{}
 \def\iaright#1{}
+
+
+
+% avoid spacing before and after : 
+% for Situation Semantics
+\DeclareMathSymbol{:}{\mathord}{operators}{"3A}
+
+
+% for \hyp, which is used in the bibliography
+\usepackage{hyphenat}

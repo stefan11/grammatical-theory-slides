@@ -44,7 +44,7 @@
 %% - LICENCE
 %% To use the package, only the files marked with + need to be installed.
 %%
-\ProvidesPackage{forest}[2020/04/29 v2.1.5+wip Drawing (linguistic) trees]
+\ProvidesPackage{forest}[2020/05/17 v2.1.5+wip Drawing (linguistic) trees]
 
 \RequirePackage{tikz}[2013/12/13]
 \usetikzlibrary{shapes}
@@ -3954,8 +3954,13 @@
   declare dimen={s}{0pt},
   declare dimen={l}{6ex}, % just in case: should be set by the calibration
   declare dimen={s sep}{0.6666em},
+  % todo: Note that "s sep before/after" makes sense even in the presence of the "padding" options, because it operates in the (l,s) coordinate system, while padding operates in the node's coordinate system.
   declare dimen={s sep before}{0pt},
   declare dimen={s sep after}{0pt},
+  declare dimen={padding west}{0pt},
+  declare dimen={padding east}{0pt},
+  declare dimen={padding north}{0pt},
+  declare dimen={padding south}{0pt},
   declare dimen={l sep}{1ex},  % just in case: calibration!
   declare keylist={node options}{anchor=base},
   declare toks={tikz}{},
@@ -7240,7 +7245,15 @@
     alignment.}%
 }
 \pgfdeclaregenericanchor{forestcomputenodeboundary}{%
-  \letcs\forest@temp@boundary@macro{forest@compute@node@boundary@#1}%
+  \forestoget{padding west}\forest@temp
+  \forest@padding@west=\forest@temp\relax
+  \forestoget{padding east}\forest@temp
+  \forest@padding@east=\forest@temp\relax
+  \forestoget{padding north}\forest@temp
+  \forest@padding@north=\forest@temp\relax
+  \forestoget{padding south}\forest@temp
+  \forest@padding@south=\forest@temp\relax
+  \forest@temp@dimen=0pt
   \ifcsname forest@compute@node@boundary@#1\endcsname
     \csname forest@compute@node@boundary@#1\endcsname
   \else
@@ -7251,14 +7264,53 @@
 }
 \def\forest@mt#1{%
   \expandafter\pgfpointanchor\expandafter{\pgfreferencednodename}{#1}%
+  \forest@pad
   \pgfsyssoftpath@moveto{\the\pgf@x}{\the\pgf@y}%
 }%
 \def\forest@lt#1{%
   \expandafter\pgfpointanchor\expandafter{\pgfreferencednodename}{#1}%
+  \forest@pad
   \pgfsyssoftpath@lineto{\the\pgf@x}{\the\pgf@y}%
 }%
+\newdimen\forest@padding@west
+\newdimen\forest@padding@east
+\newdimen\forest@padding@north
+\newdimen\forest@padding@south
+\def\forest@pad{%
+  \ifdim\pgf@x<\forest@temp@dimen % 0pt
+    \global\advance\pgf@x -\forest@padding@west
+  \else
+    \ifdim\pgf@x>\forest@temp@dimen % 0pt
+      \global\advance\pgf@x \forest@padding@east
+    \fi
+  \fi
+  \ifdim\pgf@y<\forest@temp@dimen % 0pt
+    \global\advance\pgf@y -\forest@padding@north
+  \else
+    \ifdim\pgf@y>\forest@temp@dimen % 0pt
+      \global\advance\pgf@y \forest@padding@south
+    \fi
+  \fi
+}
 \def\forest@compute@node@boundary@coordinate{%
+  \let\forest@cnb@next\forest@cnb@padded@coordinate
+  \ifdim\forest@padding@west=\forest@temp@dimen\relax
+    \ifdim\forest@padding@east=\forest@temp@dimen\relax
+      \ifdim\forest@padding@north=\forest@temp@dimen\relax
+        \ifdim\forest@padding@south=\forest@temp@dimen\relax
+          \let\forest@cnb@next\forest@cnb@nonpadded@coordinate
+  \fi\fi\fi\fi
+  \forest@cnb@next
+}
+\def\forest@cnb@nonpadded@coordinate{%
   \forest@mt{center}%
+}
+\def\forest@cnb@padded@coordinate{%
+  \pgfsyssoftpath@moveto{-\forest@padding@west}{-\forest@padding@south}%
+  \pgfsyssoftpath@lineto{\forest@padding@east}{-\forest@padding@south}%
+  \pgfsyssoftpath@lineto{\forest@padding@east}{\forest@padding@north}%
+  \pgfsyssoftpath@lineto{-\forest@padding@west}{\forest@padding@north}%
+  \pgfsyssoftpath@lineto{-\forest@padding@west}{-\forest@padding@south}%
 }
 \def\forest@compute@node@boundary@circle{%
   \forest@mt{east}%
@@ -7584,8 +7636,8 @@
     \fi
     \ifforest@externalize@tree@
       \typeout{forest: Invoking a recursive call to generate the external picture
-        '\forest@externalize@filename' for the following context+code:
-        '\expandafter\detokenize\expandafter{\forest@externalize@id}'}%
+        '\forest@externalize@filename' for the following context+code: '\expandafter\detokenize\expandafter{\forest@externalize@id}'
+        on input line \the\inputlineno}%
     \fi
   \fi
   %
@@ -7606,15 +7658,15 @@
     \ifforest@externalize@tree@
       \tikzexternaldisable
       \eappto\forest@externalize@checkimages{%
-        \noexpand\forest@includeexternal@check{\forest@externalize@filename}%
+        \noexpand\forestIncludeExternalCheck{\forest@externalize@filename}%
       }%
       \expandafter\ifstrequal\expandafter{\forest@drawtreebox}{\pgfkeysnovalue}{%
         \eappto\forest@externalize@loadimages{%
-          \noexpand\forest@includeexternal{\forest@externalize@filename}%
+          \noexpand\forestIncludeExternal{\forest@externalize@filename}%
         }%
       }{%
         \eappto\forest@externalize@loadimages{%
-          \noexpand\forest@includeexternal@box\forest@drawtreebox{\forest@externalize@filename}%
+          \noexpand\forestIncludeExternalBox\forest@drawtreebox{\forest@externalize@filename}%
         }%
       }%
     \fi
@@ -8460,7 +8512,10 @@
   master dir/.store in=\forest@external@masterdir,
   master={#1},
   master dir={},
+  readonly/.is if=forest@external@readonly,
+  extract/.store in=\forest@extract@filename,
 }
+\def\forest@extract@filename{}
 \def\forest@file@copy#1#2{%
   \IfFileExists{#1}{%
     \pgfkeysgetvalue{/forest/external/copy command}\forest@copy@command
@@ -8491,15 +8546,16 @@
 }
 \newif\ifforest@external@optimize@
 \forest@external@optimize@true
+\newif\ifforest@external@readonly
 \ifforest@install@keys@to@tikz@path@
-\tikzset{
-  fit to/.style={
-    /forest/for nodewalk=%
-      {TeX={\def\forest@fitto{}},#1}%
-      {TeX={\eappto\forest@fitto{(\forestove{name})}}},
-    fit/.expanded={\forest@fitto}
-  },
-}
+  \tikzset{
+    fit to/.style={
+      /forest/for nodewalk=%
+        {TeX={\def\forest@fitto{}},#1}%
+        {TeX={\eappto\forest@fitto{(\forestove{name})}}},
+      fit/.expanded={\forest@fitto}
+    },
+  }
 \fi
 \ifforest@external@
   \ifdefined\tikzexternal@tikz@replacement\else
@@ -8513,6 +8569,10 @@
     \forest@file@copy{\jobname.aux}{\jobname.aux.copy}%
   }%
   \AtBeginDocument{%
+    \ifdefempty\forest@extract@filename{}{%
+      \newwrite\forest@extract@out
+      \immediate\openout\forest@extract@out=\forest@extract@filename.tex
+    }%
     \tikzifexternalizing{%
       \IfFileExists{\tikzexternalrealjob.aux.copy}{%
         \makeatletter
@@ -8523,32 +8583,44 @@
       \typeout{forest externalization master: \forest@external@master{\tikzexternalrealjob}}%
       \typeout{forest externalization master dir: \forest@external@masterdir}%
       \typeout{tikz externalization prefix: \tikzexternal@filenameprefix}%
+      \typeout{forest readonly externalization: \ifforest@external@readonly true\else false\fi}%
       \newwrite\forest@auxout
       \immediate\openout\forest@auxout=\forest@external@masterdir\forest@external@master{\tikzexternalrealjob}.for.tmp
     }%
     \IfFileExists{\forest@external@masterdir\forest@external@master{\tikzexternalrealjob}.for}{%
       {%
-        \makehashother\makeatletter
+        \makehashother
         \input\forest@external@masterdir\forest@external@master{\tikzexternalrealjob}.for\relax
       }%
     }{}%
   }%
   \AtEndDocument{%
+    \ifdefempty\forest@extract@filename{}{%
+      \immediate\closeout\forest@extract@out}%
     \tikzifexternalizing{}{%
       \immediate\closeout\forest@auxout
-      \forest@file@copy{\forest@external@masterdir\forest@external@master{\jobname}.for.tmp}{\forest@external@masterdir\forest@external@master{\jobname}.for}%
+      \ifforest@external@readonly\else
+        \forest@file@copy{\forest@external@masterdir\forest@external@master{\jobname}.for.tmp}{\forest@external@masterdir\forest@external@master{\jobname}.for}%
+      \fi
     }%
   }%
 \fi
 \NewDocumentEnvironment{forest}{D(){}}{%
+  \ifdefempty\forest@extract@filename{}{%
+    \immediate\write\forest@extract@out{%
+      \noexpand\begin{forest}(\unexpanded{#1})}}%
   \forest@config{#1}%
   \Collect@Body
   \forest@env
 }{}
 \NewDocumentCommand{\Forest}{s D(){} m}{%
+  \ifdefempty\forest@extract@filename{}{%
+    \immediate\write\forest@extract@out{%
+      \noexpand\begin{forest}(\unexpanded{#2})}}%
+  \IfBooleanF{#1}{\begingroup}%
   \forest@config{#2}%
-  \IfBooleanTF{#1}{\let\forest@next\forest@env}{\let\forest@next\forest@group@env}%
-  \forest@next{#3}%
+  \forest@env{#3}%
+  \IfBooleanF{#1}{\endgroup}%
 }
 \def\forestconfigset#1{\pgfqkeys{/forest/@config}{#1}}%
 \def\forest@config#1{%
@@ -8568,7 +8640,6 @@
   externalize/.append code={\forest@config@externalizethisappliedtrue},
   .unknown/.code={\PackageError{forest}{Unknown config option for forest environment/command.}{In Forest v2.0.0 and v2.0.1, this (parenthesized) argument accepted the definition of style stages for the current forest environment/macro. Since v2.0.2, you should write "\string\begin{forest}(stages={...})...\string\end{forest}", or "\string\Forest(stages={...}){...}" instead.}}
 }
-\def\forest@group@env#1{{\forest@env{#1}}}
 \newif\ifforest@externalize@tree@
 \newif\ifforest@was@tikzexternalwasenable
 \newif\ifforest@config@externalizethis
@@ -8595,6 +8666,8 @@
     \fi
   \fi
   \forest@standardnode@calibrate
+  \ifdefempty\forest@extract@filename{}{%
+    \mbox{}\let\forest@external@next\forest@extract@body}%
   \forest@external@next{#1}%
 }
 \def\forest@env@{%
@@ -8633,29 +8706,40 @@
   \iftikzexternal@file@isuptodate
     \setbox0=\hbox{%
       \csname forest@externalcheck@\forest@externalize@outer@n\endcsname
-    }%
+      % smuggle \iftikzexternal@file@isuptodate
+      \expandafter
+    }\expandafter
   \fi
   \iftikzexternal@file@isuptodate
     \csname forest@externalload@\forest@externalize@outer@n\endcsname
+    \let\forest@external@next\@gobble
   \else
-    \forest@externalize@tree@true
-    \forest@externalize@inner@n=-1
-    \forest@begin{#1}%
-    \ifcsdef{forest@externalize@@\forest@externalize@id}{}{%
-      \immediate\write\forest@auxout{%
-        \noexpand\forest@external
-        {\forest@externalize@outer@n}%
-        {\expandafter\detokenize\expandafter{\forest@externalize@id}}%
-        {\expandonce\forest@externalize@checkimages}%
-        {\expandonce\forest@externalize@loadimages}%
-      }%
-    }%
+    \ifforest@external@readonly
+      \let\forest@external@next\forest@begin
+    \else
+      \let\forest@external@next\forest@begin@externalize@a
+    \fi
   \fi
+  \forest@external@next{#1}%
   \tikzexternalenable
 }
-\def\forest@includeexternal@check#1{%
+\long\def\forest@begin@externalize@a#1{%
+  \forest@externalize@tree@true
+  \forest@externalize@inner@n=-1
+  \forest@begin{#1}%
+  \ifcsdef{forest@externalize@@\forest@externalize@id}{}{%
+    \immediate\write\forest@auxout{%
+      \noexpand\forestLoadExternal
+      {\forest@externalize@outer@n}%
+      {\expandafter\detokenize\expandafter{\forest@externalize@id}}%
+      {\expandonce\forest@externalize@checkimages}%
+      {\expandonce\forest@externalize@loadimages}%
+    }%
+  }%
+}
+\def\forestIncludeExternalCheck#1{%
   \tikzsetnextfilename{#1}%
-  \IfFileExists{\tikzexternal@filenameprefix/#1}{\tikzexternal@file@isuptodatetrue}{\tikzexternal@file@isuptodatefalse}%
+  \IfFileExists{\tikzexternal@filenameprefix#1.pdf}{\tikzexternal@file@isuptodatetrue}{\tikzexternal@file@isuptodatefalse}%
 }
 \def\makehashother{\catcode`\#=12}%
 \long\def\forest@external@setup#1{%
@@ -8685,7 +8769,17 @@
 \newcount\forest@externalize@max@outer@n
 \global\forest@externalize@max@outer@n=0
 \newcount\forest@externalize@inner@n
-\long\def\forest@external#1#2#3#4{% #1=n,#2=context+source code,#3=update check code, #4=load code
+\long\def\forest@extract@body#1{%
+  \setbox0=\hbox{\makehashother\makeatletter
+    \scantokens{\forest@temp@toks{#1}}\expandafter
+  }%
+  \expandafter\forest@temp@toks\expandafter{\the\forest@temp@toks}%
+  \immediate\write\forest@extract@out{%
+    \detokenize\expandafter{\the\forest@temp@toks}%
+    \noexpand\end{forest}\par
+  }%
+}
+\long\def\forestLoadExternal#1#2#3#4{% #1=n,#2=context+source code,#3=update check code, #4=load code
   \ifnum\forest@externalize@max@outer@n<#1
     \global\forest@externalize@max@outer@n=#1
   \fi
@@ -8694,25 +8788,28 @@
   \global\csdef{forest@externalload@#1}{#4}%
   \tikzifexternalizing{}{%
     \immediate\write\forest@auxout{%
-      \noexpand\forest@external{#1}%
+      \noexpand\forestLoadExternal{#1}%
       {\expandafter\detokenize\expandafter{#2}}%
       {\unexpanded{#3}}%
       {\unexpanded{#4}}%
     }%
   }%
 }
-\def\forest@includeexternal#1{%
+\def\forestIncludeExternal#1{%
   \edef\forest@temp{\pgfkeysvalueof{/forest/external/context}}%
-  %\typeout{forest: Including external picture '#1' for forest context+code: '\expandafter\detokenize\expandafter{\forest@externalize@id}'}%
+  \typeout{forest: Including external picture '#1'
+    %for forest context+code: '\expandafter\detokenize\expandafter{\forest@externalize@id}'
+    on input line \the\inputlineno}%
   {%
-    %\def\pgf@declaredraftimage##1##2{\def\pgf@image{\hbox{}}}%
+    % \def\pgf@declaredraftimage##1##2{\def\pgf@image{\hbox{}}}%
+    \tikzset{external/up to date check=simple}%
     \tikzsetnextfilename{#1}%
     \tikzexternalenable
     \tikz{}%
   }%
 }
-\def\forest@includeexternal@box#1#2{%
-  \global\setbox#1=\hbox{\forest@includeexternal{#2}}%
+\def\forestIncludeExternalBox#1#2{%
+  \global\setbox#1=\hbox{\forestIncludeExternal{#2}}%
 }
 \long\def\forest@begin#1{%
   \iffalse{\fi\forest@parsebracket#1}%

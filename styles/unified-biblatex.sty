@@ -10,9 +10,13 @@
 	% \fi
 %	style=\bbxpath biblatex-sp-unified,
 %	citestyle=\cbxpath sp-authoryear-comp,
-	style=stmue-langsci-unified,
-	citestyle=stmue-langsci-unified,
-	datamodel=stmue-langsci,   % add authauthor and autheditor as possible fields to
+%	style=stmue-langsci-unified,
+%	citestyle=stmue-langsci-unified,
+%	datamodel=stmue-langsci,   % add authauthor and autheditor as possible fields to
+                                % bibtex entries
+	style=langsci-unified,
+	citestyle=langsci-unified,
+	datamodel=langsci,   % add authauthor and autheditor as possible fields to
                                 % bibtex entries
 	useprefix = true, %sort von, van, de where they should appear
 	%refsection=chapter,
@@ -31,6 +35,9 @@
 %        sorting=ydnt,
 %  datamodel=\bstpath langsci   % add authauthor and autheditor as possible fields to bibtex entries
 ]{biblatex}
+
+\usepackage{xcolor}
+\definecolor{lsDOIGray}{cmyk}{0,0,0,0.45}
 
 
 % if no langid is set, it is English:
@@ -72,4 +79,7 @@
 
 
 % cite somebodys work
-\let\citew=\citealp
+\let\citew=\citet
+
+
+\usepackage{biblatex-series-number-checks}

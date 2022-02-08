@@ -1,0 +1,1000 @@
+\section{Konstruktionsgrammatik (CxG)}
+
+\outline{
+
+\begin{itemize}
+\item Begriffe
+\item Phrasenstrukturgrammatiken
+\item Generalisierte Phrasenstrukturgrammatik (GPSG)
+\item Lexikalisch-Funktionale Grammatik (LFG)
+%\item Lexical Mapping Theory (LMT)
+%\item PATR
+\item Kategorialgrammatik (CG)
+\item Kopfgesteuerte Phrasenstrukturgrammatik (HPSG)
+\item \blaubf{Konstruktionsgrammatik (CxG)}
+\item Baumadjunktionsgrammatik (TAG)
+\end{itemize}
+}
+
+\frame{
+\frametitle{Konstruktionsgrammatik (I)}
+
+\begin{itemize}[<+->]
+\item Konstruktionsgrammatik gehört auch zur West-Coast-Linguistik
+\item Sie wurde maßgeblich von Charles Fillmore, Paul Kay und Adele Goldberg geprägt.
+\citep*{FKoC88a,KF99a,Kay2002a,Kay2005a,Goldberg95a,Goldberg2006a}
+
+\item Fillmore, Kay, Jakendoff und andere weisen darauf hin, dass Sprache zu großen Teilen aus
+  komplexeren Einheiten besteht, die sich jedoch nicht ohne weiters mit den Mitteln beschreiben
+  lassen, die wir bisher kennengelernt haben.
+
+\item In Frameworks wie GB wird explizit zwischen Kerngrammatik und Peripherie unterschieden und die
+  Peripherie wird weitestgehend ignoriert. Die Kritik der CxG an einer solchen Praxis ist
+  berechtigt, da die Zuordnung zur Peripherie mitunter willkürlich scheint und auch nichts gewonnen
+  ist, wenn man große Teile von Sprachen von der Beschreibung ausschließt, weil sie teilweise
+  irregulär ist.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Konstruktionsgrammatik (II)}
+
+\begin{itemize}
+\item Konstruktionsgrammatik gibt es in vielen Varianten:
+\begin{itemize}
+\item Construction Grammar (Berkeley)
+\item Goldbergian/Lakovian Construction Grammar \citep{Goldberg95a,Goldberg2006a}
+\item Cognitive Grammar \citep{Dabrowska2004a}
+\item Radical Construction Grammar \citep{Croft2001a}
+\item Embodied Construction Grammar \citep{BC2005a}
+\item Fluid Construction Grammar \citep{SDB2006a-u}
+\end{itemize}
+\pause
+\item Phänomenbeschreibungen zielen meistens auf phrasale Muster ab.
+\item Als Haupterklärungsmittel wird die Vererbung benutzt.\\
+      \Zb \citew{Croft2001a,Goldberg2003a}
+\pause
+\item Deutschsprachiger Sammelband zum Thema: \citew{FS2006a-ed}.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Grundannahmen}
+
+\begin{itemize}
+\item kein angeborenes sprachspezifisches Wissen
+\item keine Transformationen
+\pause
+\item keine leeren Elemente
+\pause
+\item lexikalische Integrität (wie in LFG, HPSG)
+\pause
+\item Vererbungshierarchien spielen eine große Rolle
+\pause
+\item Goldberg argumentiert für Konstruktionsstatus von Resultativkonstruktionen \citep{Goldberg95a,GJ2004a}:
+\ea
+Er lacht sich schlapp.
+\z
+\Dh, es gibt keinen Kopf, der die Zahl der Argumente festlegt.\\
+Das wird durch die phrasale Resultativkonstruktion geregelt.
+
+Das ist ein fundamentaler Unterschied zur GB, LFG und HPSG.
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Formalisierung}
+
+\begin{itemize}
+\item Es gibt nur sehr wenige Arbeiten zur Formalisierung der CxG.
+\item Formalere Arbeiten sind:\\
+\citew{KF99a,Kay2002a},\\
+\citew{MR2001a},\\
+\citew{Goldberg2003a},\\
+\citew{BC2005a},\\
+\citew{SDB2006a-u,vanTrijp2011a,Steels2013a}.
+\item Eine durch Ideen der CxG beeinflusste Arbeit ist das Buch von Jean-Pierre Koenig (damals Berkeley)
+  \citeyearpar{Koenig99a} im Rahmen der HPSG.
+\item Fillmore und Kay arbeiten eng mit Sag zusammen,\\
+  woraus sich eine HPSG"=Variante ergeben hat,\\
+  die Sign"=Based Construction Grammar genannt wird \citep{Sag2012a}.
+\end{itemize}
+
+}
+
+
+
+\section{Probleme phrasaler Ansätze}
+
+\outline{
+
+\begin{itemize}
+\item Phrasale Konstruktionen
+\item \blau{Probleme phrasaler Ansätze}
+      \begin{itemize}
+      \item {Probleme mit derivationeller Morphologie: {\it Ge- -e}-Derivation}
+      \item {Lexikalische Integrität und phrasale Konstruktionen}
+      \item {Aktiv/Passiv und phrasale Konstruktionen}
+      \item {Einstöpseln und Kasus}
+      \item {Einstöpseln und Koordination}
+      \end{itemize}
+\item Evidenz für phrasale Ansätze
+\end{itemize}
+
+}
+
+
+\subsection{Probleme mit derivationeller Morphologie: {\it Ge- -e}-Derivation}
+
+\frame{
+\frametitlefit{Problem: Phrasale Konstruktionen und derivationelle Morphologie}
+
+
+\begin{itemize}
+
+
+\item Jackendoffs Rumpel-Konstruktion \citep{Jackendoff2008a}:\nocite{GJ2004a}
+\ea
+The bus \rot{rumble}d \gruen{around the corner}.\\
+{}[\sub{VP} \rot{V} \gruen{PP}] = `go PP in such a way to make a V-ing sound'
+\z
+
+\pause
+\item Die englische Konstruktion hat ein Ebenbild im Deutschen:
+\ea
+dass die Straßenbahnen \gruen{um} \gruen{die} \gruen{Ecke} \rot{quietsch}en
+\z
+\nocite{Mueller2006d}
+
+\pause
+\item Deutsch: diskontinuierliches Derivationsmuster interagiert mit der \emph{Quietsch}-Konstruktion:
+
+\ea
+wegen des \gruen{Um-die-Ecke}-Ge\rot{quietsch}es der Straßenbahnen
+\z
+
+\pause
+ 
+\item Wenn die Bedeutung an der phrasalen Konstruktion hängt,\\
+brauchen wir die folgende Allo-Konstruktion:
+\ea
+{}[\sub{N} \gruen{PP} [\sub{N} [\sub{N-stem} ge- \rot{V-stem} -e] -s]  ]
+\z
+
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{\geed}
+
+Die Interaktion zwischen \emph{Quietsch}-Konstruktion und \gee ist aber in keiner Weise besonders. 
+\nocite{Luedeling2001a,Mueller2002b,Mueller2003a}
+
+Beispiele \geed:\footnote{
+aus dem COW"=Korpus \url{http://hpsg.fu-berlin.de/cow/} 9,108,097,177 Token für Dt.
+}
+
+\eal
+\ex 
+an-den-Hals-Gewerfe
+\ex 
+aus-dem-Bett-Gequäle
+%im-Kreis-Gelaufe
+%in-die-Welt-Genöle
+%in-extremo-Gerocke
+%um-den-Brei-Gerede
+%um-die-Probleme-herum-Gedeute
+%um-sich-Geschmeiße
+\ex 
+von-oben-herab-Geschreibe
+% \ex 
+% \gll von-Start-bis-Ziel-im-Regen-Gelaufe\\
+%      from-start-to-finnish-in.the-rain-running\\ 
+\zl
+
+% \pause
+
+% Note that \emph{um den heißen Brei herumreden} (`to beat about the bush') is an idiom!
+% \ea
+% um-den-heißen-Brei-Gerede
+% \z
+
+
+% $\to$ lexical analysis seems to be required \citep*{NSW94a,Sag2007a}.
+
+}
+
+
+\frame{
+\frametitle{Lexikonregelansatz für die \emph{quietsch}-Konstruktion}
+
+\begin{itemize}
+\item Lexikoneintrag für das intransitive Verb \stem{quietsch} (Listem \sliste{ NP } ) 
+\pause
+\item Lexikonregel lizenziert \stem{quietsch} (\sliste{ NP, PP })
+\pause
+\item Flexion oder Derivation gefolgt von Flexion
+\pause
+\item kombinatorisches System, das Köpfe mit Argumenten kombiniert und Dislokation von
+  Konstituenten ermöglicht.
+\end{itemize}
+
+}
+
+\subsection{Lexikalische Integrität und phrasale Konstruktionen}
+
+\outline{
+
+\begin{itemize}
+\item Phrasale Konstruktionen
+\item {Probleme phrasaler Ansätze}
+      \begin{itemize}
+      \item {Probleme mit derivationeller Morphologie: {\it Ge- -e}-Derivation}
+      \item \blau{Lexikalische Integrität und phrasale Konstruktionen}
+      \item {Aktiv/Passiv und phrasale Konstruktionen}
+      \item {Einstöpseln und Kasus}
+      \item {Einstöpseln und Koordination}
+      \end{itemize}
+\item Evidenz für phrasale Ansätze
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Lexikalische Integrität und phrasale Konstruktionen}
+
+\begin{itemize}
+\item Das Partizip ist nur bildbar, wenn es ein Objekt gibt:
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{\hspace{3em}}l@{~}l}
+a. & * Er tanzt die Schuhe. & c. & Er liebt das Buch.\\
+b. & * die getanzten Schuhe & d. & das geliebte Buch\\
+\end{tabular}
+\z
+
+\pause
+
+\item Mit Resultativprädikat ist Partizip möglich:
+
+\eal
+\ex[]{
+Er tanzt die Schuhe blutig / in Stücke.
+}
+\ex[]{\label{blutig-getanzte-schuhe}
+die blutig / in Stücke getanzten Schuhe
+}
+\zl
+Das legt nahe, dass die Resultativkonstruktion lexikalisch lizenziert ist. (\citealp[\page
+412]{Dowty78a}; \citealp[\page 21]{Bresnan82a}; \citealp{Mueller2006d})
+
+\pause
+\item Lexikonbasierte Analysen für die Resultativkonstruktion:
+\citew{Simpson83a,Wunderlich92a-u-kopiert,Verspoor97a,Wechsler97a,WN2001a,Mueller2002b,Kay2005a,Jacobs2009a,Welke2009a}.
+\end{itemize}
+
+}
+
+
+\subsection{Aktiv/Passiv und phrasale Konstruktionen}
+
+\outline{
+
+\begin{itemize}
+\item Phrasale Konstruktionen
+\item {Probleme phrasaler Ansätze}
+      \begin{itemize}
+      \item {Probleme mit derivationeller Morphologie: {\it Ge- -e}-Derivation}
+      \item {Lexikalische Integrität und phrasale Konstruktionen}
+      \item \blau{Aktiv/Passiv und phrasale Konstruktionen}
+      \item {Einstöpseln und Kasus}
+      \item {Einstöpseln und Koordination}
+      \end{itemize}
+\item Evidenz für phrasale Ansätze
+\end{itemize}
+
+}
+
+
+\frame{
+\frametitle{Aktiv/Passiv und phrasale Konstruktionen}
+
+
+\begin{itemize}
+\item Fillmore/Kay und \citet{MR2001a} und \citet{CJ2005a}: Passiv ist eine alternative Unifikation von Beschränkungen 
+
+\pause
+\item Auch in anderen Theorien:
+\begin{itemize}
+\item HPSG: \citew[Kapitel~3]{Koenig99a} %\citew[Chapter~4]{MR2001a}; 
+\citealp{Koenig99a,DK2000b-u,Kordoni2001b-u}
+\item TAG: \citealp{Candito96a}; \citealp[\page 188]{CK2003a-u}
+\item Simpler Syntax: \citew{CJ2005a}
+\item LFG: \citew{AGT2014a}
+\end{itemize}
+
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Passive in Simpler Syntax \citep{CJ2005a}}
+
+\vfill
+\scalebox{.7}{%
+\begin{tabular}{ccccc}
+DESIRE(&{~\rnode{b}{BILL$_2$}}, && & ~{\rnode{sw}{[SANDWICH; DEF]$_3$}})\\
+\\[1ex]
+       &{\rnode{gf2}{GF$_2$}}    && & {\rnode{gf3}{GF$_3$}}~\\
+\\[1ex]
+~~~~~~~~~\hfill{}[\sub{S} & {\rnode{np2}{NP$_2$}}  & [\sub{VP} & V$_1$ & ~~{\rnode{np3}{NP$_3$}}]] \\
+\\
+              & Bill           &  & desires & the sandwich.\\
+\end{tabular}
+\ncline{b}{gf2}\ncline{gf2}{np2}%
+\ncline{sw}{gf3}\ncline{gf3}{np3}%
+}
+\pause
+\vfill\vfill
+
+\scalebox{.7}{%
+\begin{tabular}{ccccc}
+DESIRE(&~{\rnode{b}{BILL$_2$},} & & & ~{}{\rnode{sw}{[SANDWICH; DEF]$_3$}})\\
+\\[1ex]
+       &{\rnode{gf2}{GF$_2$}}    &&  & {\rnode{gf3}{GF$_3$}}\\
+\\[1ex]
+~~~~~~~~~\hfill{}[\sub{S} & {\rnode{np3}{NP$_3$}}  & [\sub{VP} & V$_1$  & by {\rnode{np2}{NP$_2$}}]] \\
+\\
+              & the sandwich             & & is desired & by Bill.\\
+\end{tabular}
+\ncline{b}{gf2}\ncline{gf2}{np2}%
+\ncline{sw}{gf3}\ncline{gf3}{np3}%
+}
+\vfill
+
+}
+
+
+\frame{
+\frametitle{Aktiv/Passiv und phrasale Konstruktionen}
+
+\smallexamples
+
+
+\begin{itemize}
+\item Passiv interagiert mit anderen valenzverändernden Konstruktionen:
+      \begin{itemize}
+      \item Litauisch \citep{Timberlake82a,Wiemer2006a}
+      \item Irisch \citep{Noonan94a}
+      \item Türkisch \citep{Ozkaragoez86a}
+      \item \ldots
+      \end{itemize}
+
+\eal\settowidth\jamwidth{(Türkisch)}
+\ex%\label{ex-double-passivization-strangle}
+\gll Bu şato-da boğ-ul-un-ur.\\
+     dieses Schloss-{\sc loc} erwürg-{\sc pass}-{\sc imp}-{\sc aor}\\\jambox{(Türkisch)}
+\glt `Man wird erwürgt (von jemandem) in diesem Schloß.'
+\ex
+\gll Bu oda-da döv-ül-ün-ür.\\
+     dieser Raum-{\sc loc} schlag-{\sc pass}-{\sc imp}-{\sc aor}\\
+\glt `Man wird geschlaggen (von jemadem) in diesem Raum.'
+%% \ex
+%% \gll Harp-te vur-ul-un-ur.\\
+%%      war-{\sc loc} shoot-{\sc pass}-{\sc pass}-{\sc aor}\\
+%% \glt `One is shot (by one) in war.'
+\zl
+
+%% \eal\settowidth\jamwidth{(Litauisch)}
+%% \ex
+%% \gll Vėjas nupūte tą lapelį.\\
+%%      wind.\gruen{\nom}{} blies dieses Blatt.\gruen{\acc}\\\jambox{(Litauisch)}
+%% \glt `Der Wind blies dieses Blatt herunter.' % The wind blew down that leaf.
+%% \ex
+%% \gll Tas lapelis vėjo nupūstas.\\
+%%      dieses Blatt.\gruen{\nom}.\mas.\sg{} Wind.\gruen{\gen}{} blasen.\nom.\mas.\sg{}\\
+%% \glt `Dieses Blatt wurde vom Wind heruntergeblasen.'
+%% \ex
+%% \gll To     lapelio               būta  vėjo        nupūsto.\\
+%%      dieses Blatt.\gruen{\gen}.\mas.\sg{} wurde.\nom.\neu.\sg{} Wind.\gruen{\gen}{} blasen.\gen.\mas.\sg{}\\
+%% \glt `Dieses Blatt wurde (wahrscheinlich) vom Wind heruntergeblasen.'
+%% \zl
+
+\item \citet{Blevins2003a}: Passiv + Impersonal
+
+\pause
+\item Lösung: Passivlexikonregel oder morphem-basierter Ansatz.
+
+\end{itemize}
+
+}
+
+\subsection{Einstöpseln und Kasus}
+
+\outline{
+
+\begin{itemize}
+\item Phrasale Konstruktionen
+\item {Probleme phrasaler Ansätze}
+      \begin{itemize}
+      \item {Probleme mit derivationeller Morphologie: {\it Ge- -e}-Derivation}
+      \item {Lexikalische Integrität und phrasale Konstruktionen}
+      \item {Aktiv/Passiv und phrasale Konstruktionen}
+      \item \blau{Einstöpseln und Kasus}
+      \item {Einstöpseln und Koordination}
+      \end{itemize}
+\item Evidenz für phrasale Ansätze
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Einstöpseln und Kasus}
+
+\begin{itemize}
+\item \citet{Goldberg95a}: Ein Lexikoneintrag enthält die Semantik des Verbs und Angaben darüber, welche Rollen realisiert werden müssen.
+
+\pause
+\item Lexikoneinträge können in Argumentstrukturkonstruktionen eingesetzt werden (regulär oder mit Erzwingung = Coercion)
+
+\pause
+\item Problem: Kasusanforderungen lassen sich nicht auf semantische Unterschiede zurückführen:  
+\eal
+\ex Er hilft dem Mann.
+\ex Er unterstützt den Mann.
+\zl
+\eal
+\ex Er begegnet dem Mann.
+\ex Er trifft den Mann.
+\zl
+\pause
+\item Auch mit Coercion nicht grammatisch:
+\ea[*]{
+Er hilft den Mann.
+}
+\z
+\end{itemize}
+}
+
+
+\subsection{Einstöpseln und Koordination}
+
+\outline{
+
+\begin{itemize}
+\item Phrasale Konstruktionen
+\item {Probleme phrasaler Ansätze}
+      \begin{itemize}
+      \item {Probleme mit derivationeller Morphologie: {\it Ge- -e}-Derivation}
+      \item {Lexikalische Integrität und phrasale Konstruktionen}
+      \item {Aktiv/Passiv und phrasale Konstruktionen}
+      \item {Einstöpseln und Kasus}
+      \item \blau{Einstöpseln und Koordination}
+      \end{itemize}
+\item Evidenz für phrasale Ansätze
+\end{itemize}
+
+}
+
+\frame{%[shrink=5]{
+\frametitle{Symmetrische Koordination}
+
+\savespace
+\smallexamples
+
+\begin{itemize}
+\item Wortgruppen mit gleichen syntaktischen Eigenschaften koordinierbar:
+\eal
+\ex Er [kennt und liebt] diese Schallplatte.
+\ex Ich bin [froh und stolz auf meinen Sohn].\footnote{
+    \url{http://www.lebenshilfebruchsal.de/index.php?option=com_content&task=view&id=227&Itemid=59}. 20.06.2012
+}
+%\ex dein [Freund und Helfer]
+\zl
+
+%% \eal
+%% \ex[]{
+%% \gll Ich kenne und unterstütze diesen Mann.\\
+%%      I know and support this mann.\acc\\
+%% }
+%% \ex[*]{
+%% \gll Ich kenne und helfe diesen Mann.\\
+%%      I know and help this man.\acc\\
+%% }
+%% \ex[*]{
+%% \gll Ich kenne und helfe diesem Mann.\\
+%%      I know and help this man.\dat\\
+%% }
+%% \zl
+
+
+\pause
+\item Solche Koordinationen sind auch möglich, wenn ein Verb mit einfachem und eins mit erweitertem Valenzrahmen verwendet wird:
+\ea
+ich hab ihr jetzt diese Ladung Muffins mit den Herzchen drauf [gebacken und gegeben].\footnote{
+\url{http://www.musiker-board.de/diverses-ot/35977-die-liebe-637-print.html}. 08.06.2012
+}
+\z
+\pause
+\item Problem: Wenn die GF erst nach dem Einsetzen in die Konstruktion
+vorhanden wären, dann könnten wir die Koordination nicht durchführen.
+\nocite{Wechsler2008a,Marantz97a}
+
+\pause
+\item Lösung: dreistelliges Verb \emph{gebacken} (Lexikonregel)
+\end{itemize}
+%~\\[-3\baselineskip]
+
+
+}
+
+\subsection{Phrasale Konstruktionen}
+
+\frame{
+\frametitle{Phrasale Konstruktionen}
+
+\begin{itemize}
+\item Es gibt Strukturen, die nicht der \xbart entsprechen.
+
+\citet{Matsuyama2004a} und \citet{Jackendoff2008a}:
+\eal
+\ex Student after student left the room.
+\ex
+\label{ex-npn-iteration}
+Day after day after day went by, but I never found the courage to talk to
+her. \citep{Bargmann2015a}
+\zl
+
+\end{itemize}
+
+
+
+
+}
+
+
+\subsection{Allgemeines zum Repräsentationsformat}
+
+\subsubsection{Boxen}
+
+\frame{
+\frametitle{Boxen statt Merkmal-Wert-Paaren}
+
+
+HPSG: Dominanzverhältnisse werden wie andere Eigenschaften linguistischer Objekte durch
+Merkmal"=Wert"=Paaren beschrieben.
+
+Die BCG (Berkeley CxG) verwendet zwar im Allgemeinen Merkmal"=Wert"=Paare zur Beschreibung linguistischer Objekte,
+die Dominanzverhältnisse werden aber über Boxen dargestellt:
+
+\bigskip
+
+\begin{tabular}{|ll|}\hline
+\multicolumn{2}{|c|}{phon \phonliste{ der Mann }}\\
+\begin{tabular}[t]{|l|}\hline
+phon \phonliste{ der } \\\hline
+\end{tabular}&%
+\begin{tabular}[t]{|l|}\hline
+phon \phonliste{ Mann } \\\hline
+\end{tabular}\\
+  &\\\hline
+\end{tabular}
+
+
+}
+
+\subsubsection{Die Kopf"=Komplement"=Konstruktion}
+
+\frame{
+\frametitle{Die Kopf"=Komplement"=Konstruktion}
+
+Head plus Complements Construction (HC)\\
+\medskip
+\begin{tabular}{|ll@{~}l|}\hline
+\begin{tabular}[t]{|l|}\hline
+\begin{tabular}{@{}l@{~}l@{}}
+role  & head\\
+lex   & $+$   \\
+\end{tabular}\\
+\hline
+\end{tabular}&%
+\begin{tabular}[t]{|l|}\hline
+\begin{tabular}{@{}l@{~}l@{}}
+role  & filler\\
+loc   & $+$     \\
+\end{tabular}\\
+\hline
+\end{tabular} & \begin{tabular}[t]{@{}l@{}}\\
+$+$\\
+\end{tabular}\\
+& &\\\hline
+\end{tabular}
+
+
+Ein Kopf wird mit mindestens einem Komplement kombiniert.\\
+(Das `+' hinter der Box steht für mindestens ein Zeichen,\\
+ das zur Beschreibung in der Box passt.)
+
+{\sc loc}+ bedeutet, dass das Element lokal realisiert werden muss.
+
+Der Wert von {\sc role} sagt etwas über die Rolle aus,\\
+die ein bestimmtes Element in einer Konstruktion spielt.
+
+}
+
+
+\frame{
+\frametitle{Verbphrasen-Konstruktion}
+
+\begin{tabular}{|ll|}\hline
+\blau<1>{cat v} & \\
+\begin{tabular}[t]{|l@{~}l|}\hline
+role & head\\
+lex  & $+$   \\\hline
+\end{tabular}
+&%
+\begin{tabular}[t]{|l@{~}l|l}\cline{1-2}
+role         & filler   \\
+loc          & $+$        & $+$\\
+\blau<2>{gf} & \blau<2>{$\neg$subj}\\
+\cline{1-2}
+\end{tabular}\\
+& \\\hline
+\end{tabular}
+
+
+Die syntaktische Kategorie der gesamten Konstruktion ist V.
+
+\pause
+Die Komplemente dürfen nicht die grammatische Funktion Subjekt haben.
+
+}
+
+
+\frame{
+\frametitle{Vererbung}
+
+Die VP-Konstruktion ist eine bestimmte Art von Kopf"=Komplement"=Konstruktion.
+
+\begin{tabular}{|ll|}\hline
+\multicolumn{2}{|l|}{INHERIT HC}\\
+cat v &  \\
+% Box 1
+\begin{tabular}[t]{|l|}\hline
+\hspace{5em}\\\hline
+\end{tabular}&%
+% Box 2
+\begin{tabular}[t]{|l|l}\cline{1-1}
+% Inhalt 2
+\begin{tabular}{@{}l@{~}l@{}}
+gf   & $\neg$subj\\
+\end{tabular} & $+$\\
+% End Inhalt 2
+\cline{1-1}
+\end{tabular} \\
+& \\\hline
+\end{tabular}
+
+
+}
+
+\frame{
+\frametitle{Valenz}
+
+\begin{itemize}
+\item Valenz wird in Mengen repräsentiert.
+\item Valenzprinzip:
+      Lokale Füllertöchter werden mit einem Element in der Valenzmenge der Mutter identifiziert.
+\item Subset-Prinzip:
+      Mengenwerte der Kopftochter sind Teilmengen der entsprechenden Mengen der Mutter.
+\item Achtung: Das ist genau das Entgegengesetzte von HPSG.\\
+      In HPSG"=Grammatiken werden Valenzlisten abgearbeitet, in CxG sind beim Mutterknoten
+      mindestens so viele Elemente vorhanden, wie bei der Kopftochter.
+
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Valenz und Adjunkte}
+
+\begin{itemize}
+\item Kay und Fillmore gehen davon aus, dass Adjunkte auch etwas zum {\sc val}"=Wert des
+  Mutterknotens beitragen. 
+\item Im Prinzip ist {\sc val} dann nichts anderes als eine Menge aller Nicht"=Kopf"=Töchter in einem Baum.
+
+
+\end{itemize}
+
+}
+
+
+\subsection{Passiv}
+
+\frame{
+\frametitle{Passiv}
+
+
+\begin{itemize}[<+->]
+\item Idee: Passiv über sogeannte Linking"=Konstruktionen, die in Vererbungshierarchien mit
+  Lexikoneinträgen kombiniert werden.
+\item Im Grundlexikoneintrag steht nur, welche semantischen Rollen ein Verb füllt, wie diese
+  realisiert werden, wird von den jeweiligen Linking"=Konstruktionen bestimmt, mit denen der
+  Grundeintrag kombiniert wird.
+\item Die Idee geht auf Fillmore und Kay zurück, aber Varianten sind erst in \citew{Koenig99a} und
+  \citew{MR2001a} veröffentlicht.
+\item Varianten dieser Analyse wurden auch in HPSG vorgeschlagen.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Passiv und Vererbung}
+
+\vfill
+
+\hfill
+\begin{forest}
+typehierarchy
+[lexeme, for descendants={l sep+=5mm}
+  [passive,name=passive, [passive $\wedge$ read, name=pr]]
+  [active, name=active,  [active $\wedge$  read,  name=ar]]
+  [read,   name=read     [passive $\wedge$ eat,  name=pe, no edge]]
+  [eat,    name=eat,     [active $\wedge$  eat,   name=ae]] ]
+\draw (passive.south)--(pe.north)
+      (active.south) --(ae.north)
+      (read.south)   --(pr.north)
+      (read.south)   --(ar.north)
+      (eat.south)    --(pe.north);
+\end{forest}
+\hfill\hfill\mbox{}
+
+
+\vfill
+}
+
+
+\frame{
+\frametitle{Linkingkonstruktionen}
+
+\begin{tabular}{@{}ll@{}}
+die \emph{Subject Construction}: & die \emph{Transitive Construction}:\\
+\ms{
+syn & \ms{ cat & v\\
+       }\\
+val & \menge{ \onems{ role \onems{ gf {\it subj} } }}\\
+}
+&
+\ms{
+syn & \ms{ cat & v\\
+           voice & active\\
+       }\\
+val & \menge{ \onems{ role \ms{ gf & obj \\
+                                %$\theta$ & {\sc da}$-$\\
+                                {\sc da} & $-$\\
+                              }\\
+                    }}\\
+}\\
+%
+die \emph{Passive Construction}:\\
+\ms{
+syn & \ms{ cat  & v\\
+           form & PastPart\\
+       }\\
+val & \menge{ \ms{ role & \ms{ gf & obl\\
+                               da & $+$\\
+                             }\\
+                   syn  & {\rm P[von]/}zero\\
+                 }}\\
+}
+\end{tabular}
+
+}
+
+\frame{
+\ea
+Lexikoneintrag für \stem{schlag}:\\
+\ms{
+syn & \ms{ cat & v\\
+       }\\
+val & \menge{ \onems{ role \ms{ $\theta$ & agent\\
+                                da       & $+$\\
+                              }\\
+                    }, 
+              \onems{ role \ms{ $\theta$ & patient\\
+                              }\\
+                    }}\\
+}
+\z
+
+}
+
+\frame[shrink]{
+
+\eal
+\label{ex-schlagen-linking}
+\ex 
+\begin{tabular}[t]{@{}l@{}}
+\stem{schlag} + Subjekt- und Transitiv"=Konstruktion:\\
+\ms{
+syn & \ms{ cat & v\\
+           voice & active\\
+       }\\
+val & \menge{ \onems{ role \ms{ $\theta$ & agent\\
+                                gf       & subj\\
+                                da       & $+$\\
+                              }\\
+                    }, 
+              \onems{ role \ms{ $\theta$ & patient\\
+                                gf       & obj\\
+                                da       & $-$\\
+                              }\\
+                    }}\\
+}
+\end{tabular}
+\ex \stem{schlag} + Subjekt- und Passiv"=Konstruktion:\\
+\ms{
+syn & \ms{ cat & v\\
+           form & PastPart\\
+       }\\
+val & \menge{ \ms{ role & \ms{ $\theta$ & agent\\
+                                gf       & obl\\
+                                da       & $+$\\
+                              }\\
+                   syn  & {\rm P[von]/}zero\\
+                  }, 
+              \onems{ role \ms{ $\theta$ & patient\\
+                                gf       & subj\\
+                              }\\
+                    }}\\
+}
+\zl
+
+\eal
+\ex Er schlägt den Weltmeister.
+\ex Der Weltmeister wird (von ihm) geschlagen.
+\zl
+
+
+}
+
+\subsubsection{Kritik}
+
+\frame{
+\frametitle{Kritik: Mengenbegriff}
+
+
+\begin{itemize}
+\item Die Analyse ist formal inkonsistent, da die Mengenunifikation nicht funktioniert \citep{Mueller2006d}.
+\item Man kann sie reparieren, indem man die HPSG"=Formalisierung von Mengen verwendet
+ \citep{ps,PM90a}.
+\item Die Subjekt-, Transitiv- und Passivkonstruktion muss man dann so abändern,
+  dass die Konstruktionen etwas darüber aussagen, wie ein Element in {\sc val} aussieht, statt zu verlangen, dass
+  {\sc val} genau ein Element enthält.
+\end{itemize}
+
+}
+
+
+\frame[shrink]{
+\frametitle{Grenzen der Vererbung}
+
+\begin{itemize}
+\item Das ist ein formales Problem, das sich lösen läßt. Schwerwiegender ist das folgende empirische Problem:
+
+\pause
+\item Vererbungsbasierte Ansätze scheitern an Phänomenen, bei denen ein argumentstrukturverändernder
+  Prozess mehrfach angewendet werden kann.
+
+Beispiel: Kausativierung im Türkischen 
+\citep{Lewis67a-u}:
+      \ea
+      Öl-dür-t-tür-t- \\
+      \glt `to cause somebody to cause somebody to kill somebody'
+      \z
+
+Wenn ich sage, dass ein Wort drei mal von der Causative Construction erbt, bekomme ich nichts
+anderes, als wenn ich einmal erben würde.
+%% \item Anderes Beispiel in \citew[S.\,14]{GM85a}:
+%%       \ea
+%% angutik anna- mik taku-$\varnothing$- kqu- ji- juk
+
+\pause
+\item Für solche Phänomene braucht man Regeln, die ein linguistisches Objekt zu einem anderen,
+  komplexeren in Beziehung setzen. 
+\pause
+\item Diese Regeln können dann das Ursprungszeichen semantisch einbetten (also \zb \emph{cause} zu \emph{kill} hinzufügen).
+
+
+\end{itemize}
+
+}
+
+
+
+\subsection{Verbstellung}
+
+
+\frame{
+\frametitle{Verbstellung}
+
+\begin{itemize}
+\item Es gibt keine Arbeiten zur Verbstellung im Deutschen im Rahmen der CxG. 
+\item Da es weder leere Elemente noch Transformationen gibt,\\
+  können die im Rahmen anderer Theorien gewonnenen Einsichten nicht direkt umgesetzt werden \citep{Mueller2004e}.
+\end{itemize}
+
+}
+
+
+\subsection{Lokale Umstellung}
+
+
+
+\frame{
+\frametitle{Lokale Umstellung}
+
+
+\begin{itemize}[<+->]
+\item \citet{Kay2002a} nimmt eine phrasale Konstruktion für Heavy-NP-Shift an.
+\item D.\,h. für die Umstellung schwerer NPen im Englischen gibt es eine neue Regel.
+\item Solche Analysen stellen einen Rückfall hinter GPSG dar,\\
+      wenn man keine Meta-Regeln annimmt. 
+\item Alloconstructions (\citealp[\page 116]{Goldberg2014a}; \citealp{Cappelle2006a})
+\end{itemize}
+
+
+
+
+}
+
+
+\subsection{Fernabhängigkeiten}
+
+\frame{
+\frametitle{Fernabhängigkeiten}
+
+
+
+\begin{itemize}[<+->]
+\item In der \emph{Left Isolation Construction} gibt es eine linke Tochter und eine rechte Tochter.
+Die linke Tochter entspricht dem, was aus der rechten Tochter extrahiert wurde.
+
+\item Das fehlende Element wird mit dem Operator VAL gesucht.
+      VAL liefert alle Elemente der Valenzmenge eines linguistischen Objekts und
+      alle Elemente in den Valenzmengen dieser Elemente usw.
+
+\item Es ist somit möglich unbeschränkt tief in Argument und Adjunkttöchter hineinzuschauen.
+
+\item Der Ansatz entspricht dem Ansatz von \citet{KZ89a} im Rahmen der LFG.
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Neue Entwicklungen}
+
+\begin{itemize}[<+->]
+\item In neueren Arbeiten wurden die Mengen aufgegeben. 
+\item Aus der Berkeley-Variante der CxG wurde Sign"=Based Construction Grammar
+      entwickelt \citep{Sag2012a,KSF2015a,KM2019a}
+\item Sign"=Based Construction Grammar benutzt den formalen Apparat der HPSG (getypte
+  Merkmalstrukturen). 
+\item Valenz und Sättigung wird genauso wie in HPSG behandelt.
+\item Valenzänderungen werden wie in HPSG über Lexikonregeln behandelt.
+\item Fernabhängigkeiten werden genauso wie in HPSG behandelt.
+\item Lediglich die Organisation der Merkmale in Merkmalstrukturen unterscheidet sich von HPSG"=Arbeiten.
+\end{itemize}
+
+
+
+
+
+}

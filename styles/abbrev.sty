@@ -4,9 +4,12 @@
 % \, -> kurz \ -> '.' kein Satzende
 
 \newcommand{\ua}{u.\,a.\ }
-\newcommand{\eg}{e.g.\xspace}
-\newcommand{\Eg}{E.g.\xspace}
-\newcommand{\ie}{i.e.\@\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\Eg}{E.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\eguk}{e.g.\xspace}
+\newcommand{\Eguk}{E.g.\xspace}
+\newcommand{\ieuk}{i.e.\xspace}
 \newcommand{\uae}{u.\,"a.\ }
 \newcommand{\zb}{z.\,B.\ }
 \newcommand{\Zb}{Z.\,B.\ }
@@ -34,7 +37,7 @@
 \newcommand{\neu}{\textsc{n}\xspace}
 \newcommand{\thirdsg}{3\textsc{sg}\xspace}
 
-
+% defined in langsci-lgr in texlive 2021
 \newcommand{\INF}{\textsc{inf}{}\xspace}	%infinitive
 
 
@@ -120,7 +123,7 @@
 
 \newcommand{\accf}{\textsc{acc}\xspace}
 \newcommand{\accv}{\textsc{acc} value\xspace}
-\newcommand{\agr}{\textsc{agr}\xspace}
+%\newcommand{\agr}{\textsc{agr}\xspace}
 \newcommand{\argst}{\textsc{arg-st}\xspace}
 \newcommand{\argstf}{\textsc{arg-st} feature\xspace}
 \newcommand{\argstw}{\textsc{arg-st}"=Wert\xspace}
@@ -131,7 +134,8 @@
 }{\newcommand{\argstl}{\textsc{arg-st} list\xspace}}
 \newcommand{\argstls}{\textsc{arg-st} lists\xspace}
 
-\newcommand{\aux}{\textsc{aux}\xspace}
+
+%\newcommand{\aux}{\textsc{aux}\xspace}
 \newcommand{\auxf}{\textsc{aux} feature\xspace}
 \newcommand{\auxv}{\textsc{aux} value\xspace}
 
@@ -517,7 +521,7 @@ Derivation}{derivation}\xspace}
 
 \newcommand{\itsdb}{\mbox{\textsf{\lbrack incr tsdb()\rbrack}}\indexitsdb}
 \newcommand{\indexitsdb}{\is{incr tsdb()@\mbox{\textsf{\lbrack incr tsdb()\rbrack}}}\xspace}
-\newcommand{\tsdb}{\mbox{\textsf{\lbrack incr tsdb()\rbrack}}\xspace}
+\newcommand{\tsdb}{\mbox{\textsf{\ensuremath{\lbrack}incr tsdb()\ensuremath{\rbrack}}}\xspace}
 
 \newcommand{\indexlkb}{\is{Linguistic Knowledge Builder (LKB)}\xspace}
 
@@ -565,10 +569,12 @@ Derivation}{derivation}\xspace}
 \newcommand{\indexsbcgend}{\is{Construction Grammar (CxG)!Sign-Based|)}\xspace}
 \newcommand{\indexsbxg}{\is{Construction Grammar (CxG)!Sign-Based}\xspace}
 
-\newcommand{\indexutah}{\is{Uniform Theta Assignment Hypothesis (UTAH)}\xspace}
+\newcommand{\indexutah}{\is{Uniformity of Theta Assignment Hypothesis (UTAH)}\xspace}
 
 \newcommand{\dg}{Dependency Grammar\indexdg}
 \newcommand{\indexdg}{\is{Dependency Grammar (DG)}\xspace}
+\newcommand{\indexdgstart}{\is{Dependency Grammar (DG)|(}\xspace}
+\newcommand{\indexdgend}{\is{Dependency Grammar (DG)|)}\xspace}
 
 \newcommand{\wg}{Word Grammar\indexwg}
 \newcommand{\indexwg}{\is{Word Grammar (WG)}\xspace}
@@ -592,6 +598,8 @@ Derivation}{derivation}\xspace}
 \newcommand{\hpsg}{HPSG\indexhpsg}
 
 \newcommand{\indexgpsg}{\is{Generalized Phrase Structure Grammar (GPSG)}\xspace}
+\newcommand{\indexgpsgstart}{\is{Generalized Phrase Structure Grammar (GPSG)|(}\xspace}
+\newcommand{\indexgpsgend}{\is{Generalized Phrase Structure Grammar (GPSG)|)}\xspace}
 \newcommand{\gpsg}{GPSG\indexgpsg}
 
 \newcommand{\indexgb}{\is{Government and Binding (GB)}\xspace}
@@ -604,6 +612,8 @@ Derivation}{derivation}\xspace}
 
 
 \newcommand{\indexlrs}{\is{Lexical Resource Semantics (LRS)}\xspace}
+\newcommand{\indexlrsstart}{\is{Lexical Resource Semantics (LRS)|(}\xspace}
+\newcommand{\indexlrsend}{\is{Lexical Resource Semantics (LRS)|)}\xspace}
 
 
 \newcommand{\indexiqp}{\is{Inherently Negated Quantifier Phrase (IQP)}\xspace}
@@ -628,6 +638,8 @@ Derivation}{derivation}\xspace}
 }
 \newcommand{\indexmrs}{\is{Minimal Recursion Semantics (MRS)}\xspace}
 \newcommand{\mrs}{MRS\indexmrs}
+\newcommand{\indexmrsstart}{\is{Minimal Recursion Semantics (MRS)|(}\xspace}
+\newcommand{\indexmrsend}{\is{Minimal Recursion Semantics (MRS)|)}\xspace}
 
 \newcommand{\indexminimalism}{\is{Minimalism}\xspace}
 
@@ -682,34 +694,34 @@ Derivation}{derivation}\xspace}
 
 
 %% % taken from https://tex.stackexchange.com/a/95079/18561
-%% \newbox\usefulbox
+\newbox\usefulbox
 
-%% \makeatletter
-%% \def\getslant #1{\strip@pt\fontdimen1 #1}
+%\makeatletter
+\def\getslant #1{\strip@pt\fontdimen1 #1}
 
-%% \def\skoverline #1{\mathchoice
-%%  {{\setbox\usefulbox=\hbox{$\m@th\displaystyle #1$}%
-%%     \dimen@ \getslant\the\textfont\symletters \ht\usefulbox
-%%     \divide\dimen@ \tw@ 
-%%     \kern\dimen@ 
-%%     \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
-%%  {{\setbox\usefulbox=\hbox{$\m@th\textstyle #1$}%
-%%     \dimen@ \getslant\the\textfont\symletters \ht\usefulbox
-%%     \divide\dimen@ \tw@ 
-%%     \kern\dimen@ 
-%%     \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
-%%  {{\setbox\usefulbox=\hbox{$\m@th\scriptstyle #1$}%
-%%     \dimen@ \getslant\the\scriptfont\symletters \ht\usefulbox
-%%     \divide\dimen@ \tw@ 
-%%     \kern\dimen@ 
-%%     \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
-%%  {{\setbox\usefulbox=\hbox{$\m@th\scriptscriptstyle #1$}%
-%%     \dimen@ \getslant\the\scriptscriptfont\symletters \ht\usefulbox
-%%     \divide\dimen@ \tw@ 
-%%     \kern\dimen@ 
-%%     \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}%
-%%  {}}
-%% \makeatother
+\def\skoverline #1{\mathchoice
+ {{\setbox\usefulbox=\hbox{$\m@th\displaystyle #1$}%
+    \dimen@ \getslant\the\textfont\symletters \ht\usefulbox
+    \divide\dimen@ \tw@ 
+    \kern\dimen@ 
+    \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
+ {{\setbox\usefulbox=\hbox{$\m@th\textstyle #1$}%
+    \dimen@ \getslant\the\textfont\symletters \ht\usefulbox
+    \divide\dimen@ \tw@ 
+    \kern\dimen@ 
+    \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
+ {{\setbox\usefulbox=\hbox{$\m@th\scriptstyle #1$}%
+    \dimen@ \getslant\the\scriptfont\symletters \ht\usefulbox
+    \divide\dimen@ \tw@ 
+    \kern\dimen@ 
+    \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
+ {{\setbox\usefulbox=\hbox{$\m@th\scriptscriptstyle #1$}%
+    \dimen@ \getslant\the\scriptscriptfont\symletters \ht\usefulbox
+    \divide\dimen@ \tw@ 
+    \kern\dimen@ 
+    \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}%
+ {}}
+%\makeatother
 
 
 
@@ -743,6 +755,7 @@ Derivation}{derivation}\xspace}
 \newcommand{\xnull}{X$^0$\xspace}%
 \newcommand{\xnulls}{\xnull{}s\xspace}%
 \let\xzero=\xnull
+\let\tzero=\tnull
 \newcommand{\cnull}{C$^0$\xspace}%
 \newcommand{\vnull}{V$^0$\xspace}%
 \newcommand{\nnull}{N$^0$\xspace}%

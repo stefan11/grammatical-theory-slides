@@ -77,7 +77,7 @@ research laboratories in Palo Alto\\
 \begin{itemize}
 \item lexicalized (head-driven)
 \pause
-\item sign-based \citep{Saussure16a}
+\item sign-based \citep{Saussure16a-de}
 \pause
 %\item unifikationsbasiert
 \item typed feature structures (lexical items, phrases, principles)
@@ -212,7 +212,7 @@ sm edges
 }
 
 \frame{
-\frametitle{SOV vs. SVO: Representation of subjects}
+\frametitle{SOV vs.\ SVO: Representation of subjects}
 
 \begin{itemize}
 \item Researchers working on German assume that the subject of finite verbs behaves like the other
@@ -223,7 +223,7 @@ HPSG: subjects and complements are listed in one valence list (\comps).
 \pause
 \item English: subjects are different.
 \pause
-\item \argst as a underlying representation containing all arguments.
+\item \argst as a underlying representation containing all arguments. \citep{DKW2021a}
 \pause
 \item Language dependent mapping to valence features \spr and \comps.
 
@@ -453,7 +453,7 @@ their arguments.
 sm edges, for tree={l+=\baselineskip}
 [\gruen{V}{[\gruen{\type{fin}}, \comps \eliste]}, name=fin1
 	[\ibox{1} NP{[\type{nom}]}
-		[er;he]]
+		[jemand;somebody]]
 	[\gruen{V}{[\gruen{\type{fin}}, \comps \sliste{ \ibox{1} }]}, name=fin2
 		[\ibox{2} NP{[\textit{dat}]}
 			[dem Kind;the child,roof]]
@@ -471,7 +471,7 @@ tikz={\draw[<->] ($(fin1.south west)+(\offsetup,0)$) to ($(fin2.north west)+(\of
 }
 
 \frame{
-\frametitle{Structure sharing of \head features}
+\frametitle{Structure sharing of \head values}
 
 \centerline{
 \scalebox{.8}{%
@@ -481,7 +481,7 @@ sm edges
      comps & \sliste{ }
      }
 	[{\ibox{2} NP{[\type{nom}]}}
-		[er;he]]
+		[jemand;somebody]]
 	[\ms{
              head & \gruen{\ibox{1}}\\
              comps & \sliste{ \ibox{2} }
@@ -803,13 +803,13 @@ If the case is not structural it remains as is: lexically specified.
 
 \eal
 \ex 
-\gll \gruen{dass} [jeder diesen Mann \rot<2->{kennt}]\\
-     that \spacebr{}everybody this man knows\\
-\glt `that everybody knows this man'
+\gll \gruen{dass} [jeder diesen Roman \rot<2->{kennt}]\\
+     that \spacebr{}everybody this novel knows\\
+\glt `that everybody knows this novel'
 \ex 
-\gll \gruen{Kennt} [jeder diesen Mann \rot<3->{\_} ]\\
-	 knows \spacebr{}everybody this man\\
-\glt `Does everybody know this man?'
+\gll \gruen{Kennt} [jeder diesen Roman \rot<3->{\_} ]\\
+	 knows \spacebr{}everybody this novel\\
+\glt `Does everybody know this novel?'
 \zl
 
 \pause
@@ -839,7 +839,7 @@ sm edges
 	[\gruen<2>{VP}\only<4>{\gruen{/\!/V}}, name=vp
 	   [NP [jeder;everyone]]
 	   [V$'$\only<4>{\gruen{/\!/V}}, name=vbar
-	     [NP [diesen Mann;this man, roof]]
+	     [NP [diesen Roman;this novel, roof]]
 		[\gruen<1>{V\only<4>{\gruen{/\!/V}}},name=vtrace [ \gruen<1>{\_$_k$}]]]]]
 %\draw[<->] (vone) to (vtwo);
 %%\draw (-2,-5) to[grid with coordinates] (4,0.5);
@@ -890,24 +890,24 @@ sm edges
 \item Arguments can appear in almost any order in the German \mf.
 \eal
 \ex 
-\gll {}[weil] \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} \blau{das} \blau{Buch} gibt\\
-     \spacebr{}because the.\NOM{} man the.\DAT{} child the.\ACC{} book gives\\
-\glt `because the man gives the book to the child'
+\gll {}[weil] \gruen{der} \gruen{Delphin} \rot{dem} \rot{Kind} \blau{den} \blau{Ball} gibt\\
+     \spacebr{}because the.\NOM{} dolfin the.\DAT{} child the.\ACC{} ball gives\\
+\glt `because the dolfin gives the ball to the child'
 \ex 
-\gll {}[weil] \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} \rot{dem} \rot{Kind} gibt\\
-     \spacebr{}because the.\NOM{} man the.\ACC{} book the.\DAT{} child gives\\
-\ex\label{ex-das-buch-der-mann-der-frau-gibt} 
-\gll {}[weil] \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} \rot{dem} \rot{Kind} gibt\\
-     \spacebr{}because the.\ACC{} book the.\NOM{} man the.\DAT{} child gives\\
+\gll {}[weil] \gruen{der} \gruen{Delphin} \blau{den} \blau{Ball} \rot{dem} \rot{Kind} gibt\\
+     \spacebr{}because the.\NOM{} dolfin the.\ACC{} ball the.\DAT{} child gives\\
+\ex\label{ex-den-buch-der-dolfinn-der-frau-gibt} 
+\gll {}[weil] \blau{den} \blau{Ball} \gruen{der} \gruen{Delphin} \rot{dem} \rot{Kind} gibt\\
+     \spacebr{}because the.\ACC{} ball the.\NOM{} dolfin the.\DAT{} child gives\\
 \ex 
-\gll {}[weil] \blau{das} \blau{Buch} \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} gibt\\
-     \spacebr{}because the.\ACC{} book the.\DAT{} child the.\NOM{} man gives\\
+\gll {}[weil] \blau{den} \blau{Ball} \rot{dem} \rot{Kind} \gruen{der} \gruen{Delphin} gibt\\
+     \spacebr{}because the.\ACC{} ball the.\DAT{} child the.\NOM{} dolfin gives\\
 \ex 
-\gll {}[weil] \rot{dem} \rot{Kind} \gruen{der} \gruen{Mann} \blau{das} \blau{Buch} gibt\\
-     \spacebr{}because the.\DAT{} child the.\NOM{} man the.\ACC{} book gives\\
+\gll {}[weil] \rot{dem} \rot{Kind} \gruen{der} \gruen{Delphin} \blau{den} \blau{Ball} gibt\\
+     \spacebr{}because the.\DAT{} child the.\NOM{} dolfin the.\ACC{} ball gives\\
 \ex 
-\gll {}[weil] \rot{dem} \rot{Kind} \blau{das} \blau{Buch} \gruen{der} \gruen{Mann} gibt\\
-     \spacebr{}because the.\DAT{} child the.\ACC{} book the.\NOM{} man gives\\
+\gll {}[weil] \rot{dem} \rot{Kind} \blau{den} \blau{Ball} \gruen{der} \gruen{Delphin} gibt\\
+     \spacebr{}because the.\DAT{} child the.\ACC{} ball the.\NOM{} dolfin gives\\
 \zl
 \end{itemize}
 
@@ -915,13 +915,15 @@ sm edges
 
 
 \frame{
-\frametitle{Local reordering: Two options}
+\frametitle{Local reordering: Three options}
 
 Two approaches:
 \begin{itemize}
 \item flat structures like in GPSG
 \pause
 \item binary branching structures with arbitrary order of combination
+\pause
+\item lexical rules reordering the elements in the valence lists
 
 \end{itemize}
 
@@ -934,12 +936,12 @@ Two approaches:
 
 \eal
 \ex 
-\gll {}[weil] \gruen{jeder} \blau{diesen} \blau{Mann} kennt\\
-	 {}\spacebr{}because everyone.\NOM{} this.\ACC{} man knows\\
+\gll {}[weil] \gruen{jeder} \blau{diesen} \blau{Roman} kennt\\
+	 {}\spacebr{}because everyone.\NOM{} this.\ACC{} novel knows\\
 \ex 
-\gll {}[weil] \blau{diesen} \blau{Mann} \gruen{jeder} kennt\\
-	 {}\spacebr{}because this.\ACC{} man everyone.\NOM{} knows\\
-\glt `because everyone knows this man'
+\gll {}[weil] \blau{diesen} \blau{Roman} \gruen{jeder} kennt\\
+	 {}\spacebr{}because this.\ACC{} novel everyone.\NOM{} knows\\
+\glt `because everyone knows this novel'
 \zl
 
 \centerline{%
@@ -951,7 +953,7 @@ sm edges
 		[jeder;everybody]]
 	[V{[\comps \sliste{ \gruen<2>{\ibox{1}} }]}
 		[\blau{\ibox{2} NP[\type{acc}]}
-			[diesen Mann;this man, roof]]
+			[diesen Roman;this novel, roof]]
 		[V{[\comps \sliste{ \ibox{1}, \blau{\ibox{2}} }]}
 			[kennt;knows]]]]
 \end{forest}
@@ -968,7 +970,7 @@ sm edges
 sm edges
 [V{[\comps \sliste{}]}
 	[\blau<2>{\ibox{2} NP[\type{acc}]}
-		[diesen Mann;this man, roof]]
+		[diesen Roman;this novel, roof]]
 	[V{[\comps \sliste{ \blau<2>{\ibox{2}} }]}
         	[\gruen{\ibox{1} NP[\type{nom}]}
 	        	[jeder;everybody]]
@@ -1043,7 +1045,7 @@ Difference in order of saturation of elements in the \comps list.
 sm edges
 [VP
 	[\gruen<3>{NP},name=np
-		[diesen Mann$_i$;this man,roof]]
+		[diesen Roman$_i$;this novel,roof]]
 	[VP\only<2->{\gruen<2>{/\gruen<3>{NP}}},name=vpnp2
 		[V
 			[V

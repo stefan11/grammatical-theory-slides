@@ -13,6 +13,8 @@
 % there seems to be a bug. These things are only set on the first literature slide
 %
 % The bug is still there, but the fix does not work any longer. 
+\iflanguage{german}{\renewcommand{\refname}{Literaturverzeichnis}} % should be set automatically ???
+%\iflanguage{german}{\def\insertsectionhead{Literaturverzeichnis}}{\def\insertsectionhead{\refname}}
 \def\insertsectionhead{\refname}
 \def\insertsubsectionhead{}
 

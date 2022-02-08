@@ -30,6 +30,14 @@
 
 %\usepackage{jambox}
 
+% used for GB figure
+
+\forestset{
+      terminus/.style={tier=word, for children={tier=tabular}, for tree={fit=band}, for descendants={no path, align=left, l sep=0pt}},
+      sn edges original/.style={for tree={parent anchor=south, child anchor=north,align=center,base=top}},
+      no path/.style={edge path={}},
+      set me left/.style={calign with current edge, child anchor=north west, for parent={parent anchor=south west}},
+}
 
 \usepackage{dgmacros,pst-tree,trees,dalrymple} % Mary Dalrymples macros
 %\usepackage{dgmacros,dalrymple} % Mary Dalrymples macros
@@ -52,7 +60,8 @@
 \newlength{\offset}
 \newlength{\offsetup}
 
-%\usepackage{soul}
+% needed for minimalism
+\usepackage{soul}
 
 
 %\nodemargin5pt%\treelinewidth2pt\arrowwidth6pt\arrowlength10pt
@@ -116,7 +125,7 @@ St.Mueller@hu-berlin.de}
 % \include{formgram-cxg}
 % %\include{formgram-cxg-phrasal}
 \include{formgram-tag}
-% \include{formgram-minimalism}
+\include{formgram-minimalism}
 % %\include{formgram-psycho}
 % \include{formgram-zusammenfassung}
 

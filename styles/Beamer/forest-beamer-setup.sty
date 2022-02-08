@@ -20,21 +20,6 @@
 }
 
 
-% http://tex.stackexchange.com/questions/167690/presenting-a-forest-tree-from-bottom-to-top-in-beamer
-% showing and hiding nodes and edges in forest
-\tikzset{
-    invisible/.style={opacity=0,text opacity=0},
-    visible on/.style={alt=#1{}{invisible}},
-    alt/.code args={<#1>#2#3}{%
-      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
-    },
-}
-\forestset{
-  visible on/.style={
-    for tree={
-      /tikz/visible on={#1},
-      edge={/tikz/visible on={#1}}}}}
-
 
 % https://tex.stackexchange.com/questions/477532/avoiding-jumping-nodes-in-a-tree-with-forest-and-beamer/477688#477688
 \tikzset{min width/.style n args={2}{/utils/exec={\pgfmathparse{max(width("#1"),width("#2"))}
@@ -55,3 +40,30 @@
       edge={/tikz/alert on={#1}}}},
 }
 
+% Saso 2021 This is my usual set of beamer-related styles for forest:
+\forestset{
+  only/.code 2 args={\only<#1>{\pgfkeysalso{#2}}},
+  temporal/.code n args=4{\temporal<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}{\pgfkeysalso{#4}}},
+  alt/.code n args=3{\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}},
+  onslide/.style={content format={\noexpand\onslide<#1>{$\forestoption{content}$}}},
+}
+\tikzset{
+  only/.code 2 args={\only<#1>{\pgfkeysalso{#2}}},
+  temporal/.code n args=4{\temporal<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}{\pgfkeysalso{#4}}},
+  alt/.code n args=3{\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}},
+}
+% patch beamer
+\def\temporal<#1>#2#3#4{%beamer's \temporal is broken?
+  % #1 --- must be a single frame number ...
+  \alt<#1>{#3}{\alt<-#1>{#2}{#4}}%
+}
+
+% And here I adapt your "visible on" to include "edge-removal". 
+\forestset{
+ visible on/.style={
+   alt={#1}{}{
+     opacity=0,text opacity=0, for nodewalk={current, children}{edge'={}},
+     % phantom % would do a similar job, but using it the tree "jumps"
+   },
+ },
+} 

@@ -42,7 +42,7 @@
 % specification for all trees, "default preamble" appends to existing specification.
 % The version with apostrophe replaces it.
 \forestset{default preamble'={
-    for tree={align=center,parent anchor=south, child anchor=north,base=bottom},   
+    for tree={/tikz/align=center,parent anchor=south, child anchor=north,base=bottom},   
 % anchor=north was introduced to get alignments of AVMs right.
 % used to be anchor=north but this fails on trees in \ea \z examples, St. Mü. 02.05.2020 or may be not
 %
@@ -202,6 +202,8 @@ dg junction/.style={no edge, tikz+={\draw (!p.east)--(!.west) (.east)--(!n.west)
 %
 % modified to cope with multiple occurances of the same word (the, the1, the2)
 %
+% If you want to put it into the style, put ",font=\it" after "content format={...}" 
+%
   wg/.style={
     for tree={
       no edge,
@@ -273,6 +275,30 @@ substitution/.style={edge={<-,dashed},l+=\baselineskip},
 %  delay={where content={}{shape=coordinate,for parent={for children={anchor=north}}}{}}}
 }
 
+% draws a red box about the area that spans the current node,
+% the first daughter node and the last daughter node.
+% label adds a label to the box. You can use schema=3 to give a certain local tree a
+% number attached to the box.
+\forestset{
+  schema/.style={
+    tikz={\node [draw,red,inner sep=-2pt,fit=()(!1)(!l),
+              label={[font=\scriptsize,inner sep=0]south east:#1},
+              ] {};},
+    % the mother gets padding to the west and to the east.
+    padding west=0.3333em, padding east=0.3333em,
+    % the first child gets padding to the west
+    for 1={padding west=0.3333em},
+    % the last child gets padding to the east
+    for -1={padding east=0.3333em},
+    }
+    % % the mother gets padding to the west and to the east.
+    % padding west=1em, padding east=1em,
+    % % the first child gets padding to the west
+    % for 1={padding west=1em},
+    % % the last child gets padding to the east
+    % for -1={padding east=1em},
+    % }
+}
 
 
 % Manual page 52
