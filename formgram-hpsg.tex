@@ -807,7 +807,7 @@ If the case is not structural it remains as is: lexically specified.
      that \spacebr{}everybody this novel knows\\
 \glt `that everybody knows this novel'
 \ex 
-\gll \gruen{Kennt} [jeder diesen Roman \rot<3->{\_} ]\\
+\gll \gruen{Kennt}$_j$ [jeder diesen Roman \rot<3->{\_$_j$} ]\\
 	 knows \spacebr{}everybody this novel\\
 \glt `Does everybody know this novel?'
 \zl
@@ -835,12 +835,12 @@ If the case is not structural it remains as is: lexically specified.
 sm edges
 [VP
 	[\gruen<2-3>{V \sliste{ VP\only<4>{\gruen{/\!/V}} }}, name=vini
-	   [\gruen<3>{V},name=vlast [kennt$_k$;knows]]]
+	   [\gruen<3>{V},name=vlast [kennt$_j$;knows]]]
 	[\gruen<2>{VP}\only<4>{\gruen{/\!/V}}, name=vp
 	   [NP [jeder;everyone]]
 	   [V$'$\only<4>{\gruen{/\!/V}}, name=vbar
 	     [NP [diesen Roman;this novel, roof]]
-		[\gruen<1>{V\only<4>{\gruen{/\!/V}}},name=vtrace [ \gruen<1>{\_$_k$}]]]]]
+		[\gruen<1>{V\only<4>{\gruen{/\!/V}}},name=vtrace [ \gruen<1>{\_$_j$}]]]]]
 %\draw[<->] (vone) to (vtwo);
 %%\draw (-2,-5) to[grid with coordinates] (4,0.5);
 %% \draw[<-] (3,-3.4) .. controls (3.2,-3.6) .. (3.5,-3.4)
@@ -1044,12 +1044,12 @@ Difference in order of saturation of elements in the \comps list.
 \begin{forest}
 sm edges
 [VP
-	[\gruen<3>{NP},name=np
-		[diesen Roman$_i$;this novel,roof]]
+	[\gruen<3>{NP$_i$},name=np
+		[diesen Roman;this novel,roof]]
 	[VP\only<2->{\gruen<2>{/\gruen<3>{NP}}},name=vpnp2
 		[V
 			[V
-				[kennt$_k$;knows]]]
+				[kennt$_j$;knows]]]
 		[VP\only<2->{\gruen<2>{/NP}},name=vpnp1
 			[\gruen<1>{NP}\only<2->{\gruen<2>{/NP}}, name=npnp
 				[\gruen<1>{\_$_i$}]]
@@ -1057,7 +1057,7 @@ sm edges
 				[NP
 					[jeder;everyone]]
 				[V
-				  [\trace$_k$]]]]]]
+				  [\trace$_j$]]]]]]
 \visible<2->{\gruen<2>{%
 \draw[<->] ($(npnp.east)$)  to [bend right=45] ($(vpnp1.south east)+(-.25,.1)$);
 \draw[<->] ($(vpnp1.north east)+(-.26,-.1)$)  to [bend right=45] ($(vpnp2.east)+(-0,0)$);
